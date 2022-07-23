@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{4D896B87-962A-4476-BDEC-9A5490DFCE30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7F057F25-8287-4FA2-9DE9-DFA829959906}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{18C77CDF-FE10-4D37-A3A8-9EA603BE035D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B7229541-EE14-4259-9CFE-4F805A461C5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Infrastructure", "Ebla.Infrastructure\Ebla.Infrastructure.csproj", "{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Domain", "Ebla.Domain\Ebla.Domain.csproj", "{03883BEC-4C98-4202-9869-564E7C45C57C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Application", "Ebla.Application\Ebla.Application.csproj", "{C2CC02DF-162B-4F30-B37C-9E7108001289}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D896B87-962A-4476-BDEC-9A5490DFCE30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D896B87-962A-4476-BDEC-9A5490DFCE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D896B87-962A-4476-BDEC-9A5490DFCE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D896B87-962A-4476-BDEC-9A5490DFCE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03883BEC-4C98-4202-9869-564E7C45C57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03883BEC-4C98-4202-9869-564E7C45C57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03883BEC-4C98-4202-9869-564E7C45C57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03883BEC-4C98-4202-9869-564E7C45C57C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CC02DF-162B-4F30-B37C-9E7108001289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CC02DF-162B-4F30-B37C-9E7108001289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CC02DF-162B-4F30-B37C-9E7108001289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CC02DF-162B-4F30-B37C-9E7108001289}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D896B87-962A-4476-BDEC-9A5490DFCE30} = {7F057F25-8287-4FA2-9DE9-DFA829959906}
+		{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F} = {18C77CDF-FE10-4D37-A3A8-9EA603BE035D}
+		{03883BEC-4C98-4202-9869-564E7C45C57C} = {B7229541-EE14-4259-9CFE-4F805A461C5F}
+		{C2CC02DF-162B-4F30-B37C-9E7108001289} = {B7229541-EE14-4259-9CFE-4F805A461C5F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {602FACFF-A52A-4111-8E77-3FC900B77895}
+	EndGlobalSection
+EndGlobal
