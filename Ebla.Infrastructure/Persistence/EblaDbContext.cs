@@ -18,6 +18,8 @@
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new GenreConfiguration());
         }
     }
 }

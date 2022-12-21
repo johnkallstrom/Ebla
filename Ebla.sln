@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{4D896B87-962A-4476-BDEC-9A5490DFCE30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{4D896B87-962A-4476-BDEC-9A5490DFCE30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7F057F25-8287-4FA2-9DE9-DFA829959906}"
 EndProject
@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B7229541-EE14-4259-9CFE-4F805A461C5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Infrastructure", "Ebla.Infrastructure\Ebla.Infrastructure.csproj", "{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Infrastructure", "Ebla.Infrastructure\Ebla.Infrastructure.csproj", "{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Domain", "Ebla.Domain\Ebla.Domain.csproj", "{03883BEC-4C98-4202-9869-564E7C45C57C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Domain", "Ebla.Domain\Ebla.Domain.csproj", "{03883BEC-4C98-4202-9869-564E7C45C57C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Application", "Ebla.Application\Ebla.Application.csproj", "{C2CC02DF-162B-4F30-B37C-9E7108001289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Application", "Ebla.Application\Ebla.Application.csproj", "{C2CC02DF-162B-4F30-B37C-9E7108001289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
