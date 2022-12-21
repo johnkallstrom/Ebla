@@ -1,9 +1,12 @@
+using Ebla.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddRazorPages();
+services.AddInfrastructureServices(configuration);
 
 var app = builder.Build();
 
