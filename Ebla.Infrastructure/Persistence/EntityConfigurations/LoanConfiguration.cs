@@ -24,7 +24,7 @@
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     BookId = 1,
-                    UserId = Guid.Empty,
+                    UserId = null,
                 },
             };
 

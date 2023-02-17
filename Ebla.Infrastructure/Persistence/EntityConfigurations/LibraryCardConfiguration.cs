@@ -20,7 +20,7 @@
                     Id = 1,
                     Name = "Sample Library Card One",
                     Expires = DateTime.Now.AddYears(1),
-                    UserId = Guid.Empty,
+                    UserId = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                 },

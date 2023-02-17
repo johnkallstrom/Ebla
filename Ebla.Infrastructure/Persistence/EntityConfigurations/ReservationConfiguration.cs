@@ -20,7 +20,7 @@
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     BookId = 3,
-                    UserId = Guid.Empty
+                    UserId = null
                 },
             };
 

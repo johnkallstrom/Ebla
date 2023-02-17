@@ -6,6 +6,6 @@
         public DateTime Expires { get; set; }
 
         // User Reference
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
     }
 }
