@@ -4,6 +4,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddRazorPages();
+services.AddApplicationServices();
 services.AddInfrastructureServices(configuration);
 
 var app = builder.Build();
