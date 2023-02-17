@@ -1,8 +1,7 @@
 ﻿namespace Ebla.Domain.Entities
 {
-    public class Book
+    public class Book : BaseEntity<int>
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public int Pages { get; set; }
         public DateTime Published { get; set; }

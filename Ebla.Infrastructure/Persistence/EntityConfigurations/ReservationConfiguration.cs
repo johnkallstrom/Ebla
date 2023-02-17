@@ -9,7 +9,8 @@ namespace Ebla.Infrastructure.Persistence.Configurations
             builder.ToTable("Reservation");
 
             builder.Property(x => x.Id).HasColumnName("Id");
-            builder.Property(x => x.Created).HasColumnName("Created");
+            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
+            builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
 
             var reservations = new List<Reservation>
@@ -17,7 +18,8 @@ namespace Ebla.Infrastructure.Persistence.Configurations
                 new Reservation
                 {
                     Id = 1,
-                    Created = DateTime.Now,
+                    CreatedOn = DateTime.Now,
+                    LastModified = null,
                     BookId = 3
                 },
             };

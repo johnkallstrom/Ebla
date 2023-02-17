@@ -1,9 +1,7 @@
 ﻿namespace Ebla.Domain.Entities
 {
-    public class Loan
+    public class Loan : BaseEntity<int>
     {
-        public int Id { get; set; }
-        public DateTime Created { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? Returned { get; set; }
 

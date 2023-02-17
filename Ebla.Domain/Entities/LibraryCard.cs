@@ -1,8 +1,7 @@
 ﻿namespace Ebla.Domain.Entities
 {
-    public class LibraryCard
+    public class LibraryCard : BaseEntity<int>
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Expires { get; set; }
     }

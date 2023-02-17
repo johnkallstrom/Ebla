@@ -9,9 +9,10 @@ namespace Ebla.Infrastructure.Persistence.Configurations
             builder.ToTable("Loan");
 
             builder.Property(x => x.Id).HasColumnName("Id");
-            builder.Property(x => x.Created).HasColumnName("Created");
             builder.Property(x => x.DueDate).HasColumnName("DueDate");
             builder.Property(x => x.Returned).HasColumnName("Returned");
+            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
+            builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
 
             var loans = new List<Loan>
@@ -19,9 +20,10 @@ namespace Ebla.Infrastructure.Persistence.Configurations
                 new Loan
                 {
                     Id = 1,
-                    Created = DateTime.Now,
                     DueDate = DateTime.Now.AddMonths(1),
                     Returned = null,
+                    CreatedOn = DateTime.Now,
+                    LastModified = null,
                     BookId = 1
                 },
             };
