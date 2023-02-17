@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace Ebla.Infrastructure.Persistence.Configurations
+﻿namespace Ebla.Infrastructure.Persistence.Configurations
 {
     internal class LibraryCardConfiguration : IEntityTypeConfiguration<LibraryCard>
     {

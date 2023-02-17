@@ -1,6 +1,8 @@
-﻿namespace Ebla.Infrastructure.Persistence
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+namespace Ebla.Infrastructure.Persistence
 {
-    public class EblaDbContext : DbContext
+    public class EblaDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public EblaDbContext(DbContextOptions options) : base(options)
         {
@@ -23,6 +25,19 @@
             modelBuilder.ApplyConfiguration(new LibraryCardConfiguration());
             modelBuilder.ApplyConfiguration(new LoanConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
+
+            AddIdentityConfigurations(modelBuilder);
+        }
+
+        private void AddIdentityConfigurations(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ApplicationUser>().ToTable("User");
+            modelBuilder.Entity<ApplicationRole>().ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaim");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("UserToken");
         }
     }
 }

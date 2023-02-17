@@ -9,6 +9,15 @@
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<EblaDbContext>();
+
+            services.AddTransient<IIdentityService, IdentityService>();
+
             return services;
         }
     }

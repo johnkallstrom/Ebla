@@ -7,3 +7,5 @@ global using Ebla.Infrastructure.Persistence;
 global using Ebla.Application.Interfaces;
 global using Ebla.Infrastructure.Persistence.Repositories;
 global using Ebla.Infrastructure.Identity;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;

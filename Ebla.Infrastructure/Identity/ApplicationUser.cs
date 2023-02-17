@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Infrastructure.Identity
 {
-    public class ApplicationUser
+    public class ApplicationUser : IdentityUser<Guid>
     {
     }
 }
