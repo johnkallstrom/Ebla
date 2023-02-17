@@ -4,3 +4,6 @@ global using Microsoft.Extensions.DependencyInjection;
 global using Ebla.Domain.Entities;
 global using Ebla.Infrastructure.Persistence.Configurations;
 global using Ebla.Infrastructure.Persistence;
+global using Ebla.Application.Interfaces;
+global using Ebla.Infrastructure.Persistence.Repositories;
+global using Ebla.Infrastructure.Identity;

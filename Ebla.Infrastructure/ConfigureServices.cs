@@ -1,7 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-using Ebla.Infrastructure.Persistence.Repositories;
-
-namespace Ebla.Infrastructure
+﻿namespace Ebla.Infrastructure
 {
     public static class ConfigureServices
     {

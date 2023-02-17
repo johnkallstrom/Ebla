@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace Ebla.Application
+﻿namespace Ebla.Application
 {
     public static class ConfigureServices
     {
