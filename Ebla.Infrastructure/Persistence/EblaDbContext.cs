@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Ebla.Infrastructure.Persistence.EntityConfigurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Ebla.Infrastructure.Persistence
 {
@@ -19,6 +20,7 @@ namespace Ebla.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
+            // Domain
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new BookConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
@@ -26,13 +28,14 @@ namespace Ebla.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new LoanConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
 
+            // Identity
+            modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
+            modelBuilder.ApplyConfiguration(new ApplicationRoleConfiguration());
             AddIdentityConfigurations(modelBuilder);
         }
 
         private void AddIdentityConfigurations(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ApplicationUser>().ToTable("User");
-            modelBuilder.Entity<ApplicationRole>().ToTable("Role");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
             modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");

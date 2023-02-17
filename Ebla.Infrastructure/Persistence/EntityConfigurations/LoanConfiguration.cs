@@ -12,6 +12,7 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
+            builder.Property(x => x.UserId).HasColumnName("UserId");
 
             var loans = new List<Loan>
             {
@@ -22,7 +23,8 @@
                     Returned = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
-                    BookId = 1
+                    BookId = 1,
+                    UserId = Guid.Empty,
                 },
             };
 

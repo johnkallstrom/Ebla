@@ -10,6 +10,7 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
+            builder.Property(x => x.UserId).HasColumnName("UserId");
 
             var reservations = new List<Reservation>
             {
@@ -18,7 +19,8 @@
                     Id = 1,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
-                    BookId = 3
+                    BookId = 3,
+                    UserId = Guid.Empty
                 },
             };
 
