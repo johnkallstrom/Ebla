@@ -9,3 +9,4 @@ global using Ebla.Infrastructure.Persistence.Repositories;
 global using Ebla.Infrastructure.Identity;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.AspNetCore.Http;

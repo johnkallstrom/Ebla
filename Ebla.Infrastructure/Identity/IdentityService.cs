@@ -2,9 +2,41 @@
 {
     public class IdentityService : IIdentityService
     {
-        public Task AuthorizeAsync(string username, string password)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public IdentityService(
+            UserManager<ApplicationUser> userManager, 
+            SignInManager<ApplicationUser> signInManager,
+            IHttpContextAccessor httpContextAccessor)
         {
-            throw new NotImplementedException();
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _httpContextAccessor = httpContextAccessor;
         }
+
+        public async Task<bool> LoginAsync(string username, string password)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user != null)
+            {
+                var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: true, lockoutOnFailure: false);
+
+                return result.Succeeded;
+            }
+
+            return false;
+        }
+
+        public bool IsAuthorized()
+        {
+            var user = _httpContextAccessor.HttpContext.User;
+
+            return _signInManager.IsSignedIn(user);
+        }
+
+        public async Task SignOutAsync() => await _signInManager.SignOutAsync();
     }
 }

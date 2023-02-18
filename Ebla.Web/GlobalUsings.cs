@@ -5,4 +5,7 @@ global using MediatR;
 global using Ebla.Infrastructure.Persistence;
 global using Ebla.Application.Books.Queries.GetBooks;
 global using Microsoft.AspNetCore.Mvc.Razor;
+global using Microsoft.AspNetCore.Mvc;
+global using Ebla.Web.Pages;
+global using Ebla.Application.Interfaces;
 global using Ebla.Web.Pages.User;
