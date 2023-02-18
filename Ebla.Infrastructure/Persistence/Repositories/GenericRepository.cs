@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Infrastructure.Persistence.Repositories
+﻿namespace Ebla.Infrastructure.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -21,6 +19,22 @@ namespace Ebla.Infrastructure.Persistence.Repositories
         public async Task<T> GetById(int id)
         {
             return await _table.FindAsync(id);
+        }
+
+        public async Task Add(T entity)
+        {
+            await _table.AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public Task Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(object id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
