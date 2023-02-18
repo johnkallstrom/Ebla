@@ -4,6 +4,11 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddRazorPages();
+services.Configure<RazorViewEngineOptions>(options =>
+{
+    options.PageViewLocationFormats.Add("/Pages/Partials/{0}" + RazorViewEngine.ViewExtension);
+});
+
 services.AddApplicationServices();
 services.AddInfrastructureServices(configuration);
 
