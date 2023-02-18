@@ -8,6 +8,7 @@
             services.AddDbContext<EblaDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IBookRepository, BookRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

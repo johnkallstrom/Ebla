@@ -11,30 +11,34 @@
             _table = _context.Set<T>();
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _table.ToListAsync();
         }
 
-        public async Task<T> GetById(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _table.FindAsync(id);
         }
 
-        public async Task Add(T entity)
+        public async Task AddAsync(T entity)
         {
             await _table.AddAsync(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _table.Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            _table.Remove(entity);
+        }
+
+        public async Task SaveAsync()
+        {
             await _context.SaveChangesAsync();
-        }
-
-        public Task Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(object id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

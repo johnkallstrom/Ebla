@@ -23,7 +23,8 @@
                 GenreId = request.GenreId
             };
 
-            await _repository.Add(book);
+            await _repository.AddAsync(book);
+            await _repository.SaveAsync();
 
             return Unit.Value;
         }
