@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-//await app.Services.InitializeIdentityData();
+await app.Services.InitializeIdentityData();
 
 app.UseRouting();
 app.MapRazorPages();
