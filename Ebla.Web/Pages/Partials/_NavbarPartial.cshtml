@@ -1,14 +1,5 @@
 ﻿@inject IIdentityService identityService
 
-@{
-    @functions {
-        public async Task OnPostLogoutAsync()
-        {
-            await identityService.SignOutAsync();
-        }
-    }
-}
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
   <div class="container">
     <a class="navbar-brand" href="/">Ebla</a>
@@ -29,9 +20,7 @@
         {
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <form asp-page-handler="logout" method="post">
-                        <button class="btn btn-secondary">Logout</button>
-                    </form>
+                    <button class="btn btn-secondary">Logout</button>
                 </li>
             </ul>
         }
