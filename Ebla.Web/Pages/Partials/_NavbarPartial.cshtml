@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+﻿<nav class="navbar navbar-expand-lg bg-light mb-3">
   <div class="container">
     <a class="navbar-brand" href="/">Ebla</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
@@ -6,22 +6,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar">
         <div class="me-auto"></div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <ul class="navbar-nav">
+        <ul class="navbar-nav">
+            @if (User.Identity.IsAuthenticated)
+            {
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Out</a>
+                    <a class="nav-link" href="#">Logout</a>
                 </li>
-            </ul>
-        }
-        else
-        {
-            <ul class="navbar-nav">
+            }
+            else
+            {
                 <li class="nav-item">
                     <a class="nav-link" asp-page="/User/Login">Login</a>
                 </li>
-            </ul>
-        }
+            }
+        </ul>
     </div>
   </div>
 </nav>
