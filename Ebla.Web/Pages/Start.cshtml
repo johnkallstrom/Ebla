@@ -5,3 +5,14 @@
 @{
     ViewBag.Title = "Start";
 }
+
+<section class="start">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h3>Welcome, @User.Identity.Name</h3>
+    }
+    else
+    {
+        <p>Not authorized.</p>
+    }
+</section>

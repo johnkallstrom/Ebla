@@ -30,13 +30,6 @@
             return false;
         }
 
-        public bool IsAuthorized()
-        {
-            var user = _httpContextAccessor.HttpContext.User;
-
-            return _signInManager.IsSignedIn(user);
-        }
-
         public async Task Logout() => await _signInManager.SignOutAsync();
     }
 }
