@@ -37,6 +37,6 @@
             return _signInManager.IsSignedIn(user);
         }
 
-        public async Task SignOutAsync() => await _signInManager.SignOutAsync();
+        public async Task Logout() => await _signInManager.SignOutAsync();
     }
 }
