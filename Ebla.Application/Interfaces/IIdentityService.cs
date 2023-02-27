@@ -3,6 +3,6 @@
     public interface IIdentityService
     {
         Task<bool> LoginAsync(string username, string password);
-        Task Logout();
+        Task LogoutAsync();
     }
 }

@@ -1,12 +1,4 @@
-﻿@page "/"
-
-@model StartModel
-
-@{
-    ViewBag.Title = "Start";
-}
-
-<section class="start">
+﻿<section class="start">
     @if (User.Identity.IsAuthenticated)
     {
         <h3>Welcome, @User.Identity.Name</h3>

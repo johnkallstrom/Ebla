@@ -30,6 +30,6 @@
             return false;
         }
 
-        public async Task Logout() => await _signInManager.SignOutAsync();
+        public async Task LogoutAsync() => await _signInManager.SignOutAsync();
     }
 }

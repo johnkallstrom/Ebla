@@ -4,10 +4,18 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddHttpContextAccessor();
-services.AddRazorPages();
+services.AddMvc(options => options.EnableEndpointRouting = false);
+
 services.Configure<RazorViewEngineOptions>(options =>
 {
-    options.PageViewLocationFormats.Add("/Pages/Partials/{0}" + RazorViewEngine.ViewExtension);
+    options.ViewLocationFormats.Add("/Views/Partials/{0}" + RazorViewEngine.ViewExtension);
+});
+
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole(new[] { "Administrator" }));
+    options.AddPolicy("RequireUserRole", policy => policy.RequireRole(new[] { "User" }));
+    options.AddPolicy("RequireAdministratorAndUserRole", policy => policy.RequireRole(new[] { "Administrator", "User"} ));
 });
 
 services.AddApplicationServices();
@@ -23,6 +31,10 @@ if (app.Environment.IsDevelopment())
 await app.Services.InitializeIdentityData();
 
 app.UseRouting();
-app.MapRazorPages();
+app.UseAuthorization(); 
+app.UseMvc();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Start}/{action=Index}/{id?}");
 
 app.Run();
