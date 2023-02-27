@@ -11,13 +11,6 @@ services.Configure<RazorViewEngineOptions>(options =>
     options.ViewLocationFormats.Add("/Views/Partials/{0}" + RazorViewEngine.ViewExtension);
 });
 
-services.AddAuthorization(options =>
-{
-    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole(new[] { "Administrator" }));
-    options.AddPolicy("RequireUserRole", policy => policy.RequireRole(new[] { "User" }));
-    options.AddPolicy("RequireAdministratorAndUserRole", policy => policy.RequireRole(new[] { "Administrator", "User"} ));
-});
-
 services.AddApplicationServices();
 services.AddInfrastructureServices(configuration);
 

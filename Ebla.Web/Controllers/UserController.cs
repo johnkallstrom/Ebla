@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-
-namespace Ebla.Web.Controllers
+﻿namespace Ebla.Web.Controllers
 {
     public class UserController : Controller
     {
@@ -31,7 +29,7 @@ namespace Ebla.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "RequireAdministratorAndUserRole")]
+        [Authorize(Roles = "Administrator, User")]
         public async Task<IActionResult> Logout()
         {
             await _identityService.LogoutAsync();
