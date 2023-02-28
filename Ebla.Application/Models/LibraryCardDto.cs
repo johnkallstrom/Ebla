@@ -1,9 +1,9 @@
 ﻿namespace Ebla.Application.Models
 {
-    public class GenreDto
+    public class LibraryCardDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public DateTime Expires { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
     }

@@ -1,9 +1,10 @@
 ﻿namespace Ebla.Application.Models
 {
-    public class GenreDto
+    public class LoanDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public DateTime DueDate { get; set; }
+        public DateTime? Returned { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
     }
