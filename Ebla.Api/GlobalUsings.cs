@@ -1,8 +1,11 @@
-﻿global using Ebla.Api;
-global using Ebla.Infrastructure;
-global using Ebla.Application;
-global using Ebla.Infrastructure.Persistence;
-global using Microsoft.OpenApi.Models;
+﻿global using Microsoft.OpenApi.Models;
 global using Microsoft.AspNetCore.Mvc;
-global using Ebla.Application.Interfaces;
 global using System.Reflection;
+global using MediatR;
+global using Ebla.Api;
+global using Ebla.Application;
+global using Ebla.Application.Models;
+global using Ebla.Application.Interfaces;
+global using Ebla.Application.Books.Queries.GetBooks;
+global using Ebla.Infrastructure;
+global using Ebla.Infrastructure.Persistence;
