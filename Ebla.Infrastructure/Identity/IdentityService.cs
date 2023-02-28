@@ -38,21 +38,5 @@ namespace Ebla.Infrastructure.Identity
 
             return userDtos;
         }
-
-        public async Task<bool> AuthenticateAsync(string username, string password)
-        {
-            var user = await _userManager.FindByNameAsync(username);
-
-            if (user != null)
-            {
-                var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: true, lockoutOnFailure: false);
-
-                return result.Succeeded;
-            }
-
-            return false;
-        }
-
-        public async Task LogoutAsync() => await _signInManager.SignOutAsync();
     }
 }
