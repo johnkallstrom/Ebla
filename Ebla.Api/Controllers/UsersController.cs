@@ -11,18 +11,16 @@
             _identityService = identityService;
         }
 
-        [HttpPost("Authenticate")]
-        public async Task<bool> Authenticate(string username, string password)
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IEnumerable<UserDto>> GetAll()
         {
-            bool succeeded = await _identityService.AuthenticateAsync(username, password);
+            var users = await _identityService.GetUsersAsync();
 
-            return succeeded;
-        }
-
-        [HttpGet("Logout")]
-        public async Task Logout()
-        {
-            await _identityService.LogoutAsync();
+            return users;
         }
     }
 }

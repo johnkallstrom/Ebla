@@ -40,12 +40,7 @@
 
                     if (result.Succeeded)
                     {
-                        var administratorRole = await roleManager.FindByNameAsync("Administrator");
-
-                        if (administratorRole != null)
-                        {
-                            await userManager.AddToRoleAsync(user, administratorRole.Name);
-                        }
+                        await userManager.AddToRolesAsync(user, roles);
                     }
                     else
                     {

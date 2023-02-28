@@ -11,6 +11,10 @@
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get all books
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<BookDto>> GetAll()
         {
@@ -19,6 +23,11 @@
             return books;
         }
 
+        /// <summary>
+        /// Get single book by id
+        /// </summary>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
         [HttpGet("{bookId}")]
         public async Task<BookDto> GetById(int bookId)
         {
