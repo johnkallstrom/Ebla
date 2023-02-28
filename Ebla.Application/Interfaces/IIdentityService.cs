@@ -2,7 +2,7 @@
 {
     public interface IIdentityService
     {
-        Task<bool> LoginAsync(string username, string password);
+        Task<bool> AuthenticateAsync(string username, string password);
         Task LogoutAsync();
     }
 }

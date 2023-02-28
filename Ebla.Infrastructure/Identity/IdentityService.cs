@@ -4,19 +4,16 @@
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public IdentityService(
             UserManager<ApplicationUser> userManager, 
-            SignInManager<ApplicationUser> signInManager,
-            IHttpContextAccessor httpContextAccessor)
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<bool> LoginAsync(string username, string password)
+        public async Task<bool> AuthenticateAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
 

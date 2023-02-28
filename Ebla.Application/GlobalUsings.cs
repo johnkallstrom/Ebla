@@ -5,3 +5,4 @@ global using MediatR;
 global using Ebla.Application.Interfaces;
 global using Ebla.Domain.Entities;
 global using AutoMapper;
+global using System.Security.Claims;
