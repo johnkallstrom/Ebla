@@ -38,5 +38,24 @@ namespace Ebla.Infrastructure.Identity
 
             return userDtos;
         }
+
+        public async Task CreateUserAsync(string username, string password)
+        {
+            var user = new ApplicationUser
+            {
+                UserName = username
+            };
+
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, password);
+
+            var result = await _userManager.CreateAsync(user);
+
+            if (result.Succeeded == false)
+            {
+                var errors = result?.Errors?.Select(x => x.Description).ToList();
+                throw new Exception($"Failed to create user: {user.UserName} with following errors: {string.Join(", ", errors)}");
+            }
+        }
+
     }
 }

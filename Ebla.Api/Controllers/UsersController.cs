@@ -22,5 +22,19 @@
 
             return users;
         }
+
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        [HttpPost("Create")]
+        public async Task<Unit> Create(string username, string password)
+        {
+            var result = await _mediator.Send(new CreateUserCommand { Username = username, Password = password });
+
+            return result;
+        }
     }
 }

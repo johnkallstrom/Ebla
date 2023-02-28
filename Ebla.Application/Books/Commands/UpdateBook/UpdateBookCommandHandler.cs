@@ -21,6 +21,7 @@
                 book.Pages = request.Pages;
                 book.Published = request.Published;
                 book.IsReserved = request.IsReserved;
+                book.LastModified = DateTime.Now;
                 book.AuthorId = request.AuthorId;
                 book.GenreId = request.GenreId;
             }

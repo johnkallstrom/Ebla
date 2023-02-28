@@ -19,6 +19,8 @@
                 Pages = request.Pages,
                 Published = request.Published,
                 IsReserved = request.IsReserved,
+                CreatedOn = DateTime.Now,
+                LastModified = null,
                 AuthorId = request.AuthorId,
                 GenreId = request.GenreId
             };
