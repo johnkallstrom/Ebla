@@ -4,11 +4,11 @@
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IIdentityService _identityService;
+        private readonly IMediator _mediator;
 
-        public UsersController(IIdentityService identityService)
+        public UsersController(IMediator mediator)
         {
-            _identityService = identityService;
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -18,7 +18,7 @@
         [HttpGet]
         public async Task<IEnumerable<UserDto>> GetAll()
         {
-            var users = await _identityService.GetUsersAsync();
+            var users = await _mediator.Send(new GetUsersQuery());
 
             return users;
         }
