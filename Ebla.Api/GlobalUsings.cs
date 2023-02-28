@@ -9,3 +9,4 @@ global using Ebla.Application.Interfaces;
 global using Ebla.Application.Books.Queries.GetBooks;
 global using Ebla.Infrastructure;
 global using Ebla.Infrastructure.Persistence;
+global using Ebla.Application.Books.Queries.GetBookById;

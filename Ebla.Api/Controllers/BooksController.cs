@@ -11,12 +11,20 @@
             _mediator = mediator;
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet]
         public async Task<IEnumerable<BookDto>> GetAll()
         {
             var books = await _mediator.Send(new GetBooksQuery());
 
             return books;
+        }
+
+        [HttpGet("{bookId}")]
+        public async Task<BookDto> GetById(int bookId)
+        {
+            var book = await _mediator.Send(new GetBookByIdQuery { Id = bookId });
+
+            return book;
         }
     }
 }
