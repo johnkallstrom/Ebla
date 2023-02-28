@@ -9,6 +9,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false);
 services.Configure<RazorViewEngineOptions>(options =>
 {
     options.ViewLocationFormats.Add("/Views/Partials/{0}" + RazorViewEngine.ViewExtension);
+    options.ViewLocationFormats.Add("/Views/Shared/Partials/{0}" + RazorViewEngine.ViewExtension);
 });
 
 services.AddApplicationServices();
