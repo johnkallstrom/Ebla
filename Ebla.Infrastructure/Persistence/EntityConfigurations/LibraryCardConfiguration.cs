@@ -17,6 +17,7 @@
                 new LibraryCard
                 {
                     Id = 1,
+                    PersonalIdentificationNumber = 123456,
                     Expires = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,
@@ -25,6 +26,7 @@
                 new LibraryCard
                 {
                     Id = 2,
+                    PersonalIdentificationNumber = 123456,
                     Expires = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,
@@ -33,6 +35,7 @@
                 new LibraryCard
                 {
                     Id = 3,
+                    PersonalIdentificationNumber = 123456,
                     Expires = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,

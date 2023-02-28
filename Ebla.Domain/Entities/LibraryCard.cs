@@ -2,6 +2,7 @@
 {
     public class LibraryCard : BaseEntity<int>
     {
+        public int PersonalIdentificationNumber { get; set; }
         public DateTime Expires { get; set; }
 
         // User Reference
