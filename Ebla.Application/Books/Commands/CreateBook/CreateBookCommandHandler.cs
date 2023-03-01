@@ -13,20 +13,17 @@
 
         public async Task<Unit> Handle(CreateBookCommand request, CancellationToken cancellationToken)
         {
-            var book = new Book
-            {
-                Title = request.Title,
-                Pages = request.Pages,
-                Published = request.Published,
-                IsReserved = request.IsReserved,
-                CreatedOn = DateTime.Now,
-                LastModified = null,
-                AuthorId = request.AuthorId,
-                GenreId = request.GenreId
-            };
+            var validator = new CreateBookCommandValidator();
+            var result = await validator.ValidateAsync(request);
 
-            await _repository.AddAsync(book);
-            await _repository.SaveAsync();
+            if (result.IsValid)
+            {
+                var bookToAdd = _mapper.Map<Book>(request);
+                bookToAdd.CreatedOn = DateTime.Now;
+
+                await _repository.AddAsync(bookToAdd);
+                await _repository.SaveAsync();
+            }
 
             return Unit.Value;
         }

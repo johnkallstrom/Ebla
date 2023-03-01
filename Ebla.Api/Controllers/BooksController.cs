@@ -1,4 +1,7 @@
-﻿namespace Ebla.Api.Controllers
+﻿using Ebla.Application.Books.Commands.CreateBook;
+using Ebla.Application.Books.Commands.UpdateBook;
+
+namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -34,6 +37,27 @@
             var book = await _mediator.Send(new GetBookByIdQuery { Id = bookId });
 
             return book;
+        }
+
+        /// <summary>
+        /// Create a new book
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost("create")]
+        public async Task<Unit> Create([FromBody] CreateBookCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result;
+        }
+
+        [HttpPut("update")]
+        public async Task<Unit> Update([FromBody] UpdateBookCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result;
         }
     }
 }

@@ -9,6 +9,9 @@
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
                 .ReverseMap();
 
+            CreateMap<CreateBookCommand, Book>();
+            CreateMap<UpdateBookCommand, Book>();
+
             CreateMap<Author, AuthorDto>().ReverseMap();
             CreateMap<Genre, GenreDto>().ReverseMap();
         }

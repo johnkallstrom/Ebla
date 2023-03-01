@@ -11,3 +11,4 @@ global using Ebla.Infrastructure.Persistence;
 global using Ebla.Application.Books.Queries.GetBookById;
 global using Ebla.Application.Users.Queries.GetUsers;
 global using Ebla.Application.Users.Commands.CreateUser;
+global using FluentValidation.AspNetCore;

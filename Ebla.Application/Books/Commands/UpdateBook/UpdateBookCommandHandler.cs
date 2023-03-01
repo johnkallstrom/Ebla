@@ -13,21 +13,21 @@
 
         public async Task<Unit> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
-            var book = await _repository.GetByIdAsync(request.Id);
+            var validator = new UpdateBookCommandValidator();
+            var result = await validator.ValidateAsync(request);
 
-            if (book != null)
+            if (result.IsValid)
             {
-                book.Title = request.Title;
-                book.Pages = request.Pages;
-                book.Published = request.Published;
-                book.IsReserved = request.IsReserved;
-                book.LastModified = DateTime.Now;
-                book.AuthorId = request.AuthorId;
-                book.GenreId = request.GenreId;
-            }
+                var book = await _repository.GetByIdAsync(request.Id);
 
-            _repository.Update(book);
-            await _repository.SaveAsync();
+                if (book != null)
+                {
+                    book = _mapper.Map(request, book);
+
+                    _repository.Update(book);
+                    await _repository.SaveAsync();
+                }
+            }
 
             return Unit.Value;
         }

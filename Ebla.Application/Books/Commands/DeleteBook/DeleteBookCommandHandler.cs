@@ -13,10 +13,19 @@
 
         public async Task<Unit> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
-            var book = await _repository.GetByIdAsync(request.Id);
-            
-            _repository.Delete(book);
-            await _repository.SaveAsync();
+            var validator = new DeleteBookCommandValidator();
+            var result = await validator.ValidateAsync(request);
+
+            if (result.IsValid)
+            {
+                var book = await _repository.GetByIdAsync(request.Id);
+
+                if (book != null)
+                {
+                    _repository.Delete(book);
+                    await _repository.SaveAsync();
+                }
+            }
 
             return Unit.Value;
         }
