@@ -1,7 +1,4 @@
-﻿using Ebla.Infrastructure.Persistence.EntityConfigurations;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
-namespace Ebla.Infrastructure.Persistence
+﻿namespace Ebla.Infrastructure.Persistence
 {
     public class EblaDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
@@ -15,6 +12,7 @@ namespace Ebla.Infrastructure.Persistence
         public DbSet<LibraryCard> LibraryCards { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +25,7 @@ namespace Ebla.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new LibraryCardConfiguration());
             modelBuilder.ApplyConfiguration(new LoanConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
+            modelBuilder.ApplyConfiguration(new ReviewConfiguration());
 
             // Identity
             modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());

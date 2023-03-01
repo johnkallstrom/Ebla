@@ -13,5 +13,6 @@
         public Author Author { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
+        public List<Review> Reviews { get; set; }
     }
 }

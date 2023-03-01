@@ -9,5 +9,5 @@ global using Ebla.Infrastructure.Persistence.Repositories;
 global using Ebla.Infrastructure.Identity;
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
-global using Microsoft.AspNetCore.Http;
-global using System.Security.Claims;
+global using Ebla.Infrastructure.Persistence.EntityConfigurations;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

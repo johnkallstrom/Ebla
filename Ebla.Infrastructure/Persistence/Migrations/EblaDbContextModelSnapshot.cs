@@ -57,70 +57,70 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 1,
                             Birthday = new DateTime(1917, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(772),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1439),
                             Name = "Arthur C. Clarke"
                         },
                         new
                         {
                             Id = 2,
                             Birthday = new DateTime(1920, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(830),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1498),
                             Name = "Isaac Asimov"
                         },
                         new
                         {
                             Id = 3,
                             Birthday = new DateTime(1929, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(833),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1501),
                             Name = "Ursula K. Le Guin"
                         },
                         new
                         {
                             Id = 4,
                             Birthday = new DateTime(1975, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(836),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1503),
                             Name = "Brandon Sanderson"
                         },
                         new
                         {
                             Id = 5,
                             Birthday = new DateTime(1972, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(838),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1506),
                             Name = "Adrian Tchaikovsky"
                         },
                         new
                         {
                             Id = 6,
                             Birthday = new DateTime(1947, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(841),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1509),
                             Name = "Stephen King"
                         },
                         new
                         {
                             Id = 7,
                             Birthday = new DateTime(1948, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(843),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1512),
                             Name = "Dan Simmons"
                         },
                         new
                         {
                             Id = 8,
                             Birthday = new DateTime(1907, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(845),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1514),
                             Name = "Robert A. Heinlein"
                         },
                         new
                         {
                             Id = 9,
                             Birthday = new DateTime(1928, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(847),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1516),
                             Name = "Philip K. Dick"
                         },
                         new
                         {
                             Id = 10,
                             Birthday = new DateTime(1890, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(850),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(1519),
                             Name = "H. P. Lovecraft"
                         });
                 });
@@ -186,7 +186,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 1,
                             AuthorId = 1,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(1996),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2643),
                             GenreId = 1,
                             IsReserved = false,
                             Language = "English",
@@ -198,7 +198,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 2,
                             AuthorId = 2,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2011),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2659),
                             GenreId = 1,
                             IsReserved = false,
                             Language = "English",
@@ -210,7 +210,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 3,
                             AuthorId = 3,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2014),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2662),
                             GenreId = 1,
                             IsReserved = true,
                             Language = "English",
@@ -222,7 +222,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 4,
                             AuthorId = 4,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2017),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2665),
                             GenreId = 2,
                             IsReserved = false,
                             Language = "English",
@@ -234,7 +234,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 5,
                             AuthorId = 4,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2020),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2667),
                             GenreId = 2,
                             IsReserved = false,
                             Language = "English",
@@ -246,7 +246,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 6,
                             AuthorId = 4,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2024),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2671),
                             GenreId = 2,
                             IsReserved = false,
                             Language = "English",
@@ -258,7 +258,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 7,
                             AuthorId = 6,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2027),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2674),
                             GenreId = 2,
                             IsReserved = false,
                             Language = "English",
@@ -270,7 +270,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 8,
                             AuthorId = 6,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2029),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2677),
                             GenreId = 3,
                             IsReserved = false,
                             Language = "English",
@@ -282,7 +282,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 9,
                             AuthorId = 7,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2032),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2679),
                             GenreId = 1,
                             IsReserved = false,
                             Language = "English",
@@ -294,7 +294,7 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 10,
                             AuthorId = 8,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2035),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(2683),
                             GenreId = 1,
                             IsReserved = false,
                             Language = "English",
@@ -333,19 +333,19 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2901),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(3584),
                             Name = "Science Fiction"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2913),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(3597),
                             Name = "Fantasy"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(2915),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(3599),
                             Name = "Horror"
                         });
                 });
@@ -386,22 +386,22 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3703),
-                            Expires = new DateTime(2024, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3692),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4410),
+                            Expires = new DateTime(2024, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4399),
                             PersonalIdentificationNumber = 123456
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3709),
-                            Expires = new DateTime(2024, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3707),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4417),
+                            Expires = new DateTime(2024, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4416),
                             PersonalIdentificationNumber = 123456
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3712),
-                            Expires = new DateTime(2024, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(3711),
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4421),
+                            Expires = new DateTime(2024, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(4419),
                             PersonalIdentificationNumber = 123456
                         });
                 });
@@ -450,8 +450,8 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 1,
                             BookId = 1,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(4606),
-                            DueDate = new DateTime(2023, 3, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(4593)
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(5301),
+                            DueDate = new DateTime(2023, 4, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(5288)
                         });
                 });
 
@@ -491,7 +491,73 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                         {
                             Id = 1,
                             BookId = 3,
-                            CreatedOn = new DateTime(2023, 2, 28, 22, 6, 52, 732, DateTimeKind.Local).AddTicks(5432)
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(6191)
+                        });
+                });
+
+            modelBuilder.Entity("Ebla.Domain.Entities.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int")
+                        .HasColumnName("BookId");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedOn");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastModified");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int")
+                        .HasColumnName("Rating");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Text");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Review", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BookId = 6,
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(7059),
+                            Rating = 4,
+                            Text = "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BookId = 10,
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(7072),
+                            Rating = 3,
+                            Text = "Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 1,
+                            CreatedOn = new DateTime(2023, 3, 1, 10, 32, 20, 408, DateTimeKind.Local).AddTicks(7075),
+                            Rating = 4,
+                            Text = "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt."
                         });
                 });
 
@@ -733,6 +799,17 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("Ebla.Domain.Entities.Review", b =>
+                {
+                    b.HasOne("Ebla.Domain.Entities.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Ebla.Infrastructure.Identity.ApplicationRole", null)
@@ -787,6 +864,11 @@ namespace Ebla.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("Ebla.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Ebla.Domain.Entities.Book", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Ebla.Domain.Entities.Genre", b =>
