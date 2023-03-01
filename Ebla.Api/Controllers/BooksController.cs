@@ -42,11 +42,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<Unit> Create([FromBody] CreateBookCommand command)
+        public async Task<CreateBookCommandResponse> Create([FromBody] CreateBookCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -55,24 +55,24 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut("update")]
-        public async Task<Unit> Update([FromBody] UpdateBookCommand command)
+        public async Task<UpdateBookCommandResponse> Update([FromBody] UpdateBookCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
         /// Delete an existing book
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="bookId"></param>
         /// <returns></returns>
-        [HttpDelete("delete")]
-        public async Task<Unit> Delete([FromBody] DeleteBookCommand command)
+        [HttpDelete("delete/{bookId}")]
+        public async Task<DeleteBookCommandResponse> Delete(int bookId)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(new DeleteBookCommand { Id = bookId});
 
-            return result;
+            return response;
         }
     }
 }

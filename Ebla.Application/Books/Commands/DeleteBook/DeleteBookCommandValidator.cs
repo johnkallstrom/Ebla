@@ -4,7 +4,7 @@
     {
         public DeleteBookCommandValidator()
         {
-            RuleFor(x => x.Id).NotEmpty().WithMessage("The {PropertyName} cannot be null or 0.");
+            RuleFor(x => x.Id).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
         }
     }
 }
