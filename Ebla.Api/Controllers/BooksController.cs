@@ -70,7 +70,7 @@
         [HttpDelete("delete/{bookId}")]
         public async Task<DeleteBookCommandResponse> Delete(int bookId)
         {
-            var response = await _mediator.Send(new DeleteBookCommand { Id = bookId});
+            var response = await _mediator.Send(new DeleteBookCommand { Id = bookId });
 
             return response;
         }
