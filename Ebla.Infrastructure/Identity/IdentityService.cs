@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Models;
-
-namespace Ebla.Infrastructure.Identity
+﻿namespace Ebla.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {

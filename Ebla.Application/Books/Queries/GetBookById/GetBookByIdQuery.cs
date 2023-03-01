@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Models;
-
-namespace Ebla.Application.Books.Queries.GetBookById
+﻿namespace Ebla.Application.Books.Queries.GetBookById
 {
     public class GetBookByIdQuery : IRequest<BookDto>
     {

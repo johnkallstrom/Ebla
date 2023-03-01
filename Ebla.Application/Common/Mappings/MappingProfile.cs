@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Mappings
+﻿namespace Ebla.Application.Common.Mappings
 {
     public class MappingProfile : Profile
     {

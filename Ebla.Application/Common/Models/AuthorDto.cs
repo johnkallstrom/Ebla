@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Models
+﻿namespace Ebla.Application.Common.Models
 {
     public class AuthorDto
     {

@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Interfaces
+﻿namespace Ebla.Application.Common.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {

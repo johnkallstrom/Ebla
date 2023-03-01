@@ -4,7 +4,7 @@ global using System.Reflection;
 global using MediatR;
 global using Ebla.Api;
 global using Ebla.Application;
-global using Ebla.Application.Models;
+global using Ebla.Application.Common.Models;
 global using Ebla.Application.Books.Queries.GetBooks;
 global using Ebla.Infrastructure;
 global using Ebla.Infrastructure.Persistence;
