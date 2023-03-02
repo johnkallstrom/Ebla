@@ -18,7 +18,16 @@
 
             if (validationResult.IsValid)
             {
-                await _identityService.CreateUserAsync(request.Username, request.Password);
+                var user = await _identityService.GetUserAsync(request.Username);
+
+                if (user == null)
+                {
+                    await _identityService.CreateUserAsync(request.Username, request.Password);
+                }
+                else
+                {
+                    response.Errors = new List<string> { "Please enter a username that does not already exist" };
+                }
             }
             else
             {
