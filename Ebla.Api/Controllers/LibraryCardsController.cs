@@ -17,7 +17,7 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<Unit> Create([FromBody] CreateLibraryCardCommand command)
+        public async Task<CreateLibraryCardResponse> Create([FromBody] CreateLibraryCardCommand command)
         {
             var response = await _mediator.Send(command);
 

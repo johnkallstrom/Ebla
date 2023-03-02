@@ -9,6 +9,7 @@
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<ILibraryCardRepository, LibraryCardRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

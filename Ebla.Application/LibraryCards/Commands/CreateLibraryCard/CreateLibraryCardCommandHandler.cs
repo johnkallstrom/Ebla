@@ -1,31 +1,61 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
 {
-    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, Unit>
+    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, CreateLibraryCardResponse>
     {
-        private readonly IIdentityService _identityService;
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<LibraryCard> _repository;
+        private readonly IIdentityService _identityService;
+        private readonly ILibraryCardRepository _repository;
+        private readonly IGenericRepository<LibraryCard> _genericRepository;
 
-        public CreateLibraryCardCommandHandler(IGenericRepository<LibraryCard> repository, IMapper mapper, IIdentityService identityService)
+        public CreateLibraryCardCommandHandler(
+            IMapper mapper, 
+            IIdentityService identityService,
+            ILibraryCardRepository repository,
+            IGenericRepository<LibraryCard> genericRepository)
         {
-            _repository = repository;
             _mapper = mapper;
             _identityService = identityService;
+            _repository = repository;
+            _genericRepository = genericRepository;
         }
 
-        public async Task<Unit> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<CreateLibraryCardResponse> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            if (request != null)
-            {
-                var libraryCard = _mapper.Map<LibraryCard>(request);
-                libraryCard.CreatedOn = DateTime.Now;
-                libraryCard.Expires = DateTime.Now.AddYears(1);
+            var response = new CreateLibraryCardResponse();
 
-                await _repository.AddAsync(libraryCard);
-                await _repository.SaveAsync();
+            var validator = new CreateLibraryCardValidator();
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult.IsValid)
+            {
+                var user = await _identityService.GetUserAsync(request.UserId);
+                if (user == null)
+                {
+                    response.Errors = new List<string> { $"No user with id: {request.UserId} exists in our database" };
+                    return response;
+                }
+
+                if (await _repository.LibraryCardExists(request.UserId) == true)
+                {
+                    response.Errors = new List<string> { $"The user with id: {request.UserId} already has an existing library card" };
+                    return response;
+                }
+
+                var libraryCardToAdd = _mapper.Map<LibraryCard>(request);
+                libraryCardToAdd.CreatedOn = DateTime.Now;
+                libraryCardToAdd.Expires = DateTime.Now.AddYears(1);
+
+                await _genericRepository.AddAsync(libraryCardToAdd);
+                await _genericRepository.SaveAsync();
+
+                response.Succeeded = true;
+            }
+            else
+            {
+                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
             }
 
-            return Unit.Value;
+            return response;
         }
     }
 }
