@@ -14,7 +14,7 @@
         /// <summary>
         /// Create a new library card
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="command"></param>a
         /// <returns></returns>
         [HttpPost("create")]
         public async Task<CreateLibraryCardResponse> Create([FromBody] CreateLibraryCardCommand command)
