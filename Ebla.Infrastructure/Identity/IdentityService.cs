@@ -67,7 +67,7 @@
 
         public async Task<UserDto> GetUserAsync(string username)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName.Equals(username, StringComparison.OrdinalIgnoreCase));
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => string.Equals(x.UserName, username));
 
             return _mapper.Map<UserDto>(user);
         }
