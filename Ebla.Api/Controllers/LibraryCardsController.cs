@@ -17,7 +17,20 @@
         /// <param name="command"></param>a
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateLibraryCardResponse> Create([FromBody] CreateLibraryCardCommand command)
+        public async Task<CreateLibraryCommandCardResponse> Create([FromBody] CreateLibraryCardCommand command)
+        {
+            var response = await _mediator.Send(command);
+
+            return response;
+        }
+
+        /// <summary>
+        /// Update an existing library card
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("update")]
+        public async Task<UpdateLibraryCardCommandResponse> Update([FromBody] UpdateLibraryCardCommand command)
         {
             var response = await _mediator.Send(command);
 
