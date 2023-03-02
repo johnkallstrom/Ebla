@@ -11,6 +11,11 @@
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Create a new library card
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("create")]
         public async Task<Unit> Create([FromBody] CreateLibraryCardCommand command)
         {
