@@ -14,6 +14,8 @@
 
             CreateMap<Author, AuthorDto>().ReverseMap();
             CreateMap<Genre, GenreDto>().ReverseMap();
+
+            CreateMap<CreateLibraryCardCommand, LibraryCard>();
         }
     }
 }
