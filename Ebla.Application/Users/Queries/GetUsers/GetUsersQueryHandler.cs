@@ -11,7 +11,7 @@
 
         public async Task<IEnumerable<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            var users = await _identityService.GetUsersAsync();
+            var users = await _identityService.GetAllUsersAsync();
 
             return users;
         }

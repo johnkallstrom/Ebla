@@ -2,21 +2,24 @@
 {
     public class IdentityService : IIdentityService
     {
+        private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
         public IdentityService(
+            IMapper mapper,
             UserManager<ApplicationUser> userManager, 
             SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager)
         {
+            _mapper = mapper;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
 
-        public async Task<List<UserDto>> GetUsersAsync()
+        public async Task<List<UserDto>> GetAllUsersAsync()
         {
             var userList = await _userManager.Users.ToListAsync();
 
@@ -55,5 +58,18 @@
             }
         }
 
+        public async Task<UserDto> GetUserAsync(Guid userId)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            return _mapper.Map<UserDto>(user);
+        }
+
+        public async Task<UserDto> GetUserAsync(string username)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName.Equals(username, StringComparison.OrdinalIgnoreCase));
+
+            return _mapper.Map<UserDto>(user);
+        }
     }
 }
