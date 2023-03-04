@@ -16,6 +16,7 @@
             CreateMap<Genre, GenreDto>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
+            CreateMap<UpdateLibraryCardCommand, LibraryCard>();
         }
     }
 }

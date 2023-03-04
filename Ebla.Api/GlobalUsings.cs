@@ -17,3 +17,4 @@ global using Ebla.Application.Books.Commands.UpdateBook;
 global using Ebla.Application.Users.Queries.GetUserById;
 global using Ebla.Application.LibraryCards.Commands.CreateLibraryCard;
 global using Ebla.Application.LibraryCards.Commands.UpdateLibraryCard;
+global using Ebla.Application.LibraryCards.Commands.UpdateLibraryCard;

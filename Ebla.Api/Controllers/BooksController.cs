@@ -26,12 +26,12 @@
         /// <summary>
         /// Get single book by id
         /// </summary>
-        /// <param name="bookId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{bookId}")]
-        public async Task<BookDto> GetById(int bookId)
+        [HttpGet("{id}")]
+        public async Task<BookDto> GetById(int id)
         {
-            var book = await _mediator.Send(new GetBookByIdQuery { Id = bookId });
+            var book = await _mediator.Send(new GetBookByIdQuery { Id = id });
 
             return book;
         }
@@ -50,7 +50,7 @@
         }
 
         /// <summary>
-        /// Update an existing book
+        /// Update a book
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
@@ -63,14 +63,14 @@
         }
 
         /// <summary>
-        /// Delete an existing book
+        /// Delete a book
         /// </summary>
-        /// <param name="bookId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("delete/{bookId}")]
-        public async Task<DeleteBookCommandResponse> Delete(int bookId)
+        [HttpDelete("delete/{id}")]
+        public async Task<DeleteBookCommandResponse> Delete(int id)
         {
-            var response = await _mediator.Send(new DeleteBookCommand { Id = bookId });
+            var response = await _mediator.Send(new DeleteBookCommand { Id = id });
 
             return response;
         }

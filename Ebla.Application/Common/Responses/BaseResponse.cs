@@ -4,5 +4,10 @@
     {
         public bool Succeeded { get; set; } = false;
         public List<string> Errors { get; set; }
+
+        public BaseResponse()
+        {
+            Errors = new List<string>();
+        }
     }
 }

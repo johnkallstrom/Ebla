@@ -31,13 +31,13 @@
                 var user = await _identityService.GetUserAsync(request.UserId);
                 if (user == null)
                 {
-                    response.Errors = new List<string> { $"No user with id: {request.UserId} exists in our database" };
+                    response.Errors.Add($"No user with id: {request.UserId} could be found");
                     return response;
                 }
 
                 if (await _repository.LibraryCardExists(request.UserId) == true)
                 {
-                    response.Errors = new List<string> { $"The user with id: {request.UserId} already has an existing library card" };
+                    response.Errors.Add($"The user with id: {request.UserId} already has an existing library card");
                     return response;
                 }
 
