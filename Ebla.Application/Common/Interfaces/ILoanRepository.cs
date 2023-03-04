@@ -2,6 +2,5 @@
 {
     public interface ILoanRepository
     {
-        Task<Loan> GetLoanByBookIdAsync(int bookId);
     }
 }
