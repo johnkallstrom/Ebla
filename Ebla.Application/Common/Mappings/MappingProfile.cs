@@ -14,6 +14,8 @@
 
             CreateMap<Author, AuthorDto>().ReverseMap();
             CreateMap<Genre, GenreDto>().ReverseMap();
+            CreateMap<Reservation, ReservationDto>().ReverseMap();
+            CreateMap<Review, ReviewDto>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();

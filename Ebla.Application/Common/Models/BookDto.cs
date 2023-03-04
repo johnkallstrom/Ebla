@@ -13,5 +13,8 @@
         public bool IsReserved { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
+
+        public List<ReservationDto> Reservations { get; set; }
+        public List<ReviewDto> Reviews { get; set; }
     }
 }
