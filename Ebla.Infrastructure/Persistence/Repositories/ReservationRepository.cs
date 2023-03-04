@@ -9,7 +9,7 @@
             _context = context;
         }
 
-        public async Task<IEnumerable<Reservation>> GetReservationsByUserId(Guid userId)
+        public async Task<IEnumerable<Reservation>> GetReservationListByUserId(Guid userId)
         {
             var reservations = await _context.Reservations
                 .Include(x => x.Book)

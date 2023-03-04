@@ -2,6 +2,6 @@
 {
     public interface IReservationRepository
     {
-        Task<IEnumerable<Reservation>> GetReservationsByUserId(Guid userId);
+        Task<IEnumerable<Reservation>> GetReservationListByUserId(Guid userId);
     }
 }

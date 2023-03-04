@@ -7,22 +7,19 @@
         private readonly IIdentityService _identityService;
         private readonly IBookRepository _bookRepository;
         private readonly ILibraryCardRepository _libraryCardRepository;
-        private readonly ILoanRepository _loanRepository;
 
         public CreateReservationCommandHandler(
             IMapper mapper,
             IGenericRepository<Reservation> repository,
             IIdentityService identityService,
             IBookRepository bookRepository,
-            ILibraryCardRepository libraryCardRepository,
-            ILoanRepository loanRepository)
+            ILibraryCardRepository libraryCardRepository)
         {
             _mapper = mapper;
             _repository = repository;
             _identityService = identityService;
             _bookRepository = bookRepository;
             _libraryCardRepository = libraryCardRepository;
-            _loanRepository = loanRepository;
         }
 
         public async Task<CreateReservationCommandResponse> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
@@ -54,6 +51,9 @@
                     response.Errors.Add($"The user with id: {user.Id} does not have a valid library card");
                     return response;
                 }
+
+                // Todo: Check if there already exists a reservation by the user on selected book
+
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
                 reservationToAdd.CreatedOn = DateTime.Now;
