@@ -15,10 +15,5 @@
 
             return libraryCard;
         }
-
-        public Task<LibraryCard> GetLibraryCardAsync(int libraryCardId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
