@@ -19,27 +19,6 @@
             _roleManager = roleManager;
         }
 
-        public async Task<List<UserDto>> GetAllUsersAsync()
-        {
-            var userList = await _userManager.Users.ToListAsync();
-
-            var userDtos = new List<UserDto>();
-            foreach (var user in userList)
-            {
-                var roles = await _userManager.GetRolesAsync(user);
-
-                userDtos.Add(new UserDto
-                {
-                    Id = user.Id,
-                    Username = user.UserName,
-                    Email = user.Email,
-                    Roles = roles.ToArray()
-                });
-            }
-
-            return userDtos;
-        }
-
         public async Task CreateUserAsync(string username, string password)
         {
             var user = new ApplicationUser
@@ -58,18 +37,40 @@
             }
         }
 
+        public async Task<List<UserDto>> GetAllUsersAsync()
+        {
+            var userList = await _userManager.Users.ToListAsync();
+
+            return _mapper.Map<List<UserDto>>(userList);
+        }
+
         public async Task<UserDto> GetUserAsync(Guid userId)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            var roles = await GetUserRoles(user);
 
-            return _mapper.Map<UserDto>(user);
+            var mappedUser = _mapper.Map<UserDto>(user);
+            mappedUser.Roles = roles;
+
+            return mappedUser;
         }
 
         public async Task<UserDto> GetUserAsync(string username)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(x => string.Equals(x.UserName, username));
+            var roles = await GetUserRoles(user);
 
-            return _mapper.Map<UserDto>(user);
+            var mappedUser = _mapper.Map<UserDto>(user);
+            mappedUser.Roles = roles;
+
+            return mappedUser;
+        }
+
+        private async Task<string[]> GetUserRoles(ApplicationUser user)
+        {
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return roles.ToArray();
         }
     }
 }
