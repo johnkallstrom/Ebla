@@ -13,7 +13,7 @@
 
         public async Task<IEnumerable<ReservationDto>> Handle(GetReservationsByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var reservations = await _repository.GetReservationListByUserId(request.UserId);
+            var reservations = await _repository.GetReservationListByUserIdAsync(request.UserId);
 
             return _mapper.Map<IEnumerable<ReservationDto>>(reservations);
         }

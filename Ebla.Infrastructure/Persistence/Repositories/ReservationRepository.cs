@@ -9,7 +9,19 @@
             _context = context;
         }
 
-        public async Task<IEnumerable<Reservation>> GetReservationListByUserId(Guid userId)
+        public Task<Reservation> GetReservationAsync(int reservationId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Reservation> GetReservationAsync(Guid userId, int bookId)
+        {
+            var reservation = await _context.Reservations.FirstOrDefaultAsync(x => x.UserId == userId && x.BookId == bookId);
+
+            return reservation;
+        }
+
+        public async Task<IEnumerable<Reservation>> GetReservationListByUserIdAsync(Guid userId)
         {
             var reservations = await _context.Reservations
                 .Include(x => x.Book)

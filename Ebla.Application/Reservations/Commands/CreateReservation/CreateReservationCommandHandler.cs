@@ -7,19 +7,22 @@
         private readonly IIdentityService _identityService;
         private readonly IBookRepository _bookRepository;
         private readonly ILibraryCardRepository _libraryCardRepository;
+        private readonly IReservationRepository _reservationRepository;
 
         public CreateReservationCommandHandler(
             IMapper mapper,
             IGenericRepository<Reservation> repository,
             IIdentityService identityService,
             IBookRepository bookRepository,
-            ILibraryCardRepository libraryCardRepository)
+            ILibraryCardRepository libraryCardRepository,
+            IReservationRepository reservationRepository)
         {
             _mapper = mapper;
             _repository = repository;
             _identityService = identityService;
             _bookRepository = bookRepository;
             _libraryCardRepository = libraryCardRepository;
+            _reservationRepository = reservationRepository;
         }
 
         public async Task<CreateReservationCommandResponse> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
@@ -52,8 +55,12 @@
                     return response;
                 }
 
-                // Todo: Check if there already exists a reservation by the user on selected book
-
+                var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
+                if (reservation != null && reservation.ExpiresOn > DateTime.Now)
+                {
+                    response.Errors.Add($"A reservation already exists on this book and will expire at: {reservation.ExpiresOn}");
+                    return response;
+                }
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
                 reservationToAdd.CreatedOn = DateTime.Now;
