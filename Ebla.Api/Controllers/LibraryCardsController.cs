@@ -1,6 +1,4 @@
-﻿using Ebla.Application.LibraryCards.Commands.DeleteLibraryCard;
-
-namespace Ebla.Api.Controllers
+﻿namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,6 +9,19 @@ namespace Ebla.Api.Controllers
         public LibraryCardsController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Get single library card by user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("{userId}")]
+        public async Task<LibraryCardDto> GetByUserId(Guid userId)
+        {
+            var libraryCard = await _mediator.Send(new GetLibraryCardByUserIdQuery { UserId = userId });
+
+            return libraryCard;
         }
 
         /// <summary>
