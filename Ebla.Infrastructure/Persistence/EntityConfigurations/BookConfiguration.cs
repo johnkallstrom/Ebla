@@ -99,8 +99,8 @@
                     IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
-                    AuthorId = 4,
-                    GenreId = 2
+                    AuthorId = 5,
+                    GenreId = 1
                 },
                 new Book
                 {
