@@ -2,5 +2,6 @@
 {
     public interface ILoanRepository
     {
+        Task<IEnumerable<Loan>> GetLoanListByUserIdAsync(Guid userId);
     }
 }

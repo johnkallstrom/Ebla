@@ -19,6 +19,9 @@
             CreateMap<Reservation, ReservationDto>()
                 .ForMember(dest => dest.Book, opt => opt.MapFrom(src => src.Book.Title));
 
+            CreateMap<Loan, LoanDto>()
+                .ForMember(dest => dest.Book, opt => opt.MapFrom(src => src.Book.Title));
+
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
