@@ -9,16 +9,16 @@
             _context = context;
         }
 
-        public async Task<LibraryCard> GetLibraryCardByUserIdAsync(Guid userId)
+        public async Task<LibraryCard> GetLibraryCardAsync(Guid userId)
         {
             var libraryCard = await _context.LibraryCards.FirstOrDefaultAsync(x => x.UserId == userId);
 
             return libraryCard;
         }
 
-        public async Task<bool> LibraryCardExists(Guid userId)
+        public Task<LibraryCard> GetLibraryCardAsync(int libraryCardId)
         {
-            return await _context.LibraryCards.AnyAsync(x => x.UserId == userId);
+            throw new NotImplementedException();
         }
     }
 }

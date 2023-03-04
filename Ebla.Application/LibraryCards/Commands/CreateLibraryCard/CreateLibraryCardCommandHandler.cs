@@ -35,9 +35,10 @@
                     return response;
                 }
 
-                if (await _repository.LibraryCardExists(request.UserId) == true)
+                var libraryCard = await _repository.GetLibraryCardAsync(user.Id);
+                if (libraryCard != null)
                 {
-                    response.Errors.Add($"The user with id: {request.UserId} already has an existing library card");
+                    response.Errors.Add($"A library card already exists on this user");
                     return response;
                 }
 

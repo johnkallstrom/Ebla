@@ -48,7 +48,7 @@
                     return response;
                 }
 
-                var libraryCard = await _libraryCardRepository.GetLibraryCardByUserIdAsync(user.Id);
+                var libraryCard = await _libraryCardRepository.GetLibraryCardAsync(user.Id);
                 if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
                 {
                     response.Errors.Add($"No valid library card could be found on this user");

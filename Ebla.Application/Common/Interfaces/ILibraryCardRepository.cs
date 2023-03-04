@@ -2,7 +2,6 @@
 {
     public interface ILibraryCardRepository
     {
-        Task<bool> LibraryCardExists(Guid userId);
-        Task<LibraryCard> GetLibraryCardByUserIdAsync(Guid userId);
+        Task<LibraryCard> GetLibraryCardAsync(Guid userId);
     }
 }
