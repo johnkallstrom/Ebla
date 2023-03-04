@@ -2,20 +2,10 @@
 {
     public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, DeleteLibraryCardCommandResponse>
     {
-        private readonly IMapper _mapper;
-        private readonly IIdentityService _identityService;
-        private readonly ILibraryCardRepository _repository;
         private readonly IGenericRepository<LibraryCard> _genericRepository;
 
-        public DeleteLibraryCardCommandHandler(
-            IMapper mapper,
-            IIdentityService identityService,
-            ILibraryCardRepository repository,
-            IGenericRepository<LibraryCard> genericRepository)
+        public DeleteLibraryCardCommandHandler(IGenericRepository<LibraryCard> genericRepository)
         {
-            _mapper = mapper;
-            _identityService = identityService;
-            _repository = repository;
             _genericRepository = genericRepository;
         }
 

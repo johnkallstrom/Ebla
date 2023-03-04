@@ -3,19 +3,13 @@
     public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, UpdateLibraryCardCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IIdentityService _identityService;
-        private readonly ILibraryCardRepository _repository;
         private readonly IGenericRepository<LibraryCard> _genericRepository;
 
         public UpdateLibraryCardCommandHandler(
             IMapper mapper,
-            IIdentityService identityService,
-            ILibraryCardRepository repository,
             IGenericRepository<LibraryCard> genericRepository)
         {
             _mapper = mapper;
-            _identityService = identityService;
-            _repository = repository;
             _genericRepository = genericRepository;
         }
 
