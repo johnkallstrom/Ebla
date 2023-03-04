@@ -57,6 +57,7 @@
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
                 reservationToAdd.CreatedOn = DateTime.Now;
+                reservationToAdd.ExpiresOn = DateTime.Now.AddDays(14);
 
                 await _repository.AddAsync(reservationToAdd);
                 await _repository.SaveAsync();
