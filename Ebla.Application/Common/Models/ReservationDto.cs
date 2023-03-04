@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public DateTime ExpiresOn { get; set; }
-        public string Book { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
+        public int BookId { get; set; }
     }
 }

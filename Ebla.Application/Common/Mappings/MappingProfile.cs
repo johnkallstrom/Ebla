@@ -15,13 +15,8 @@
             CreateMap<Author, AuthorDto>().ReverseMap();
             CreateMap<Genre, GenreDto>().ReverseMap();
             CreateMap<Review, ReviewDto>().ReverseMap();
-
-            CreateMap<Reservation, ReservationDto>()
-                .ForMember(dest => dest.Book, opt => opt.MapFrom(src => src.Book.Title));
-
-            CreateMap<Loan, LoanDto>()
-                .ForMember(dest => dest.Book, opt => opt.MapFrom(src => src.Book.Title));
-
+            CreateMap<Reservation, ReservationDto>().ReverseMap();
+            CreateMap<Loan, LoanDto>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
