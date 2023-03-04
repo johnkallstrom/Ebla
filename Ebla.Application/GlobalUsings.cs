@@ -13,3 +13,4 @@ global using Ebla.Application.Books.Commands.DeleteBook;
 global using Ebla.Application.Common.Responses;
 global using Ebla.Application.LibraryCards.Commands.CreateLibraryCard;
 global using Ebla.Application.LibraryCards.Commands.UpdateLibraryCard;
+global using Ebla.Application.Reservations.Commands.CreateReservation;
