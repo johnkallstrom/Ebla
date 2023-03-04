@@ -11,6 +11,24 @@
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get all user reservations
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("{userId}")]
+        public async Task<IEnumerable<ReservationDto>> GetByUserId(Guid userId)
+        {
+            var reservations = await _mediator.Send(new GetReservationsByUserIdQuery { UserId = userId });
+
+            return reservations;
+        }
+
+        /// <summary>
+        /// Create a new reservation
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("create")]
         public async Task<CreateReservationCommandResponse> Create([FromBody] CreateReservationCommand command)
         {
