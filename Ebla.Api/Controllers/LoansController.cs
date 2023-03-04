@@ -23,5 +23,16 @@
 
             return loans;
         }
+        
+        /// <summary>
+        /// Create a new loan
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        [HttpPost("create")]
+        public async Task Create()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
