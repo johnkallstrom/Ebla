@@ -7,6 +7,7 @@
             builder.ToTable("Reservation");
 
             builder.Property(x => x.Id).HasColumnName("Id");
+            builder.Property(x => x.ExpiresOn).HasColumnName("ExpiresOn");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
@@ -17,6 +18,7 @@
                 new Reservation
                 {
                     Id = 1,
+                    ExpiresOn = DateTime.Now.AddDays(14),
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     BookId = 3,

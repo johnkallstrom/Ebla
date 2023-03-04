@@ -34,7 +34,6 @@
 
             if (validationResult.IsValid)
             {
-                // Check if user exists
                 var user = await _identityService.GetUserAsync(request.UserId);
                 if (user == null)
                 {
@@ -42,7 +41,6 @@
                     return response;
                 }
 
-                // Check if book exists
                 var book = await _bookRepository.GetBookByIdAsync(request.BookId);
                 if (book == null)
                 {
@@ -50,26 +48,10 @@
                     return response;
                 }
 
-                // Check that user has a valid library card
                 var libraryCard = await _libraryCardRepository.GetLibraryCardByUserIdAsync(user.Id);
-                if (libraryCard == null || libraryCard.Expires < DateTime.Now)
+                if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
                 {
                     response.Errors.Add($"The user with id: {user.Id} does not have a valid library card");
-                    return response;
-                }
-
-                // Check if book is reserved
-                if (book.IsReserved)
-                {
-                    response.Errors.Add($"The book with id: {book.Id} is reserved");
-                    return response;
-                }
-
-                // Check if book is loaned
-                var loan = await _loanRepository.GetLoanByBookIdAsync(book.Id);
-                if (loan != null && loan.Returned == null)
-                {
-                    response.Errors.Add($"The book with id: {book.Id} is loaned");
                     return response;
                 }
 

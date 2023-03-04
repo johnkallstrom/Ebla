@@ -43,7 +43,7 @@
 
                 var libraryCardToAdd = _mapper.Map<LibraryCard>(request);
                 libraryCardToAdd.CreatedOn = DateTime.Now;
-                libraryCardToAdd.Expires = DateTime.Now.AddYears(1);
+                libraryCardToAdd.ExpiresOn = DateTime.Now.AddYears(1);
 
                 await _genericRepository.AddAsync(libraryCardToAdd);
                 await _genericRepository.SaveAsync();

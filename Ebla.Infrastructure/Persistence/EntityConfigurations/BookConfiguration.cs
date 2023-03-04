@@ -10,7 +10,6 @@
             builder.Property(x => x.Title).HasMaxLength(200).HasColumnName("Title");
             builder.Property(x => x.Pages).HasColumnName("Pages");
             builder.Property(x => x.Published).HasColumnName("Published");
-            builder.Property(x => x.IsReserved).HasColumnName("IsReserved");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.AuthorId).HasColumnName("AuthorId");
@@ -26,7 +25,6 @@
                     Pages = 256,
                     Published = new DateTime(1973, 6, 1),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 1,
@@ -40,7 +38,6 @@
                     Pages = 255,
                     Published = new DateTime(1942, 5, 1),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 2,
@@ -54,7 +51,6 @@
                     Pages = 286,
                     Published = new DateTime(1969, 3, 1),
                     Language = "English",
-                    IsReserved = true,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 3,
@@ -68,7 +64,6 @@
                     Pages = 738,
                     Published = new DateTime(2006, 7, 17),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 4,
@@ -82,7 +77,6 @@
                     Pages = 738,
                     Published = new DateTime(2007, 8, 21),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 4,
@@ -96,7 +90,6 @@
                     Pages = 600,
                     Published = new DateTime(2015, 6, 1),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 5,
@@ -110,7 +103,6 @@
                     Pages = 1153,
                     Published = new DateTime(1978, 10, 3),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 6,
@@ -124,7 +116,6 @@
                     Pages = 374,
                     Published = new DateTime(1983, 11, 14),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 6,
@@ -138,7 +129,6 @@
                     Pages = 482,
                     Published = new DateTime(1989, 1, 1),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 7,
@@ -152,7 +142,6 @@
                     Pages = 382,
                     Published = new DateTime(1966, 6, 2),
                     Language = "English",
-                    IsReserved = false,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                     AuthorId = 8,

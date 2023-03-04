@@ -7,7 +7,7 @@
             builder.ToTable("LibraryCard");
 
             builder.Property(x => x.Id).HasColumnName("Id");
-            builder.Property(x => x.Expires).HasColumnName("Expires");
+            builder.Property(x => x.ExpiresOn).HasColumnName("ExpiresOn");
             builder.Property(x => x.UserId).HasColumnName("UserId");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
@@ -18,7 +18,7 @@
                 {
                     Id = 1,
                     PersonalIdentificationNumber = 123456,
-                    Expires = DateTime.Now.AddYears(1),
+                    ExpiresOn = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
@@ -27,7 +27,7 @@
                 {
                     Id = 2,
                     PersonalIdentificationNumber = 123456,
-                    Expires = DateTime.Now.AddYears(1),
+                    ExpiresOn = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
@@ -36,7 +36,7 @@
                 {
                     Id = 3,
                     PersonalIdentificationNumber = 123456,
-                    Expires = DateTime.Now.AddYears(1),
+                    ExpiresOn = DateTime.Now.AddYears(1),
                     UserId = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
