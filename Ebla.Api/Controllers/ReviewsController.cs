@@ -25,7 +25,7 @@
         }
 
         /// <summary>
-        /// Get reviews by user id
+        /// Get all user reviews
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
