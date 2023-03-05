@@ -39,13 +39,12 @@
         /// <summary>
         /// Create a new user
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
+        /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateUserCommandResponse> Create(string username, string password)
+        public async Task<CreateUserCommandResponse> Create([FromBody] CreateUserCommand command)
         {
-            var response = await _mediator.Send(new CreateUserCommand { Username = username, Password = password });
+            var response = await _mediator.Send(command);
 
             return response;
         }

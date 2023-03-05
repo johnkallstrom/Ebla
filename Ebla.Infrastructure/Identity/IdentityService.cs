@@ -19,18 +19,29 @@
             _roleManager = roleManager;
         }
 
-        public async Task CreateUserAsync(string username, string password)
+        public async Task CreateUserAsync(string username, string password, string[] roles)
         {
             var user = new ApplicationUser
             {
-                UserName = username
+                UserName = username,
+                Email = $"{username}@localhost"
             };
 
-            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, password);
+            var hashedPassword = _userManager.PasswordHasher.HashPassword(user, password);
+            user.PasswordHash = hashedPassword;
 
             var result = await _userManager.CreateAsync(user);
-
-            if (result.Succeeded == false)
+            if (result.Succeeded)
+            {
+                foreach (var role in roles)
+                {
+                    if (await _roleManager.FindByNameAsync(role) != null)
+                    {
+                        await _userManager.AddToRoleAsync(user, role);
+                    }
+                }
+            }
+            else
             {
                 var errors = result?.Errors?.Select(x => x.Description).ToList();
                 throw new Exception($"Failed to create user: {user.UserName} with following errors: {string.Join(", ", errors)}");

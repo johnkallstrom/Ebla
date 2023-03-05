@@ -4,7 +4,7 @@
     {
         Task<UserDto> GetUserAsync(Guid userId);
         Task<UserDto> GetUserAsync(string username);
-        Task CreateUserAsync(string username, string password);
+        Task CreateUserAsync(string username, string password, string[] roles);
         Task<List<UserDto>> GetAllUsersAsync();
     }
 }

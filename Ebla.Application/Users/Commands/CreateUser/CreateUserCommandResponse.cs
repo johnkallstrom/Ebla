@@ -2,6 +2,5 @@
 {
     public class CreateUserCommandResponse : BaseResponse
     {
-        public Guid UserId { get; set; }
     }
 }

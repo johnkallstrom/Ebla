@@ -19,15 +19,14 @@
             if (validationResult.IsValid)
             {
                 var user = await _identityService.GetUserAsync(request.Username);
+                if (user != null)
+                {
+                    response.Errors.Add($"The username '{request.Username}' is not available");
+                    return response;
+                }
 
-                if (user == null)
-                {
-                    await _identityService.CreateUserAsync(request.Username, request.Password);
-                }
-                else
-                {
-                    response.Errors = new List<string> { "Please enter a username that does not already exist" };
-                }
+                await _identityService.CreateUserAsync(request.Username, request.Password, request.Roles.ToArray());
+                response.Succeeded = true;
             }
             else
             {
