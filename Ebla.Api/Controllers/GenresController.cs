@@ -15,11 +15,12 @@
         /// Get all genres
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         [HttpGet]
         public async Task<IEnumerable<GenreDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var genres = await _mediator.Send(new GetGenresQuery());
+
+            return genres;
         }
     }
 }

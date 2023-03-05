@@ -23,3 +23,4 @@ global using Ebla.Application.Loans.Queries.GetLoansByUserId;
 global using Ebla.Application.LibraryCards.Commands.DeleteLibraryCard;
 global using Ebla.Application.LibraryCards.Queries.GetLibraryCardByUserId;
 global using Ebla.Application.Authors.Queries.GetAuthors;
+global using Ebla.Application.Genres.Queries.GetGenres;

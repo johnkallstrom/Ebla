@@ -15,7 +15,6 @@
         /// Get all authors
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         [HttpGet]
         public async Task<IEnumerable<AuthorDto>> GetAll()
         {
