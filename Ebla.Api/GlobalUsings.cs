@@ -24,3 +24,5 @@ global using Ebla.Application.LibraryCards.Commands.DeleteLibraryCard;
 global using Ebla.Application.LibraryCards.Queries.GetLibraryCardByUserId;
 global using Ebla.Application.Authors.Queries.GetAuthors;
 global using Ebla.Application.Genres.Queries.GetGenres;
+global using Ebla.Application.Reviews.Queries.GetReviewsByBookId;
+global using Ebla.Application.Reviews.Queries.GetReviewsByUserId;

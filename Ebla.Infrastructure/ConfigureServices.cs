@@ -13,6 +13,7 @@
             services.AddTransient<ILibraryCardRepository, LibraryCardRepository>();
             services.AddTransient<ILoanRepository, LoanRepository>();
             services.AddTransient<IReservationRepository, ReservationRepository>();
+            services.AddTransient<IReviewRepository, ReviewRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

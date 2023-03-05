@@ -12,14 +12,29 @@
         }
 
         /// <summary>
-        /// Get all reviews
+        /// Get reviews by book id
         /// </summary>
+        /// <param name="bookId"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        [HttpGet]
-        public async Task<IEnumerable<ReviewDto>> GetAll()
+        [HttpGet("{bookId:int}")]
+        public async Task<IEnumerable<ReviewDto>> GetByBookId(int bookId)
         {
-            throw new NotImplementedException();
+            var reviews = await _mediator.Send(new GetReviewsByBookIdQuery { BookId = bookId });
+
+            return reviews;
+        }
+
+        /// <summary>
+        /// Get reviews by user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("{userId:guid}")]
+        public async Task<IEnumerable<ReviewDto>> GetByUserId(Guid userId)
+        {
+            var reviews = await _mediator.Send(new GetReviewsByUserIdQuery { UserId = userId });
+
+            return reviews;
         }
     }
 }
