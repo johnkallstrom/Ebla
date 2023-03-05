@@ -47,23 +47,35 @@
         public async Task<UserDto> GetUserAsync(Guid userId)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == userId);
-            var roles = await GetUserRoles(user);
 
-            var mappedUser = _mapper.Map<UserDto>(user);
-            mappedUser.Roles = roles;
+            if (user != null)
+            {
+                var roles = await GetUserRoles(user);
 
-            return mappedUser;
+                var mappedUser = _mapper.Map<UserDto>(user);
+                mappedUser.Roles = roles;
+
+                return mappedUser;
+            }
+
+            return null;
         }
 
         public async Task<UserDto> GetUserAsync(string username)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(x => string.Equals(x.UserName, username));
-            var roles = await GetUserRoles(user);
 
-            var mappedUser = _mapper.Map<UserDto>(user);
-            mappedUser.Roles = roles;
+            if (user != null)
+            {
+                var roles = await GetUserRoles(user);
 
-            return mappedUser;
+                var mappedUser = _mapper.Map<UserDto>(user);
+                mappedUser.Roles = roles;
+
+                return mappedUser;
+            }
+
+            return null;
         }
 
         private async Task<string[]> GetUserRoles(ApplicationUser user)

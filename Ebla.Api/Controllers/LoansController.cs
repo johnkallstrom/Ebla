@@ -1,4 +1,6 @@
-﻿namespace Ebla.Api.Controllers
+﻿using Ebla.Application.Loans.Commands.CreateLoan;
+
+namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,16 +25,18 @@
 
             return loans;
         }
-        
+
         /// <summary>
         /// Create a new loan
         /// </summary>
+        /// <param name="command"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         [HttpPost("create")]
-        public async Task Create()
+        public async Task<CreateLoanCommandResponse> Create([FromBody] CreateLoanCommand command)
         {
-            throw new NotImplementedException();
+            var response = await _mediator.Send(command);
+
+            return response;
         }
     }
 }
