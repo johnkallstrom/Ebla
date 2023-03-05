@@ -19,7 +19,9 @@
         [HttpGet]
         public async Task<IEnumerable<AuthorDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var authors = await _mediator.Send(new GetAuthorsQuery());
+
+            return authors;
         }
     }
 }
