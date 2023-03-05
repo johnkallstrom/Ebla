@@ -58,7 +58,7 @@
                 var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
                 if (reservation != null && reservation.ExpiresOn > DateTime.Now)
                 {
-                    response.Errors.Add($"A reservation already exists on this book and will expire at: {reservation.ExpiresOn}");
+                    response.Errors.Add($"A reservation by user with id: {user.Id} already exists on this book");
                     return response;
                 }
 

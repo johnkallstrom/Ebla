@@ -2,6 +2,7 @@
 {
     public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, CreateLoanCommandResponse>
     {
+        private readonly IReservationRepository _reservationRepository;
         private readonly ILoanRepository _loanRepository;
         private readonly ILibraryCardRepository _libraryCardRepository;
         private readonly IBookRepository _bookRepository;
@@ -15,7 +16,8 @@
             IIdentityService identityService,
             IBookRepository bookRepository,
             ILibraryCardRepository libraryCardRepository,
-            ILoanRepository loanRepository)
+            ILoanRepository loanRepository,
+            IReservationRepository reservationRepository)
         {
             _repository = repository;
             _mapper = mapper;
@@ -23,6 +25,7 @@
             _bookRepository = bookRepository;
             _libraryCardRepository = libraryCardRepository;
             _loanRepository = loanRepository;
+            _reservationRepository = reservationRepository;
         }
 
         public async Task<CreateLoanCommandResponse> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
@@ -62,9 +65,27 @@
                     return response;
                 }
 
+                // If user has 5 or more existing loans, no more can be created
+                var userLoans = await _loanRepository.GetLoanListByUserIdAsync(user.Id);
+                if (userLoans != null && userLoans.Count() >= 5)
+                {
+                    response.Errors.Add($"The user with id: {user.Id} have exceeded maximum amount of loans");
+                    return response;
+                }
+
                 var loanToAdd = _mapper.Map<Loan>(request);
                 loanToAdd.CreatedOn = DateTime.Now;
-                loanToAdd.DueDate = DateTime.Now.AddMonths(1);
+
+                // If book has 2 or more reservations the loan time is 14 days, otherwise 1 month
+                var reservations = await _reservationRepository.GetReservationListByBookIdAsync(book.Id);
+                if (reservations != null && reservations.Count() >= 2)
+                {
+                    loanToAdd.DueDate = DateTime.Now.AddDays(14);
+                }
+                else
+                {
+                    loanToAdd.DueDate = DateTime.Now.AddMonths(1);
+                }
 
                 await _repository.AddAsync(loanToAdd);
                 await _repository.SaveAsync();
