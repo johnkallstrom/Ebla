@@ -2,9 +2,29 @@
 {
     public class GenerateTokenCommandHandler : IRequestHandler<GenerateTokenCommand, string>
     {
-        public Task<string> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
+        private readonly IIdentityService _identityService;
+        private readonly IJwtProvider _jwtProvider;
+
+        public GenerateTokenCommandHandler(
+            IJwtProvider jwtProvider, 
+            IIdentityService identityService)
         {
-            throw new NotImplementedException();
+            _jwtProvider = jwtProvider;
+            _identityService = identityService;
+        }
+
+        public async Task<string> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
+        {
+            var result = await _identityService.LoginAsync(request.Username, request.Password);
+            if (result.Succeeded)
+            {
+                var user = await _identityService.GetUserAsync(request.Username);
+                var token = await _jwtProvider.Generate(user);
+
+                return token;
+            }
+
+            return null;
         }
     }
 }

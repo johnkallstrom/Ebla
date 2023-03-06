@@ -6,5 +6,6 @@
         Task<UserDto> GetUserAsync(string username);
         Task CreateUserAsync(string username, string password, string[] roles);
         Task<List<UserDto>> GetAllUsersAsync();
+        Task<SignInResult> LoginAsync(string username, string password);
     }
 }

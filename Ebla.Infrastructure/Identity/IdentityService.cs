@@ -89,6 +89,19 @@
             return null;
         }
 
+        public async Task<SignInResult> LoginAsync(string username, string password)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                throw new Exception($"Invalid credentials: {username}");
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
+
+            return result;
+        }
+
         private async Task<string[]> GetUserRoles(ApplicationUser user)
         {
             var roles = await _userManager.GetRolesAsync(user);
