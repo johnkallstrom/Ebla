@@ -19,8 +19,8 @@
             if (result.Succeeded)
             {
                 var user = await _identityService.GetUserAsync(request.Username);
-                var token = await _jwtProvider.Generate(user);
 
+                var token = await _jwtProvider.GenerateToken(user);
                 return token;
             }
 
