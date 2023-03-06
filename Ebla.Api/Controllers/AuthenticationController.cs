@@ -11,6 +11,12 @@
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Generate a jwt token
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost("token")]
         public async Task<string> GenerateToken(string username, string password)
         {
