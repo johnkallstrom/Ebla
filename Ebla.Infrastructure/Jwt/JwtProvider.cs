@@ -2,7 +2,7 @@
 {
     public class JwtProvider : IJwtProvider
     {
-        public Task<string> GetJwtToken(UserDto user)
+        public Task<string> Generate(UserDto user)
         {
             throw new NotImplementedException();
         }
