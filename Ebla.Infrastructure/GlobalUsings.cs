@@ -13,3 +13,4 @@ global using Ebla.Infrastructure.Persistence.EntityConfigurations;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using Ebla.Application.Common.Models;
 global using AutoMapper;
+global using Ebla.Infrastructure.Jwt;
