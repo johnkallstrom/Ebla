@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands.DeleteBook
 {
-    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, DeleteBookCommandResponse>
+    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, IResult>
     {
         private readonly IGenericRepository<Book> _repository;
         private readonly IMapper _mapper;
@@ -11,31 +11,33 @@
             _mapper = mapper;
         }
 
-        public async Task<DeleteBookCommandResponse> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
-            var response = new DeleteBookCommandResponse();
+            var result = new Result();
 
             var validator = new DeleteBookCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.IsValid)
             {
-                var book = await _repository.GetByIdAsync(request.Id);
-
-                if (book != null)
+                var bookToDelete = await _repository.GetByIdAsync(request.Id);
+                if (bookToDelete is null)
                 {
-                    _repository.Delete(book);
-                    await _repository.SaveAsync();
-
-                    response.Succeeded = true;
+                    throw new NotFoundException(nameof(bookToDelete), request.Id);
                 }
+
+                _repository.Delete(bookToDelete);
+                await _repository.SaveAsync();
+
+                result.Success();
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
+                result.Failure(errors);
             }
 
-            return response;
+            return result;
         }
     }
 }

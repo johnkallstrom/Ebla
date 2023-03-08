@@ -42,11 +42,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateBookCommandResponse> Create([FromBody] CreateBookCommand command)
+        public async Task<IResult> Create([FromBody] CreateBookCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
 
         /// <summary>
@@ -55,11 +55,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut("update")]
-        public async Task<UpdateBookCommandResponse> Update([FromBody] UpdateBookCommand command)
+        public async Task<IResult> Update([FromBody] UpdateBookCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
 
         /// <summary>
@@ -68,11 +68,11 @@
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("delete/{id}")]
-        public async Task<DeleteBookCommandResponse> Delete(int id)
+        public async Task<IResult> Delete(int id)
         {
-            var response = await _mediator.Send(new DeleteBookCommand { Id = id });
+            var result = await _mediator.Send(new DeleteBookCommand { Id = id });
 
-            return response;
+            return result;
         }
     }
 }

@@ -57,7 +57,7 @@
 
         public async Task<UserDto> GetUserAsync(Guid userId)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            var user = await _userManager.FindByIdAsync(userId.ToString());
 
             if (user != null)
             {
@@ -74,7 +74,7 @@
 
         public async Task<UserDto> GetUserAsync(string username)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => string.Equals(x.UserName, username));
+            var user = await _userManager.FindByNameAsync(username);
 
             if (user != null)
             {

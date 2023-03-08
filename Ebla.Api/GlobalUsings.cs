@@ -2,7 +2,6 @@
 global using Microsoft.AspNetCore.Mvc;
 global using System.Reflection;
 global using MediatR;
-global using Ebla.Api;
 global using Ebla.Application;
 global using Ebla.Application.Common.Models;
 global using Ebla.Application.Books.Queries.GetBooks;
@@ -31,3 +30,4 @@ global using Ebla.Api.Configurations;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
+global using IResult = Ebla.Application.Common.Interfaces.IResult;

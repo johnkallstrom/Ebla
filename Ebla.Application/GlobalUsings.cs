@@ -15,3 +15,4 @@ global using Ebla.Application.LibraryCards.Commands.UpdateLibraryCard;
 global using Ebla.Application.Reservations.Commands.CreateReservation;
 global using Ebla.Application.Loans.Commands.CreateLoan;
 global using Microsoft.AspNetCore.Identity;
+global using Ebla.Application.Common.Exceptions;
