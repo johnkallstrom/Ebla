@@ -4,7 +4,6 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddControllers();
-services.AddHttpContextAccessor();
 services.AddSwaggerServices();
 
 services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
