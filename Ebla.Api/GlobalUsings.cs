@@ -27,3 +27,7 @@ global using Ebla.Application.Genres.Queries.GetGenres;
 global using Ebla.Application.Reviews.Queries.GetReviewsByBookId;
 global using Ebla.Application.Reviews.Queries.GetReviewsByUserId;
 global using Ebla.Application.Authentication.Commands.GenerateToken;
+global using Ebla.Api.Configurations;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;

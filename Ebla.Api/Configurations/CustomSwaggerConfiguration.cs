@@ -1,4 +1,4 @@
-﻿namespace Ebla.Api
+﻿namespace Ebla.Api.Configurations
 {
     public static class CustomSwaggerConfiguration
     {

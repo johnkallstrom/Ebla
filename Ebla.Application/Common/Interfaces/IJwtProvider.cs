@@ -2,6 +2,6 @@
 {
     public interface IJwtProvider
     {
-        Task<string> GenerateToken(UserDto user);
+        string GenerateToken(UserDto user);
     }
 }

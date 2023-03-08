@@ -14,3 +14,7 @@ global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using Ebla.Application.Common.Models;
 global using AutoMapper;
 global using Ebla.Infrastructure.Jwt;
+global using System.Security.Claims;
+global using System.IdentityModel.Tokens.Jwt;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;

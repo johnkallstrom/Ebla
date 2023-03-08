@@ -20,7 +20,7 @@
             {
                 var user = await _identityService.GetUserAsync(request.Username);
 
-                var token = await _jwtProvider.GenerateToken(user);
+                var token = _jwtProvider.GenerateToken(user);
                 return token;
             }
 
