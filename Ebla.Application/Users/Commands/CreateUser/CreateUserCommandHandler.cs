@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Users.Commands.CreateUser
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, CreateUserCommandResponse>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, IResult>
     {
         private readonly IIdentityService _identityService;
 
@@ -9,9 +9,9 @@
             _identityService = identityService;
         }
 
-        public async Task<CreateUserCommandResponse> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var response = new CreateUserCommandResponse();
+            var result = new Result();
 
             var validator = new CreateUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -19,21 +19,18 @@
             if (validationResult.IsValid)
             {
                 var user = await _identityService.GetUserAsync(request.Username);
-                if (user != null)
+                if (user is null)
                 {
-                    response.Errors.Add($"The username '{request.Username}' is not available");
-                    return response;
+                    await _identityService.CreateUserAsync(request.Username, request.Password, request.Roles.ToArray());
+                    result.Success();
                 }
-
-                await _identityService.CreateUserAsync(request.Username, request.Password, request.Roles.ToArray());
-                response.Succeeded = true;
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
-            return response;
+            return result;
         }
     }
 }

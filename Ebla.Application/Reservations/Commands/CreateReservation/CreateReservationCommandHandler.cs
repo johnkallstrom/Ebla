@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
-    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, CreateReservationCommandResponse>
+    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, IResult>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Reservation> _repository;
@@ -25,9 +25,9 @@
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<CreateReservationCommandResponse> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
-            var response = new CreateReservationCommandResponse();
+            var result = new Result();
 
             var validator = new CreateReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -35,31 +35,29 @@
             if (validationResult.IsValid)
             {
                 var user = await _identityService.GetUserAsync(request.UserId);
-                if (user == null)
+                if (user is null)
                 {
-                    response.Errors.Add($"No user with id: {request.UserId} could be found");
-                    return response;
+                    throw new NotFoundException(nameof(user), request.UserId);
                 }
 
                 var book = await _bookRepository.GetBookByIdAsync(request.BookId);
-                if (book == null)
+                if (book is null)
                 {
-                    response.Errors.Add($"No book with id: {request.BookId} could be found");
-                    return response;
+                    throw new NotFoundException(nameof(book), request.BookId);
                 }
 
                 var libraryCard = await _libraryCardRepository.GetLibraryCardAsync(user.Id);
                 if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
                 {
-                    response.Errors.Add($"No valid library card could be found on this user");
-                    return response;
+                    result.Failure(new[] { "No valid library card could be found on this user" });
+                    return result;
                 }
 
                 var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
                 if (reservation != null && reservation.ExpiresOn > DateTime.Now)
                 {
-                    response.Errors.Add($"A reservation by user with id: {user.Id} already exists on this book");
-                    return response;
+                    result.Failure(new[] { "A reservation already exists" });
+                    return result;
                 }
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
@@ -69,14 +67,14 @@
                 await _repository.AddAsync(reservationToAdd);
                 await _repository.SaveAsync();
 
-                response.Succeeded = true;
+                result.Success();
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
-            return response;
+            return result;
         }
     }
 }

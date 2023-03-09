@@ -30,11 +30,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateReservationCommandResponse> Create([FromBody] CreateReservationCommand command)
+        public async Task<IResult> Create([FromBody] CreateReservationCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
     }
 }

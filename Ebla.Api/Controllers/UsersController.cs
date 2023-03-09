@@ -42,11 +42,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateUserCommandResponse> Create([FromBody] CreateUserCommand command)
+        public async Task<IResult> Create([FromBody] CreateUserCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
     }
 }

@@ -32,11 +32,11 @@ namespace Ebla.Api.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateLoanCommandResponse> Create([FromBody] CreateLoanCommand command)
+        public async Task<IResult> Create([FromBody] CreateLoanCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
     }
 }

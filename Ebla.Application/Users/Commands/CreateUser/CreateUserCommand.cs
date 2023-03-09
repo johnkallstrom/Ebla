@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Users.Commands.CreateUser
 {
-    public class CreateUserCommand : IRequest<CreateUserCommandResponse>
+    public class CreateUserCommand : IRequest<IResult>
     {
         public string Username { get; set; }
         public string Password { get; set; }
