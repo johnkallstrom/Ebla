@@ -2,18 +2,30 @@
 {
     public class JwtProvider : IJwtProvider
     {
+        private readonly IConfiguration _configuration;
+
+        public JwtProvider(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public string GenerateToken(UserDto user)
         {
-            var issuer = "http://localhost:5121/index.html";
-            var audience = "http://localhost:5121/index.html";
-            var key = Encoding.UTF8.GetBytes("25xfWHTsdWIj5duLp0tw");
+            var issuer = _configuration.GetValue<string>("Jwt:Issuer");
+            var audience = _configuration.GetValue<string>("Jwt:Audience");
+            var key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key"));
 
-            var claims = new[]
+            var claims = new List<Claim>
             {
-                new Claim("Id", user.Id.ToString()),
-                new Claim("Username", user.Username),
-                new Claim("Email", user.Email)
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Email, user.Email),
             };
+
+            foreach (var role in user.Roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
