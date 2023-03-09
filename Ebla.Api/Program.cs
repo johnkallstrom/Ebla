@@ -4,9 +4,9 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddControllers();
-services.AddSwaggerServices();
-services.AddAuthenticationServices(configuration);
-services.AddAuthorization();
+services.ConfigureSwagger();
+services.ConfigureAuthentication(configuration);
+services.ConfigureAuthorization();
 services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
 services.AddApplicationServices();
@@ -22,9 +22,9 @@ if (app.Environment.IsDevelopment())
 await app.Services.InitializeIdentityData();
 
 app.UseRouting();
+app.UseSwagger();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseSwaggerConfigurations();
 app.MapControllers();
 
 app.Run();
