@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
 {
-    public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, DeleteLibraryCardCommandResponse>
+    public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, IResult>
     {
         private readonly IGenericRepository<LibraryCard> _genericRepository;
 
@@ -9,9 +9,9 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<DeleteLibraryCardCommandResponse> Handle(DeleteLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(DeleteLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var response = new DeleteLibraryCardCommandResponse();
+            var result = new Result();
 
             var validator = new DeleteLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -19,24 +19,22 @@
             if (validationResult.IsValid)
             {
                 var libraryCardToDelete = await _genericRepository.GetByIdAsync(request.Id);
-
-                if (libraryCardToDelete == null)
+                if (libraryCardToDelete is null)
                 {
-                    response.Errors.Add($"No library card with id: {request.Id} could be found");
-                    return response;
+                    throw new NotFoundException(nameof(libraryCardToDelete), request.Id);
                 }
 
                 _genericRepository.Delete(libraryCardToDelete);
                 await _genericRepository.SaveAsync();
 
-                response.Succeeded = true;
+                result.Success();
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
-            return response;
+            return result;
         }
     }
 }

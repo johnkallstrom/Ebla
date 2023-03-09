@@ -36,8 +36,7 @@
             }
             else
             {
-                var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-                result.Failure(errors);
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
             return result;

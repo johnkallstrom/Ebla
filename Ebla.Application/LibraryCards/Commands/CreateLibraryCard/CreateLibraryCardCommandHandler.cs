@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
 {
-    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, CreateLibraryCommandCardResponse>
+    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, IResult>
     {
         private readonly IMapper _mapper;
         private readonly IIdentityService _identityService;
@@ -19,9 +19,9 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<CreateLibraryCommandCardResponse> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var response = new CreateLibraryCommandCardResponse();
+            var result = new Result();
 
             var validator = new CreateLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -29,34 +29,28 @@
             if (validationResult.IsValid)
             {
                 var user = await _identityService.GetUserAsync(request.UserId);
-                if (user == null)
+                if (user is null)
                 {
-                    response.Errors.Add($"No user with id: {request.UserId} could be found");
-                    return response;
+                    throw new NotFoundException(nameof(user), request.UserId);
                 }
 
                 var libraryCard = await _repository.GetLibraryCardAsync(user.Id);
-                if (libraryCard != null)
+                if (libraryCard is null)
                 {
-                    response.Errors.Add($"A library card already exists on this user");
-                    return response;
+                    var libraryCardToAdd = _mapper.Map<LibraryCard>(request);
+                    libraryCardToAdd.CreatedOn = DateTime.Now;
+                    libraryCardToAdd.ExpiresOn = DateTime.Now.AddYears(1);
+
+                    await _genericRepository.AddAsync(libraryCardToAdd);
+                    await _genericRepository.SaveAsync();
                 }
-
-                var libraryCardToAdd = _mapper.Map<LibraryCard>(request);
-                libraryCardToAdd.CreatedOn = DateTime.Now;
-                libraryCardToAdd.ExpiresOn = DateTime.Now.AddYears(1);
-
-                await _genericRepository.AddAsync(libraryCardToAdd);
-                await _genericRepository.SaveAsync();
-
-                response.Succeeded = true;
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
-            return response;
+            return result;
         }
     }
 }

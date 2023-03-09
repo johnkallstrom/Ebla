@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
-    public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, UpdateLibraryCardCommandResponse>
+    public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, IResult>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<LibraryCard> _genericRepository;
@@ -13,9 +13,9 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<UpdateLibraryCardCommandResponse> Handle(UpdateLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(UpdateLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var response = new UpdateLibraryCardCommandResponse();
+            var result = new Result();
 
             var validator = new UpdateLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -23,11 +23,9 @@
             if (validationResult.IsValid)
             {
                 var libraryCardToUpdate = await _genericRepository.GetByIdAsync(request.Id);
-
-                if (libraryCardToUpdate == null)
+                if (libraryCardToUpdate is null)
                 {
-                    response.Errors.Add($"No library card with id: {request.Id} could be found");
-                    return response;
+                    throw new NotFoundException(nameof(libraryCardToUpdate), request.Id);
                 }
 
                 libraryCardToUpdate = _mapper.Map(request, libraryCardToUpdate);
@@ -36,14 +34,14 @@
                 _genericRepository.Update(libraryCardToUpdate);
                 await _genericRepository.SaveAsync();
 
-                response.Succeeded = true;
+                result.Success();
             }
             else
             {
-                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
             }
 
-            return response;
+            return result;
         }
     }
 }

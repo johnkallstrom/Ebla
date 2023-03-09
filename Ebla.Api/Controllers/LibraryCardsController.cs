@@ -30,11 +30,11 @@
         /// <param name="command"></param>a
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<CreateLibraryCommandCardResponse> Create([FromBody] CreateLibraryCardCommand command)
+        public async Task<IResult> Create([FromBody] CreateLibraryCardCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
 
         /// <summary>
@@ -43,11 +43,11 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut("update")]
-        public async Task<UpdateLibraryCardCommandResponse> Update([FromBody] UpdateLibraryCardCommand command)
+        public async Task<IResult> Update([FromBody] UpdateLibraryCardCommand command)
         {
-            var response = await _mediator.Send(command);
+            var result = await _mediator.Send(command);
 
-            return response;
+            return result;
         }
 
         /// <summary>
@@ -56,11 +56,11 @@
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("delete/{id}")]
-        public async Task<DeleteLibraryCardCommandResponse> Delete(int id)
+        public async Task<IResult> Delete(int id)
         {
-            var response = await _mediator.Send(new DeleteLibraryCardCommand { Id = id });
+            var result = await _mediator.Send(new DeleteLibraryCardCommand { Id = id });
 
-            return response;
+            return result;
         }
     }
 }
