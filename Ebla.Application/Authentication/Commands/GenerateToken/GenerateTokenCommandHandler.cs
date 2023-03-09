@@ -15,13 +15,19 @@
 
         public async Task<string> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
         {
-            var result = await _identityService.LoginAsync(request.Username, request.Password);
-            if (result.Succeeded)
-            {
-                var user = await _identityService.GetUserAsync(request.Username);
+            var validator = new GenerateTokenCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-                var token = _jwtProvider.GenerateToken(user);
-                return token;
+            if (validationResult.IsValid)
+            {
+                var loginResult = await _identityService.LoginAsync(request.Username, request.Password);
+                if (loginResult.Succeeded)
+                {
+                    var user = await _identityService.GetUserAsync(request.Username);
+
+                    var token = _jwtProvider.GenerateToken(user);
+                    return token;
+                }
             }
 
             return null;

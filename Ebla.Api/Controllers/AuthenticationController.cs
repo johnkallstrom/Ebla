@@ -1,5 +1,6 @@
 ﻿namespace Ebla.Api.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
