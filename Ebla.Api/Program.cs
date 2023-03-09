@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
 await app.Services.InitializeIdentityData();
 
 app.UseRouting();
-app.UseSwagger();
+app.UseCustomSwagger();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
