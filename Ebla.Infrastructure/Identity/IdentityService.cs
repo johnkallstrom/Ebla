@@ -19,7 +19,7 @@
             _roleManager = roleManager;
         }
 
-        public async Task CreateUserAsync(string username, string password, string[] roles)
+        public async Task<Guid> CreateUserAsync(string username, string password, string[] roles)
         {
             var user = new ApplicationUser
             {
@@ -46,13 +46,26 @@
                 var errors = result?.Errors?.Select(x => x.Description).ToList();
                 throw new Exception($"Failed to create user: {user.UserName} with following errors: {string.Join(", ", errors)}");
             }
+
+            return user.Id;
         }
 
         public async Task<List<UserDto>> GetAllUsersAsync()
         {
-            var userList = await _userManager.Users.ToListAsync();
+            var users = await _userManager.Users.ToListAsync();
 
-            return _mapper.Map<List<UserDto>>(userList);
+            var result = new List<UserDto>();
+            foreach (var user in users)
+            {
+                var roles = await GetUserRoles(user);
+
+                var mappedUser = _mapper.Map<UserDto>(user);
+                mappedUser.Roles = roles;
+
+                result.Add(mappedUser);
+            }
+
+            return result;
         }
 
         public async Task<UserDto> GetUserAsync(Guid userId)

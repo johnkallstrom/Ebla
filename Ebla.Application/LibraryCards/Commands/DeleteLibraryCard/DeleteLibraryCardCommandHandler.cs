@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
 {
-    public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, IResult>
+    public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, IResult<int>>
     {
         private readonly IGenericRepository<LibraryCard> _genericRepository;
 
@@ -9,9 +9,9 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<IResult> Handle(DeleteLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<IResult<int>> Handle(DeleteLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result();
+            var result = new Result<int>();
 
             var validator = new DeleteLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -27,6 +27,7 @@
                 _genericRepository.Delete(libraryCardToDelete);
                 await _genericRepository.SaveAsync();
 
+                result.Value = libraryCardToDelete.Id;
                 result.Success();
             }
             else

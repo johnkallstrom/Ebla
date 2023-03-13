@@ -29,6 +29,7 @@ global using Ebla.Application.Authentication.Commands.GenerateToken;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
-global using IResult = Ebla.Application.Common.Interfaces.IResult;
 global using Microsoft.AspNetCore.Authorization;
 global using Ebla.Api;
+global using Ebla.Application.Common.Interfaces;
+global using Ebla.Application.Loans.Commands.CreateLoan;

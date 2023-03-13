@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Loans.Commands.CreateLoan;
-
-namespace Ebla.Api.Controllers
+﻿namespace Ebla.Api.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
@@ -33,7 +31,7 @@ namespace Ebla.Api.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<IResult> Create([FromBody] CreateLoanCommand command)
+        public async Task<IResult<int>> Create([FromBody] CreateLoanCommand command)
         {
             var result = await _mediator.Send(command);
 

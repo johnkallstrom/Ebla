@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
-    public class UpdateLibraryCardCommand : IRequest<IResult>
+    public class UpdateLibraryCardCommand : IRequest<IResult<int>>
     {
         public int Id { get; set; }
         public int PersonalIdentificationNumber { get; set; }

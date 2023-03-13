@@ -43,7 +43,7 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<IResult> Create([FromBody] CreateUserCommand command)
+        public async Task<IResult<Guid>> Create([FromBody] CreateUserCommand command)
         {
             var result = await _mediator.Send(command);
 

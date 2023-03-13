@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
-    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, IResult>
+    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, IResult<int>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Reservation> _repository;
@@ -25,9 +25,9 @@
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<IResult> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
+        public async Task<IResult<int>> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result();
+            var result = new Result<int>();
 
             var validator = new CreateReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -67,6 +67,7 @@
                 await _repository.AddAsync(reservationToAdd);
                 await _repository.SaveAsync();
 
+                result.Value = reservationToAdd.Id;
                 result.Success();
             }
             else

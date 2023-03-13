@@ -1,9 +1,10 @@
 ﻿namespace Ebla.Application.Common.Models
 {
-    public class Result : IResult
+    public class Result<T> : IResult<T>
     {
         public bool Succeeded { get; set; }
         public string[] Errors { get; set; }
+        public T Value { get; set; }
 
         public void Failure(string[] errors)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Loans.Commands.CreateLoan
 {
-    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, IResult>
+    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, IResult<int>>
     {
         private readonly IReservationRepository _reservationRepository;
         private readonly ILoanRepository _loanRepository;
@@ -28,9 +28,9 @@
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<IResult> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
+        public async Task<IResult<int>> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result();
+            var result = new Result<int>();
 
             var validator = new CreateLoanCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -88,6 +88,7 @@
                 await _repository.AddAsync(loanToAdd);
                 await _repository.SaveAsync();
 
+                result.Value = loanToAdd.Id;
                 result.Success();
             }
             else

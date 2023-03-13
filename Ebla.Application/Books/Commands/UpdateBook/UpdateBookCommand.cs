@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands.UpdateBook
 {
-    public class UpdateBookCommand : IRequest<IResult>
+    public class UpdateBookCommand : IRequest<IResult<int>>
     {
         public int Id { get; set; }
         public string Title { get; set; }
