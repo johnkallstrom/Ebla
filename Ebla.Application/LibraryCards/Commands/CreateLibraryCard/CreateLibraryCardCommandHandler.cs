@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
 {
-    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, IResult<int>>
+    public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, Result<int>>
     {
         private readonly IMapper _mapper;
         private readonly IIdentityService _identityService;
@@ -19,10 +19,8 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<IResult<int>> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result<int>();
-
             var validator = new CreateLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -43,14 +41,13 @@
 
                     await _genericRepository.AddAsync(libraryCardToAdd);
                     await _genericRepository.SaveAsync();
+
+                    return Result<int>.Success(libraryCardToAdd.Id);
                 }
             }
-            else
-            {
-                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
-            }
 
-            return result;
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return Result<int>.Failure(errors);
         }
     }
 }

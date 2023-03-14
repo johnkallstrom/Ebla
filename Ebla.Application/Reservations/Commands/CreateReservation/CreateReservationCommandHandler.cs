@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
-    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, IResult<int>>
+    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, Result<int>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Reservation> _repository;
@@ -25,10 +25,8 @@
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<IResult<int>> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result<int>();
-
             var validator = new CreateReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -49,15 +47,13 @@
                 var libraryCard = await _libraryCardRepository.GetLibraryCardAsync(user.Id);
                 if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
                 {
-                    result.Failure(new[] { "No valid library card could be found on this user" });
-                    return result;
+                    return Result<int>.Failure(new[] { "Invalid library card" });
                 }
 
                 var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
                 if (reservation != null && reservation.ExpiresOn > DateTime.Now)
                 {
-                    result.Failure(new[] { "A reservation already exists" });
-                    return result;
+                    return Result<int>.Failure(new[] { "Reservation already exists" });
                 }
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
@@ -67,15 +63,11 @@
                 await _repository.AddAsync(reservationToAdd);
                 await _repository.SaveAsync();
 
-                result.Value = reservationToAdd.Id;
-                result.Success();
-            }
-            else
-            {
-                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
+                return Result<int>.Success(reservationToAdd.Id);
             }
 
-            return result;
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return Result<int>.Failure(errors);
         }
     }
 }

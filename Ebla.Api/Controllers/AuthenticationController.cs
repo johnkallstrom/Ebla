@@ -19,7 +19,7 @@
         /// <param name="password"></param>
         /// <returns></returns>
         [HttpPost("token")]
-        public async Task<IResult<string>> GenerateToken(string username, string password)
+        public async Task<Result<string>> GenerateToken(string username, string password)
         {
             var result = await _mediator.Send(new GenerateTokenCommand { Username = username, Password = password });
 

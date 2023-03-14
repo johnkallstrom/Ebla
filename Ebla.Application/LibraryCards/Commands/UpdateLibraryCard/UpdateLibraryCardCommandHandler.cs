@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
-    public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, IResult<int>>
+    public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, Result>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<LibraryCard> _genericRepository;
@@ -13,10 +13,8 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<IResult<int>> Handle(UpdateLibraryCardCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(UpdateLibraryCardCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result<int>();
-
             var validator = new UpdateLibraryCardCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -34,15 +32,11 @@
                 _genericRepository.Update(libraryCardToUpdate);
                 await _genericRepository.SaveAsync();
 
-                result.Value = libraryCardToUpdate.Id;
-                result.Success();
-            }
-            else
-            {
-                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
+                return Result.Success();
             }
 
-            return result;
+            var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
+            return Result.Failure(errors);
         }
     }
 }

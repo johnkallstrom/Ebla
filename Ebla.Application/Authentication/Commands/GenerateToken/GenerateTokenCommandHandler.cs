@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Authentication.Commands.GenerateToken
 {
-    public class GenerateTokenCommandHandler : IRequestHandler<GenerateTokenCommand, IResult<string>>
+    public class GenerateTokenCommandHandler : IRequestHandler<GenerateTokenCommand, Result<string>>
     {
         private readonly IIdentityService _identityService;
         private readonly IJwtProvider _jwtProvider;
@@ -13,10 +13,8 @@
             _identityService = identityService;
         }
 
-        public async Task<IResult<string>> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
+        public async Task<Result<string>> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result<string>();
-
             var validator = new GenerateTokenCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -28,16 +26,12 @@
                     var user = await _identityService.GetUserAsync(request.Username);
 
                     var token = _jwtProvider.GenerateToken(user);
-                    result.Value = token;
-                    result.Success();
+                    return Result<string>.Success(token);
                 }
             }
-            else
-            {
-                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
-            }
 
-            return result;
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return Result<string>.Failure(errors);
         }
     }
 }

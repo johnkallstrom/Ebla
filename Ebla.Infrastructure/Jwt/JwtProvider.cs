@@ -42,5 +42,16 @@
 
             return token;
         }
+
+        public async Task<bool> ValidateToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenValidationResult = await tokenHandler.ValidateTokenAsync(token, new TokenValidationParameters
+            {
+
+            });
+
+            return false;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands.UpdateBook
 {
-    public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand, IResult<int>>
+    public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand, Result>
     {
         private readonly IGenericRepository<Book> _repository;
         private readonly IMapper _mapper;
@@ -11,10 +11,8 @@
             _mapper = mapper;
         }
 
-        public async Task<IResult<int>> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
-            var result = new Result<int>();
-
             var validator = new UpdateBookCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -32,15 +30,11 @@
                 _repository.Update(bookToUpdate);
                 await _repository.SaveAsync();
 
-                result.Value = bookToUpdate.Id;
-                result.Success();
-            }
-            else
-            {
-                result.Failure(validationResult.Errors.Select(x => x.ErrorMessage).ToArray());
+                return Result.Success();
             }
 
-            return result;
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return Result.Failure(errors);
         }
     }
 }

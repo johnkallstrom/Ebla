@@ -31,7 +31,7 @@
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost("create")]
-        public async Task<IResult<int>> Create([FromBody] CreateLoanCommand command)
+        public async Task<Result<int>> Create([FromBody] CreateLoanCommand command)
         {
             var result = await _mediator.Send(command);
 

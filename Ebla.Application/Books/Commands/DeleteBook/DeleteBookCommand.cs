@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands.DeleteBook
 {
-    public class DeleteBookCommand : IRequest<IResult<int>>
+    public class DeleteBookCommand : IRequest<Result>
     {
         public int Id { get; set; }
     }
