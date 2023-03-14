@@ -6,10 +6,12 @@
     public class AuthenticationController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IJwtProvider _jwtProvider;
 
-        public AuthenticationController(IMediator mediator)
+        public AuthenticationController(IMediator mediator, IJwtProvider jwtProvider)
         {
             _mediator = mediator;
+            _jwtProvider = jwtProvider;
         }
 
         /// <summary>
@@ -23,6 +25,18 @@
         {
             var result = await _mediator.Send(new GenerateTokenCommand { Username = username, Password = password });
 
+            return result;
+        }
+
+        /// <summary>
+        /// Validate a jwt token
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [HttpPost("validate")]
+        public async Task<bool> ValidateToken(string token)
+        {
+            var result = await _jwtProvider.ValidateToken(token);
             return result;
         }
     }

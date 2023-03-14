@@ -3,18 +3,20 @@
     public class JwtProvider : IJwtProvider
     {
         private readonly IConfiguration _configuration;
+        private readonly string _issuer;
+        private readonly string _audience;
+        private readonly byte[] _key;
 
         public JwtProvider(IConfiguration configuration)
         {
             _configuration = configuration;
+            _issuer = _configuration.GetValue<string>("Jwt:Issuer");
+            _audience = _configuration.GetValue<string>("Jwt:Audience");
+            _key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key"));
         }
 
         public string GenerateToken(UserDto user)
         {
-            var issuer = _configuration.GetValue<string>("Jwt:Issuer");
-            var audience = _configuration.GetValue<string>("Jwt:Audience");
-            var key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key"));
-
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -27,13 +29,14 @@
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
 
+            var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature);
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddMinutes(60),
-                Issuer = issuer,
-                Audience = audience,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                Issuer = _issuer,
+                Audience = _audience,
+                SigningCredentials = signingCredentials
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -46,10 +49,26 @@
         public async Task<bool> ValidateToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenValidationResult = await tokenHandler.ValidateTokenAsync(token, new TokenValidationParameters
+            var validationResult = await tokenHandler.ValidateTokenAsync(token, new TokenValidationParameters
             {
-
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidateLifetime = true,
+                ValidIssuer = _issuer,
+                ValidAudience = _audience,
+                IssuerSigningKey = new SymmetricSecurityKey(_key),
             });
+
+            var validatedToken = validationResult.SecurityToken as JwtSecurityToken;
+            if (validatedToken != null)
+            {
+                var userId = validatedToken.Claims?.FirstOrDefault(x => x.Type == "nameid").Value;
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    return true;
+                }
+            }
 
             return false;
         }
