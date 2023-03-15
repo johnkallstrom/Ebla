@@ -7,7 +7,7 @@
         public string Token { get; set; }
 
         /// <summary>
-        /// Returns a success login result with token
+        /// Returns a success login result
         /// </summary>
         /// <returns></returns>
         public static LoginResult Success(string token)
