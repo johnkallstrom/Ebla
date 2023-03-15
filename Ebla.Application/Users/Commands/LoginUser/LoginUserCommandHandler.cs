@@ -1,21 +1,19 @@
-﻿namespace Ebla.Application.Authentication.Commands.GenerateToken
+﻿namespace Ebla.Application.Users.Commands.LoginUser
 {
-    public class GenerateTokenCommandHandler : IRequestHandler<GenerateTokenCommand, Result<string>>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, IResult>
     {
         private readonly IIdentityService _identityService;
         private readonly IJwtProvider _jwtProvider;
 
-        public GenerateTokenCommandHandler(
-            IJwtProvider jwtProvider, 
-            IIdentityService identityService)
+        public LoginUserCommandHandler(IIdentityService identityService, IJwtProvider jwtProvider)
         {
-            _jwtProvider = jwtProvider;
             _identityService = identityService;
+            _jwtProvider = jwtProvider;
         }
 
-        public async Task<Result<string>> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
+        public async Task<IResult> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
-            var validator = new GenerateTokenCommandValidator();
+            var validator = new LoginUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.IsValid)
@@ -26,12 +24,12 @@
                     var user = await _identityService.GetUserAsync(request.Username);
 
                     var token = _jwtProvider.GenerateToken(user);
-                    return Result<string>.Success(token);
+                    return LoginResult.Success(token);
                 }
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Result<string>.Failure(errors);
+            return LoginResult.Failure(errors);
         }
     }
 }

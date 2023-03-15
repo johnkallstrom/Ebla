@@ -13,6 +13,21 @@
         }
 
         /// <summary>
+        /// Login a user
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<IResult> Login(string username, string password)
+        {
+            var result = await _mediator.Send(new LoginUserCommand { Username = username, Password = password });
+
+            return result;
+        }
+
+        /// <summary>
         /// Get all users
         /// </summary>
         /// <returns></returns>
