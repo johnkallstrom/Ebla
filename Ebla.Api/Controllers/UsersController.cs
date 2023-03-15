@@ -20,7 +20,7 @@
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IResult> Login(string username, string password)
+        public async Task<LoginResult> Login(string username, string password)
         {
             var result = await _mediator.Send(new LoginUserCommand { Username = username, Password = password });
 

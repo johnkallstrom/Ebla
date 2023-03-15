@@ -102,17 +102,16 @@
             return null;
         }
 
-        public async Task<SignInResult> LoginAsync(string username, string password)
+        public async Task<bool> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
             {
-                throw new Exception($"Invalid credentials: {username}");
+                throw new NotFoundException($"Username '{username}' could not be found");
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
-
-            return result;
+            return result.Succeeded;
         }
 
         private async Task<string[]> GetUserRoles(ApplicationUser user)
