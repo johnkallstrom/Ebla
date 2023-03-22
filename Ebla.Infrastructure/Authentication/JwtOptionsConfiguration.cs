@@ -1,11 +1,11 @@
 ﻿namespace Ebla.Infrastructure.Authentication
 {
-    public class JwtOptionsSetup : IConfigureOptions<JwtOptions>
+    public class JwtOptionsConfiguration : IConfigureOptions<JwtOptions>
     {
         private const string Section = "Jwt";
         private readonly IConfiguration _configuration;
 
-        public JwtOptionsSetup(IConfiguration configuration)
+        public JwtOptionsConfiguration(IConfiguration configuration)
         {
             _configuration = configuration;
         }

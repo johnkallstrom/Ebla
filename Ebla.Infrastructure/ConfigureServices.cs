@@ -25,7 +25,7 @@
 
             services.AddTransient<IIdentityService, IdentityService>();
 
-            services.ConfigureOptions<JwtOptionsSetup>();
+            services.ConfigureOptions<JwtOptionsConfiguration>();
             services.AddTransient<IJwtProvider, JwtProvider>();
 
             return services;
