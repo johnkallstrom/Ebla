@@ -9,3 +9,4 @@
 - FluentValidation
 - AutoMapper
 - ASP.NET Core Identity
+- JWT
