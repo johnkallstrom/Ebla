@@ -35,7 +35,7 @@
             {
                 foreach (var role in roles)
                 {
-                    if (await _roleManager.FindByNameAsync(role) != null)
+                    if (await _roleManager.FindByNameAsync(role) is not null)
                     {
                         await _userManager.AddToRoleAsync(user, role);
                     }
@@ -112,6 +112,18 @@
 
             var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
             return result.Succeeded;
+        }
+
+        public async Task UpdateUserAsync(Guid userId, string email, string[] roles)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user is null)
+            {
+                throw new NotFoundException(nameof(user), userId);
+            }
+
+            user.Email = email;
+            await _userManager.UpdateAsync(user);
         }
 
         private async Task<string[]> GetUserRoles(ApplicationUser user)

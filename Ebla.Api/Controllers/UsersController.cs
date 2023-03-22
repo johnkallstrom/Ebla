@@ -64,5 +64,31 @@
 
             return result;
         }
+
+        /// <summary>
+        /// Update a user
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut("update")]
+        public async Task<Result> Update([FromBody] UpdateUserCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Delete a user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("delete/{id}")]
+        public async Task<Result> Delete(Guid id)
+        {
+            var result = await _mediator.Send(new DeleteUserCommand { Id = id });
+
+            return result;
+        }
     }
 }
