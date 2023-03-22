@@ -123,7 +123,18 @@
             }
 
             user.Email = email;
-            await _userManager.UpdateAsync(user);
+            
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                foreach (var role in roles)
+                {
+                    if (await _roleManager.RoleExistsAsync(role) && await _userManager.IsInRoleAsync(user, role) == false)
+                    {
+                        await _userManager.AddToRoleAsync(user, role);
+                    }
+                }
+            }
         }
 
         private async Task<string[]> GetUserRoles(ApplicationUser user)
