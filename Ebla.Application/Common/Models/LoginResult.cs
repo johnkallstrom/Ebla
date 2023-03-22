@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Common.Models
 {
-    public record LoginResult : IResult
+    public record LoginResult
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }

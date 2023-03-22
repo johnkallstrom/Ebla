@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Common.Models
 {
-    public record Result : IResult
+    public record Result
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
@@ -33,7 +33,7 @@
         }
     }
 
-    public record Result<T> : IResult<T>
+    public record Result<T>
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }

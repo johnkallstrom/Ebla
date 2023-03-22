@@ -24,6 +24,8 @@
             }).AddEntityFrameworkStores<EblaDbContext>();
 
             services.AddTransient<IIdentityService, IdentityService>();
+
+            services.ConfigureOptions<JwtOptionsSetup>();
             services.AddTransient<IJwtProvider, JwtProvider>();
 
             return services;

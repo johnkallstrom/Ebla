@@ -32,4 +32,3 @@ global using Microsoft.AspNetCore.Authorization;
 global using Ebla.Api;
 global using Ebla.Application.Loans.Commands.CreateLoan;
 global using Ebla.Application.Users.Commands.LoginUser;
-global using IResult = Ebla.Application.Common.Interfaces.IResult;

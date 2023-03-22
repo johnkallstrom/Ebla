@@ -2,17 +2,11 @@
 {
     public class JwtProvider : IJwtProvider
     {
-        private readonly IConfiguration _configuration;
-        private readonly string _issuer;
-        private readonly string _audience;
-        private readonly byte[] _key;
+        private readonly JwtOptions _options;
 
-        public JwtProvider(IConfiguration configuration)
+        public JwtProvider(IOptions<JwtOptions> options)
         {
-            _configuration = configuration;
-            _issuer = _configuration.GetValue<string>("Jwt:Issuer");
-            _audience = _configuration.GetValue<string>("Jwt:Audience");
-            _key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key"));
+            _options = options.Value;
         }
 
         public string GenerateToken(UserDto user)
@@ -29,13 +23,15 @@
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
 
-            var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature);
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Key));
+            var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddMinutes(60),
-                Issuer = _issuer,
-                Audience = _audience,
+                Issuer = _options.Issuer,
+                Audience = _options.Audience,
                 SigningCredentials = signingCredentials
             };
 
@@ -55,9 +51,9 @@
                 ValidateAudience = true,
                 ValidateIssuerSigningKey = true,
                 ValidateLifetime = true,
-                ValidIssuer = _issuer,
-                ValidAudience = _audience,
-                IssuerSigningKey = new SymmetricSecurityKey(_key),
+                ValidIssuer = _options.Issuer,
+                ValidAudience = _options.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Key)),
             });
 
             var validatedToken = validationResult.SecurityToken as JwtSecurityToken;
