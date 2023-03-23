@@ -2,11 +2,7 @@
 
 ### Technologies
 
-- .NET 7.0
+- .NET
 - CQRS
 - MediatR
 - Clean Architecture
-- FluentValidation
-- AutoMapper
-- ASP.NET Core Identity
-- JWT
