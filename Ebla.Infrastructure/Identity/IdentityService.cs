@@ -19,7 +19,7 @@
             _roleManager = roleManager;
         }
 
-        public async Task<Guid> CreateUserAsync(string username, string password, string[] roles)
+        public async Task<Guid> CreateUserAsync(string username, string password, string[] rolesToAdd)
         {
             var user = new ApplicationUser
             {
@@ -33,7 +33,7 @@
             var result = await _userManager.CreateAsync(user);
             if (result.Succeeded)
             {
-                foreach (var role in roles)
+                foreach (var role in rolesToAdd)
                 {
                     if (await _roleManager.FindByNameAsync(role) is not null)
                     {
@@ -114,7 +114,7 @@
             return result.Succeeded;
         }
 
-        public async Task UpdateUserAsync(Guid userId, string email, string[] roles)
+        public async Task UpdateUserAsync(Guid userId, string email, string[] updatedRoleList)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             if (user is null)
@@ -127,9 +127,22 @@
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                foreach (var role in roles)
+                var currentRoles = await _userManager.GetRolesAsync(user);
+
+                var rolesToRemove = currentRoles.Except(updatedRoleList).ToList();
+                var rolesToAdd = updatedRoleList.Except(currentRoles).ToList();
+
+                foreach (var role in rolesToRemove)
                 {
-                    if (await _roleManager.RoleExistsAsync(role) && await _userManager.IsInRoleAsync(user, role) == false)
+                    if (await _roleManager.RoleExistsAsync(role))
+                    {
+                        await _userManager.RemoveFromRoleAsync(user, role);
+                    }
+                }
+
+                foreach (var role in rolesToAdd)
+                {
+                    if (await _roleManager.RoleExistsAsync(role))
                     {
                         await _userManager.AddToRoleAsync(user, role);
                     }
