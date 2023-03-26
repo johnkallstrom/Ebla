@@ -2,9 +2,26 @@
 {
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Result>
     {
-        public Task<Result> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        private readonly IIdentityService _identityService;
+
+        public DeleteUserCommandHandler(IIdentityService identityService)
         {
-            throw new NotImplementedException();
+            _identityService = identityService;
+        }
+
+        public async Task<Result> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        {
+            var validator = new DeleteUserCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult.IsValid)
+            {
+                await _identityService.DeleteUserAsync(request.Id);
+                return Result.Success();
+            }
+
+            var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
+            return Result.Failure(errors);
         }
     }
 }

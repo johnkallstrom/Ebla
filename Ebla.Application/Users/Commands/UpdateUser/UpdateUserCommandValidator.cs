@@ -4,6 +4,7 @@
     {
         public UpdateUserCommandValidator()
         {
+            RuleFor(x => x.Id).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
             RuleFor(x => x.Email).EmailAddress().WithMessage("Please enter a valid {PropertyName}");
         }
     }

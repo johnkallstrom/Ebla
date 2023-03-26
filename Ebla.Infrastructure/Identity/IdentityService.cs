@@ -50,6 +50,17 @@
             return user.Id;
         }
 
+        public async Task DeleteUserAsync(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user is null)
+            {
+                throw new NotFoundException(nameof(user), userId);
+            }
+
+            await _userManager.DeleteAsync(user);
+        }
+
         public async Task<List<UserDto>> GetAllUsersAsync()
         {
             var users = await _userManager.Users.ToListAsync();
