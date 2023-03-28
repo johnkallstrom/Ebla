@@ -35,8 +35,9 @@
 
             services.AddAuthorization(options =>
             {
-                options.AddDefaultAuthorizationPolicy();
+                options.AddDefaultPolicy();
                 options.AddFullAccessPolicy();
+                options.AddReadAccessPolicy();
             });
 
             return services;

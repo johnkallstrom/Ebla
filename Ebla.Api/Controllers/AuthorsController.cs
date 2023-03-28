@@ -1,6 +1,5 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize(Policy = Policies.FullAccess)]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorsController : ControllerBase
@@ -17,6 +16,7 @@
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Policy = Policies.FullAccess)]
         public async Task<IEnumerable<AuthorDto>> GetAll()
         {
             var authors = await _mediator.Send(new GetAuthorsQuery());

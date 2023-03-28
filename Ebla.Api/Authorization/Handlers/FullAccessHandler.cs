@@ -1,44 +1,31 @@
-﻿using Ebla.Application.Common.Interfaces;
-
-namespace Ebla.Api.Authorization.Handlers
+﻿namespace Ebla.Api.Authorization.Handlers
 {
     public class FullAccessHandler : AuthorizationHandler<FullAccessRequirement>
     {
         private readonly IJwtProvider _jwtProvider;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public FullAccessHandler(IJwtProvider jwtProvider)
+        public FullAccessHandler(IJwtProvider jwtProvider, IHttpContextAccessor httpContextAccessor)
         {
             _jwtProvider = jwtProvider;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         protected async override Task HandleRequirementAsync(AuthorizationHandlerContext context, FullAccessRequirement requirement)
         {
             var user = context.User;
+            var httpContext = _httpContextAccessor.HttpContext;
 
-            var httpContext = context.Resource as HttpContext;
-            if (httpContext is null)
+            var authorizationHeader = httpContext.Request.Headers["Authorization"];
+            if (!string.IsNullOrEmpty(authorizationHeader))
             {
-                context.Fail();
-                return;
-            }
+                var token = authorizationHeader.ToString().Split(" ").FirstOrDefault(x => !x.Equals("Bearer"));
+                var tokenValidationResult = await _jwtProvider.ValidateToken(token);
 
-            var authorizationHeader = httpContext.Request.Headers.Authorization.ToString();
-            if (string.IsNullOrEmpty(authorizationHeader))
-            {
-                context.Fail();
-                return;
-            }
-
-            var token = authorizationHeader.Split(" ").FirstOrDefault(x => !x.Equals("Bearer"));
-            var tokenValidationResult = await _jwtProvider.ValidateToken(token);
-
-            if (tokenValidationResult.Succeeded && user.IsInRole("Administrator"))
-            {
-                context.Succeed(requirement);
-            }
-            else
-            {
-                context.Fail();
+                if (tokenValidationResult.Succeeded && user.IsInRole("Administrator"))
+                {
+                    context.Succeed(requirement);
+                }
             }
         }
     }

@@ -2,19 +2,31 @@
 {
     public class ReadAccessHandler : AuthorizationHandler<ReadAccessRequirement>
     {
-        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ReadAccessRequirement requirement)
+        private readonly IJwtProvider _jwtProvider;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ReadAccessHandler(IJwtProvider jwtProvider, IHttpContextAccessor httpContextAccessor)
+        {
+            _jwtProvider = jwtProvider;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        protected async override Task HandleRequirementAsync(AuthorizationHandlerContext context, ReadAccessRequirement requirement)
         {
             var user = context.User;
-            if (user.IsInRole("Administrator") || user.IsInRole("User"))
-            {
-                context.Succeed(requirement);
-            }
-            else
-            {
-                context.Fail();
-            }
+            var httpContext = _httpContextAccessor.HttpContext;
 
-            return Task.CompletedTask;
+            var authorizationHeader = httpContext.Request.Headers["Authorization"];
+            if (!string.IsNullOrEmpty(authorizationHeader))
+            {
+                var token = authorizationHeader.ToString().Split(" ").FirstOrDefault(x => !x.Equals("Bearer"));
+                var tokenValidationResult = await _jwtProvider.ValidateToken(token);
+
+                if (tokenValidationResult.Succeeded && (user.IsInRole("User") || user.IsInRole("Administrator")))
+                {
+                    context.Succeed(requirement);
+                }
+            }
         }
     }
 }

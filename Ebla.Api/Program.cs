@@ -4,6 +4,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddControllers();
+services.AddHttpContextAccessor();
 services.ConfigureSwagger();
 services.ConfigureAuthentication(configuration);
 services.ConfigureAuthorization();

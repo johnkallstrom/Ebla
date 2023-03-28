@@ -2,7 +2,7 @@
 {
     public static class ConfigureAuthorizationOptions
     {
-        public static AuthorizationOptions AddDefaultAuthorizationPolicy(this AuthorizationOptions options)
+        public static AuthorizationOptions AddDefaultPolicy(this AuthorizationOptions options)
         {
             options.DefaultPolicy = new AuthorizationPolicyBuilder()
                 .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
@@ -16,6 +16,16 @@
         {
             options.AddPolicy(Policies.FullAccess, new AuthorizationPolicyBuilder()
                 .AddRequirements(new FullAccessRequirement())
+                .RequireAuthenticatedUser()
+                .Build());
+
+            return options;
+        }
+
+        public static AuthorizationOptions AddReadAccessPolicy(this AuthorizationOptions options)
+        {
+            options.AddPolicy(Policies.ReadAccess, new AuthorizationPolicyBuilder()
+                .AddRequirements(new ReadAccessRequirement())
                 .RequireAuthenticatedUser()
                 .Build());
 
