@@ -1,4 +1,6 @@
-﻿namespace Ebla.Infrastructure.Jwt
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Ebla.Infrastructure.Jwt
 {
     public class JwtProvider : IJwtProvider
     {
@@ -42,7 +44,7 @@
             return token;
         }
 
-        public async Task<bool> ValidateToken(string token)
+        public async Task<Result> ValidateToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var validationResult = await tokenHandler.ValidateTokenAsync(token, new TokenValidationParameters
@@ -62,11 +64,11 @@
                 var userId = validatedToken.Claims?.FirstOrDefault(x => x.Type == "nameid").Value;
                 if (!string.IsNullOrEmpty(userId))
                 {
-                    return true;
+                    return Result.Success();
                 }
             }
 
-            return false;
+            return Result.Failure(new[] { validationResult.Exception.Message });
         }
     }
 }

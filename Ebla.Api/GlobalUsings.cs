@@ -34,3 +34,6 @@ global using Ebla.Application.Loans.Commands.CreateLoan;
 global using Ebla.Application.Users.Commands.LoginUser;
 global using Ebla.Application.Users.Commands.DeleteUser;
 global using Ebla.Application.Users.Commands.UpdateUser;
+global using Ebla.Api.Authorization;
+global using Ebla.Api.Authorization.Requirements;
+global using Ebla.Api.Authorization.Handlers;

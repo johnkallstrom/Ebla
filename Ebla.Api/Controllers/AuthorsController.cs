@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = Policies.FullAccess)]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorsController : ControllerBase

@@ -3,6 +3,6 @@
     public interface IJwtProvider
     {
         string GenerateToken(UserDto user);
-        Task<bool> ValidateToken(string token);
+        Task<Result> ValidateToken(string token);
     }
 }

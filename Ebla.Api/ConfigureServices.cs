@@ -29,9 +29,14 @@
 
         public static IServiceCollection ConfigureAuthorization(this IServiceCollection services)
         {
+            services.AddTransient<IAuthorizationHandler, FullAccessHandler>();
+            services.AddTransient<IAuthorizationHandler, WriteAccessHandler>();
+            services.AddTransient<IAuthorizationHandler, ReadAccessHandler>();
+
             services.AddAuthorization(options =>
             {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder(new[] { JwtBearerDefaults.AuthenticationScheme }).RequireAuthenticatedUser().Build();
+                options.AddDefaultAuthorizationPolicy();
+                options.AddFullAccessPolicy();
             });
 
             return services;
