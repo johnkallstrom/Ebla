@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
+    [CustomAuthorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorsController : ControllerBase

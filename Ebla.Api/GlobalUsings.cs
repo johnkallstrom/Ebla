@@ -34,3 +34,4 @@ global using Ebla.Application.Loans.Commands.CreateLoan;
 global using Ebla.Application.Users.Commands.LoginUser;
 global using Ebla.Application.Users.Commands.DeleteUser;
 global using Ebla.Application.Users.Commands.UpdateUser;
+global using Microsoft.AspNetCore.Mvc.Filters;
