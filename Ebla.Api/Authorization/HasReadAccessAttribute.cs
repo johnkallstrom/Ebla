@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace Ebla.Api.Authorization
+﻿namespace Ebla.Api.Authorization
 {
     public class HasReadAccessAttribute : Attribute, IAuthorizationFilter
     {
