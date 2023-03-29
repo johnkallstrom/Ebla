@@ -1,6 +1,5 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GenresController : ControllerBase
@@ -16,6 +15,7 @@
         /// Get all genres
         /// </summary>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet]
         public async Task<IEnumerable<GenreDto>> GetAll()
         {

@@ -1,6 +1,5 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReviewsController : ControllerBase
@@ -17,6 +16,7 @@
         /// </summary>
         /// <param name="bookId"></param>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet("{bookId:int}")]
         public async Task<IEnumerable<ReviewDto>> GetByBookId(int bookId)
         {
@@ -30,6 +30,7 @@
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet("{userId:guid}")]
         public async Task<IEnumerable<ReviewDto>> GetByUserId(Guid userId)
         {

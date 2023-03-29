@@ -1,6 +1,5 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
@@ -16,6 +15,7 @@
         /// Get all books
         /// </summary>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet]
         public async Task<IEnumerable<BookDto>> GetAll()
         {
@@ -29,6 +29,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet("{id}")]
         public async Task<BookDto> GetById(int id)
         {
@@ -42,6 +43,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpPost("create")]
         public async Task<Result<int>> Create([FromBody] CreateBookCommand command)
         {
@@ -55,6 +57,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpPut("update")]
         public async Task<Result> Update([FromBody] UpdateBookCommand command)
         {
@@ -68,6 +71,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpDelete("delete/{id}")]
         public async Task<Result> Delete(int id)
         {

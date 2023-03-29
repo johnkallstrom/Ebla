@@ -1,6 +1,5 @@
 ﻿namespace Ebla.Api.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -31,6 +30,7 @@
         /// Get all users
         /// </summary>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet]
         public async Task<IEnumerable<UserDto>> GetAll()
         {
@@ -44,6 +44,7 @@
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [HasReadAccess]
         [HttpGet("{userId}")]
         public async Task<UserDto> GetById(Guid userId)
         {
@@ -57,6 +58,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpPost("create")]
         public async Task<Result<Guid>> Create([FromBody] CreateUserCommand command)
         {
@@ -70,6 +72,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpPut("update")]
         public async Task<Result> Update([FromBody] UpdateUserCommand command)
         {
@@ -83,6 +86,7 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HasWriteAccess]
         [HttpDelete("delete/{id}")]
         public async Task<Result> Delete(Guid id)
         {
