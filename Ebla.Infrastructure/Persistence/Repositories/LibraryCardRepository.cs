@@ -12,10 +12,6 @@
         public async Task<LibraryCard> GetLibraryCardAsync(Guid userId)
         {
             var libraryCard = await _context.LibraryCards.FirstOrDefaultAsync(x => x.UserId == userId);
-            if (libraryCard is null)
-            {
-                throw new NotFoundException(nameof(libraryCard), userId);
-            }
 
             return libraryCard;
         }
