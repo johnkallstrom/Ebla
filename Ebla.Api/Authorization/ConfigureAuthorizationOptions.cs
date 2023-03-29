@@ -12,16 +12,6 @@
             return options;
         }
 
-        public static AuthorizationOptions AddFullAccessPolicy(this AuthorizationOptions options)
-        {
-            options.AddPolicy(Policies.FullAccess, new AuthorizationPolicyBuilder()
-                .AddRequirements(new FullAccessRequirement())
-                .RequireAuthenticatedUser()
-                .Build());
-
-            return options;
-        }
-
         public static AuthorizationOptions AddWriteAccessPolicy(this AuthorizationOptions options)
         {
             options.AddPolicy(Policies.WriteAccess, new AuthorizationPolicyBuilder()

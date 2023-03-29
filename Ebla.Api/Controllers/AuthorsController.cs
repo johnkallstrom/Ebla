@@ -16,7 +16,7 @@
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Policy = Policies.FullAccess)]
+        [Authorize(Policy = Policies.ReadAccess)]
         public async Task<IEnumerable<AuthorDto>> GetAll()
         {
             var authors = await _mediator.Send(new GetAuthorsQuery());

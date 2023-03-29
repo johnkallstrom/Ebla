@@ -29,15 +29,14 @@
 
         public static IServiceCollection ConfigureAuthorization(this IServiceCollection services)
         {
-            services.AddTransient<IAuthorizationHandler, FullAccessHandler>();
-            services.AddTransient<IAuthorizationHandler, WriteAccessHandler>();
             services.AddTransient<IAuthorizationHandler, ReadAccessHandler>();
+            services.AddTransient<IAuthorizationHandler, WriteAccessHandler>();
 
             services.AddAuthorization(options =>
             {
                 options.AddDefaultPolicy();
-                options.AddFullAccessPolicy();
                 options.AddReadAccessPolicy();
+                options.AddWriteAccessPolicy();
             });
 
             return services;
