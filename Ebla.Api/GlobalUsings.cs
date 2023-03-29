@@ -38,3 +38,4 @@ global using Ebla.Api.Authorization;
 global using Ebla.Api.Authorization.Requirements;
 global using Ebla.Api.Authorization.Handlers;
 global using Ebla.Application.Common.Interfaces;
+global using Ebla.Api.Middleware;

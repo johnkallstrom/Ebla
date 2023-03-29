@@ -26,6 +26,7 @@ app.UseRouting();
 app.UseCustomSwagger();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseJwtMiddleware();
 app.MapControllers();
 
 app.Run();

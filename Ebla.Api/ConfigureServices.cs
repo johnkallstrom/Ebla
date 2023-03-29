@@ -29,14 +29,14 @@
 
         public static IServiceCollection ConfigureAuthorization(this IServiceCollection services)
         {
-            services.AddTransient<IAuthorizationHandler, ReadAccessHandler>();
-            services.AddTransient<IAuthorizationHandler, WriteAccessHandler>();
+            var defaultPolicy = new AuthorizationPolicyBuilder()
+                .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                .RequireAuthenticatedUser()
+                .Build();
 
             services.AddAuthorization(options =>
             {
-                options.DefaultPolicy = AuthorizationPolicyHelper.BuildDefaultPolicy();
-                options.AddPolicy(Policies.ReadAccess, AuthorizationPolicyHelper.BuildReadAccessPolicy());
-                options.AddPolicy(Policies.WriteAccess, AuthorizationPolicyHelper.BuildWriteAccessPolicy());
+                options.DefaultPolicy = defaultPolicy;
             });
 
             return services;
@@ -89,6 +89,13 @@
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Ebla Api");
                 options.RoutePrefix = string.Empty;
             });
+
+            return app;
+        }
+
+        public static IApplicationBuilder UseJwtMiddleware(this IApplicationBuilder app)
+        {
+            app.UseMiddleware<JwtMiddleware>();
 
             return app;
         }
