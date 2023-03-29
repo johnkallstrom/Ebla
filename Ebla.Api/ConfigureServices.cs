@@ -34,9 +34,9 @@
 
             services.AddAuthorization(options =>
             {
-                options.AddDefaultPolicy();
-                options.AddReadAccessPolicy();
-                options.AddWriteAccessPolicy();
+                options.DefaultPolicy = AuthorizationPolicyHelper.BuildDefaultPolicy();
+                options.AddPolicy(Policies.ReadAccess, AuthorizationPolicyHelper.BuildReadAccessPolicy());
+                options.AddPolicy(Policies.WriteAccess, AuthorizationPolicyHelper.BuildWriteAccessPolicy());
             });
 
             return services;
