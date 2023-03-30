@@ -17,10 +17,12 @@
         {
             var authenticationHeader = context.Request.Headers.Authorization;
             var token = authenticationHeader.ToString().Split(" ").LastOrDefault();
-
-            var userId = await _jwtProvider.ValidateToken(token);
-            var user = await identityService.GetUserAsync(userId);
-            context.Items["User"] = user;
+            if (!string.IsNullOrEmpty(token))
+            {
+                var userId = await _jwtProvider.ValidateToken(token);
+                var user = await identityService.GetUserAsync(userId);
+                context.Items["User"] = user;
+            }
 
             await _next(context);
         }
