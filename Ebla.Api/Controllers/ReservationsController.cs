@@ -38,5 +38,20 @@
 
             return result;
         }
+
+        /// <summary>
+        /// Delete a reservation
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HasWriteAccess]
+        [HttpDelete("delete/{id}")]
+        public async Task<Result> Delete(int id)
+        {
+            var result = await _mediator.Send(new DeleteReservationCommand { Id = id });
+
+            return result;
+        }
+
     }
 }
