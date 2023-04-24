@@ -44,7 +44,7 @@
                     throw new NotFoundException(nameof(book), request.BookId);
                 }
 
-                if (!await _libraryCardRepository.CheckValidLibraryCardExists(user.Id))
+                if (!await _libraryCardRepository.HasValidLibraryCard(user.Id))
                 {
                     return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }

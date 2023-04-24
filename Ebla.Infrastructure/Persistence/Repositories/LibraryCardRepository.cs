@@ -9,7 +9,7 @@
             _context = context;
         }
 
-        public async Task<bool> CheckValidLibraryCardExists(Guid userId)
+        public async Task<bool> HasValidLibraryCard(Guid userId)
         {
             return await _context.LibraryCards.AnyAsync(x => x.UserId == userId && x.ExpiresOn >= DateTime.Now);
         }
