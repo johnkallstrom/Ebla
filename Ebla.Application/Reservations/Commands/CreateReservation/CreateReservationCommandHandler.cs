@@ -44,10 +44,9 @@
                     throw new NotFoundException(nameof(book), request.BookId);
                 }
 
-                var libraryCard = await _libraryCardRepository.GetLibraryCardAsync(user.Id);
-                if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
+                if (!await _libraryCardRepository.CheckValidLibraryCardExists(user.Id))
                 {
-                    return Result<int>.Failure(new[] { "Invalid library card" });
+                    return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
                 var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
