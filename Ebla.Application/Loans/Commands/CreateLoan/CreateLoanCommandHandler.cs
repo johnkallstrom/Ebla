@@ -53,16 +53,16 @@
                     return Result<int>.Failure(new[] { $"Invalid library on user with id: {user.Id}" });
                 }
 
-                var loan = await _loanRepository.GetLoanByBookIdAsync(book.Id);
-                if (loan != null)
+                var activeLoans = await _loanRepository.GetActiveLoansByBookIdAsync(book.Id);
+                if (activeLoans != null && activeLoans.Count() > 0)
                 {
-                    return Result<int>.Failure(new[] { $"Loan already exists on book with id: {book.Id}" });
+                    return Result<int>.Failure(new[] { $"There is active loans that has not yet been returned on book with id {book.Id}" });
                 }
 
-                var userLoans = await _loanRepository.GetLoanListByUserIdAsync(user.Id);
-                if (userLoans != null && userLoans.Count() >= 5)
+                var activeUserLoans = await _loanRepository.GetActiveLoansByUserIdAsync(user.Id);
+                if (activeUserLoans != null && activeUserLoans.Count() >= 5)
                 {
-                    return Result<int>.Failure(new[] { $"The user with id: {user.Id} have reached maximum amount of loans" });
+                    return Result<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
                 }
 
                 var loanToAdd = _mapper.Map<Loan>(request);

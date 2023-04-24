@@ -15,7 +15,7 @@
 
         public async Task<IEnumerable<LoanDto>> Handle(GetLoansByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var loans = await _repository.GetLoanListByUserIdAsync(request.UserId);
+            var loans = await _repository.GetActiveLoansByUserIdAsync(request.UserId);
 
             return _mapper.Map<IEnumerable<LoanDto>>(loans);
         }
