@@ -49,10 +49,10 @@
                     return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
-                var reservation = await _reservationRepository.GetReservationAsync(user.Id, book.Id);
-                if (reservation != null && reservation.ExpiresOn > DateTime.Now)
+                var userReservations = await _reservationRepository.GetReservationListByUserIdAsync(user.Id);
+                if (userReservations != null && userReservations.Any(x => x.BookId == book.Id))
                 {
-                    return Result<int>.Failure(new[] { "Reservation already exists" });
+                    return Result<int>.Failure(new[] { $"A reservation on this book already exists by user with id: {user.Id}" });
                 }
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);

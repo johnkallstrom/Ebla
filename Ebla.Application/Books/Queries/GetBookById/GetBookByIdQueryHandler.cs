@@ -15,6 +15,11 @@
         {
             var book = await _repository.GetBookByIdAsync(request.Id);
 
+            if (book is null)
+            {
+                throw new NotFoundException(nameof(book), request.Id);
+            }
+
             return _mapper.Map<BookDto>(book);
         }
     }

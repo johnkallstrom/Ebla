@@ -17,6 +17,11 @@
         {
             var libraryCard = await _repository.GetLibraryCardAsync(request.UserId);
 
+            if (libraryCard is null)
+            {
+                throw new NotFoundException(nameof(libraryCard), request.UserId);
+            }
+
             return _mapper.Map<LibraryCardDto>(libraryCard);
         }
     }
