@@ -50,19 +50,19 @@
                 var libraryCard = await _libraryCardRepository.GetLibraryCardAsync(user.Id);
                 if (libraryCard == null || libraryCard.ExpiresOn < DateTime.Now)
                 {
-                    return Result<int>.Failure(new[] { "Invalid library card" });
+                    return Result<int>.Failure(new[] { $"Invalid library on user with id: {user.Id}" });
                 }
 
                 var loan = await _loanRepository.GetLoanByBookIdAsync(book.Id);
                 if (loan != null)
                 {
-                    return Result<int>.Failure(new[] { "Loan already exists" });
+                    return Result<int>.Failure(new[] { $"Loan already exists on book with id: {book.Id}" });
                 }
 
                 var userLoans = await _loanRepository.GetLoanListByUserIdAsync(user.Id);
                 if (userLoans != null && userLoans.Count() >= 5)
                 {
-                    return Result<int>.Failure(new[] { "User has reached maximum amount of loans" });
+                    return Result<int>.Failure(new[] { $"The user with id: {user.Id} have reached maximum amount of loans" });
                 }
 
                 var loanToAdd = _mapper.Map<Loan>(request);
