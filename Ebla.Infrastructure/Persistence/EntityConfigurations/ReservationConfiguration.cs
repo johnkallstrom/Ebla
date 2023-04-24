@@ -12,21 +12,6 @@
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");
             builder.Property(x => x.UserId).HasColumnName("UserId");
-
-            var reservations = new List<Reservation>
-            {
-                new Reservation
-                {
-                    Id = 1,
-                    ExpiresOn = DateTime.Now.AddDays(14),
-                    CreatedOn = DateTime.Now,
-                    LastModified = null,
-                    BookId = 3,
-                    UserId = null
-                },
-            };
-
-            builder.HasData(reservations);
         }
     }
 }
