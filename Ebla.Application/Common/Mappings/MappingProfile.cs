@@ -23,6 +23,8 @@
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
 
             CreateMap<CreateReservationCommand, Reservation>();
+            CreateMap<UpdateReservationCommand, Reservation>();
+
             CreateMap<CreateLoanCommand, Loan>();
         }
     }

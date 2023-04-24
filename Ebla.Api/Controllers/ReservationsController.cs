@@ -1,4 +1,6 @@
-﻿namespace Ebla.Api.Controllers
+﻿using Ebla.Application.Reservations.Commands.UpdateReservation;
+
+namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -33,6 +35,20 @@
         [HasWriteAccess]
         [HttpPost("create")]
         public async Task<Result<int>> Create([FromBody] CreateReservationCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Update a reservation
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HasWriteAccess]
+        [HttpPut]
+        public async Task<Result> Update([FromBody] UpdateReservationCommand command)
         {
             var result = await _mediator.Send(command);
 
