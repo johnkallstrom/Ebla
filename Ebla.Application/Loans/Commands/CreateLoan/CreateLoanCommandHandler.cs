@@ -52,13 +52,13 @@
                     return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
-                var activeLoans = await _loanRepository.GetActiveLoansByBookIdAsync(book.Id);
-                if (activeLoans != null && activeLoans.Count() > 0)
+                var activeLoan = await _loanRepository.GetLoanByBookIdAsync(book.Id, returned: false);
+                if (activeLoan != null)
                 {
-                    return Result<int>.Failure(new[] { $"There is active loans that has not yet been returned on book with id {book.Id}" });
+                    return Result<int>.Failure(new[] { $"The book with id: {book.Id} is not available" });
                 }
 
-                var activeUserLoans = await _loanRepository.GetActiveLoansByUserIdAsync(user.Id);
+                var activeUserLoans = await _loanRepository.GetLoansByUserIdAsync(user.Id, returned: false);
                 if (activeUserLoans != null && activeUserLoans.Count() >= 5)
                 {
                     return Result<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
@@ -66,16 +66,7 @@
 
                 var loanToAdd = _mapper.Map<Loan>(request);
                 loanToAdd.CreatedOn = DateTime.Now;
-
-                var reservations = await _reservationRepository.GetReservationListByBookIdAsync(book.Id);
-                if (reservations != null && reservations.Count() >= 2)
-                {
-                    loanToAdd.DueDate = DateTime.Now.AddDays(14);
-                }
-                else
-                {
-                    loanToAdd.DueDate = DateTime.Now.AddMonths(1);
-                }
+                loanToAdd.DueDate = DateTime.Now.AddMonths(1);
 
                 await _repository.AddAsync(loanToAdd);
                 await _repository.SaveAsync();

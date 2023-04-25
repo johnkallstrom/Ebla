@@ -38,5 +38,34 @@
 
             return result;
         }
+
+
+        /// <summary>
+        /// Update a loan
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HasWriteAccess]
+        [HttpPut("update")]
+        public async Task<Result> Update([FromBody] UpdateLoanCommand command)
+        {
+            var result = await _mediator.Send(command);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Delete a loan
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HasWriteAccess]
+        [HttpDelete("delete/{id}")]
+        public async Task<Result> Delete(int id)
+        {
+            var result = await _mediator.Send(new DeleteLoanCommand { Id = id });
+
+            return result;
+        }
     }
 }

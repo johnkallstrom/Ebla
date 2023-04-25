@@ -40,3 +40,6 @@ global using Ebla.Api.Middleware;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using Ebla.Application.Reservations.Commands.DeleteReservation;
 global using Ebla.Application.Reservations.Commands.UpdateReservation;
+global using Ebla.Application.Loans.Commands.DeleteLoan;
+global using Ebla.Application.Loans.Commands.UpdateLoan;
+

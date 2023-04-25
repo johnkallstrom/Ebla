@@ -26,6 +26,7 @@
             CreateMap<UpdateReservationCommand, Reservation>();
 
             CreateMap<CreateLoanCommand, Loan>();
+            CreateMap<UpdateLoanCommand, Loan>();
         }
     }
 }
