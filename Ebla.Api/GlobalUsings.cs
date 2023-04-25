@@ -39,3 +39,4 @@ global using Ebla.Application.Common.Interfaces;
 global using Ebla.Api.Middleware;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using Ebla.Application.Reservations.Commands.DeleteReservation;
+global using Ebla.Application.Reservations.Commands.UpdateReservation;

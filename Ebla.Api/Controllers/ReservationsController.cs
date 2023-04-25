@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Reservations.Commands.UpdateReservation;
-
-namespace Ebla.Api.Controllers
+﻿namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
