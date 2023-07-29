@@ -5,4 +5,4 @@
 - MediatR
 - Swagger
 - JWT
-- Entity Framework
+- EF Core
