@@ -35,6 +35,10 @@
         {
             var author = await _mediator.Send(new GetAuthorByIdQuery { Id = id });
 
+            var temp = 0;
+            temp += 1;
+            Console.WriteLine(temp);
+
             return author;
         }
     }
