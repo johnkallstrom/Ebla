@@ -23,5 +23,19 @@
 
             return authors;
         }
+
+        /// <summary>
+        /// Get single author by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet("{id}")]
+        public async Task<AuthorDto> GetById(int id)
+        {
+            var author = await _mediator.Send(new GetAuthorByIdQuery { Id = id });
+
+            return author;
+        }
     }
 }
