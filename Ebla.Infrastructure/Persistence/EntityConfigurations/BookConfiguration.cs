@@ -27,6 +27,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 1,
                     GenreId = 1
                 },
@@ -40,6 +41,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 2,
                     GenreId = 1
                 },
@@ -53,6 +55,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 3,
                     GenreId = 1
                 },
@@ -66,6 +69,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 4,
                     GenreId = 2
                 },
@@ -79,6 +83,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 4,
                     GenreId = 2
                 },
@@ -92,6 +97,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 5,
                     GenreId = 1
                 },
@@ -105,6 +111,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 6,
                     GenreId = 2
                 },
@@ -118,6 +125,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 6,
                     GenreId = 3
                 },
@@ -131,6 +139,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 7,
                     GenreId = 1
                 },
@@ -144,6 +153,7 @@
                     Language = "English",
                     CreatedOn = DateTime.Now,
                     LastModified = null,
+                    LibraryId = 1,
                     AuthorId = 8,
                     GenreId = 1
                 },

@@ -8,6 +8,8 @@
         public DateTime Published { get; set; }
         public string Language { get; set; }
 
+        public int LibraryId { get; set; }
+        public Library Library { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         public int GenreId { get; set; }
