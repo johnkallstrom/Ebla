@@ -18,6 +18,7 @@
             CreateMap<Reservation, ReservationDto>().ReverseMap();
             CreateMap<Loan, LoanDto>().ReverseMap();
             CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
+            CreateMap<Library, LibraryDto>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
