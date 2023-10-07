@@ -8,10 +8,9 @@
 
             builder.Property(x => x.Id).HasColumnName("Id");
             builder.Property(x => x.Name).HasColumnName("Name");
+            builder.Property(x => x.Description).HasColumnName("Description");
             builder.Property(x => x.Address).HasColumnName("Address");
-            builder.Property(x => x.Country).HasColumnName("Country");
             builder.Property(x => x.Established).HasColumnName("Established");
-            builder.Property(x => x.Website).HasColumnName("Website");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
@@ -20,11 +19,10 @@
                 new Library
                 {
                     Id = 1,
-                    Name = "Sample Library One",
-                    Address = "Sample Street 1",
-                    Country = "Sweden",
-                    Website = "www.samplelibraryone.com",
-                    Established = new DateTime(1977, 05, 01),
+                    Name = "Default Library 1",
+                    Description = null,
+                    Address = null,
+                    Established = null,
                     CreatedOn = DateTime.Now,
                     LastModified = null,
                 }
