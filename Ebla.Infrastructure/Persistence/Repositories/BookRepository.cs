@@ -14,6 +14,7 @@
             var books = await _context.Books
                 .Include(x => x.Author)
                 .Include(x => x.Genre)
+                .Include(x => x.Library)
                 .ToListAsync();
 
             return books;
@@ -24,6 +25,7 @@
             var book = await _context.Books
                 .Include(x => x.Author)
                 .Include(x => x.Genre)
+                .Include(x => x.Library)
                 .Include(x => x.Reservations)
                 .Include(x => x.Reviews)
                 .FirstOrDefaultAsync(x => x.Id == bookId);
