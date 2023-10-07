@@ -23,5 +23,19 @@
 
             return libraries;
         }
+
+        /// <summary>
+        /// Get single library by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [HasReadAccess]
+        public async Task<LibraryDto> GetById(int id)
+        {
+            var library = await _mediator.Send(new GetLibraryByIdQuery { Id = id });
+
+            return library;
+        }
     }
 }
