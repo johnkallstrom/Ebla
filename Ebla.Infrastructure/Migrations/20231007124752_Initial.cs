@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Ebla.Infrastructure.Persistence.Migrations
+namespace Ebla.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -51,10 +51,9 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Established = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -341,16 +340,16 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "Birthday", "CreatedOn", "LastModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1917, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9073), null, "Arthur C. Clarke" },
-                    { 2, new DateTime(1920, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9135), null, "Isaac Asimov" },
-                    { 3, new DateTime(1929, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9138), null, "Ursula K. Le Guin" },
-                    { 4, new DateTime(1975, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9140), null, "Brandon Sanderson" },
-                    { 5, new DateTime(1972, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9143), null, "Adrian Tchaikovsky" },
-                    { 6, new DateTime(1947, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9147), null, "Stephen King" },
-                    { 7, new DateTime(1948, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9149), null, "Dan Simmons" },
-                    { 8, new DateTime(1907, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9151), null, "Robert A. Heinlein" },
-                    { 9, new DateTime(1928, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9154), null, "Philip K. Dick" },
-                    { 10, new DateTime(1890, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 9, 16, 23, 56, 97, DateTimeKind.Local).AddTicks(9157), null, "H. P. Lovecraft" }
+                    { 1, new DateTime(1917, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3308), null, "Arthur C. Clarke" },
+                    { 2, new DateTime(1920, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3366), null, "Isaac Asimov" },
+                    { 3, new DateTime(1929, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3369), null, "Ursula K. Le Guin" },
+                    { 4, new DateTime(1975, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3371), null, "Brandon Sanderson" },
+                    { 5, new DateTime(1972, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3374), null, "Adrian Tchaikovsky" },
+                    { 6, new DateTime(1947, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3377), null, "Stephen King" },
+                    { 7, new DateTime(1948, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3380), null, "Dan Simmons" },
+                    { 8, new DateTime(1907, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3382), null, "Robert A. Heinlein" },
+                    { 9, new DateTime(1928, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3384), null, "Philip K. Dick" },
+                    { 10, new DateTime(1890, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(3386), null, "H. P. Lovecraft" }
                 });
 
             migrationBuilder.InsertData(
@@ -358,31 +357,31 @@ namespace Ebla.Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "CreatedOn", "LastModified", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(883), null, "Science Fiction" },
-                    { 2, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(894), null, "Fantasy" },
-                    { 3, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(896), null, "Horror" }
+                    { 1, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(5124), null, "Science Fiction" },
+                    { 2, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(5133), null, "Fantasy" },
+                    { 3, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(5135), null, "Horror" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Library",
-                columns: new[] { "Id", "Address", "Country", "CreatedOn", "Established", "LastModified", "Name", "Website" },
-                values: new object[] { 1, "Sample Street 1", "Sweden", new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(1666), new DateTime(1977, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Sample Library One", "www.samplelibraryone.com" });
+                columns: new[] { "Id", "Address", "CreatedOn", "Description", "Established", "LastModified", "Name" },
+                values: new object[] { 1, null, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(5919), null, null, null, "Default Library 1" });
 
             migrationBuilder.InsertData(
                 table: "Book",
                 columns: new[] { "Id", "AuthorId", "CreatedOn", "Description", "GenreId", "Language", "LastModified", "LibraryId", "Pages", "Published", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(166), null, 1, "English", null, 1, 256, new DateTime(1973, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rendezvous with Rama" },
-                    { 2, 2, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(181), null, 1, "English", null, 1, 255, new DateTime(1942, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Foundation" },
-                    { 3, 3, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(184), null, 1, "English", null, 1, 286, new DateTime(1969, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Left Hand of Darkness" },
-                    { 4, 4, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(187), null, 2, "English", null, 1, 738, new DateTime(2006, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Final Empire" },
-                    { 5, 4, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(190), null, 2, "English", null, 1, 738, new DateTime(2007, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Well of Ascension" },
-                    { 6, 5, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(194), null, 1, "English", null, 1, 600, new DateTime(2015, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Children of Time" },
-                    { 7, 6, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(197), null, 2, "English", null, 1, 1153, new DateTime(1978, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Stand" },
-                    { 8, 6, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(199), null, 3, "English", null, 1, 374, new DateTime(1983, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pet Sematary" },
-                    { 9, 7, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(202), null, 1, "English", null, 1, 482, new DateTime(1989, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hyperion" },
-                    { 10, 8, new DateTime(2023, 9, 9, 16, 23, 56, 98, DateTimeKind.Local).AddTicks(229), null, 1, "English", null, 1, 382, new DateTime(1966, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Moon Is a Harsh Mistress" }
+                    { 1, 1, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4407), null, 1, "English", null, 1, 256, new DateTime(1973, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rendezvous with Rama" },
+                    { 2, 2, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4421), null, 1, "English", null, 1, 255, new DateTime(1942, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Foundation" },
+                    { 3, 3, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4424), null, 1, "English", null, 1, 286, new DateTime(1969, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Left Hand of Darkness" },
+                    { 4, 4, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4428), null, 2, "English", null, 1, 738, new DateTime(2006, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Final Empire" },
+                    { 5, 4, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4431), null, 2, "English", null, 1, 738, new DateTime(2007, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Well of Ascension" },
+                    { 6, 5, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4434), null, 1, "English", null, 1, 600, new DateTime(2015, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Children of Time" },
+                    { 7, 6, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4437), null, 2, "English", null, 1, 1153, new DateTime(1978, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Stand" },
+                    { 8, 6, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4439), null, 3, "English", null, 1, 374, new DateTime(1983, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pet Sematary" },
+                    { 9, 7, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4442), null, 1, "English", null, 1, 482, new DateTime(1989, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hyperion" },
+                    { 10, 8, new DateTime(2023, 10, 7, 14, 47, 52, 549, DateTimeKind.Local).AddTicks(4445), null, 1, "English", null, 1, 382, new DateTime(1966, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "The Moon Is a Harsh Mistress" }
                 });
 
             migrationBuilder.CreateIndex(
