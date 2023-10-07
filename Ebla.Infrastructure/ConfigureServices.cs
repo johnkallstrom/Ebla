@@ -14,6 +14,7 @@
             services.AddTransient<ILoanRepository, LoanRepository>();
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IReviewRepository, ReviewRepository>();
+            services.AddTransient<ILibraryRepository, LibraryRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

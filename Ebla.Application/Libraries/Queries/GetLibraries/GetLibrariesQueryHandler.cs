@@ -3,17 +3,17 @@
     public class GetLibrariesQueryHandler : IRequestHandler<GetLibrariesQuery, IEnumerable<LibraryDto>>
     {
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<Library> _repository;
+        private readonly ILibraryRepository _repository;
 
-        public GetLibrariesQueryHandler(IGenericRepository<Library> repository, IMapper mapper)
+        public GetLibrariesQueryHandler(IMapper mapper, ILibraryRepository repository)
         {
-            _repository = repository;
             _mapper = mapper;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<LibraryDto>> Handle(GetLibrariesQuery request, CancellationToken cancellationToken)
         {
-            var libraries = await _repository.GetAllAsync();
+            var libraries = await _repository.GetAllLibrariesAsync();
 
             return _mapper.Map<IEnumerable<LibraryDto>>(libraries);
         }
