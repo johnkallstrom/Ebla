@@ -2,21 +2,24 @@
 {
     public class CreateLibraryCardCommandHandler : IRequestHandler<CreateLibraryCardCommand, Result<int>>
     {
+        private readonly ILibraryRepository _libraryRepository;
         private readonly IMapper _mapper;
         private readonly IIdentityService _identityService;
         private readonly ILibraryCardRepository _repository;
         private readonly IGenericRepository<LibraryCard> _genericRepository;
 
         public CreateLibraryCardCommandHandler(
-            IMapper mapper, 
+            IMapper mapper,
             IIdentityService identityService,
             ILibraryCardRepository repository,
-            IGenericRepository<LibraryCard> genericRepository)
+            IGenericRepository<LibraryCard> genericRepository,
+            ILibraryRepository libraryRepository)
         {
             _mapper = mapper;
             _identityService = identityService;
             _repository = repository;
             _genericRepository = genericRepository;
+            _libraryRepository = libraryRepository;
         }
 
         public async Task<Result<int>> Handle(CreateLibraryCardCommand request, CancellationToken cancellationToken)
@@ -30,6 +33,12 @@
                 if (user is null)
                 {
                     throw new NotFoundException(nameof(user), request.UserId);
+                }
+
+                var library = await _libraryRepository.GetLibraryByIdAsync(request.LibraryId);
+                if (library is null)
+                {
+                    throw new NotFoundException(nameof(library), request.LibraryId);
                 }
 
                 var libraryCard = await _repository.GetLibraryCardAsync(user.Id);
