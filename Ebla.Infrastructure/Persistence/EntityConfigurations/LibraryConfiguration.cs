@@ -19,7 +19,7 @@
                 new Library
                 {
                     Id = 1,
-                    Name = "Default Library 1",
+                    Name = "Palanaeum",
                     Description = null,
                     Address = null,
                     Established = null,
