@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HttpGet]
         [HasReadAccess]
-        public async Task<IEnumerable<LibraryDto>> GetAll()
+        public async Task<IEnumerable<LibrarySlimDto>> GetAll()
         {
             var libraries = await _mediator.Send(new GetLibrariesQuery());
 

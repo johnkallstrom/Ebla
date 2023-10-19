@@ -10,6 +10,7 @@
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
 
+        public List<LibraryCardDto> LibraryCards { get; set; }
         public List<BookDto> Books { get; set; }
     }
 }
