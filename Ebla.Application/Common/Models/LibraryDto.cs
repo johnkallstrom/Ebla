@@ -11,6 +11,6 @@
         public DateTime? LastModified { get; set; }
 
         public List<LibraryCardDto> LibraryCards { get; set; }
-        public List<BookDto> Books { get; set; }
+        public List<BookSlimDto> Books { get; set; }
     }
 }

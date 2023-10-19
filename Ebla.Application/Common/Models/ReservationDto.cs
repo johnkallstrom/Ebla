@@ -7,5 +7,6 @@
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
         public int BookId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

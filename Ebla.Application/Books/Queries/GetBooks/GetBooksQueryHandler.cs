@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Queries.GetBooks
 {
-    public class GetBooksQueryHandler : IRequestHandler<GetBooksQuery, IEnumerable<BookDto>>
+    public class GetBooksQueryHandler : IRequestHandler<GetBooksQuery, IEnumerable<BookSlimDto>>
     {
         private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
@@ -11,11 +11,11 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<BookDto>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookSlimDto>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
         {
             var books = await _repository.GetAllBooksAsync();
 
-            return _mapper.Map<IEnumerable<BookDto>>(books);
+            return _mapper.Map<IEnumerable<BookSlimDto>>(books);
         }
     }
 }
