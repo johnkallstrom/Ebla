@@ -3,15 +3,17 @@
         <div class="card">
             <div class="card-header">Login</div>
             <div class="card-body">
-                <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" />
-                </div>
-                <button type="button" class="btn btn-light">Submit</button>
+                <EditForm Model="@LoginModel" OnSubmit="LoginFormSubmitted">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <InputText type="text" class="form-control" @bind-Value="LoginModel.Username" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <InputText type="password" class="form-control" @bind-Value="LoginModel.Password" />
+                    </div>
+                    <button type="submit" class="btn btn-light">Submit</button>
+                </EditForm>
             </div>
         </div>
     </div>
