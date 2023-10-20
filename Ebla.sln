@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Application", "Ebla.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Api", "Ebla.Api\Ebla.Api.csproj", "{8AFF3936-E612-4B78-9DC0-80EA1BF82F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{40943065-916A-4BAB-9408-39CB74DFD425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{40943065-916A-4BAB-9408-39CB74DFD425}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
