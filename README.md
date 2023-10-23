@@ -1,1 +1,1 @@
-# Ebla :books:
+# Ebla
