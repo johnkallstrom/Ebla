@@ -2,12 +2,14 @@
 {
     public partial class Login
     {
+        [Inject]
+        public IUserHttpService UserHttpService { get; set; }
+
         public LoginModel LoginModel { get; set; } = new LoginModel();
 
-        public void LoginFormSubmitted()
+        public async Task LoginFormSubmitted()
         {
-            Console.WriteLine($"Username: {LoginModel.Username}");
-            Console.WriteLine($"Password: {LoginModel.Password}");
+            await UserHttpService.LoginUserAsync(LoginModel.Username, LoginModel.Password);
         }
     }
 }
