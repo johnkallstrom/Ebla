@@ -3,14 +3,17 @@
         <div class="card">
             <div class="card-header">Login</div>
             <div class="card-body">
-                <EditForm Model="@LoginModel" OnSubmit="LoginFormSubmitted">
+                <EditForm Model="@LoginModel" OnValidSubmit="LoginFormSubmitted">
+                    <DataAnnotationsValidator />
                     <div class="mb-3">
                         <label class="form-label">Username</label>
                         <InputText type="text" class="form-control" @bind-Value="LoginModel.Username" />
+                        <ValidationMessage For="@(() => LoginModel.Username)" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
                         <InputText type="password" class="form-control" @bind-Value="LoginModel.Password" />
+                        <ValidationMessage For="@(() => LoginModel.Password)" />
                     </div>
                     <button type="submit" class="btn btn-light">Submit</button>
                 </EditForm>
