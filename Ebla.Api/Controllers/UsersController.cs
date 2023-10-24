@@ -14,14 +14,13 @@
         /// <summary>
         /// Login a user
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
+        /// <param name="command"></param>
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<LoginResult> Login(string username, string password)
+        public async Task<LoginResult> Login([FromBody] LoginUserCommand command)
         {
-            var result = await _mediator.Send(new LoginUserCommand { Username = username, Password = password });
+            var result = await _mediator.Send(command);
 
             return result;
         }
