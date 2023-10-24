@@ -5,6 +5,12 @@ var configuration = builder.Configuration;
 
 services.AddControllers();
 services.AddHttpContextAccessor();
+services.AddCors(options => options.AddDefaultPolicy(builder =>
+{
+    string[] allowedOrigins = { "http://localhost:5056" };
+    //builder.WithOrigins(allowedOrigins).Build();
+    builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(allowedOrigins);
+}));
 services.ConfigureSwagger();
 services.ConfigureAuthentication(configuration);
 services.ConfigureAuthorization();
@@ -26,6 +32,7 @@ app.UseRouting();
 app.UseCustomSwagger();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors();
 app.UseJwtMiddleware();
 app.MapControllers();
 
