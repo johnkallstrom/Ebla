@@ -2,6 +2,6 @@
 {
     public interface IUserHttpService
     {
-        Task LoginUserAsync(string username, string password);
+        Task<object> LoginUserAsync(string username, string password);
     }
 }

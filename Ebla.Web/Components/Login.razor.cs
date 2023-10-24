@@ -5,11 +5,18 @@
         [Inject]
         public IUserHttpService UserHttpService { get; set; }
 
-        public LoginModel LoginModel { get; set; } = new LoginModel();
+        public LoginModel Model { get; set; }
 
-        public async Task LoginFormSubmitted()
+        protected override void OnInitialized()
         {
-            await UserHttpService.LoginUserAsync(LoginModel.Username, LoginModel.Password);
+            Model = new LoginModel();
+        }
+
+        public async Task Submit()
+        {
+            var result = await UserHttpService.LoginUserAsync(Model.Username, Model.Password);
+
+            Console.WriteLine(result);
         }
     }
 }
