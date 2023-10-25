@@ -11,11 +11,12 @@ namespace Ebla.Web.Services
             _httpClient = httpClient;
         }
 
-        public async Task<object> LoginUserAsync(string username, string password)
+        public async Task<LoginResponse> LoginUserAsync(string username, string password)
         {
-            var response = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
+            var httpResponse = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
+            var result = await httpResponse.Content.ReadFromJsonAsync<LoginResponse>();
 
-            throw new NotImplementedException();
+            return result;
         }
     }
 }
