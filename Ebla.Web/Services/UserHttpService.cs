@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace Ebla.Web.Services
+﻿namespace Ebla.Web.Services
 {
     public class UserHttpService : IUserHttpService
     {
