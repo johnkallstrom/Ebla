@@ -18,16 +18,25 @@
 
             if (validationResult.IsValid)
             {
-                var succeeded = await _identityService.LoginAsync(request.Username, request.Password);
-                if (succeeded)
+                try
                 {
-                    var user = await _identityService.GetUserAsync(request.Username);
+                    var succeeded = await _identityService.LoginAsync(request.Username, request.Password);
+                    if (succeeded)
+                    {
+                        var user = await _identityService.GetUserAsync(request.Username);
 
-                    var token = _jwtProvider.GenerateToken(user);
-                    return LoginResult.Success(token);
+                        var token = _jwtProvider.GenerateToken(user);
+                        return LoginResult.Success(token);
+                    }
+                    else
+                    {
+                        throw new Exception("Incorrect password");
+                    }
                 }
-
-                throw new Exception("Invalid credentials");
+                catch (Exception ex)
+                {
+                    return LoginResult.Failure(new string[] { ex.Message });
+                }
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
