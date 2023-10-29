@@ -1,31 +1,36 @@
-﻿namespace Ebla.Web.Components
+﻿using Microsoft.JSInterop;
+
+namespace Ebla.Web.Components
 {
     public partial class Login
     {
         [Inject]
         public IUserHttpService UserHttpService { get; set; }
 
-        public LoginRequest Model { get; set; }
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
+        public LoginModel Model { get; set; }
+        public List<string> Errors { get; set; }
 
         protected override void OnInitialized()
         {
-            Model = new LoginRequest();
+            Model = new LoginModel();
+            Errors = new List<string>();
         }
 
         public async Task Submit()
         {
-            var result = await UserHttpService.LoginUserAsync(Model.Username, Model.Password);
+            var response = await UserHttpService.LoginUserAsync(Model.Username, Model.Password);
 
-            if (result.Succeeded)
+            if (response.Succeeded)
             {
-                Console.WriteLine(result.Token);
+                Errors.Clear();
+                await JSRuntime.InvokeVoidAsync("storeToken", response.Token);
             }
             else
             {
-                foreach (var error in result.Errors)
-                {
-                    Console.Error.WriteLine(error);
-                }
+                Errors = response.Errors.ToList();
             }
         }
     }
