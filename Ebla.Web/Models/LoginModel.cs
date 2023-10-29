@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Web.Models
 {
-    public class LoginRequest
+    public class LoginModel
     {
         [Required(ErrorMessage = "Please enter a username")]
         [DataType(DataType.Text)]

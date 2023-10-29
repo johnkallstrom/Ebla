@@ -12,9 +12,7 @@
         public async Task<LoginResponse> LoginUserAsync(string username, string password)
         {
             var httpResponse = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
-            var result = await httpResponse.Content.ReadFromJsonAsync<LoginResponse>();
-
-            return result;
+            return await httpResponse.Content.ReadFromJsonAsync<LoginResponse>();
         }
     }
 }
