@@ -1,8 +1,6 @@
-﻿using Microsoft.JSInterop;
-
-namespace Ebla.Web.Components
+﻿namespace Ebla.Web.Components
 {
-    public partial class Login
+    public partial class LoginForm
     {
         [Inject]
         public IUserHttpService UserHttpService { get; set; }
