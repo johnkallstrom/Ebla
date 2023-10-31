@@ -6,7 +6,7 @@
         public IUserHttpService UserHttpService { get; set; }
 
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        public ICookieStorage CookieStorage { get; set; }
 
         public LoginModel Model { get; set; }
         public List<string> Errors { get; set; }
@@ -24,7 +24,7 @@
             if (response.Succeeded)
             {
                 Errors.Clear();
-                await JSRuntime.InvokeVoidAsync("storeToken", response.Token);
+                await CookieStorage.SetAsync("token", response.Token);
             }
             else
             {
