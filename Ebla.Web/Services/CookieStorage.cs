@@ -11,7 +11,7 @@
 
         public async Task SetAsync(string name, string value)
         {
-            await _jsRuntime.InvokeVoidAsync("setCookie", new { Name = name, Value = value });
+            await _jsRuntime.InvokeVoidAsync("set", new { Name = name, Value = value });
         }
 
         public Task<string> GetAsync(string name)
