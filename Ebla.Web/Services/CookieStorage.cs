@@ -3,20 +3,26 @@
     public class CookieStorage : ICookieStorage
     {
         private readonly IJSRuntime _jsRuntime;
+        private IJSObjectReference _module;
 
         public CookieStorage(IJSRuntime jsRuntime)
         {
             _jsRuntime = jsRuntime;
         }
 
-        public async Task SetAsync(string name, string value)
+        public async Task InitializeAsync()
         {
-            await _jsRuntime.InvokeVoidAsync("set", new { Name = name, Value = value });
+            _module = await _jsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/services/cookieStorage.js");
         }
 
-        public Task<string> GetAsync(string name)
+        public async Task SetAsync(string name, string value)
         {
-            throw new NotImplementedException();
+            await _module.InvokeVoidAsync("set", new { Name = name, Value = value });
+        }
+
+        public async Task<string> GetAsync()
+        {
+            return await _module.InvokeAsync<string>("get");
         }
     }
 }

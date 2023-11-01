@@ -17,6 +17,14 @@
             Errors = new List<string>();
         }
 
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await CookieStorage.InitializeAsync();
+            }
+        }
+
         public async Task Submit()
         {
             var response = await UserHttpService.LoginUserAsync(Model.Username, Model.Password);

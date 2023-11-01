@@ -2,7 +2,8 @@
 {
     public interface ICookieStorage
     {
+        Task InitializeAsync();
         Task SetAsync(string name, string value);
-        Task<string> GetAsync(string name);
+        Task<string> GetAsync();
     }
 }
