@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Services
+﻿namespace Ebla.Web.Services.Interfaces
 {
     public interface ICookieStorage
     {

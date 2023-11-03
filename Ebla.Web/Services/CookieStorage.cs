@@ -1,4 +1,6 @@
-﻿namespace Ebla.Web.Services
+﻿using Ebla.Web.Services.Interfaces;
+
+namespace Ebla.Web.Services
 {
     public class CookieStorage : ICookieStorage
     {
