@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Models
+﻿namespace Ebla.Web.ViewModels
 {
     public record LoginResponse
     {

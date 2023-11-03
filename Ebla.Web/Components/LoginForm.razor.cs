@@ -8,12 +8,12 @@
         [Inject]
         public ICookieStorage CookieStorage { get; set; }
 
-        public LoginModel Model { get; set; }
+        public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
 
         protected override void OnInitialized()
         {
-            Model = new LoginModel();
+            ViewModel = new LoginViewModel();
             Errors = new List<string>();
         }
 
@@ -27,7 +27,7 @@
 
         public async Task Submit()
         {
-            var response = await UserHttpService.LoginUserAsync(Model.Username, Model.Password);
+            var response = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
 
             if (response.Succeeded)
             {
