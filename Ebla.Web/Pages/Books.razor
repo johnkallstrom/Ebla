@@ -1,36 +1,46 @@
 ﻿@page "/books"
 
-<div class="row">
-    <div class="col-sm-8">
-        @if (BookList != null && BookList.Count() > 0)
-        {
-            <table class="table table-bordered table-responsive">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Pages</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Genre</th>
-                        <th scope="col">Published</th>
-                        <th scope="col">Language</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var book in BookList)
-                    {
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p>@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-8">
+            @if (BookList != null && BookList.Count() > 0)
+            {
+                <table class="table table-bordered table-responsive">
+                    <thead class="table-light">
                         <tr>
-                            <td>@book.Id</td>
-                            <td>@book.Title</td>
-                            <td>@book.Pages</td>
-                            <td>@book.Author</td>
-                            <td>@book.Genre</td>
-                            <td>@book.Published</td>
-                            <td>@book.Language</td>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Pages</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Published</th>
+                            <th scope="col">Language</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        }
+                    </thead>
+                    <tbody>
+                        @foreach (var book in BookList)
+                        {
+                            <tr>
+                                <td>@book.Id</td>
+                                <td>@book.Title</td>
+                                <td>@book.Pages</td>
+                                <td>@book.Author</td>
+                                <td>@book.Genre</td>
+                                <td>@book.Published</td>
+                                <td>@book.Language</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
     </div>
-</div>
+}

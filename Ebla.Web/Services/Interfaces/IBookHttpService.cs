@@ -2,6 +2,6 @@
 {
     public interface IBookHttpService
     {
-        Task<List<BookViewModel>> GetAllAsync();
+        Task<ResultViewModel<List<BookViewModel>>> GetAllAsync();
     }
 }
