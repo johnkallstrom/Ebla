@@ -1,6 +1,4 @@
-﻿using Ebla.Web.Services.Interfaces;
-
-namespace Ebla.Web.Pages
+﻿namespace Ebla.Web.Pages
 {
     public partial class Books
     {
