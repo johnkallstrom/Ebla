@@ -5,6 +5,9 @@
         [Inject]
         public IUserHttpService UserHttpService { get; set; }
 
+        [Inject]
+        public ILocalStorageService LocalStorage { get; set; }
+
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
 
@@ -21,9 +24,7 @@
             if (result.Succeeded)
             {
                 Errors.Clear();
-
-                // Store token
-                Console.WriteLine(result.Token);
+                await LocalStorage.SetItemAsStringAsync("token", result.Token);
             }
             else
             {
