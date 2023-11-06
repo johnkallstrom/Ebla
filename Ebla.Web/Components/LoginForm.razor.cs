@@ -5,9 +5,6 @@
         [Inject]
         public IUserHttpService UserHttpService { get; set; }
 
-        [Inject]
-        public ICookieStorage CookieStorage { get; set; }
-
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
 
@@ -17,14 +14,6 @@
             Errors = new List<string>();
         }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                await CookieStorage.InitializeAsync();
-            }
-        }
-
         public async Task Submit()
         {
             var response = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
@@ -32,7 +21,6 @@
             if (response.Succeeded)
             {
                 Errors.Clear();
-                await CookieStorage.SetAsync("token", response.Token);
             }
             else
             {
