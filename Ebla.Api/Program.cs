@@ -8,7 +8,6 @@ services.AddHttpContextAccessor();
 services.AddCors(options => options.AddDefaultPolicy(builder =>
 {
     string[] allowedOrigins = { "http://localhost:5056" };
-    //builder.WithOrigins(allowedOrigins).Build();
     builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(allowedOrigins);
 }));
 services.ConfigureSwagger();
