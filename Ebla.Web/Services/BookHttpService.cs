@@ -11,7 +11,7 @@
 
         public async Task<List<BookViewModel>> GetAllAsync()
         {
-            var books = await _httpClient.GetFromJsonAsync<IEnumerable<BookViewModel>>();
+            var books = await _httpClient.GetFromJsonAsync<IEnumerable<BookViewModel>>("/api/books");
 
             return books.ToList();
         }
