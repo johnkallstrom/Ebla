@@ -11,9 +11,16 @@
 
         public async Task<List<BookViewModel>> GetAllAsync()
         {
-            var books = await _httpClient.GetFromJsonAsync<List<BookViewModel>>("/api/books");
+            var books = Enumerable.Empty<BookViewModel>();
 
-            return books;
+            var response = await _httpClient.GetAsync("/api/books");
+
+            if (response.IsSuccessStatusCode)
+            {
+                books = await response.Content.ReadFromJsonAsync<IEnumerable<BookViewModel>>();
+            }
+
+            return books.ToList();
         }
     }
 }
