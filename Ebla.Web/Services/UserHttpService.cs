@@ -9,10 +9,11 @@
             _httpClient = httpClient;
         }
 
-        public async Task<LoginResponse> LoginUserAsync(string username, string password)
+        public async Task<LoginResultViewModel> LoginUserAsync(string username, string password)
         {
-            var response = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
-            return await response.Content.ReadFromJsonAsync<LoginResponse>();
+            var httpResponse = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
+
+            return await httpResponse.Content.ReadFromJsonAsync<LoginResultViewModel>();
         }
     }
 }

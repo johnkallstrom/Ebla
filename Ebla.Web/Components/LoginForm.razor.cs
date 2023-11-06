@@ -16,15 +16,18 @@
 
         public async Task Submit()
         {
-            var response = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
+            var result = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
 
-            if (response.Succeeded)
+            if (result.Succeeded)
             {
                 Errors.Clear();
+
+                // Store token
+                Console.WriteLine(result.Token);
             }
             else
             {
-                Errors = response.Errors.ToList();
+                Errors = result.Errors.ToList();
             }
         }
     }

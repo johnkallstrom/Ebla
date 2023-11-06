@@ -2,6 +2,6 @@
 {
     public interface IUserHttpService
     {
-        Task<LoginResponse> LoginUserAsync(string username, string password);
+        Task<LoginResultViewModel> LoginUserAsync(string username, string password);
     }
 }

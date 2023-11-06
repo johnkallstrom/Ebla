@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Web.ViewModels
 {
-    public record LoginResponse
+    public class LoginResultViewModel
     {
         public bool Succeeded { get; set; }
         public string[] Errors { get; set; }
