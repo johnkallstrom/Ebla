@@ -24,7 +24,7 @@
             if (result.Succeeded)
             {
                 Errors.Clear();
-                await LocalStorage.SetItemAsStringAsync("token", result.Token);
+                await LocalStorage.SetItemAsStringAsync("token", result.Data);
             }
             else
             {
