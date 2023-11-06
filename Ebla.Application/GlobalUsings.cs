@@ -16,4 +16,3 @@ global using Ebla.Application.Loans.Commands.CreateLoan;
 global using Ebla.Application.Common.Exceptions;
 global using Ebla.Application.Reservations.Commands.UpdateReservation;
 global using Ebla.Application.Loans.Commands.UpdateLoan;
-global using Ebla.Application.Authors.Queries.GetAuthors;
