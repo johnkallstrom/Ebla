@@ -10,6 +10,7 @@
 
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
+        public bool ShowAlert { get; set; }
 
         protected override void OnInitialized()
         {
@@ -19,17 +20,26 @@
 
         public async Task Submit()
         {
+            ShowAlert = false;
             var result = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
 
             if (result.Succeeded)
             {
-                Errors.Clear();
+                ClearForm();
+                ShowAlert = true;
                 await LocalStorage.SetItemAsStringAsync("token", result.Data);
             }
             else
             {
                 Errors = result.Errors.ToList();
             }
+        }
+
+        private void ClearForm()
+        {
+            Errors.Clear();
+            ViewModel.Username = string.Empty;
+            ViewModel.Password = string.Empty;
         }
     }
 }
