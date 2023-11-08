@@ -29,9 +29,11 @@
                     result.Succeeded = true;
                     result.Data = await response.Content.ReadFromJsonAsync<List<BookViewModel>>();
                 }
-
-                var content = await response.Content.ReadAsStringAsync();
-                result.Errors = new string[] { content };
+                else
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    result.Errors = new string[] { content };
+                }
             }
             catch (Exception ex)
             {
