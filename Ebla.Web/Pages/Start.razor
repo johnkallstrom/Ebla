@@ -2,4 +2,7 @@
 
 <PageTitle>Ebla - Start</PageTitle>
 
-<LoginForm />
+@if (IsAuthorized == false)
+{
+    <LoginForm />
+}
