@@ -26,7 +26,6 @@
 
             if (result.Succeeded)
             {
-                ClearForm();
                 await LocalStorage.SetItemAsStringAsync("token", result.Data);
                 ReloadPage();
             }
@@ -34,13 +33,6 @@
             {
                 Errors = result.Errors.ToList();
             }
-        }
-
-        private void ClearForm()
-        {
-            Errors.Clear();
-            ViewModel.Username = string.Empty;
-            ViewModel.Password = string.Empty;
         }
 
         private void ReloadPage()
