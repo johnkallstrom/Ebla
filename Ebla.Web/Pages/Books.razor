@@ -25,6 +25,7 @@ else
                             <th scope="col">Genre</th>
                             <th scope="col">Published</th>
                             <th scope="col">Language</th>
+                            <th scope="col">Library</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,8 +37,9 @@ else
                                 <td>@book.Pages</td>
                                 <td>@book.Author</td>
                                 <td>@book.Genre</td>
-                                <td>@book.Published</td>
+                                <td>@book.Published.ToString("yyyy")</td>
                                 <td>@book.Language</td>
+                                <td>@book.Library</td>
                             </tr>
                         }
                     </tbody>

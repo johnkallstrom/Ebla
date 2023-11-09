@@ -7,6 +7,7 @@
         public int Pages { get; set; }
         public string Author { get; set; }
         public string Genre { get; set; }
+        public string Library { get; set; }
         public DateTime Published { get; set; }
         public string Language { get; set; }
         public DateTime CreatedOn { get; set; }
