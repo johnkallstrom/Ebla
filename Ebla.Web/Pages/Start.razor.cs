@@ -14,6 +14,8 @@
             {
                 IsAuthorized = true;
             }
+
+            // Todo: also check if token has expired
         }
     }
 }
