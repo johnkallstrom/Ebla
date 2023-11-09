@@ -6,6 +6,7 @@
         public ILocalStorageService LocalStorage { get; set; }
 
         public bool IsAuthorized { get; set; }
+        public string Token { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -13,6 +14,7 @@
             if (!string.IsNullOrEmpty(token))
             {
                 IsAuthorized = true;
+                Token = token;
             }
 
             // Todo: also check if token has expired

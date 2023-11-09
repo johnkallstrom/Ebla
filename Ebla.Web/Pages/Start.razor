@@ -4,7 +4,12 @@
 
 @if (IsAuthorized)
 {
-    <p>A token now exists in local storage...</p>
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="text-break">@Token</p>
+            <button class="btn btn-light btn-lg">Get Claims</button>
+        </div>
+    </div>
 }
 else
 {
