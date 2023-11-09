@@ -10,9 +10,9 @@
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
                 string[] roles = { "Administrator", "User" };
-                string username = "admin";
-                string email = "admin@localhost";
-                string password = "fJt7h8srmKvKYWXdJbdA";
+                string username = "johnkallstrom";
+                string email = "johnkallstrom@localhost";
+                string password = "TnwmjQuhTFTaYHs83aNK";
 
                 foreach (var role in roles)
                 {
