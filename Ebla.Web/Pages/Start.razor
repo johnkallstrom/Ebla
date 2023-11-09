@@ -2,7 +2,11 @@
 
 <PageTitle>Ebla - Start</PageTitle>
 
-@if (IsAuthorized == false)
+@if (IsAuthorized)
+{
+    <p>A token exists in local storage...</p>
+}
+else
 {
     <LoginForm />
 }
