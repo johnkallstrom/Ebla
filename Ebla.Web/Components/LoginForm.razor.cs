@@ -8,9 +8,11 @@
         [Inject]
         public ILocalStorageService LocalStorage { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
-        public bool ShowAlert { get; set; }
 
         protected override void OnInitialized()
         {
@@ -20,14 +22,13 @@
 
         public async Task Submit()
         {
-            ShowAlert = false;
             var result = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
 
             if (result.Succeeded)
             {
                 ClearForm();
-                ShowAlert = true;
                 await LocalStorage.SetItemAsStringAsync("token", result.Data);
+                ReloadPage();
             }
             else
             {
@@ -40,6 +41,11 @@
             Errors.Clear();
             ViewModel.Username = string.Empty;
             ViewModel.Password = string.Empty;
+        }
+
+        private void ReloadPage()
+        {
+            NavigationManager.NavigateTo(NavigationManager.BaseUri, true);
         }
     }
 }
