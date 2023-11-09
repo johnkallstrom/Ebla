@@ -3,3 +3,8 @@
     padding-top: 0.3rem;
     font-size: small;
 }
+
+.error-message {
+    color: red;
+    font-size: small;
+}
