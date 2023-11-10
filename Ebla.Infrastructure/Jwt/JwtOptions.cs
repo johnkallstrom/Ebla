@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Authentication
+﻿namespace Ebla.Infrastructure.Jwt
 {
     public class JwtOptions
     {

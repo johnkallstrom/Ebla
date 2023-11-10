@@ -19,5 +19,4 @@ global using System.IdentityModel.Tokens.Jwt;
 global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
 global using Ebla.Application.Common.Exceptions;
-global using Ebla.Infrastructure.Authentication;
 global using Microsoft.Extensions.Options;
