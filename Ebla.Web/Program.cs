@@ -8,5 +8,6 @@ var configuration = builder.Configuration;
 
 services.AddHttpServices(configuration);
 services.AddBlazoredLocalStorage();
+services.AddAuthorizationCore();
 
 await builder.Build().RunAsync();
