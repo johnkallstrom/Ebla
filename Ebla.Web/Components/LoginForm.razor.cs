@@ -27,17 +27,12 @@
             if (result.Succeeded)
             {
                 await LocalStorage.SetItemAsStringAsync("token", result.Data);
-                ReloadPage();
+                NavigationManager.ReloadStartPage();
             }
             else
             {
                 Errors = result.Errors.ToList();
             }
-        }
-
-        private void ReloadPage()
-        {
-            NavigationManager.NavigateTo(NavigationManager.BaseUri, true);
         }
     }
 }
