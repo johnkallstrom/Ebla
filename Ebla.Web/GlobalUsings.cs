@@ -10,5 +10,4 @@ global using Ebla.Web.Services.Interfaces;
 global using Blazored.LocalStorage;
 global using System.Net.Http.Headers;
 global using System.Text.Json.Serialization;
-global using Microsoft.AspNetCore.Components.Authorization;
 global using Ebla.Web.Extensions;
