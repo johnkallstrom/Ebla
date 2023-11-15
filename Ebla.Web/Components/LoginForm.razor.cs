@@ -5,9 +5,6 @@
         [Inject]
         public IAuthHttpService AuthHttpService { get; set; }
 
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
-
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
 
@@ -19,13 +16,9 @@
 
         public async Task Submit()
         {
-            var result = await AuthHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
+            var result = await AuthHttpService.LoginAsync(ViewModel.Username, ViewModel.Password);
 
-            if (result.Succeeded)
-            {
-                NavigationManager.ReloadStartPage();
-            }
-            else
+            if (result.Errors.Count() > 0)
             {
                 Errors = result.Errors.ToList();
             }

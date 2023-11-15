@@ -3,14 +3,14 @@
     public partial class Navbar
     {
         [Inject]
-        public ILocalStorageService LocalStorage { get; set; }
+        public IAuthHttpService AuthHttpService { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
         public async Task SignOut()
         {
-            await LocalStorage.RemoveItemAsync("token");
+            await AuthHttpService.SignOutAsync();
             NavigationManager.ReloadStartPage();
         }
     }

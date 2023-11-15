@@ -2,6 +2,7 @@
 {
     public interface IAuthHttpService
     {
-        Task<ResultViewModel<string>> LoginUserAsync(string username, string password);
+        Task<ResultViewModel<string>> LoginAsync(string username, string password);
+        Task SignOutAsync();
     }
 }

@@ -2,16 +2,18 @@
 {
     public class AuthHttpService : IAuthHttpService
     {
-        private readonly ILocalStorageService LocalStorage;
+        private readonly NavigationManager _navigationManager;
+        private readonly ILocalStorageService _localStorage;
         private readonly HttpClient _httpClient;
 
-        public AuthHttpService(HttpClient httpClient, ILocalStorageService localStorage)
+        public AuthHttpService(HttpClient httpClient, ILocalStorageService localStorage, NavigationManager navigationManager)
         {
             _httpClient = httpClient;
-            LocalStorage = localStorage;
+            _localStorage = localStorage;
+            _navigationManager = navigationManager;
         }
 
-        public async Task<ResultViewModel<string>> LoginUserAsync(string username, string password)
+        public async Task<ResultViewModel<string>> LoginAsync(string username, string password)
         {
             var result = new ResultViewModel<string>();
 
@@ -22,7 +24,8 @@
 
                 if (result.Succeeded)
                 {
-                    await LocalStorage.SetItemAsStringAsync("token", result.Data);
+                    await _localStorage.SetItemAsStringAsync("token", result.Data);
+                    _navigationManager.ReloadStartPage();
                 }
             }
             catch (Exception ex)
@@ -31,6 +34,12 @@
             }
 
             return result;
+        }
+
+        public async Task SignOutAsync()
+        {
+            await _localStorage.RemoveItemAsync("token");
+            _navigationManager.ReloadStartPage();
         }
     }
 }
