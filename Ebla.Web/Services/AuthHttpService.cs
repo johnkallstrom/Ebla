@@ -13,6 +13,13 @@
             _navigationManager = navigationManager;
         }
 
+        public async Task<bool> IsAuthenticated()
+        {
+            var token = await _localStorage.GetItemAsStringAsync("token");
+
+            return !string.IsNullOrEmpty(token) ? true : false;
+        }
+
         public async Task<ResultViewModel<string>> LoginAsync(string username, string password)
         {
             var result = new ResultViewModel<string>();
