@@ -4,10 +4,10 @@
     {
         public static IServiceCollection AddHttpServices(this IServiceCollection services, IConfiguration configuration)
         {
-            var url = configuration.GetValue<string>("Ebla.Api:BaseUrl");
+            var uri = new Uri(configuration.GetValue<string>("Ebla.Api:BaseUrl"));
 
-            services.AddHttpClient<IUserHttpService, UserHttpService>(client => client.BaseAddress = new Uri(url));
-            services.AddHttpClient<IBookHttpService, BookHttpService>(client => client.BaseAddress = new Uri(url));
+            services.AddHttpClient<IUserHttpService, UserHttpService>(client => client.BaseAddress = uri);
+            services.AddHttpClient<IBookHttpService, BookHttpService>(client => client.BaseAddress = uri);
 
             return services;
         }
