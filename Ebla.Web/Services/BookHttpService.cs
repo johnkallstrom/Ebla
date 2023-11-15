@@ -2,20 +2,22 @@
 {
     public class BookHttpService : IBookHttpService
     {
+        private readonly IConfiguration _configuration;
         private readonly ILocalStorageService _localStorage;
         private readonly HttpClient _httpClient;
 
-        public BookHttpService(HttpClient httpClient, ILocalStorageService localStorage)
+        public BookHttpService(HttpClient httpClient, ILocalStorageService localStorage, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
+            _configuration = configuration;
         }
 
         public async Task<ResultViewModel<List<BookViewModel>>> GetAllAsync()
         {
             var result = new ResultViewModel<List<BookViewModel>>();
 
-            string token = await _localStorage.GetItemAsStringAsync("token");
+            string token = await _localStorage.GetItemAsStringAsync(_configuration.GetValue<string>("LocalStorage:Token:Key"));
             if (!string.IsNullOrEmpty(token))
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
