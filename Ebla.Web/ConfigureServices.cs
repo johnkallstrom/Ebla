@@ -6,6 +6,7 @@
         {
             var uri = new Uri(configuration.GetValue<string>("Ebla.Api:BaseUrl"));
 
+            services.AddHttpClient<IAuthHttpService, AuthHttpService>(client => client.BaseAddress = uri);
             services.AddHttpClient<IUserHttpService, UserHttpService>(client => client.BaseAddress = uri);
             services.AddHttpClient<IBookHttpService, BookHttpService>(client => client.BaseAddress = uri);
 

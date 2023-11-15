@@ -3,7 +3,7 @@
     public partial class LoginForm
     {
         [Inject]
-        public IUserHttpService UserHttpService { get; set; }
+        public IAuthHttpService AuthHttpService { get; set; }
 
         [Inject]
         public ILocalStorageService LocalStorage { get; set; }
@@ -22,7 +22,7 @@
 
         public async Task Submit()
         {
-            var result = await UserHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
+            var result = await AuthHttpService.LoginUserAsync(ViewModel.Username, ViewModel.Password);
 
             if (result.Succeeded)
             {
