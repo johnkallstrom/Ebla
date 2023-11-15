@@ -6,9 +6,6 @@
         public IAuthHttpService AuthHttpService { get; set; }
 
         [Inject]
-        public ILocalStorageService LocalStorage { get; set; }
-
-        [Inject]
         public NavigationManager NavigationManager { get; set; }
 
         public LoginViewModel ViewModel { get; set; }
@@ -26,7 +23,6 @@
 
             if (result.Succeeded)
             {
-                await LocalStorage.SetItemAsStringAsync("token", result.Data);
                 NavigationManager.ReloadStartPage();
             }
             else
