@@ -2,20 +2,25 @@
 {
     public class AuthHttpService : IAuthHttpService
     {
+        private readonly IConfiguration _configuration;
         private readonly NavigationManager _navigationManager;
         private readonly ILocalStorageService _localStorage;
         private readonly HttpClient _httpClient;
 
-        public AuthHttpService(HttpClient httpClient, ILocalStorageService localStorage, NavigationManager navigationManager)
+        private readonly string _tokenKey;
+
+        public AuthHttpService(HttpClient httpClient, ILocalStorageService localStorage, NavigationManager navigationManager, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
             _navigationManager = navigationManager;
+            _configuration = configuration;
+            _tokenKey = _configuration.GetValue<string>("LocalStorage:Token:Key");
         }
 
         public async Task<bool> IsAuthenticated()
         {
-            var token = await _localStorage.GetItemAsStringAsync("token");
+            var token = await _localStorage.GetItemAsStringAsync(_tokenKey);
 
             return !string.IsNullOrEmpty(token) ? true : false;
         }
@@ -31,7 +36,7 @@
 
                 if (result.Succeeded)
                 {
-                    await _localStorage.SetItemAsStringAsync("token", result.Data);
+                    await _localStorage.SetItemAsStringAsync(_tokenKey, result.Data);
                     _navigationManager.ReloadStartPage();
                 }
             }
@@ -45,7 +50,7 @@
 
         public async Task SignOutAsync()
         {
-            await _localStorage.RemoveItemAsync("token");
+            await _localStorage.RemoveItemAsync(_tokenKey);
             _navigationManager.ReloadStartPage();
         }
     }
