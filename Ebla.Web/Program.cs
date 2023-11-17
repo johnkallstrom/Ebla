@@ -6,7 +6,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-services.AddHttpServices(configuration);
 services.AddBlazoredLocalStorage();
+await services.AddHttpServices(configuration);
 
 await builder.Build().RunAsync();

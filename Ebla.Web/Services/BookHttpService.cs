@@ -17,12 +17,6 @@
         {
             var result = new ResultViewModel<List<BookViewModel>>();
 
-            string token = await _localStorage.GetItemAsStringAsync(_configuration.GetValue<string>("LocalStorage:Token:Key"));
-            if (!string.IsNullOrEmpty(token))
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            }
-            
             try
             {
                 var response = await _httpClient.GetAsync("/api/books");
