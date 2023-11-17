@@ -2,11 +2,11 @@
 {
     public static class HttpClientExtensions
     {
-        public static void SetAuthorizationHeaderWithToken(this HttpClient httpClient, string token)
+        public static void SetAuthorizationHeader(this HttpClient httpClient, string scheme, string value)
         {
-            if (!string.IsNullOrEmpty(token))
+            if (!string.IsNullOrEmpty(value))
             {
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme, value);
             }
         }
     }
