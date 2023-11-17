@@ -2,15 +2,11 @@
 {
     public class BookHttpService : IBookHttpService
     {
-        private readonly IConfiguration _configuration;
-        private readonly ILocalStorageService _localStorage;
         private readonly HttpClient _httpClient;
 
-        public BookHttpService(HttpClient httpClient, ILocalStorageService localStorage, IConfiguration configuration)
+        public BookHttpService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _localStorage = localStorage;
-            _configuration = configuration;
         }
 
         public async Task<ResultViewModel<List<BookViewModel>>> GetAllAsync()
