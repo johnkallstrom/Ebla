@@ -1,3 +1,48 @@
 ﻿@page "/users"
 
 <PageTitle>Ebla - Users</PageTitle>
+
+<div class="row">
+    <div class="col-sm-8">
+        @if (UserList != null && UserList.Count() > 0)
+        {
+            <table class="table table-bordered table-responsive">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Roles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in UserList)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Username</td>
+                            <td>@user.Email</td>
+                            <td>
+                                @foreach (var role in user.Roles)
+                                {
+                                    @if (role.Equals(user.Roles.Last()))
+                                    {
+                                        <span>@role</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@role, </span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>Loading...</div>
+        }
+    </div>
+</div>
