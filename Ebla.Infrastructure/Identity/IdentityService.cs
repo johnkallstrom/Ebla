@@ -113,7 +113,7 @@
             return null;
         }
 
-        public async Task<bool> LoginAsync(string username, string password)
+        public async Task<UserDto> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
@@ -122,7 +122,19 @@
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
-            return result.Succeeded;
+            if (result.Succeeded)
+            {
+                var roles = await GetUserRoles(user);
+
+                var mappedUser = _mapper.Map<UserDto>(user);
+                mappedUser.Roles = roles;
+
+                return mappedUser;
+            }
+            else
+            {
+                throw new Exception("Invalid credentials");
+            }
         }
 
         public async Task UpdateUserAsync(Guid userId, string email, string[] updatedRoleList)

@@ -20,18 +20,10 @@
             {
                 try
                 {
-                    var succeeded = await _identityService.LoginAsync(request.Username, request.Password);
-                    if (succeeded)
-                    {
-                        var user = await _identityService.GetUserAsync(request.Username);
+                    var user = await _identityService.LoginAsync(request.Username, request.Password);
+                    var token = _jwtProvider.GenerateToken(user);
 
-                        var token = _jwtProvider.GenerateToken(user);
-                        return LoginResult.Success(token);
-                    }
-                    else
-                    {
-                        throw new Exception("Incorrect password");
-                    }
+                    return LoginResult.Success(token, user);
                 }
                 catch (Exception ex)
                 {

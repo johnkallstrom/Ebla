@@ -8,6 +8,6 @@
         Task UpdateUserAsync(Guid userId, string email, string[] updatedRoleList);
         Task DeleteUserAsync(Guid userId);
         Task<List<UserDto>> GetAllUsersAsync();
-        Task<bool> LoginAsync(string username, string password);
+        Task<UserDto> LoginAsync(string username, string password);
     }
 }
