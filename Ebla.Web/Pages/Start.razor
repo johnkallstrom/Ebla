@@ -2,9 +2,9 @@
 
 <PageTitle>Ebla - Start</PageTitle>
 
-@if (IsAuthenticated)
+@if (AuthenticationService.User != null)
 {
-    <p>Authenticated.</p>
+    <p>Welcome, @AuthenticationService.User.Username</p>
 }
 else
 {

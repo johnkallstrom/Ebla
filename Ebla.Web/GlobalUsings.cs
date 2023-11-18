@@ -11,3 +11,5 @@ global using Blazored.LocalStorage;
 global using System.Net.Http.Headers;
 global using System.Text.Json.Serialization;
 global using Ebla.Web.Extensions;
+global using Ebla.Web.Authentication;
+global using Ebla.Web.Authentication.Responses;

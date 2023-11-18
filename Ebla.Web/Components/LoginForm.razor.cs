@@ -1,9 +1,11 @@
-﻿namespace Ebla.Web.Components
+﻿using Ebla.Web.Authentication;
+
+namespace Ebla.Web.Components
 {
     public partial class LoginForm
     {
         [Inject]
-        public IAuthHttpService AuthHttpService { get; set; }
+        public IAuthenticationService AuthHttpService { get; set; }
 
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }

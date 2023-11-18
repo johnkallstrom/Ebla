@@ -10,8 +10,6 @@
             ILocalStorageService localStorage = serviceProvider.GetRequiredService<ILocalStorageService>();
             string token = await localStorage.GetItemAsStringAsync(configuration.GetValue<string>("LocalStorage:Token:Key"));
 
-            services.AddHttpClient<IAuthHttpService, AuthHttpService>(client => client.BaseAddress = uri);
-
             services.AddHttpClient<IUserHttpService, UserHttpService>(client =>
             {
                 client.BaseAddress = uri;

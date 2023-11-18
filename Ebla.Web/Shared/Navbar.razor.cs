@@ -3,18 +3,11 @@
     public partial class Navbar
     {
         [Inject]
-        public IAuthHttpService AuthHttpService { get; set; }
-
-        public bool IsAuthenticated { get; set; }
-
-        protected override async Task OnInitializedAsync()
-        {
-            IsAuthenticated = await AuthHttpService.IsAuthenticated();
-        }
+        public IAuthenticationService AuthenticationService { get; set; }
 
         public async Task SignOut()
         {
-            await AuthHttpService.SignOutAsync();
+            await AuthenticationService.SignOutAsync();
         }
     }
 }
