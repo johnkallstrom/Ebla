@@ -7,9 +7,6 @@
         private readonly ILocalStorageService _localStorage;
         private readonly HttpClient _httpClient;
 
-        private readonly string _tokenKey;
-        private readonly string _userKey;
-
         public CurrentUser User { get; set; }
 
         public AuthenticationService(HttpClient httpClient, ILocalStorageService localStorage, NavigationManager navigationManager, IConfiguration configuration)
@@ -20,56 +17,51 @@
             _configuration = configuration;
 
             _httpClient.BaseAddress = new Uri(_configuration.GetValue<string>("Ebla.Api:BaseUrl"));
-            _tokenKey = _configuration.GetValue<string>("LocalStorage:Token:Key");
-            _userKey = _configuration.GetValue<string>("LocalStorage:User:Key");
         }
 
         public async Task InitializeAsync()
         {
-            User = await _localStorage.GetItemAsync<CurrentUser>(_userKey);
+            User = await _localStorage.GetItemAsync<CurrentUser>("user");
         }
 
-        public async Task<LoginResponse> LoginAsync(string username, string password)
+        public async Task<LoginResultViewModel> LoginAsync(string username, string password)
         {
-            var loginResponse = new LoginResponse();
+            var result = new LoginResultViewModel();
 
             try
             {
                 var httpResponse = await _httpClient.PostAsJsonAsync($"/api/users/login", new { Username = username, Password = password });
-                loginResponse = await httpResponse.Content.ReadFromJsonAsync<LoginResponse>();
+                result = await httpResponse.Content.ReadFromJsonAsync<LoginResultViewModel>();
 
-                if (loginResponse.Succeeded)
+                if (result.Succeeded)
                 {
-                    await _localStorage.SetItemAsStringAsync(_tokenKey, loginResponse.Token);
-
                     var currentUser = new CurrentUser
                     {
-                        Username = loginResponse.User.Username,
-                        Email = loginResponse.User.Email,
-                        Roles = loginResponse.User.Roles.ToList(),
-                        Token = loginResponse.Token,
+                        Username = result.User.Username,
+                        Email = result.User.Email,
+                        Roles = result.User.Roles.ToList(),
+                        Token = result.Token,
                         IsAuthenticated = true
                     };
 
-                    await _localStorage.SetItemAsync(_userKey, currentUser);
+                    await _localStorage.SetItemAsync("user", currentUser);
 
                     _navigationManager.ReloadStartPage();
                 }
             }
             catch (Exception ex)
             {
-                loginResponse.Errors = new string[] { ex.Message };
+                result.Errors = new string[] { ex.Message };
             }
 
-            return loginResponse;
+            return result;
         }
 
         public async Task SignOutAsync()
         {
             User = null;
 
-            await _localStorage.RemoveItemAsync(_userKey);
-            await _localStorage.RemoveItemAsync(_tokenKey);
+            await _localStorage.RemoveItemAsync("user");
             _navigationManager.ReloadStartPage();
         }
     }
