@@ -35,7 +35,7 @@
                     if (result.Succeeded)
                     {
                         await LocalStorage.SetItemAsStringAsync("token", result.Data);
-                        NavigationManager.ReloadStartPage();
+                        NavigationManager.NavigateToStartPageAndRefresh();
                     }
                     else
                     {

@@ -11,7 +11,7 @@
         public async Task SignOut()
         {
             await LocalStorage.RemoveItemAsync("token");
-            NavigationManager.ReloadStartPage();
+            NavigationManager.NavigateToStartPageAndRefresh();
         }
     }
 }

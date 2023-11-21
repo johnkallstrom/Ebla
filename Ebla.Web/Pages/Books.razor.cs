@@ -2,7 +2,27 @@
 {
     public partial class Books
     {
+        [Inject]
+        public IHttpService HttpService { get; set; }
+
         public List<BookViewModel> BookList { get; set; }
-        public string[] Errors { get; set; }
+        public List<string> Errors { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            try
+            {
+                var response = await HttpService.GetAsync("/api/books");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    BookList = await response.Content.ReadFromJsonAsync<List<BookViewModel>>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Errors.Add(ex.Message);
+            }
+        }
     }
 }
