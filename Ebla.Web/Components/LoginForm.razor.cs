@@ -1,11 +1,9 @@
-﻿using Ebla.Web.Authentication;
-
-namespace Ebla.Web.Components
+﻿namespace Ebla.Web.Components
 {
     public partial class LoginForm
     {
         [Inject]
-        public IAuthenticationService AuthHttpService { get; set; }
+        public IAuthenticationService AuthenticatonService { get; set; }
 
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
@@ -18,7 +16,7 @@ namespace Ebla.Web.Components
 
         public async Task Submit()
         {
-            var result = await AuthHttpService.LoginAsync(ViewModel.Username, ViewModel.Password);
+            var result = await AuthenticatonService.LoginAsync(ViewModel.Username, ViewModel.Password);
 
             if (result.Errors.Count() > 0)
             {
