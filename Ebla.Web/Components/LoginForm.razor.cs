@@ -3,7 +3,7 @@
     public partial class LoginForm
     {
         [Inject]
-        public IAuthenticationService AuthenticatonService { get; set; }
+        public IUserHttpService UserHttpService { get; set; }
 
         public LoginViewModel ViewModel { get; set; }
         public List<string> Errors { get; set; }
@@ -16,7 +16,7 @@
 
         public async Task Submit()
         {
-            var result = await AuthenticatonService.LoginAsync(ViewModel.Username, ViewModel.Password);
+            var result = await UserHttpService.LoginAsync(ViewModel.Username, ViewModel.Password);
 
             if (result.Errors.Count() > 0)
             {

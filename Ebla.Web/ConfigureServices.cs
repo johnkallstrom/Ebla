@@ -8,17 +8,17 @@
 
             var serviceProvider = services.BuildServiceProvider();
             ILocalStorageService localStorage = serviceProvider.GetRequiredService<ILocalStorageService>();
-            var user = await localStorage.GetItemAsync<CurrentUser>("user");
+            string token = await localStorage.GetItemAsStringAsync("token");
 
             services.AddHttpClient<IUserHttpService, UserHttpService>(client =>
             {
                 client.BaseAddress = uri;
-                client.SetAuthorizationHeader("Bearer", user.Token);
+                client.SetAuthorizationHeader("Bearer", token);
             });
             services.AddHttpClient<IBookHttpService, BookHttpService>(client =>
             {
                 client.BaseAddress = uri;
-                client.SetAuthorizationHeader("Bearer", user.Token);
+                client.SetAuthorizationHeader("Bearer", token);
             });
 
             return services;

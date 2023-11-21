@@ -21,9 +21,9 @@
                 try
                 {
                     var user = await _identityService.LoginAsync(request.Username, request.Password);
-                    var token = _jwtProvider.GenerateToken(user);
+                    string token = _jwtProvider.GenerateToken(user);
 
-                    return LoginResult.Success(token, user);
+                    return LoginResult.Success(token);
                 }
                 catch (Exception ex)
                 {

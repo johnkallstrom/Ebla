@@ -1,10 +1,14 @@
 ﻿<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout)" />
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(Layout)">
+            <NotAuthorized>
+                <p role="alert">Sorry, you're not authorized to see this page.</p>
+            </NotAuthorized>
+        </AuthorizeRouteView>
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
+        <PageTitle>Ebla - Not Found</PageTitle>
         <LayoutView Layout="@typeof(Layout)">
             <p role="alert">Sorry, there's nothing at this address.</p>
         </LayoutView>

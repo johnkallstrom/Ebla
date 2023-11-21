@@ -2,11 +2,11 @@
 
 <PageTitle>Ebla - Start</PageTitle>
 
-@if (AuthenticationService.User != null)
-{
-    <p>Welcome, @AuthenticationService.User.Username</p>
-}
-else
-{
-    <LoginForm />
-}
+<AuthorizeView>
+    <Authorized>
+        <p>You're authorized.</p>
+    </Authorized>
+    <NotAuthorized>
+        <LoginForm />
+    </NotAuthorized>
+</AuthorizeView>
