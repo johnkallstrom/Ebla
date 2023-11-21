@@ -4,7 +4,12 @@
 
 <AuthorizeView>
     <Authorized>
-        <p>Authorized.</p>
+        <ul>
+            @foreach (var claim in context.User.Claims)
+            {
+                <li>@claim.Type: @claim.Value</li>
+            }
+        </ul>
     </Authorized>
     <NotAuthorized>
         <LoginForm />

@@ -35,10 +35,9 @@
             var tokenHandler = new JwtSecurityTokenHandler();
             var jwtSecurityToken = tokenHandler.ReadJwtToken(token);
 
-            string authenticationType = "jwt";
             var claims = jwtSecurityToken.Claims.ToList();
 
-            return new ClaimsIdentity(claims, authenticationType);
+            return new ClaimsIdentity(claims, authenticationType: "jwt");
         }
     }
 }

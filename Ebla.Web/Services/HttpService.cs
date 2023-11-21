@@ -15,5 +15,12 @@
 
             return response;
         }
+
+        public async Task<HttpResponseMessage> PostAsync(string uri, object data)
+        {
+            var response = await _httpClient.PostAsJsonAsync(uri, data);
+
+            return response;
+        }
     }
 }

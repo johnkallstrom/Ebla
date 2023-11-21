@@ -3,24 +3,49 @@
     public partial class LoginForm
     {
         [Inject]
-        public IUserHttpService UserHttpService { get; set; }
+        public IHttpService HttpService { get; set; }
 
-        public LoginViewModel ViewModel { get; set; }
+        [Inject]
+        public ILocalStorageService LocalStorage { get; set; }
+
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
+        public LoginViewModel Model { get; set; }
         public List<string> Errors { get; set; }
 
         protected override void OnInitialized()
         {
-            ViewModel = new LoginViewModel();
+            Model = new LoginViewModel();
             Errors = new List<string>();
         }
 
         public async Task Submit()
         {
-            var result = await UserHttpService.LoginAsync(ViewModel.Username, ViewModel.Password);
+            Errors.Clear();
 
-            if (result.Errors.Count() > 0)
+            try
             {
-                Errors = result.Errors.ToList();
+                var response = await HttpService.PostAsync("/api/users/login", Model);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadFromJsonAsync<ResultViewModel<string>>();
+
+                    if (result.Succeeded)
+                    {
+                        await LocalStorage.SetItemAsStringAsync("token", result.Data);
+                        NavigationManager.ReloadStartPage();
+                    }
+                    else
+                    {
+                        Errors = result.Errors.ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Errors.Add(ex.Message);
             }
         }
     }
