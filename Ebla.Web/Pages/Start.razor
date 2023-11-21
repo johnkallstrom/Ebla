@@ -10,6 +10,19 @@
                 <li>@claim.Type: @claim.Value</li>
             }
         </ul>
+        <p>
+            @{
+                bool hasAdminRole = context.User.IsInRole("Administrator");
+                @if (hasAdminRole)
+                {
+                    <p>You are an administrator.</p>
+                }
+                else
+                {
+                    <p>You are not an administrator</p>
+                }
+            }
+        </p>
     </Authorized>
     <NotAuthorized>
         <LoginForm />
