@@ -7,9 +7,12 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddBlazoredLocalStorage();
-await services.AddHttpServices(configuration);
+services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(configuration.GetValue<string>("Ebla.Api:BaseUrl")) });
+services.AddScoped<IHttpService, HttpService>();
 services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 services.AddAuthorizationCore();
 
-var host = builder.Build();
-await host.RunAsync();
+// To be removed
+await services.AddHttpServices(configuration);
+
+await builder.Build().RunAsync();
