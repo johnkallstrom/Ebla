@@ -2,3 +2,53 @@
 @attribute [Authorize]
 
 <PageTitle>Ebla - Libraries</PageTitle>
+
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p class="error-message">@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-8">
+            @if (LibraryList != null && LibraryList.Count() > 0)
+            {
+                <table class="table table-bordered table-responsive">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Established</th>
+                            <th scope="col">Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var library in LibraryList)
+                        {
+                            <tr>
+                                <td>@library.Id</td>
+                                <td>@library.Name</td>
+                                @if (library.Established.HasValue)
+                                {
+                                    <td>@library.Established.Value</td>
+                                }
+                                else
+                                {
+                                    <td>@string.Empty</td>
+                                }
+                                <td>@library.CreatedOn</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div>Loading...</div>
+            }
+        </div>
+    </div>
+}
