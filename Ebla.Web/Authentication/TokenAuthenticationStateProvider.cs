@@ -13,23 +13,32 @@
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
+            var identity = new ClaimsIdentity();
             string token = await _localStorage.GetItemAsStringAsync("token");
 
             if (!string.IsNullOrEmpty(token))
             {
-                var tokenHandler = new JwtSecurityTokenHandler();
-
+                identity = ParseTokenToClaimsIdentity(token);
                 _httpClient.SetAuthorizationHeader("Bearer", token);
             }
 
-            var identity = new ClaimsIdentity();
             var user = new ClaimsPrincipal(identity);
-
             var state = new AuthenticationState(user);
 
             NotifyAuthenticationStateChanged(Task.FromResult(state));
 
             return state;
+        }
+
+        private ClaimsIdentity ParseTokenToClaimsIdentity(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtSecurityToken = tokenHandler.ReadJwtToken(token);
+
+            string authenticationType = "jwt";
+            var claims = jwtSecurityToken.Claims.ToList();
+
+            return new ClaimsIdentity(claims, authenticationType);
         }
     }
 }
