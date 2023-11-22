@@ -29,7 +29,7 @@
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddMinutes(60),
+                Expires = DateTime.UtcNow.AddMinutes(60),
                 Issuer = _options.Issuer,
                 Audience = _options.Audience,
                 SigningCredentials = signingCredentials
