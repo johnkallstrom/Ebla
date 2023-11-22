@@ -16,7 +16,7 @@
             var identity = new ClaimsIdentity();
             string token = await _localStorage.GetItemAsStringAsync("token");
 
-            if (!string.IsNullOrEmpty(token))
+            if (!string.IsNullOrEmpty(token) && !HasTokenExpired(token))
             {
                 identity = ParseTokenToClaimsIdentity(token);
                 _httpClient.SetAuthorizationHeader("Bearer", token);
@@ -28,6 +28,17 @@
             NotifyAuthenticationStateChanged(Task.FromResult(state));
 
             return state;
+        }
+
+        private bool HasTokenExpired(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtSecurityToken = tokenHandler.ReadJwtToken(token);
+
+            var expires = jwtSecurityToken.ValidTo;
+            var now = DateTime.UtcNow;
+
+            return expires < now;
         }
 
         private ClaimsIdentity ParseTokenToClaimsIdentity(string token)
