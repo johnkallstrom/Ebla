@@ -48,7 +48,13 @@
 
             var claims = jwtSecurityToken.Claims.ToList();
 
-            return new ClaimsIdentity(claims, authenticationType: "jwt");
+            var identity = new ClaimsIdentity(
+                claims: claims, 
+                authenticationType: "jwt", 
+                nameType: "name", 
+                roleType: "role");
+
+            return identity;
         }
     }
 }

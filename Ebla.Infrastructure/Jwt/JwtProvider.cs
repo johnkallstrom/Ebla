@@ -26,9 +26,15 @@
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Key));
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
+            var identity = new ClaimsIdentity(
+                claims: claims, 
+                authenticationType: "jwt", 
+                nameType: "name", 
+                roleType: "role");
+
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
+                Subject = identity,
                 Expires = DateTime.UtcNow.AddMinutes(60),
                 Issuer = _options.Issuer,
                 Audience = _options.Audience,
