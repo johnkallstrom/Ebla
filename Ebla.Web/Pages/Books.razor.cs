@@ -18,6 +18,10 @@
                 {
                     BookList = await response.Content.ReadFromJsonAsync<List<BookViewModel>>();
                 }
+                else
+                {
+                    Errors = new List<string> { await response.Content.ReadAsStringAsync() };
+                }
             }
             catch (Exception ex)
             {
