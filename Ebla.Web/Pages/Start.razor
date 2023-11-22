@@ -4,32 +4,13 @@
 
 <AuthorizeView>
     <Authorized>
+        <small>Claims</small>
         <ul>
             @foreach (var claim in context.User.Claims)
             {
                 <li>@claim.Type: @claim.Value</li>
             }
         </ul>
-        @{
-            bool hasAdminRole = context.User.IsInRole("Administrator");
-            bool hasUserRole = context.User.IsInRole("User");
-            @if (hasAdminRole)
-            {
-                <p>You are in an administrator role.</p>
-            }
-            else
-            {
-                <p>You are not in an administrator role</p>
-            }
-            @if (hasUserRole)
-            {
-                <p>You are in a user role.</p>
-            }
-            else
-            {
-                <p>You are not in a user role</p>
-            }
-        }
     </Authorized>
     <NotAuthorized>
         <LoginForm />
