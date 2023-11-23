@@ -12,6 +12,19 @@
         }
 
         /// <summary>
+        /// Get all loans
+        /// </summary>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet]
+        public async Task<IEnumerable<LoanDto>> GetAll()
+        {
+            var loans = await _mediator.Send(new GetLoansQuery());
+
+            return loans;
+        }
+
+        /// <summary>
         /// Get all user loans
         /// </summary>
         /// <param name="userId"></param>

@@ -45,3 +45,4 @@ global using Ebla.Application.Loans.Commands.UpdateLoan;
 global using Ebla.Application.Authors.Queries.GetAuthorById;
 global using Ebla.Application.Libraries.Queries.GetLibraries;
 global using Ebla.Application.Libraries.Queries.GetLibraryById;
+global using Ebla.Application.Loans.Queries.GetLoans;
