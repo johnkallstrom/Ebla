@@ -14,32 +14,7 @@ else
 {
     <div class="row">
         <div class="col-sm-8">
-            @if (ReservationList != null && ReservationList.Count() > 0)
-            {
-                <table class="table table-bordered table-responsive">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Expires</th>
-                            <th scope="col">Created</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var reservation in ReservationList)
-                        {
-                            <tr>
-                                <td>@reservation.Id</td>
-                                <td>@reservation.ExpiresOn</td>
-                                <td>@reservation.CreatedOn</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-            else
-            {
-                <div>Loading...</div>
-            }
+            <ReservationsTable Data="@ReservationList" />
         </div>
     </div>
 }
