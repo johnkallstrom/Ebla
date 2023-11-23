@@ -9,10 +9,29 @@
             _context = context;
         }
 
+        public async Task<IEnumerable<Loan>> GetAllLoansAsync()
+        {
+            var loans = await _context.Loans
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Author)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Genre)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Library)
+                .ToListAsync();
+
+            return loans;
+        }
+
         public async Task<IEnumerable<Loan>> GetLoansByUserIdAsync(Guid userId)
         {
             var loans = await _context.Loans
                 .Include(x => x.Book)
+                    .ThenInclude(x => x.Author)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Genre)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Library)
                 .Where(x => x.UserId == userId)
                 .ToListAsync();
 
