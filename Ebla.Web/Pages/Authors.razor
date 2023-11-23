@@ -14,32 +14,7 @@ else
 {
     <div class="row">
         <div class="col-sm-8">
-            @if (AuthorList != null && AuthorList.Count() > 0)
-            {
-                <table class="table table-bordered table-responsive">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Born</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var author in AuthorList)
-                        {
-                            <tr>
-                                <td>@author.Id</td>
-                                <td>@author.Name</td>
-                                <td>@author.Birthday.ToYear()</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-            else
-            {
-                <div>Loading...</div>
-            }
+            <AuthorsTable Data="@AuthorList" />
         </div>
     </div>
 }

@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Components
+﻿namespace Ebla.Web.Components.Tables
 {
     public partial class ReservationsTable
     {
