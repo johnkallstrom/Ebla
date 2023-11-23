@@ -2,12 +2,22 @@
 {
     public partial class Profile
     {
+        [Inject]
+        public IHttpService HttpService { get; set; }
+
         [Parameter]
         public Guid UserId { get; set; }
 
-        protected override void OnParametersSet()
+        public UserViewModel User { get; set; }
+
+        protected override async Task OnInitializedAsync()
         {
-            Console.WriteLine($"Parameter: {UserId}");
+            var response = await HttpService.GetAsync($"{Endpoints.Users}/{UserId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                User = await response.Content.ReadFromJsonAsync<UserViewModel>();
+            }
         }
     }
 }
