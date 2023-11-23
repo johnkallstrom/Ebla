@@ -8,5 +8,6 @@
         public static readonly string Reservations = "/api/reservations";
         public static readonly string Loans = "/api/loans";
         public static readonly string Users = "/api/users";
+        public static readonly string Login = "/api/users/login";
     }
 }

@@ -26,7 +26,7 @@
 
             try
             {
-                var response = await HttpService.PostAsync("/api/users/login", Model);
+                var response = await HttpService.PostAsync(Endpoints.Login, Model);
 
                 if (response.IsSuccessStatusCode)
                 {
