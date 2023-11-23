@@ -12,6 +12,19 @@
         }
 
         /// <summary>
+        /// Get all reservations
+        /// </summary>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet]
+        public async Task<IEnumerable<ReservationDto>> GetAll()
+        {
+            var reservations = await _mediator.Send(new GetReservationsQuery());
+
+            return reservations;
+        }
+
+        /// <summary>
         /// Get all user reservations
         /// </summary>
         /// <param name="userId"></param>

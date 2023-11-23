@@ -9,6 +9,20 @@
             _context = context;
         }
 
+        public async Task<IEnumerable<Reservation>> GetAllReservationsAsync()
+        {
+            var reservations = await _context.Reservations
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Author)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Genre)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Library)
+                .ToListAsync();
+
+            return reservations;
+        }
+
         public async Task<IEnumerable<Reservation>> GetReservationListByBookIdAsync(int bookId)
         {
             var reservations = await _context.Reservations
@@ -23,6 +37,11 @@
         {
             var reservations = await _context.Reservations
                 .Include(x => x.Book)
+                    .ThenInclude(x => x.Author)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Genre)
+                .Include(x => x.Book)
+                    .ThenInclude(x => x.Library)
                 .Where(x => x.UserId == userId)
                 .ToListAsync();
 
