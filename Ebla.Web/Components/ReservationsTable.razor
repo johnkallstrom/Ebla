@@ -1,0 +1,26 @@
+﻿@if (Data != null && Data.Count() > 0)
+{
+    <table class="table table-bordered table-responsive">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Created</th>
+                <th scope="col">Expires</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Data)
+            {
+                <tr>
+                    <td>@reservation.Id</td>
+                    <td>@reservation.CreatedOn.ToCustomDateFormat()</td>
+                    <td>@reservation.ExpiresOn.ToCustomDateFormat()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>Loading...</div>
+}
