@@ -7,6 +7,10 @@
                 <th scope="col">Created</th>
                 <th scope="col">Due</th>
                 <th scope="col">Returned</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Library</th>
+                <th scope="col">User</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +28,10 @@
                     {
                         <td>Not returned</td>
                     }
+                    <td>@loan.Book.Title</td>
+                    <td>@loan.Book.Author</td>
+                    <td>@loan.Book.Library</td>
+                    <td>@loan.UserId</td>
                 </tr>
             }
         </tbody>
