@@ -2,5 +2,12 @@
 {
     public partial class Profile
     {
+        [Parameter]
+        public Guid UserId { get; set; }
+
+        protected override void OnParametersSet()
+        {
+            Console.WriteLine($"Parameter: {UserId}");
+        }
     }
 }
