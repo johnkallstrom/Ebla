@@ -2,3 +2,24 @@
 @attribute [Authorize]
 
 <PageTitle>Ebla - Profile</PageTitle>
+
+@if (User != null)
+{
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">Profile</div>
+                <div class="card-body">
+                    <p class="card-text mb-0">@User.Username</p>
+                    <p class="card-text mb-0">@User.Email</p>
+                    <ul>
+                        @foreach (var role in User.Roles)
+                        {
+                            <li>@role</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
