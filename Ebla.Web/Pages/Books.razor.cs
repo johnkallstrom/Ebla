@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/books");
+                var response = await HttpService.GetAsync(Endpoints.Books);
 
                 if (response.IsSuccessStatusCode)
                 {

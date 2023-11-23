@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/users");
+                var response = await HttpService.GetAsync(Endpoints.Users);
 
                 if (response.IsSuccessStatusCode)
                 {

@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/libraries");
+                var response = await HttpService.GetAsync(Endpoints.Libraries);
 
                 if (response.IsSuccessStatusCode)
                 {

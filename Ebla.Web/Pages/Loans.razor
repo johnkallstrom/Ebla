@@ -2,3 +2,46 @@
 @attribute [Authorize(Roles = "Administrator")]
 
 <PageTitle>Ebla - Loans</PageTitle>
+
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p class="error-message">@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-8">
+            @if (LoanList != null && LoanList.Count() > 0)
+            {
+                <table class="table table-bordered table-responsive">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Due</th>
+                            <th scope="col">Returned</th>
+                            <th scope="col">Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var loan in LoanList)
+                        {
+                            <tr>
+                                <td>@loan.Id</td>
+                                <td>@loan.DueDate</td>
+                                <td>@loan.Returned.HasValue ? @loan.Returned.Value : Not returned</td>
+                                <td>@loan.CreatedOn</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div>Loading...</div>
+            }
+        </div>
+    </div>
+}

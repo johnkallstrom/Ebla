@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/authors");
+                var response = await HttpService.GetAsync(Endpoints.Authors);
 
                 if (response.IsSuccessStatusCode)
                 {

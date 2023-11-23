@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/loans");
+                var response = await HttpService.GetAsync(Endpoints.Loans);
 
                 if (response.IsSuccessStatusCode)
                 {

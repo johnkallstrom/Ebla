@@ -12,7 +12,7 @@
         {
             try
             {
-                var response = await HttpService.GetAsync("/api/reservations");
+                var response = await HttpService.GetAsync(Endpoints.Reservations);
 
                 if (response.IsSuccessStatusCode)
                 {

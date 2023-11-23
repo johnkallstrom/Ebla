@@ -15,3 +15,4 @@ global using System.Security.Claims;
 global using System.Text.Json.Serialization;
 global using Ebla.Web.Authentication;
 global using System.IdentityModel.Tokens.Jwt;
+global using Ebla.Web.Enums;
