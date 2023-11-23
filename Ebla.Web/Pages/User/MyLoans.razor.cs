@@ -5,9 +5,19 @@
         [Parameter]
         public Guid UserId { get; set; }
 
-        protected override void OnParametersSet()
+        [Inject]
+        public IHttpService HttpService { get; set; }
+
+        public List<LoanViewModel> LoanList { get; set; }
+
+        protected override async Task OnInitializedAsync()
         {
-            Console.WriteLine($"Parameter: {UserId}");
+            var response = await HttpService.GetAsync($"{Endpoints.Loans}/{UserId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                LoanList = await response.Content.ReadFromJsonAsync<List<LoanViewModel>>();
+            }
         }
     }
 }

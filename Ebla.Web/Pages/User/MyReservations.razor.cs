@@ -5,9 +5,19 @@
         [Parameter]
         public Guid UserId { get; set; }
 
-        protected override void OnParametersSet()
+        [Inject]
+        public IHttpService HttpService { get; set; }
+
+        public List<ReservationViewModel> ReservationList { get; set; }
+
+        protected override async Task OnInitializedAsync()
         {
-            Console.WriteLine($"Parameter: {UserId}");
+            var response = await HttpService.GetAsync($"{Endpoints.Reservations}/{UserId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                ReservationList = await response.Content.ReadFromJsonAsync<List<ReservationViewModel>>();
+            }
         }
     }
 }
