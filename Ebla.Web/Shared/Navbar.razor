@@ -31,9 +31,9 @@
                                 </AuthorizeView>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><NavLink class="dropdown-item" href="/user/5b67aa79-8e42-47c9-4f46-08dbe1053309">Profile</NavLink></li>
-                                <li><NavLink class="dropdown-item" href="/user/5b67aa79-8e42-47c9-4f46-08dbe1053309/reservations">My Reservations</NavLink></li>
-                                <li><NavLink class="dropdown-item" href="/user/5b67aa79-8e42-47c9-4f46-08dbe1053309/loans">My Loans</NavLink></li>
+                                <li><NavLink class="dropdown-item" href="@{$"/user/{context.User.GetIdentifier()}"}">Profile</NavLink></li>
+                                <li><NavLink class="dropdown-item" href="@{$"/user/{context.User.GetIdentifier()}/reservations"}">My Reservations</NavLink></li>
+                                <li><NavLink class="dropdown-item" href="@{$"/user/{context.User.GetIdentifier()}/loans"}">My Loans</NavLink></li>
                                 <AuthorizeView Roles="Administrator" Context="AdminContext">
                                     <Authorized>
                                         <li><hr class="dropdown-divider"></li>
@@ -43,7 +43,7 @@
                                     </Authorized>
                                 </AuthorizeView>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><NavLink class="dropdown-item" href="/user/5b67aa79-8e42-47c9-4f46-08dbe1053309/settings">Settings</NavLink></li>
+                                <li><NavLink class="dropdown-item" href="@{$"/user/{context.User.GetIdentifier()}/settings"}">Settings</NavLink></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><NavLink class="dropdown-item" href="#" @onclick="SignOut">Sign out</NavLink></li>
                             </ul>
