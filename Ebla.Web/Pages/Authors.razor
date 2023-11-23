@@ -21,7 +21,7 @@ else
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Birthday</th>
+                            <th scope="col">Born</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@ else
                             <tr>
                                 <td>@author.Id</td>
                                 <td>@author.Name</td>
-                                <td>@author.Birthday.ToShortDateString()</td>
+                                <td>@author.Birthday.ToYear()</td>
                             </tr>
                         }
                     </tbody>
