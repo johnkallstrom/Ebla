@@ -6,6 +6,10 @@
                 <th scope="col">#</th>
                 <th scope="col">Created</th>
                 <th scope="col">Expires</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Library</th>
+                <th scope="col">User</th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +19,10 @@
                     <td>@reservation.Id</td>
                     <td>@reservation.CreatedOn.ToCustomDateFormat()</td>
                     <td>@reservation.ExpiresOn.ToCustomDateFormat()</td>
+                    <td>@reservation.Book.Title</td>
+                    <td>@reservation.Book.Author</td>
+                    <td>@reservation.Book.Library</td>
+                    <td>@reservation.UserId</td>
                 </tr>
             }
         </tbody>
