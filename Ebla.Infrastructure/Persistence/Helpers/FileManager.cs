@@ -2,7 +2,7 @@
 {
     public static class FileManager
     {
-        public static List<T> ParseJsonFileToEntitySeedData<T>(string fileName)
+        public static List<T> ParseJsonFileToEntityList<T>(string fileName)
         {
             var data = Enumerable.Empty<T>();
 
