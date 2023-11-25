@@ -20,3 +20,4 @@ global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
 global using Ebla.Application.Common.Exceptions;
 global using Microsoft.Extensions.Options;
+global using Newtonsoft.Json;
