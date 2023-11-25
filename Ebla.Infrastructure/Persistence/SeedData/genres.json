@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Science Fiction",
+    "description": "Science fiction (sometimes shortened to SF or sci-fi) is a genre of speculative fiction, which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life."
+  },
+  {
+    "id": 2,
+    "name": "Fantasy",
+    "description": "Fantasy literature is literature set in an imaginary universe, often but not always without any locations, events, or people from the real world. Magic, the supernatural and magical creatures are common in many of these imaginary worlds. Fantasy literature may be directed at both children and adults."
+  },
+  {
+    "id": 3,
+    "name": "Horror",
+    "description": "Horror is a genre of fiction that is intended to disturb, frighten or scare.[1] Horror is often divided into the sub-genres of psychological horror and supernatural horror, which are in the realm of speculative fiction."
+  },
+  {
+    "id": 4,
+    "name": "Historical Fiction",
+    "description": "Historical fiction is a literary genre in which a fictional plot takes place in the setting of particular real historical events. Although the term is commonly used as a synonym for historical fiction literature, it can also be applied to other types of narrative, including theatre, opera, cinema, and television, as well as video games and graphic novels."
+  },
+  {
+    "id": 5,
+    "name": "Mystery",
+    "description": "Mystery is a fiction genre where the nature of an event, usually a murder or other crime, remains mysterious until the end of the story.[1] Often within a closed circle of suspects, each suspect is usually provided with a credible motive and a reasonable opportunity for committing the crime."
+  },
+  {
+    "id": 6,
+    "name": "Popular science",
+    "description": "Popular science (also called pop-science or popsci) is an interpretation of science intended for a general audience. While science journalism focuses on recent scientific developments, popular science is more broad ranging. It may be written by professional science journalists or by scientists themselves. It is presented in many forms, including books, film and television documentaries, magazine articles, and web pages."
+  },
+  {
+    "id": 7,
+    "name": "Magic realism",
+    "description": "Magic realism or magical realism is a style of literary fiction and art. It paints a realistic view of the world while also adding magical elements, often blurring the lines between fantasy and reality.[1] Magic realism often refers to literature in particular, with magical or supernatural phenomena presented in an otherwise real-world or mundane setting, commonly found in novels and dramatic performances."
+  }
+]
