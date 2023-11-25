@@ -14,21 +14,39 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            var libraries = new List<Library>
-            {
-                new Library
-                {
-                    Id = 1,
-                    Name = "Palanaeum",
-                    Description = null,
-                    Address = null,
-                    Established = null,
-                    CreatedOn = DateTime.Now,
-                    LastModified = null,
-                }
-            };
+            var libraries = GetData();
 
             builder.HasData(libraries);
+        }
+
+        private List<Library> GetData()
+        {
+            var libraries = Enumerable.Empty<Library>();
+
+            string path = FilePath();
+            if (Path.Exists(path))
+            {
+                using (var sr = new StreamReader(path))
+                {
+                    var json = sr.ReadToEnd();
+                    libraries = JsonConvert.DeserializeObject<List<Library>>(json);
+                }
+            }
+
+            foreach (var library in libraries)
+            {
+                library.CreatedOn = DateTime.Now;
+            }
+
+            return libraries.ToList();
+        }
+
+        private string FilePath()
+        {
+            string fileName = "libraries.json";
+            string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Infrastructure");
+
+            return $@"{workingDir}\Persistence\EntitySeedData\{fileName}";
         }
     }
 }
