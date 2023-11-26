@@ -86,5 +86,101 @@
     "born": "1894-7-26",
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Aldous_Huxley_psychical_researcher.png",
     "wikipedia": "https://en.wikipedia.org/wiki/Aldous_Huxley"
+  },
+  {
+    "id": 12,
+    "name": "Andy Weir",
+    "description": "Andrew Taylor Weir (/wir/; born June 16, 1972) is an American novelist.[2] His 2011 novel The Martian was adapted into the 2015 film of the same name directed by Ridley Scott. He received the John W. Campbell Award for Best New Writer in 2016[3] and his 2021 novel Project Hail Mary was a finalist for the 2022 Hugo Award for Best Novel.[4]",
+    "born": "1972-6-16",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/NASA_Journey_to_Mars_and_%E2%80%9CThe_Martian%22_%28201508180048HQ%29.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Andy_Weir"
+  },
+  {
+    "id": 13,
+    "name": "Robert A. Heinlein",
+    "description": "Robert Anson Heinlein (/ˈhaɪnlaɪn/;[2][3][4] July 7, 1907 – May 8, 1988) was an American science fiction author, aeronautical engineer, and naval officer. Sometimes called the dean of science fiction writers,[5] he was among the first to emphasize scientific accuracy in his fiction, and was thus a pioneer of the subgenre of hard science fiction.",
+    "born": "1907-7-7",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Heinlein-face.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Robert_A._Heinlein"
+  },
+  {
+    "id": 14,
+    "name": "Gabriel García Márquez",
+    "description": "Gabriel José de la Concordia García Márquez (Latin American Spanish: [ɡaˈβɾjel ɣaɾˈsi.a ˈmaɾkes] ⓘ;[a] 6 March 1927 – 17 April 2014) was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo ([ˈɡaβo]) or Gabito ([ɡaˈβito]) throughout Latin America. Considered one of the most significant authors of the 20th century, particularly in the Spanish language, he was awarded the 1972 Neustadt International Prize for Literature and the 1982 Nobel Prize in Literature.",
+    "born": "1927-3-6",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez"
+  },
+  {
+    "id": 15,
+    "name": "Frank Herbert",
+    "description": "Franklin Patrick Herbert Jr. (October 8, 1920 – February 11, 1986) was an American science fiction author best known for the 1965 novel Dune and its five sequels. Though he became famous for his novels, he also wrote short stories and worked as a newspaper journalist, photographer, book reviewer, ecological consultant, and lecturer.",
+    "born": "1986-2-11",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Frank_Herbert_headshot.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Frank_Herbert"
+  },
+  {
+    "id": 16,
+    "name": "Ernest Hemingway",
+    "description": "Ernest Miller Hemingway (/ˈɜːrnɪst ˈhɛmɪŋweɪ/; July 21, 1899 – July 2, 1961) was an American novelist, short-story writer, and journalist. His economical and understated style—which included his iceberg theory—had a strong influence on 20th-century fiction, while his adventurous lifestyle and public image brought him admiration from later generations.",
+    "born": "1899-7-21",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/ErnestHemingway.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Ernest_Hemingway"
+  },
+  {
+    "id": 17,
+    "name": "Ken Follett",
+    "description": "Kenneth Martin Follett, CBE, FRSL[1][2] (born 5 June 1949) is a Welsh author of thrillers and historical novels who has sold more than 160 million copies of his works.[3]",
+    "born": "1949-6-5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ken_Follett_official.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Ken_Follett"
+  },
+  {
+    "id": 18,
+    "name": "Suzanne Collins",
+    "description": "Suzanne Collins (born August 10, 1962) is an American author and television writer. She is best known as the author of the young adult dystopian book series The Hunger Games.",
+    "born": "1962-8-10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Suzanne_Collins_David_Shankbone_2010.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Suzanne_Collins"
+  },
+  {
+    "id": 19,
+    "name": "Stephen Hawking",
+    "description": "Stephen William Hawking (8 January 1942 – 14 March 2018) was an English theoretical physicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge.[6][17][18] Between 1979 and 2009, he was the Lucasian Professor of Mathematics at Cambridge, widely viewed as one of the most prestigious academic posts in the world.[19]",
+    "born": "1942-1-8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Stephen_Hawking"
+  },
+  {
+    "id": 20,
+    "name": "Peter Benchley",
+    "description": "Peter Bradford Benchley (May 8, 1940 – February 11, 2006) was an American author, screenwriter, and ocean activist. He is known for his bestselling novel Jaws and co-wrote its film adaptation with Carl Gottlieb. Several more of his works were also adapted for both cinema and television, including The Deep, The Island, Beast, and White Shark.",
+    "born": "1940-5-8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Jaws_%281974%29_back_cover_featuring_a_portrait_photograph_of_Peter_Benchley_by_Alex_Gotfryd%2C_first_edition.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Peter_Benchley"
+  },
+  {
+    "id": 21,
+    "name": "Mark Twain",
+    "description": "Samuel Langhorne Clemens (November 30, 1835 – April 21, 1910),[1] known by the pen name Mark Twain, was an American writer, humorist, essayist, entrepreneur, publisher, and lecturer. He was praised as the greatest humorist the United States has produced,[2] and William Faulkner called him the father of American literature.",
+    "born": "1835-11-30",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mark_Twain_by_AF_Bradley.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Mark_Twain"
+  },
+  {
+    "id": 22,
+    "name": "Jane Austen",
+    "description": "Jane Austen (/ˈɒstɪn, ˈɔːstɪn/ OST-in, AW-stin; 16 December 1775 – 18 July 1817) was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social standing and economic security.",
+    "born": "1775-12-16",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cc/CassandraAusten-JaneAusten%28c.1810%29_hires.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jane_Austen"
+  },
+  {
+    "id": 23,
+    "name": "Jules Verne",
+    "description": "Jules Gabriel Verne (/vɜːrn/;[1][2] French: [ʒyl ɡabʁijɛl vɛʁn]; 8 February 1828 – 24 March 1905)[3] was a French novelist, poet, and playwright. His collaboration with the publisher Pierre-Jules Hetzel led to the creation of the Voyages extraordinaires,[3] a series of bestselling adventure novels including Journey to the Center of the Earth (1864), Twenty Thousand Leagues Under the Seas (1870), and Around the World in Eighty Days (1872). His novels, always well documented, are generally set in the second half of the 19th century, taking into account the technological advances of the time.",
+    "born": "1828-2-8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jules_Verne_by_%C3%89tienne_Carjat.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jules_Verne"
   }
 ]
