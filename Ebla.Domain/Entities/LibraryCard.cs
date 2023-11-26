@@ -2,7 +2,7 @@
 {
     public class LibraryCard : BaseEntity<int>
     {
-        public int PersonalIdentificationNumber { get; set; }
+        public int PIN { get; set; }
         public DateTime ExpiresOn { get; set; }
 
         public int LibraryId { get; set; }
