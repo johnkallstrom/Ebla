@@ -3,35 +3,30 @@
     "id": 1,
     "name": "Global Library",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquam sem ut ipsum dignissim condimentum. Duis at metus efficitur, euismod diam ut, rutrum neque. Vivamus in risus aliquam, vehicula tortor non, imperdiet sapien.",
-    "address": null,
     "established": "1893-09-29"
   },
   {
     "id": 2,
     "name": "Obelisk Library",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquam sem ut ipsum dignissim condimentum. Duis at metus efficitur, euismod diam ut, rutrum neque. Vivamus in risus aliquam, vehicula tortor non, imperdiet sapien.",
-    "address": null,
     "established": "1922-02-16"
   },
   {
     "id": 3,
     "name": "Explorer Library",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquam sem ut ipsum dignissim condimentum. Duis at metus efficitur, euismod diam ut, rutrum neque. Vivamus in risus aliquam, vehicula tortor non, imperdiet sapien.",
-    "address": null,
     "established": "2010-12-31"
   },
   {
     "id": 4,
     "name": "Solitude Library",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquam sem ut ipsum dignissim condimentum. Duis at metus efficitur, euismod diam ut, rutrum neque. Vivamus in risus aliquam, vehicula tortor non, imperdiet sapien.",
-    "address": null,
     "established": "1948-01-21"
   },
   {
     "id": 5,
     "name": "Rainbow Library",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquam sem ut ipsum dignissim condimentum. Duis at metus efficitur, euismod diam ut, rutrum neque. Vivamus in risus aliquam, vehicula tortor non, imperdiet sapien.",
-    "address": null,
     "established": "2015-03-04"
   }
 ]
