@@ -7,6 +7,9 @@
         public int Pages { get; set; }
         public DateTime Published { get; set; }
         public string Language { get; set; }
+        public string Country { get; set; }
+        public string Image { get; set; }
+        public string Wikipedia { get; set; }
 
         public int LibraryId { get; set; }
         public Library Library { get; set; }
@@ -14,7 +17,7 @@
         public Author Author { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
-        public List<Reservation> Reservations { get; set; }
         public List<Review> Reviews { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }

@@ -218,5 +218,60 @@
     "country": "United Kingdom",
     "image": "https://upload.wikimedia.org/wikipedia/en/a/a3/BriefHistoryTime.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/A_Brief_History_of_Time"
+  },
+  {
+    "id": 21,
+    "title": "Jaws",
+    "description": "Jaws is a novel by American writer Peter Benchley, published in 1974. It tells the story of a large great white shark that preys upon a small Long Island resort town and the three men who attempt to kill it. The novel grew out of Benchley's interest in shark attacks after he learned about the exploits of Montauk, New York shark fisherman Frank Mundus in 1964. Doubleday commissioned him to write the novel in 1971, a period when Benchley worked as a freelance journalist.",
+    "pages": 278,
+    "published": "1974-2-1",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jaws_%281974%29_front_cover%2C_first_edition.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jaws_(novel)"
+  },
+  {
+    "id": 22,
+    "title": "Adventures of Huckleberry Finn",
+    "description": "Adventures of Huckleberry Finn is a novel by American author Mark Twain, which was first published in the United Kingdom in December 1884 and in the United States in February 1885.",
+    "pages": 362,
+    "published": "1884-12-10",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
+    "wikipedia": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn"
+  },
+  {
+    "id": 23,
+    "title": "Pride and Prejudice",
+    "description": "Pride and Prejudice is an 1813 novel of manners by English author Jane Austen. The novel follows the character development of Elizabeth Bennet, the protagonist of the book, who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.",
+    "pages": 432,
+    "published": "1813-1-28",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/PrideAndPrejudiceTitlePage.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pride_and_Prejudice"
+  },
+  {
+    "id": 24,
+    "title": "",
+    "description": "",
+    "pages": 1,
+    "published": "",
+    "language": "",
+    "country": "",
+    "image": "",
+    "wikipedia": ""
+  },
+  {
+    "id": 25,
+    "title": "",
+    "description": "",
+    "pages": 1,
+    "published": "",
+    "language": "",
+    "country": "",
+    "image": "",
+    "wikipedia": ""
   }
 ]
