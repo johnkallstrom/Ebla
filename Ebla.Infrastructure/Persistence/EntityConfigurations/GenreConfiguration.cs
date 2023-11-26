@@ -11,30 +11,12 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            var genres = new List<Genre>
+            var genres = FileManager.ParseJsonFileToEntityList<Genre>("genres.json");
+
+            foreach (var genre in genres)
             {
-                new Genre
-                {
-                    Id = 1,
-                    Name = "Science Fiction",
-                    CreatedOn = DateTime.Now,
-                    LastModified = null,
-                },
-                new Genre
-                {
-                    Id = 2,
-                    Name = "Fantasy",
-                    CreatedOn = DateTime.Now,
-                    LastModified = null,
-                },
-                new Genre
-                {
-                    Id = 3,
-                    Name = "Horror",
-                    CreatedOn = DateTime.Now,
-                    LastModified = null,
-                },
-            };
+                genre.CreatedOn = DateTime.Now;
+            }
 
             builder.HasData(genres);
         }
