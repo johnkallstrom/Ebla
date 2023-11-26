@@ -8,7 +8,10 @@
     "language": "English",
     "country": "United Kingdom",
     "img": "https://upload.wikimedia.org/wikipedia/en/e/e1/Rama_copy.jpg",
-    "wikipedia": "https://en.wikipedia.org/wiki/Rendezvous_with_Rama"
+    "wikipedia": "https://en.wikipedia.org/wiki/Rendezvous_with_Rama",
+    "authorId": 1,
+    "genreId": 1,
+    "libraryId": 1
   },
   {
     "id": 2,

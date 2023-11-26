@@ -47,3 +47,4 @@ global using Ebla.Application.Libraries.Queries.GetLibraries;
 global using Ebla.Application.Libraries.Queries.GetLibraryById;
 global using Ebla.Application.Loans.Queries.GetLoans;
 global using Ebla.Application.Reservations.Queries.GetReservations;
+global using Ebla.Infrastructure.Persistence.Helpers;
