@@ -254,24 +254,24 @@
   },
   {
     "id": 24,
-    "title": "",
-    "description": "",
-    "pages": 1,
-    "published": "",
-    "language": "",
-    "country": "",
-    "image": "",
-    "wikipedia": ""
+    "title": "Pet Sematary",
+    "description": "Pet Sematary is a 1983 horror novel by American writer Stephen King. The novel was nominated for a World Fantasy Award for Best Novel in 1984,[1] and adapted into two films: one in 1989 and another in 2019. In November 2013, PS Publishing released Pet Sematary in a limited 30th-anniversary edition.",
+    "pages": 374,
+    "published": "1983-11-14",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pet_Sematary_%281983%29_front_cover%2C_first_edition.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Pet_Sematary"
   },
   {
     "id": 25,
-    "title": "",
-    "description": "",
-    "pages": 1,
-    "published": "",
-    "language": "",
-    "country": "",
-    "image": "",
-    "wikipedia": ""
+    "title": "Journey to the Center of the Earth",
+    "description": "Journey to the Center of the Earth (French: Voyage au centre de la Terre), also translated with the variant titles A Journey to the Centre of the Earth and A Journey into the Interior of the Earth, is a classic science fiction novel by Jules Verne.",
+    "pages": 146,
+    "published": "1864-11-25",
+    "language": "French",
+    "country": "France",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/A_Journey_to_the_Centre_of_the_Earth-1874.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Journey_to_the_Center_of_the_Earth"
   }
 ]
