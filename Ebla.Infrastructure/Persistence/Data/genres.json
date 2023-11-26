@@ -16,7 +16,7 @@
   },
   {
     "id": 4,
-    "name": "Historical Fiction",
+    "name": "Historical",
     "description": "Historical fiction is a literary genre in which a fictional plot takes place in the setting of particular real historical events. Although the term is commonly used as a synonym for historical fiction literature, it can also be applied to other types of narrative, including theatre, opera, cinema, and television, as well as video games and graphic novels."
   },
   {
@@ -33,5 +33,25 @@
     "id": 7,
     "name": "Magic realism",
     "description": "Magic realism or magical realism is a style of literary fiction and art. It paints a realistic view of the world while also adding magical elements, often blurring the lines between fantasy and reality.[1] Magic realism often refers to literature in particular, with magical or supernatural phenomena presented in an otherwise real-world or mundane setting, commonly found in novels and dramatic performances."
+  },
+  {
+    "id": 8,
+    "name": "Literary",
+    "description": "Literary fiction, mainstream fiction, non-genre fiction, serious fiction,[1] high literature,[2] artistic literature,[2] and sometimes just literature[2] are labels that, in the book trade, refer to market novels that do not fit neatly into an established genre (see genre fiction); or, otherwise, refer to novels that are character-driven rather than plot-driven, examine the human condition, use language in an experimental or poetic fashion, or are simply considered serious art."
+  },
+  {
+    "id": 9,
+    "name": "Adventure",
+    "description": "Adventure fiction is a type of fiction that usually presents danger, or gives the reader a sense of excitement. Some adventure fiction also satisfies the literary definition of romance fiction."
+  },
+  {
+    "id": 10,
+    "name": "Non-fiction",
+    "description": "Non-fiction (or nonfiction) is any document or media content that attempts, in good faith, to convey information only about the real world, rather than being grounded in imagination.[1] Non-fiction typically aims to present topics objectively based on historical, scientific, and empirical information. However, some non-fiction ranges into more subjective territory, including sincerely held opinions on real-world topics."
+  },
+  {
+    "id": 11,
+    "name": "Romance",
+    "description": "A romance novel or romantic novel generally refers to a type of genre fiction novel which places its primary focus on the relationship and romantic love between two people, and usually has an emotionally satisfying and optimistic ending."
   }
 ]
