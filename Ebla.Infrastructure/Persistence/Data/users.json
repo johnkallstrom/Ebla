@@ -1,0 +1,19 @@
+[
+  {
+    "username": "administrator",
+    "password": "QuqdDeMsv6TajHzr9BJD",
+    "email": "administrator@localhost.com",
+    "roles": [
+      "Administrator",
+      "User"
+    ]
+  },
+  {
+    "username": "user",
+    "password": "tebKgPriqR93n6T39bpJ",
+    "email": "user@localhost.com",
+    "roles": [
+      "User"
+    ]
+  }
+]
