@@ -20,10 +20,6 @@
         {
             var library = await _context.Libraries
                 .Include(x => x.LibraryCards)
-                .Include(x => x.Books)
-                    .ThenInclude(x => x.Author)
-                .Include(x => x.Books)
-                    .ThenInclude(x => x.Genre)
                 .FirstOrDefaultAsync(x => x.Id == libraryId);
 
             return library;

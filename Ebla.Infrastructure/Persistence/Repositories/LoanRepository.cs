@@ -16,8 +16,6 @@
                     .ThenInclude(x => x.Author)
                 .Include(x => x.Book)
                     .ThenInclude(x => x.Genre)
-                .Include(x => x.Book)
-                    .ThenInclude(x => x.Library)
                 .ToListAsync();
 
             return loans;
@@ -30,8 +28,6 @@
                     .ThenInclude(x => x.Author)
                 .Include(x => x.Book)
                     .ThenInclude(x => x.Genre)
-                .Include(x => x.Book)
-                    .ThenInclude(x => x.Library)
                 .Where(x => x.UserId == userId)
                 .ToListAsync();
 

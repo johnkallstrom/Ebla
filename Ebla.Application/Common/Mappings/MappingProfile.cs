@@ -7,13 +7,11 @@
             CreateMap<Book, BookDto>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
-                .ForMember(dest => dest.Library, opt => opt.MapFrom(src => src.Library.Name))
                 .ReverseMap();
 
             CreateMap<Book, BookSlimDto>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
-                .ForMember(dest => dest.Library, opt => opt.MapFrom(src => src.Library.Name))
                 .ReverseMap();
 
             CreateMap<CreateBookCommand, Book>();
