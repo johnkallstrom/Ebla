@@ -11,12 +11,11 @@
         public string Image { get; set; }
         public string Wikipedia { get; set; }
 
-        public int LibraryId { get; set; }
-        public Library Library { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
+
         public List<Review> Reviews { get; set; }
         public List<Reservation> Reservations { get; set; }
     }
