@@ -16,7 +16,6 @@
             builder.Property(x => x.Wikipedia).HasColumnName("Wikipedia");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
-            builder.Property(x => x.LibraryId).HasColumnName("LibraryId");
             builder.Property(x => x.AuthorId).HasColumnName("AuthorId");
             builder.Property(x => x.GenreId).HasColumnName("GenreId");
 
