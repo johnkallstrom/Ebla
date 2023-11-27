@@ -53,5 +53,10 @@
     "id": 11,
     "name": "Romance",
     "description": "A romance novel or romantic novel generally refers to a type of genre fiction novel which places its primary focus on the relationship and romantic love between two people, and usually has an emotionally satisfying and optimistic ending."
+  },
+  {
+    "id": 12,
+    "name": "Thriller",
+    "description": "Thriller is a genre of fiction with numerous, often overlapping, subgenres, including crime, horror, and detective fiction. Thrillers are characterized and defined by the moods they elicit, giving their audiences heightened feelings of suspense, excitement, surprise, anticipation and anxiety.[1] This genre is well suited to film and television."
   }
 ]
