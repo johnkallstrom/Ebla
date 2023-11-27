@@ -10,7 +10,12 @@
             builder.Property(x => x.BookId).HasColumnName("BookId");
             builder.Property(x => x.LibraryId).HasColumnName("LibraryId");
 
-            var bookLibraryList = new List<BookLibrary>();
+            var bookLibraryList = FileManager.ParseJsonFileToList<BookLibrary>("booklibraries.json");
+
+            foreach (var bookLibrary in bookLibraryList)
+            {
+                bookLibrary.CreatedOn = DateTime.Now;
+            }
 
             builder.HasData(bookLibraryList);
         }
