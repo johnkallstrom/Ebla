@@ -19,7 +19,6 @@
         {
             base.OnModelCreating(modelBuilder);
 
-            // Domain
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new BookConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
@@ -28,11 +27,11 @@
             modelBuilder.ApplyConfiguration(new LoanConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new ReviewConfiguration());
+            modelBuilder.ApplyIdentityConfigurations();
 
-            // Identity
-            modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
-            modelBuilder.ApplyConfiguration(new ApplicationRoleConfiguration());
-            AddIdentityConfigurations(modelBuilder);
+            //modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
+            //modelBuilder.ApplyConfiguration(new ApplicationRoleConfiguration());
+            //AddIdentityConfigurations(modelBuilder);
         }
 
         private void AddIdentityConfigurations(ModelBuilder modelBuilder)

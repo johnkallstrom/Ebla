@@ -22,3 +22,4 @@ global using Ebla.Application.Common.Exceptions;
 global using Microsoft.Extensions.Options;
 global using Newtonsoft.Json;
 global using Ebla.Infrastructure.Persistence.Helpers;
+global using Ebla.Infrastructure.Persistence.Extensions;
