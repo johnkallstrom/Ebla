@@ -6,16 +6,21 @@
         {
             builder.ToTable("BookLibrary");
 
-            builder.Property(x => x.Id).HasColumnName("Id");
             builder.Property(x => x.BookId).HasColumnName("BookId");
             builder.Property(x => x.LibraryId).HasColumnName("LibraryId");
 
-            var bookLibraryList = FileManager.ParseJsonFileToList<BookLibrary>("booklibraries.json");
+            builder.HasKey(x => new { x.BookId, x.LibraryId });
+            builder
+                .HasOne(x => x.Book)
+                .WithMany(x => x.BookLibraries)
+                .HasForeignKey(x => x.BookId);
 
-            foreach (var bookLibrary in bookLibraryList)
-            {
-                bookLibrary.CreatedOn = DateTime.Now;
-            }
+            builder
+                .HasOne(x => x.Library)
+                .WithMany(x => x.BookLibraries)
+                .HasForeignKey(x => x.LibraryId);
+
+            var bookLibraryList = FileManager.ParseJsonFileToList<BookLibrary>("booklibraries.json");
 
             builder.HasData(bookLibraryList);
         }
