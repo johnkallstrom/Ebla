@@ -1,0 +1,15 @@
+﻿global using Ebla.Persistence.Helpers;
+global using Ebla.Persistence.Extensions;
+global using Ebla.Persistence.EntityConfigurations;
+global using Ebla.Domain.Entities;
+global using Ebla.Infrastructure.Identity;
+global using Ebla.Application.Common.Interfaces;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Newtonsoft.Json;
+global using Ebla.Persistence.Repositories;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Ebla.Application.Common.Models;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

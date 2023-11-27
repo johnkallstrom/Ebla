@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.Configurations
+﻿namespace Ebla.Persistence.EntityConfigurations
 {
     public class GenreConfiguration : IEntityTypeConfiguration<Genre>
     {

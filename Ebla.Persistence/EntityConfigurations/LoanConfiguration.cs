@@ -1,14 +1,14 @@
-﻿namespace Ebla.Infrastructure.Persistence.EntityConfigurations
+﻿namespace Ebla.Persistence.EntityConfigurations
 {
-    public class ReviewConfiguration : IEntityTypeConfiguration<Review>
+    public class LoanConfiguration : IEntityTypeConfiguration<Loan>
     {
-        public void Configure(EntityTypeBuilder<Review> builder)
+        public void Configure(EntityTypeBuilder<Loan> builder)
         {
-            builder.ToTable("Review");
+            builder.ToTable("Loan");
 
             builder.Property(x => x.Id).HasColumnName("Id");
-            builder.Property(x => x.Text).HasColumnName("Text");
-            builder.Property(x => x.Rating).HasColumnName("Rating");
+            builder.Property(x => x.DueDate).HasColumnName("DueDate");
+            builder.Property(x => x.Returned).HasColumnName("Returned");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.BookId).HasColumnName("BookId");

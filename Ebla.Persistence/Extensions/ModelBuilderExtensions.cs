@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.Extensions
+﻿namespace Ebla.Persistence.Extensions
 {
     public static class ModelBuilderExtensions
     {

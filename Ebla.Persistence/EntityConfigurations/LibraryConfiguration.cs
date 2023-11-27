@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.EntityConfigurations
+﻿namespace Ebla.Persistence.EntityConfigurations
 {
     public class LibraryConfiguration : IEntityTypeConfiguration<Library>
     {

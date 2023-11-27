@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence
+﻿namespace Ebla.Persistence
 {
     public class EblaDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {

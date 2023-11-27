@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.Configurations
+﻿namespace Ebla.Persistence.EntityConfigurations
 {
     internal class LibraryCardConfiguration : IEntityTypeConfiguration<LibraryCard>
     {

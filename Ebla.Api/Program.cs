@@ -16,7 +16,8 @@ services.ConfigureAuthorization();
 services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
 services.AddApplicationServices();
-services.AddInfrastructureServices(configuration);
+services.AddInfrastructureServices();
+services.AddPersistenceServices(configuration);
 
 var app = builder.Build();
 

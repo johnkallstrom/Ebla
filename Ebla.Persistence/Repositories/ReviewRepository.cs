@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.Repositories
+﻿namespace Ebla.Persistence.Repositories
 {
     public class ReviewRepository : IReviewRepository
     {

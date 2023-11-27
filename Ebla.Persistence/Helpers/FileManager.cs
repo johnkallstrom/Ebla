@@ -1,4 +1,4 @@
-﻿namespace Ebla.Infrastructure.Persistence.Helpers
+﻿namespace Ebla.Persistence.Helpers
 {
     public static class FileManager
     {
@@ -6,8 +6,8 @@
         {
             var data = Enumerable.Empty<T>();
 
-            string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Infrastructure");
-            string path = $@"{workingDir}\Persistence\Data\{fileName}";
+            string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Persistence");
+            string path = $@"{workingDir}\Data\{fileName}";
 
             if (Path.Exists(path))
             {
