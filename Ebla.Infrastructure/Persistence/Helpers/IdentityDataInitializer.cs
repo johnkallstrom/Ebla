@@ -9,42 +9,47 @@
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-                string[] roles = { "Administrator", "User" };
-                string username = "johnkallstrom";
-                string email = "johnkallstrom@localhost";
-                string password = "TnwmjQuhTFTaYHs83aNK";
+                var userList = FileManager.ParseJsonFileToList<InitialUser>("users.json");
 
-                foreach (var role in roles)
+                foreach (var user in userList)
                 {
-                    if (await roleManager.FindByNameAsync(role) == null)
-                    {
-                        var result = await roleManager.CreateAsync(new ApplicationRole { Name = role });
+                    await CreateRoles(roleManager, user.Roles);
 
-                        if (result.Succeeded == false)
+                    if (await userManager.FindByNameAsync(user.Username) == null)
+                    {
+                        var applicationUser = new ApplicationUser();
+                        applicationUser.UserName = user.Username;
+                        applicationUser.Email = user.Email;
+
+                        string hashedPassword = userManager.PasswordHasher.HashPassword(applicationUser, user.Password);
+                        applicationUser.PasswordHash = hashedPassword;
+
+                        var result = await userManager.CreateAsync(applicationUser);
+
+                        if (result.Succeeded)
                         {
-                            throw new Exception($"Failed to create initial role - {role}");
+                            await userManager.AddToRolesAsync(applicationUser, user.Roles);
+                        }
+                        else
+                        {
+                            throw new Exception($"Failed to create initial user - {applicationUser.UserName}");
                         }
                     }
                 }
+            }
+        }
 
-                if (await userManager.FindByNameAsync(username) == null)
+        private static async Task CreateRoles(RoleManager<ApplicationRole> roleManager, string[] roles)
+        {
+            foreach (var role in roles)
+            {
+                if (await roleManager.FindByNameAsync(role) == null)
                 {
-                    var user = new ApplicationUser();
-                    user.UserName = username;
-                    user.Email = email;
+                    var result = await roleManager.CreateAsync(new ApplicationRole { Name = role });
 
-                    string hashedPassword = userManager.PasswordHasher.HashPassword(user, password);
-                    user.PasswordHash = hashedPassword;
-
-                    var result = await userManager.CreateAsync(user);
-
-                    if (result.Succeeded)
+                    if (result.Succeeded == false)
                     {
-                        await userManager.AddToRolesAsync(user, roles);
-                    }
-                    else
-                    {
-                        throw new Exception($"Failed to create initial user - {user.UserName}");
+                        throw new Exception($"Failed to create initial role - {role}");
                     }
                 }
             }
