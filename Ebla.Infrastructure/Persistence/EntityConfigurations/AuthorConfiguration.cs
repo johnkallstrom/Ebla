@@ -12,7 +12,7 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            var authors = FileManager.ParseJsonFileToEntityList<Author>("authors.json");
+            var authors = FileManager.ParseJsonFileToList<Author>("authors.json");
 
             builder.HasData(authors);
         }

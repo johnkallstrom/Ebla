@@ -12,7 +12,7 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            var libraries = FileManager.ParseJsonFileToEntityList<Library>("libraries.json");
+            var libraries = FileManager.ParseJsonFileToList<Library>("libraries.json");
 
             foreach (var library in libraries)
             {

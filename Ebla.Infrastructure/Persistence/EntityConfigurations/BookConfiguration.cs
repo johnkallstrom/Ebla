@@ -19,7 +19,7 @@
             builder.Property(x => x.AuthorId).HasColumnName("AuthorId");
             builder.Property(x => x.GenreId).HasColumnName("GenreId");
 
-            var books = FileManager.ParseJsonFileToEntityList<Book>("books.json");
+            var books = FileManager.ParseJsonFileToList<Book>("books.json");
 
             foreach (var book in books)
             {

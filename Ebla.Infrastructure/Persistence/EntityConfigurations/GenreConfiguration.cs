@@ -12,7 +12,7 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            var genres = FileManager.ParseJsonFileToEntityList<Genre>("genres.json");
+            var genres = FileManager.ParseJsonFileToList<Genre>("genres.json");
 
             foreach (var genre in genres)
             {
