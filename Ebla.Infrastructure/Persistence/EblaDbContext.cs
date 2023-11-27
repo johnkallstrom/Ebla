@@ -8,6 +8,7 @@
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<BookLibrary> BookLibraries { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Library> Libraries { get; set; }
         public DbSet<LibraryCard> LibraryCards { get; set; }
@@ -21,6 +22,7 @@
 
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new BookLibraryConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
             modelBuilder.ApplyConfiguration(new LibraryConfiguration());
             modelBuilder.ApplyConfiguration(new LibraryCardConfiguration());
@@ -28,19 +30,6 @@
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new ReviewConfiguration());
             modelBuilder.ApplyIdentityConfigurations();
-
-            //modelBuilder.ApplyConfiguration(new ApplicationUserConfiguration());
-            //modelBuilder.ApplyConfiguration(new ApplicationRoleConfiguration());
-            //AddIdentityConfigurations(modelBuilder);
-        }
-
-        private void AddIdentityConfigurations(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
-            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
-            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaim");
-            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("UserToken");
         }
     }
 }
