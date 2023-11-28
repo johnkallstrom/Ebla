@@ -11,6 +11,7 @@
         public DateTime Published { get; set; }
         public string Language { get; set; }
         public string Country { get; set; }
+        [JsonPropertyName("Image")]
         public string ImageUrl { get; set; }
         public string Wikipedia { get; set; }
         public DateTime CreatedOn { get; set; }
