@@ -1,0 +1,23 @@
+﻿@if (Data != null && Data.Count() > 0)
+{
+    <div class="list-group d-grid gap-3">
+        @foreach (var book in Data)
+        {
+            <div class="list-group-item border rounded">
+                <img src="@book.ImageUrl" width="100" height="100" class="rounded float-start me-2">
+                <div class="d-flex justify-content-between">
+                    <NavLink href="@{$"/books/{book.Id}"}"><h5>@book.Title</h5></NavLink>
+                    <small>@book.Genre</small>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="mb-1">@book.Author</p>
+                    <p class="mb-1">@book.Language</p>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>Loading...</div>
+}
