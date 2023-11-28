@@ -10,6 +10,8 @@
                 <th scope="col">Genre</th>
                 <th scope="col">Published</th>
                 <th scope="col">Language</th>
+                <th scope="col">Created</th>
+                <th scope="col">Modified</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +25,8 @@
                     <td>@book.Genre</td>
                     <td>@book.Published.ToYear()</td>
                     <td>@book.Language</td>
+                    <td>@book.CreatedOn</td>
+                    <td>@book.LastModified</td>
                 </tr>
             }
         </tbody>

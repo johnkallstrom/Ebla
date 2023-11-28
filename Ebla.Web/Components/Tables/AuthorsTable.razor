@@ -6,6 +6,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Born</th>
+                <th scope="col">Country</th>
+                <th scope="col">Created</th>
+                <th scope="col">Modified</th>
             </tr>
         </thead>
         <tbody>
@@ -14,7 +17,10 @@
                 <tr>
                     <td>@author.Id</td>
                     <td>@author.Name</td>
-                    <td>@author.Born.ToYear()</td>
+                    <td>@author.Born.ToCustomDateFormat()</td>
+                    <td>@author.Born</td>
+                    <td>@author.CreatedOn</td>
+                    <td>@author.LastModified</td>
                 </tr>
             }
         </tbody>
