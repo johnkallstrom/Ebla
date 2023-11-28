@@ -1,16 +1,15 @@
 ﻿@if (Data != null && Data.Count() > 0)
 {
     <div class="list-group d-grid gap-3">
-        @foreach (var book in Data)
+        @foreach (var author in Data)
         {
             <div class="list-group-item border rounded">
-                <img src="@book.ImageUrl" width="100" height="100" class="rounded float-start me-2">
+                <img src="@author.ImageUrl" width="100" height="100" class="rounded float-start me-2">
                 <div class="d-flex justify-content-between">
-                    <NavLink href="@{$"/books/{book.Id}"}"><h5>@book.Title</h5></NavLink>
+                    <NavLink href="@{$"/authors/{author.Id}"}"><h5>@author.Name</h5></NavLink>
                 </div>
                 <div class="d-flex flex-column">
-                    <p class="mb-1">@book.Author</p>
-                    <p class="mb-1">@book.Genre</p>
+                    <p class="mb-1">@author.Born.ToCustomDateFormat()</p>
                 </div>
             </div>
         }
