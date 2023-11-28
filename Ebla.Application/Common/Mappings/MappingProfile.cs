@@ -7,7 +7,6 @@
             CreateMap<Book, BookDto>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image))
                 .ReverseMap();
 
             CreateMap<Book, BookSlimDto>()
@@ -19,9 +18,7 @@
             CreateMap<CreateBookCommand, Book>();
             CreateMap<UpdateBookCommand, Book>();
 
-            CreateMap<Author, AuthorDto>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image))
-                .ReverseMap();
+            CreateMap<Author, AuthorDto>().ReverseMap();
 
             CreateMap<Genre, GenreDto>().ReverseMap();
             CreateMap<Review, ReviewDto>().ReverseMap();
