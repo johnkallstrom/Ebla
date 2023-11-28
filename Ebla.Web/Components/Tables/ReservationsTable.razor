@@ -21,7 +21,6 @@
                     <td>@reservation.ExpiresOn.ToCustomDateFormat()</td>
                     <td>@reservation.Book.Title</td>
                     <td>@reservation.Book.Author</td>
-                    <td>@reservation.Book.Library</td>
                     <td>@reservation.UserId</td>
                 </tr>
             }
@@ -30,5 +29,5 @@
 }
 else
 {
-    <div>Loading...</div>
+    <div>No reservations</div>
 }
