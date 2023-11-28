@@ -18,6 +18,11 @@
 
             var authors = FileManager.ParseJsonFileToList<Author>("authors.json");
 
+            foreach (var author in authors)
+            {
+                author.CreatedOn = DateTime.Now;
+            }
+
             builder.HasData(authors);
         }
     }
