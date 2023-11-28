@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Api", "Ebla.Api\Ebla.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Web", "Ebla.Web\Ebla.Web.csproj", "{40943065-916A-4BAB-9408-39CB74DFD425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Persistence", "Ebla.Persistence\Ebla.Persistence.csproj", "{458AA086-3DB8-4818-9147-B89073F4D6B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Persistence", "Ebla.Persistence\Ebla.Persistence.csproj", "{458AA086-3DB8-4818-9147-B89073F4D6B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
