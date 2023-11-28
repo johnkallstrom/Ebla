@@ -4,7 +4,7 @@
         @foreach (var book in Data)
         {
             <div class="list-group-item border rounded">
-                <img src="@book.ImageUrl" width="100" height="100" class="rounded float-start me-2">
+                <img src="@book.ImageLink" width="100" height="100" class="rounded float-start me-2">
                 <div class="d-flex justify-content-between">
                     <NavLink href="@{$"/books/{book.Id}"}"><h5>@book.Title</h5></NavLink>
                 </div>
