@@ -1,0 +1,17 @@
+﻿@page "/"
+
+<PageTitle>Ebla</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <ul>
+            @foreach (var claim in context.User.Claims)
+            {
+                <li>@claim.Type: @claim.Value</li>
+            }
+        </ul>
+    </Authorized>
+    <NotAuthorized>
+        <LoginForm />
+    </NotAuthorized>
+</AuthorizeView>

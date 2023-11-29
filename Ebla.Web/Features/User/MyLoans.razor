@@ -1,0 +1,12 @@
+﻿@page "/user/{userId:guid}/loans"
+@attribute [Authorize]
+
+@using Ebla.Web.Features.Loan.Components
+
+<PageTitle>Ebla - My Loans</PageTitle>
+
+<div class="row">
+    <div class="col-sm-8">
+        <TableView Data="@Loans" />
+    </div>
+</div>

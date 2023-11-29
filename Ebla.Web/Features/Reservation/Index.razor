@@ -1,0 +1,22 @@
+﻿@page "/reservations"
+@attribute [Authorize(Roles = "Administrator")]
+
+@using Ebla.Web.Features.Reservation.Components
+
+<PageTitle>Ebla - Reservations</PageTitle>
+
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p class="error-message">@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-8">
+            <TableView Data="@Reservations" />
+        </div>
+    </div>
+}

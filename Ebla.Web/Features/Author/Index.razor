@@ -1,0 +1,22 @@
+﻿@page "/authors"
+@attribute [Authorize(Roles = "User")]
+
+@using Ebla.Web.Features.Author.Components
+
+<PageTitle>Ebla - Authors</PageTitle>
+
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p class="error-message">@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-6">
+            <ListView Data="Authors" />
+        </div>
+    </div>
+}

@@ -1,0 +1,22 @@
+﻿@page "/loans"
+@attribute [Authorize(Roles = "Administrator")]
+
+@using Ebla.Web.Features.Loan.Components
+
+<PageTitle>Ebla - Loans</PageTitle>
+
+@if (Errors != null && Errors.Count() > 0)
+{
+    @foreach (var error in Errors)
+    {
+        <p class="error-message">@error</p>
+    }
+}
+else
+{
+    <div class="row">
+        <div class="col-sm-8">
+            <TableView Data="@Loans" />
+        </div>
+    </div>
+}
