@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.Users.Commands.DeleteUser
+﻿namespace Ebla.Application.Users.Commands.DeleteUser
 {
-    public class DeleteUserCommand : IRequest<Result>
+    public class DeleteUserCommand : IRequest<Response>
     {
         public Guid Id { get; set; }
     }

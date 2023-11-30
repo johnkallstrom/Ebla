@@ -3,7 +3,6 @@ global using Microsoft.AspNetCore.Mvc;
 global using System.Reflection;
 global using MediatR;
 global using Ebla.Application;
-global using Ebla.Application.Common.Models;
 global using Ebla.Application.Books.Queries.GetBooks;
 global using Ebla.Infrastructure;
 global using Ebla.Application.Books.Queries.GetBookById;

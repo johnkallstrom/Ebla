@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Loans.Commands.CreateLoan
 {
-    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, Result<int>>
+    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, Response<int>>
     {
         private readonly IReservationRepository _reservationRepository;
         private readonly ILoanRepository _loanRepository;
@@ -31,7 +30,7 @@ namespace Ebla.Application.Loans.Commands.CreateLoan
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<Result<int>> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateLoanCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -52,19 +51,19 @@ namespace Ebla.Application.Loans.Commands.CreateLoan
 
                 if (!await _libraryCardRepository.HasValidLibraryCard(user.Id))
                 {
-                    return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
+                    return Response<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
                 var activeLoan = await _loanRepository.GetLoanByBookIdAsync(book.Id, returned: false);
                 if (activeLoan != null)
                 {
-                    return Result<int>.Failure(new[] { $"The book with id: {book.Id} is not available" });
+                    return Response<int>.Failure(new[] { $"The book with id: {book.Id} is not available" });
                 }
 
                 var activeUserLoans = await _loanRepository.GetLoansByUserIdAsync(user.Id, returned: false);
                 if (activeUserLoans != null && activeUserLoans.Count() >= 5)
                 {
-                    return Result<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
+                    return Response<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
                 }
 
                 var loanToAdd = _mapper.Map<Loan>(request);
@@ -74,11 +73,11 @@ namespace Ebla.Application.Loans.Commands.CreateLoan
                 await _repository.AddAsync(loanToAdd);
                 await _repository.SaveAsync();
 
-                return Result<int>.Success(loanToAdd.Id);
+                return Response<int>.Success(loanToAdd.Id);
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Result<int>.Failure(errors);
+            return Response<int>.Failure(errors);
         }
     }
 }

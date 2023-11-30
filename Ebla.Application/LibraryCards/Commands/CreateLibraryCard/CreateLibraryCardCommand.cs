@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
+﻿namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
 {
-    public class CreateLibraryCardCommand : IRequest<Result<int>>
+    public class CreateLibraryCardCommand : IRequest<Response<int>>
     {
         public int PIN { get; set; }
         public int LibraryId { get; set; }

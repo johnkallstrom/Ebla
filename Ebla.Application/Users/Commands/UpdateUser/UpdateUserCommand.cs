@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.Users.Commands.UpdateUser
+﻿namespace Ebla.Application.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommand : IRequest<Result>
+    public class UpdateUserCommand : IRequest<Response>
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.Reservations.Commands.CreateReservation
+﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
-    public class CreateReservationCommand : IRequest<Result<int>>
+    public class CreateReservationCommand : IRequest<Response<int>>
     {
         public int BookId { get; set; }
         public Guid UserId { get; set; }

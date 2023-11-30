@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Loans.Commands.UpdateLoan
 {
-    public class UpdateLoanCommandHandler : IRequestHandler<UpdateLoanCommand, Result>
+    public class UpdateLoanCommandHandler : IRequestHandler<UpdateLoanCommand, Response>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Loan> _genericRepository;
@@ -16,7 +15,7 @@ namespace Ebla.Application.Loans.Commands.UpdateLoan
             _mapper = mapper;
         }
 
-        public async Task<Result> Handle(UpdateLoanCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(UpdateLoanCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateLoanCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -35,11 +34,11 @@ namespace Ebla.Application.Loans.Commands.UpdateLoan
                 _genericRepository.Update(loanToUpdate);
                 await _genericRepository.SaveAsync();
 
-                return Result.Success();
+                return Response.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Result.Failure(errors);
+            return Response.Failure(errors);
         }
     }
 }

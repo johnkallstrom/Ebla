@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Users.Commands.DeleteUser
 {
-    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Result>
+    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Response>
     {
         private readonly IIdentityService _identityService;
 
@@ -12,7 +11,7 @@ namespace Ebla.Application.Users.Commands.DeleteUser
             _identityService = identityService;
         }
 
-        public async Task<Result> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -20,11 +19,11 @@ namespace Ebla.Application.Users.Commands.DeleteUser
             if (validationResult.IsValid)
             {
                 await _identityService.DeleteUserAsync(request.Id);
-                return Result.Success();
+                return Response.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Result.Failure(errors);
+            return Response.Failure(errors);
         }
     }
 }

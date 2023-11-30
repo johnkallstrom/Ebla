@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Reservations.Commands.UpdateReservation
 {
-    public class UpdateReservationCommandHandler : IRequestHandler<UpdateReservationCommand, Result>
+    public class UpdateReservationCommandHandler : IRequestHandler<UpdateReservationCommand, Response>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Reservation> _genericRepository;
@@ -16,7 +15,7 @@ namespace Ebla.Application.Reservations.Commands.UpdateReservation
             _genericRepository = genericRepository;
         }
 
-        public async Task<Result> Handle(UpdateReservationCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(UpdateReservationCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -35,11 +34,11 @@ namespace Ebla.Application.Reservations.Commands.UpdateReservation
                 _genericRepository.Update(reservationToUpdate);
                 await _genericRepository.SaveAsync();
 
-                return Result.Success();
+                return Response.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Result.Failure(errors);
+            return Response.Failure(errors);
         }
     }
 }

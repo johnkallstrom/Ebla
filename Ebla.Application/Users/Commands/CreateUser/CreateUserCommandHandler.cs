@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Users.Commands.CreateUser
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result<Guid>>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Response<Guid>>
     {
         private readonly IIdentityService _identityService;
 
@@ -12,7 +11,7 @@ namespace Ebla.Application.Users.Commands.CreateUser
             _identityService = identityService;
         }
 
-        public async Task<Result<Guid>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Response<Guid>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -23,12 +22,12 @@ namespace Ebla.Application.Users.Commands.CreateUser
                 if (user is null)
                 {
                     var userId = await _identityService.CreateUserAsync(request.Username, request.Password, request.Roles.ToArray());
-                    return Result<Guid>.Success(userId);
+                    return Response<Guid>.Success(userId);
                 }
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Result<Guid>.Failure(errors);
+            return Response<Guid>.Failure(errors);
         }
     }
 }

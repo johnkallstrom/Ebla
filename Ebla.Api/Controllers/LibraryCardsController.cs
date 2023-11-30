@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Api.Controllers
+﻿namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -34,7 +32,7 @@ namespace Ebla.Api.Controllers
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPost("create")]
-        public async Task<Result<int>> Create([FromBody] CreateLibraryCardCommand command)
+        public async Task<Response<int>> Create([FromBody] CreateLibraryCardCommand command)
         {
             var result = await _mediator.Send(command);
 
@@ -48,7 +46,7 @@ namespace Ebla.Api.Controllers
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPut("update")]
-        public async Task<Result> Update([FromBody] UpdateLibraryCardCommand command)
+        public async Task<Response> Update([FromBody] UpdateLibraryCardCommand command)
         {
             var result = await _mediator.Send(command);
 
@@ -62,7 +60,7 @@ namespace Ebla.Api.Controllers
         /// <returns></returns>
         [HasWriteAccess]
         [HttpDelete("delete/{id}")]
-        public async Task<Result> Delete(int id)
+        public async Task<Response> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteLibraryCardCommand { Id = id });
 

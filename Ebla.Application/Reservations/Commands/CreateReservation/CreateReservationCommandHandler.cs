@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
-    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, Result<int>>
+    public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, Response<int>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Reservation> _repository;
@@ -28,7 +27,7 @@ namespace Ebla.Application.Reservations.Commands.CreateReservation
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<Result<int>> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -49,13 +48,13 @@ namespace Ebla.Application.Reservations.Commands.CreateReservation
 
                 if (!await _libraryCardRepository.HasValidLibraryCard(user.Id))
                 {
-                    return Result<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
+                    return Response<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
                 var userReservations = await _reservationRepository.GetReservationListByUserIdAsync(user.Id);
                 if (userReservations != null && userReservations.Any(x => x.BookId == book.Id))
                 {
-                    return Result<int>.Failure(new[] { $"A reservation on this book already exists by user with id: {user.Id}" });
+                    return Response<int>.Failure(new[] { $"A reservation on this book already exists by user with id: {user.Id}" });
                 }
 
                 var reservationToAdd = _mapper.Map<Reservation>(request);
@@ -65,11 +64,11 @@ namespace Ebla.Application.Reservations.Commands.CreateReservation
                 await _repository.AddAsync(reservationToAdd);
                 await _repository.SaveAsync();
 
-                return Result<int>.Success(reservationToAdd.Id);
+                return Response<int>.Success(reservationToAdd.Id);
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Result<int>.Failure(errors);
+            return Response<int>.Failure(errors);
         }
     }
 }

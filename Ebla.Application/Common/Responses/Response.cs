@@ -1,17 +1,17 @@
-﻿namespace Ebla.Application.Common.Results
+﻿namespace Ebla.Application.Common.Responses
 {
-    public record Result
+    public record Response
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
 
         /// <summary>
-        /// Returns a success result
+        /// Returns a success response
         /// </summary>
         /// <returns></returns>
-        public static Result Success()
+        public static Response Success()
         {
-            return new Result
+            return new Response
             {
                 Succeeded = true,
                 Errors = null
@@ -19,13 +19,13 @@
         }
 
         /// <summary>
-        /// Returns a failure result
+        /// Returns a failure response
         /// </summary>
         /// <param name="errors"></param>
         /// <returns></returns>
-        public static Result Failure(string[] errors)
+        public static Response Failure(string[] errors)
         {
-            return new Result
+            return new Response
             {
                 Succeeded = false,
                 Errors = errors
@@ -33,20 +33,20 @@
         }
     }
 
-    public record Result<T>
+    public record Response<T>
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
         public T Data { get; init; }
 
         /// <summary>
-        /// Returns a success result with data
+        /// Returns a success response with data
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static Result<T> Success(T data)
+        public static Response<T> Success(T data)
         {
-            return new Result<T>
+            return new Response<T>
             {
                 Succeeded = true,
                 Errors = null,
@@ -55,13 +55,13 @@
         }
 
         /// <summary>
-        /// Returns a failure result
+        /// Returns a failure response
         /// </summary>
         /// <param name="errors"></param>
         /// <returns></returns>
-        public static Result<T> Failure(string[] errors)
+        public static Response<T> Failure(string[] errors)
         {
-            return new Result<T>
+            return new Response<T>
             {
                 Succeeded = false,
                 Errors = errors,

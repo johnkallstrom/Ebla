@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
+﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
-    public class UpdateLibraryCardCommand : IRequest<Result>
+    public class UpdateLibraryCardCommand : IRequest<Response>
     {
         public int Id { get; set; }
         public int PIN { get; set; }

@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Result>
+    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Response>
     {
         private readonly IIdentityService _identityService;
 
@@ -12,7 +11,7 @@ namespace Ebla.Application.Users.Commands.UpdateUser
             _identityService = identityService;
         }
 
-        public async Task<Result> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -20,12 +19,12 @@ namespace Ebla.Application.Users.Commands.UpdateUser
             if (validationResult.IsValid)
             {
                 await _identityService.UpdateUserAsync(request.Id, request.Email, request.Roles.ToArray());
-                return Result.Success();
+                return Response.Success();
             }
             else
             {
                 var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-                return Result.Failure(errors);
+                return Response.Failure(errors);
             }
         }
     }

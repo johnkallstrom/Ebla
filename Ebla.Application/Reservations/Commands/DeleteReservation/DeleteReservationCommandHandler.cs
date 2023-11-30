@@ -1,9 +1,8 @@
-﻿using Ebla.Application.Common.Results;
-using Ebla.Application.Interfaces;
+﻿using Ebla.Application.Interfaces;
 
 namespace Ebla.Application.Reservations.Commands.DeleteReservation
 {
-    public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, Result>
+    public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, Response>
     {
         private readonly IGenericRepository<Reservation> _genericRepository;
 
@@ -12,7 +11,7 @@ namespace Ebla.Application.Reservations.Commands.DeleteReservation
             _genericRepository = genericRepository;
         }
 
-        public async Task<Result> Handle(DeleteReservationCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(DeleteReservationCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -28,11 +27,11 @@ namespace Ebla.Application.Reservations.Commands.DeleteReservation
                 _genericRepository.Delete(reservationToDelete);
                 await _genericRepository.SaveAsync();
 
-                return Result.Success();
+                return Response.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Result.Failure(errors);
+            return Response.Failure(errors);
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using Ebla.Application.Common.Results;
-
-namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
+﻿namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
 {
-    public class DeleteLibraryCardCommand : IRequest<Result>
+    public class DeleteLibraryCardCommand : IRequest<Response>
     {
         public int Id { get; set; }
     }
