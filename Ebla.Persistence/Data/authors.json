@@ -205,5 +205,50 @@
     "country": "France",
     "imageLink": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jules_Verne_by_%C3%89tienne_Carjat.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Jules_Verne"
+  },
+  {
+    "id": 24,
+    "name": "Robert Jordan",
+    "description": "James Oliver Rigney Jr. (October 17, 1948 – September 16, 2007), better known by his pen name Robert Jordan,[1] was an American author of epic fantasy. He is known best for his series The Wheel of Time (finished by Brandon Sanderson after Jordan's death) which comprises 14 books and a prequel novel.",
+    "born": "1948-10-17",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Robert_Jordan.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Robert_Jordan"
+  },
+  {
+    "id": 25,
+    "name": "Shirley Jackson",
+    "description": "Shirley Hardie Jackson (December 14, 1916 – August 8, 1965) was an American writer known primarily for her works of horror and mystery. Over the duration of her writing career, which spanned over two decades, she composed six novels, two memoirs, and more than 200 short stories.",
+    "born": "1916-12-14",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/4/43/ShirleyJack.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Shirley_Jackson"
+  },
+  {
+    "id": 26,
+    "name": "Bill Bryson",
+    "description": "William McGuire Bryson OBE HonFRS (/ˈbraɪsən/; born 8 December 1951) is an American–British journalist and author. Bryson has written a number of nonfiction books on topics including travel, the English language, and science. Born in the United States, he has been a resident of Britain for most of his adult life, returning to the U.S. between 1995 and 2003, and holds dual American and British citizenship. He served as the chancellor of Durham University from 2005 to 2011.",
+    "born": "1951-12-8",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/3/35/Neil_MacGregor%2C_Bill_Bryson%2C_Claire_Walker%2C_Huw_Edwards_%2828449155987%29_%28Bryson_cropped%29.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Bill_Bryson"
+  },
+  {
+    "id": 27,
+    "name": "Jon Krakauer",
+    "description": "Jon Krakauer (born April 12, 1954) is an American writer and mountaineer. He is the author of bestselling non-fiction books—Into the Wild; Into Thin Air; Under the Banner of Heaven; and Where Men Win Glory: The Odyssey of Pat Tillman—as well as numerous magazine articles. He was a member of an ill-fated expedition to summit Mount Everest in 1996, one of the deadliest disasters in the history of climbing Everest.",
+    "born": "1954-4-12",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Jon_Krakauer_speaking_in_2009.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jon_Krakauer"
+  },
+  {
+    "id": 28,
+    "name": "Jared Diamond",
+    "description": "Jared Mason Diamond (born September 10, 1937) is an American scientist and author best known for his popular science books. Originally trained in biochemistry and physiology,[1] Diamond is commonly referred to as a polymath, stemming from his knowledge in many fields including anthropology, ecology, geography, and evolutionary biology.[2][3] He is a professor of geography at UCLA.",
+    "born": "1937-9-10",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/8/88/JaredDiamond.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Jared_Diamond"
   }
 ]

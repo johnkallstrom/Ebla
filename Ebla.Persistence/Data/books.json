@@ -323,5 +323,70 @@
     "wikipedia": "https://en.wikipedia.org/wiki/Journey_to_the_Center_of_the_Earth",
     "authorId": 23,
     "genreId": 1
+  },
+  {
+    "id": 26,
+    "title": "The Eye of the World",
+    "description": "The Eye of the World is a high fantasy novel by American writer Robert Jordan, the first book of The Wheel of Time series. It was published by Tor Books and released on 15 January 1990. The original unabridged audiobook is read by Michael Kramer and Kate Reading. A later unabridged edition is read by Rosamund Pike. Upon first publication, The Eye of the World consisted of one prologue and 53 chapters, with an additional prologue authored upon re-release. The book was a critical, and commercial success.",
+    "pages": 782,
+    "published": "1990-1-15",
+    "language": "English",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/The_Eye_of_the_World",
+    "authorId": 24,
+    "genreId": 2
+  },
+  {
+    "id": 27,
+    "title": "The Haunting of Hill House",
+    "description": "The Haunting of Hill House is a 1959 gothic horror novel by American author Shirley Jackson. It was a finalist for the National Book Award and has been made into two feature films and a play, and is the basis of a Netflix series.",
+    "pages": 246,
+    "published": "1959-1-1",
+    "language": "English",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/0/04/HauntingOfHillHouse.JPG",
+    "wikipedia": "https://en.wikipedia.org/wiki/The_Haunting_of_Hill_House",
+    "authorId": 25,
+    "genreId": 3
+  },
+  {
+    "id": 28,
+    "title": "A Short History of Nearly Everything",
+    "description": "Bill Bryson describes himself as a reluctant traveller, but even when he stays safely at home he can't contain his curiosity about the world around him. A Short History of Nearly Everything is his quest to understand everything that has happened from the Big Bang to the rise of civilisation - how we got from there, being nothing at all, to here, being us. The ultimate eye-opening journey through time and space, revealing the world in a way most of us have never seen it before.",
+    "pages": 544,
+    "published": "2003-1-1",
+    "language": "English",
+    "country": "United Kingdom",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/e/ed/Bill_bryson_a_short_history.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/A_Short_History_of_Nearly_Everything",
+    "authorId": 26,
+    "genreId": 10
+  },
+  {
+    "id": 29,
+    "title": "Into the Wild",
+    "description": "Into the Wild is a 1996 non-fiction book written by Jon Krakauer. It is an expansion of a 9,000-word article by Krakauer on Chris McCandless titled Death of an Innocent, which appeared in the January 1993 issue of Outside.",
+    "pages": 224,
+    "published": "1996-1-13",
+    "language": "English",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/6/63/Into_the_Wild_%28book%29_cover.png",
+    "wikipedia": "https://en.wikipedia.org/wiki/Into_the_Wild_(book)",
+    "authorId": 27,
+    "genreId": 10
+  },
+  {
+    "id": 30,
+    "title": "Guns, Germs, and Steel",
+    "description": "Guns, Germs, and Steel: The Fates of Human Societies (subtitled A Short History of Everybody for the Last 13,000 Years in Britain) is a 1997 transdisciplinary non-fiction book by the American author Jared Diamond. The book attempts to explain why Eurasian and North African civilizations have survived and conquered others, while arguing against the idea that Eurasian hegemony is due to any form of Eurasian intellectual, moral, or inherent genetic superiority. Diamond argues that the gaps in power and technology between human societies originate primarily in environmental differences, which are amplified by various positive feedback loops. When cultural or genetic differences have favored Eurasians (for example, written language or the development among Eurasians of resistance to endemic diseases), he asserts that these advantages occurred because of the influence of geography on societies and cultures (for example, by facilitating commerce and trade between different cultures) and were not inherent in the Eurasian genomes.",
+    "pages": 480,
+    "published": "1997-1-1",
+    "language": "English",
+    "country": "United States",
+    "imageLink": "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
+    "wikipedia": "https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel",
+    "authorId": 28,
+    "genreId": 10
   }
 ]
