@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Common.Models
+﻿namespace Ebla.Persistence.Data.Models
 {
     public record InitialUser(
         string Username, 

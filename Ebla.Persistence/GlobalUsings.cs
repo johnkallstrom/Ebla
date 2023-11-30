@@ -10,5 +10,5 @@ global using Newtonsoft.Json;
 global using Ebla.Persistence.Repositories;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-global using Ebla.Application.Common.Models;
+global using Ebla.Persistence.Data.Models;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
