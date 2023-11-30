@@ -2,7 +2,7 @@
 {
     public static class IdentityDataInitializer
     {
-        public static async Task InitializeIdentityData(this IServiceProvider serviceProvider)
+        public static async Task SeedIdentityData(this IServiceProvider serviceProvider)
         {
             using (var scope = serviceProvider.CreateScope())
             {

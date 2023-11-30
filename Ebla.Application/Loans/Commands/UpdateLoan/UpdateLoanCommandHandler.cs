@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Loans.Commands.UpdateLoan
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Loans.Commands.UpdateLoan
 {
     public class UpdateLoanCommandHandler : IRequestHandler<UpdateLoanCommand, Result>
     {

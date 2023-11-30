@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Authors.Queries.GetAuthors
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Authors.Queries.GetAuthors
 {
     public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, IEnumerable<AuthorSlimResponse>>
     {

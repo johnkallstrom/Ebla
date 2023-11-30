@@ -34,7 +34,6 @@ global using Ebla.Application.Users.Commands.LoginUser;
 global using Ebla.Application.Users.Commands.DeleteUser;
 global using Ebla.Application.Users.Commands.UpdateUser;
 global using Ebla.Api.Authorization;
-global using Ebla.Application.Common.Interfaces;
 global using Ebla.Api.Middleware;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using Ebla.Application.Reservations.Commands.DeleteReservation;

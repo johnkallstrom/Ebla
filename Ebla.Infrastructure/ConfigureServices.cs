@@ -1,4 +1,6 @@
-﻿namespace Ebla.Infrastructure
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Infrastructure
 {
     public static class ConfigureServices
     {

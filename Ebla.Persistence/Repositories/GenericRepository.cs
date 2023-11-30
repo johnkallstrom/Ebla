@@ -1,4 +1,6 @@
-﻿namespace Ebla.Persistence.Repositories
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

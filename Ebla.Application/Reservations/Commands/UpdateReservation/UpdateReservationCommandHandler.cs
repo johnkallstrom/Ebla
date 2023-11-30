@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Reservations.Commands.UpdateReservation
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Reservations.Commands.UpdateReservation
 {
     public class UpdateReservationCommandHandler : IRequestHandler<UpdateReservationCommand, Result>
     {

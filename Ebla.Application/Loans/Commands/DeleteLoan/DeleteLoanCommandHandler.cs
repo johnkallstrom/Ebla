@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Loans.Commands.DeleteLoan
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Loans.Commands.DeleteLoan
 {
     public class DeleteLoanCommandHandler : IRequestHandler<DeleteLoanCommand, Result>
     {

@@ -1,10 +1,8 @@
 ﻿namespace Ebla.Application.Common.Models
 {
-    public record InitialUser
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string[] Roles { get; set; }
-    }
+    public record InitialUser(
+        string Username, 
+        string Password, 
+        string Email, 
+        string[] Roles);
 }

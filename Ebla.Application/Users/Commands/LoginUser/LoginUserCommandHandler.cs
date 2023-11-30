@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Users.Commands.LoginUser
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Users.Commands.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginResult>
     {

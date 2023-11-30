@@ -1,6 +1,8 @@
-﻿namespace Ebla.Application.Users.Queries.GetUserById
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Users.Queries.GetUserById
 {
-    public class GetUserIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserDto>
+    public class GetUserIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserResponse>
     {
         private readonly IIdentityService _identityService;
 
@@ -9,7 +11,7 @@
             _identityService = identityService;
         }
 
-        public async Task<UserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+        public async Task<UserResponse> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
             var user = await _identityService.GetUserAsync(request.Id);
 

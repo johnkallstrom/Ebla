@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Authors.Queries.GetAuthorById
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Authors.Queries.GetAuthorById
 {
     public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQuery, AuthorResponse>
     {

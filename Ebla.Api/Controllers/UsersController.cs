@@ -31,7 +31,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<UserDto>> GetAll()
+        public async Task<IEnumerable<UserResponse>> GetAll()
         {
             var users = await _mediator.Send(new GetUsersQuery());
 
@@ -45,7 +45,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{userId}")]
-        public async Task<UserDto> GetById(Guid userId)
+        public async Task<UserResponse> GetById(Guid userId)
         {
             var user = await _mediator.Send(new GetUserByIdQuery { Id = userId });
 

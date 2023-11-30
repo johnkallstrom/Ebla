@@ -1,8 +1,8 @@
-﻿namespace Ebla.Application.Common.Interfaces
+﻿namespace Ebla.Application.Interfaces
 {
     public interface IJwtProvider
     {
-        string GenerateToken(UserDto user);
+        string GenerateToken(UserResponse user);
         Task<Guid> ValidateToken(string token);
     }
 }

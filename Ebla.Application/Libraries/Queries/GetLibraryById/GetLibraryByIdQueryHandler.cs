@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Libraries.Queries.GetLibraryById
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Libraries.Queries.GetLibraryById
 {
     public class GetLibraryByIdQueryHandler : IRequestHandler<GetLibraryByIdQuery, LibraryResponse>
     {

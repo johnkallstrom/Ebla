@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Books.Commands.DeleteBook
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Books.Commands.DeleteBook
 {
     public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, Result>
     {

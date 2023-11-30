@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Libraries.Queries.GetLibraries
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Libraries.Queries.GetLibraries
 {
     public class GetLibrariesQueryHandler : IRequestHandler<GetLibrariesQuery, IEnumerable<LibrarySlimResponse>>
     {

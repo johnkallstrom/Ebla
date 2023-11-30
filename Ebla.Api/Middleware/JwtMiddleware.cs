@@ -1,4 +1,6 @@
-﻿namespace Ebla.Api.Middleware
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Api.Middleware
 {
     public class JwtMiddleware
     {

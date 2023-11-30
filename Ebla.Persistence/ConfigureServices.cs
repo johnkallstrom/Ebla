@@ -1,4 +1,6 @@
-﻿namespace Ebla.Persistence
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Persistence
 {
     public static class ConfigureServices
     {

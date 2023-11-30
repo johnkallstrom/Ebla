@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Common.Interfaces
+﻿namespace Ebla.Application.Interfaces
 {
     public interface ILibraryCardRepository
     {

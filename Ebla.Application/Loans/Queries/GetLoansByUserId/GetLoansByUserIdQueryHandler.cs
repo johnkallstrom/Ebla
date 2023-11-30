@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Loans.Queries.GetLoansByUserId
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Loans.Queries.GetLoansByUserId
 {
     public class GetLoansByUserIdQueryHandler : IRequestHandler<GetLoansByUserIdQuery, IEnumerable<LoanResponse>>
     {

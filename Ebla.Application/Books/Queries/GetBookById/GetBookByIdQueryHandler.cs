@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Books.Queries.GetBookById
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Books.Queries.GetBookById
 {
     public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQuery, BookResponse>
     {

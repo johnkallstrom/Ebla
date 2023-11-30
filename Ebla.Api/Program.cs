@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-await app.Services.InitializeIdentityData();
+await app.Services.SeedIdentityData();
 
 app.UseRouting();
 app.UseCustomSwagger();

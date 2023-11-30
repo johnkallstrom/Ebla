@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Reservations.Queries.GetReservations
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Reservations.Queries.GetReservations
 {
     public class GetReservationsQueryHandler : IRequestHandler<GetReservationsQuery, IEnumerable<ReservationResponse>>
     {

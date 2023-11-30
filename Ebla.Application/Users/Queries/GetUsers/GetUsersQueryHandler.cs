@@ -1,6 +1,8 @@
-﻿namespace Ebla.Application.Users.Queries.GetUsers
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Users.Queries.GetUsers
 {
-    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<UserDto>>
+    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<UserResponse>>
     {
         private readonly IIdentityService _identityService;
 
@@ -9,7 +11,7 @@
             _identityService = identityService;
         }
 
-        public async Task<IEnumerable<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<UserResponse>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
             var users = await _identityService.GetAllUsersAsync();
 

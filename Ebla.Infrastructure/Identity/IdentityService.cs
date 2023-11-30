@@ -1,4 +1,6 @@
-﻿namespace Ebla.Infrastructure.Identity
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {
@@ -24,7 +26,7 @@
             var user = new ApplicationUser
             {
                 UserName = username,
-                Email = $"{username}@localhost"
+                Email = $"{username}@localhost.com"
             };
 
             var hashedPassword = _userManager.PasswordHasher.HashPassword(user, password);
@@ -61,16 +63,16 @@
             await _userManager.DeleteAsync(user);
         }
 
-        public async Task<List<UserDto>> GetAllUsersAsync()
+        public async Task<List<UserResponse>> GetAllUsersAsync()
         {
             var users = await _userManager.Users.ToListAsync();
 
-            var result = new List<UserDto>();
+            var result = new List<UserResponse>();
             foreach (var user in users)
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserDto>(user);
+                var mappedUser = _mapper.Map<UserResponse>(user);
                 mappedUser.Roles = roles;
 
                 result.Add(mappedUser);
@@ -79,7 +81,7 @@
             return result;
         }
 
-        public async Task<UserDto> GetUserAsync(Guid userId)
+        public async Task<UserResponse> GetUserAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
 
@@ -87,7 +89,7 @@
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserDto>(user);
+                var mappedUser = _mapper.Map<UserResponse>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;
@@ -96,7 +98,7 @@
             return null;
         }
 
-        public async Task<UserDto> GetUserAsync(string username)
+        public async Task<UserResponse> GetUserAsync(string username)
         {
             var user = await _userManager.FindByNameAsync(username);
 
@@ -104,7 +106,7 @@
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserDto>(user);
+                var mappedUser = _mapper.Map<UserResponse>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;
@@ -113,7 +115,7 @@
             return null;
         }
 
-        public async Task<UserDto> LoginAsync(string username, string password)
+        public async Task<UserResponse> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
@@ -126,7 +128,7 @@
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserDto>(user);
+                var mappedUser = _mapper.Map<UserResponse>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;

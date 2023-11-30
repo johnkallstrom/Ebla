@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Users.Commands.DeleteUser
+﻿using Ebla.Application.Interfaces;
+
+namespace Ebla.Application.Users.Commands.DeleteUser
 {
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Result>
     {
