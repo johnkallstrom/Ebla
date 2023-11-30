@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Books.Commands.CreateBook
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Books.Commands.CreateBook
 {
     public class CreateBookCommand : IRequest<Result<int>>
     {

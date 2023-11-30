@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.LibraryCards.Commands.CreateLibraryCard
 {
     public class CreateLibraryCardCommand : IRequest<Result<int>>
     {

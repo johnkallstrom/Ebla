@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
     public class UpdateLibraryCardCommand : IRequest<Result>
     {

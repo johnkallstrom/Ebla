@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Loans.Commands.CreateLoan
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Loans.Commands.CreateLoan
 {
     public class CreateLoanCommand : IRequest<Result<int>>
     {

@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Users.Commands.UpdateUser
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Users.Commands.UpdateUser
 {
     public class UpdateUserCommand : IRequest<Result>
     {

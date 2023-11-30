@@ -1,4 +1,6 @@
-﻿namespace Ebla.Api.Controllers
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

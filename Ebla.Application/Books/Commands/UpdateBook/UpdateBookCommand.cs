@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Books.Commands.UpdateBook
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Books.Commands.UpdateBook
 {
     public class UpdateBookCommand : IRequest<Result>
     {

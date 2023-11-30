@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.LibraryCards.Commands.DeleteLibraryCard
 {
     public class DeleteLibraryCardCommand : IRequest<Result>
     {

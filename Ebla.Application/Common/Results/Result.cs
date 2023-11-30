@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Common.Models
+﻿namespace Ebla.Application.Common.Results
 {
     public record Result
     {

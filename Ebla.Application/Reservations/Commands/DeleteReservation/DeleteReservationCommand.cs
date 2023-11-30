@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Reservations.Commands.DeleteReservation
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Reservations.Commands.DeleteReservation
 {
     public class DeleteReservationCommand : IRequest<Result>
     {

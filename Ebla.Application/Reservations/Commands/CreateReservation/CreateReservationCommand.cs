@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
     public class CreateReservationCommand : IRequest<Result<int>>
     {

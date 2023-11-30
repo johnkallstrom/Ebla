@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Loans.Commands.UpdateLoan
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Loans.Commands.UpdateLoan
 {
     public class UpdateLoanCommand : IRequest<Result>
     {

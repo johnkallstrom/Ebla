@@ -1,4 +1,6 @@
-﻿namespace Ebla.Api.Controllers
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,7 +20,7 @@
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<LoginResponse> Login([FromBody] LoginUserCommand command)
+        public async Task<LoginResult> Login([FromBody] LoginUserCommand command)
         {
             var result = await _mediator.Send(command);
 

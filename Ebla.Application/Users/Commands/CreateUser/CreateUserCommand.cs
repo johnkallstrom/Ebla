@@ -1,4 +1,6 @@
-﻿namespace Ebla.Application.Users.Commands.CreateUser
+﻿using Ebla.Application.Common.Results;
+
+namespace Ebla.Application.Users.Commands.CreateUser
 {
     public class CreateUserCommand : IRequest<Result<Guid>>
     {
