@@ -18,7 +18,7 @@
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<LoginResult> Login([FromBody] LoginUserCommand command)
+        public async Task<LoginResponse> Login([FromBody] LoginUserCommand command)
         {
             var result = await _mediator.Send(command);
 
