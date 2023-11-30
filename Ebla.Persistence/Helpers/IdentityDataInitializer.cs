@@ -1,4 +1,6 @@
-﻿namespace Ebla.Infrastructure.Persistence.Helpers
+﻿using Ebla.Persistence.Models;
+
+namespace Ebla.Infrastructure.Persistence.Helpers
 {
     public static class IdentityDataInitializer
     {
