@@ -48,3 +48,4 @@ global using Ebla.Application.Loans.Queries.GetLoans;
 global using Ebla.Application.Reservations.Queries.GetReservations;
 global using Ebla.Infrastructure.Persistence.Helpers;
 global using Ebla.Persistence;
+global using Ebla.Application.Common.Responses;
