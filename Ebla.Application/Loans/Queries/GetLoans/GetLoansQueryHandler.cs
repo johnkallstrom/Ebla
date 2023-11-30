@@ -1,7 +1,6 @@
-﻿
-namespace Ebla.Application.Loans.Queries.GetLoans
+﻿namespace Ebla.Application.Loans.Queries.GetLoans
 {
-    public class GetLoansQueryHandler : IRequestHandler<GetLoansQuery, IEnumerable<LoanDto>>
+    public class GetLoansQueryHandler : IRequestHandler<GetLoansQuery, IEnumerable<LoanResponse>>
     {
         private readonly IMapper _mapper;
         private readonly ILoanRepository _repository;
@@ -12,11 +11,11 @@ namespace Ebla.Application.Loans.Queries.GetLoans
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<LoanDto>> Handle(GetLoansQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<LoanResponse>> Handle(GetLoansQuery request, CancellationToken cancellationToken)
         {
             var loans = await _repository.GetAllLoansAsync();
 
-            return _mapper.Map<IEnumerable<LoanDto>>(loans);
+            return _mapper.Map<IEnumerable<LoanResponse>>(loans);
         }
     }
 }

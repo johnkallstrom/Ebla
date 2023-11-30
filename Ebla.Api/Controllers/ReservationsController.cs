@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<ReservationDto>> GetAll()
+        public async Task<IEnumerable<ReservationResponse>> GetAll()
         {
             var reservations = await _mediator.Send(new GetReservationsQuery());
 
@@ -31,7 +31,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{userId}")]
-        public async Task<IEnumerable<ReservationDto>> GetByUserId(Guid userId)
+        public async Task<IEnumerable<ReservationResponse>> GetByUserId(Guid userId)
         {
             var reservations = await _mediator.Send(new GetReservationsByUserIdQuery { UserId = userId });
 

@@ -21,12 +21,12 @@
             CreateMap<Author, AuthorSlimResponse>().ReverseMap();
 
             CreateMap<Genre, GenreResponse>().ReverseMap();
-            CreateMap<Review, ReviewDto>().ReverseMap();
-            CreateMap<Reservation, ReservationDto>().ReverseMap();
-            CreateMap<Loan, LoanDto>().ReverseMap();
-            CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
-            CreateMap<Library, LibraryDto>().ReverseMap();
-            CreateMap<Library, LibrarySlimDto>().ReverseMap();
+            CreateMap<Review, ReviewResponse>().ReverseMap();
+            CreateMap<Reservation, ReservationResponse>().ReverseMap();
+            CreateMap<Loan, LoanResponse>().ReverseMap();
+            CreateMap<LibraryCard, LibraryCardResponse>().ReverseMap();
+            CreateMap<Library, LibraryResponse>().ReverseMap();
+            CreateMap<Library, LibrarySlimResponse>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();

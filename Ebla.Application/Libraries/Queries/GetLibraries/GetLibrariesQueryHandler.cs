@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Libraries.Queries.GetLibraries
 {
-    public class GetLibrariesQueryHandler : IRequestHandler<GetLibrariesQuery, IEnumerable<LibrarySlimDto>>
+    public class GetLibrariesQueryHandler : IRequestHandler<GetLibrariesQuery, IEnumerable<LibrarySlimResponse>>
     {
         private readonly IMapper _mapper;
         private readonly ILibraryRepository _repository;
@@ -11,11 +11,11 @@
             _repository = repository;
         }
 
-        public async Task<IEnumerable<LibrarySlimDto>> Handle(GetLibrariesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<LibrarySlimResponse>> Handle(GetLibrariesQuery request, CancellationToken cancellationToken)
         {
             var libraries = await _repository.GetAllLibrariesAsync();
 
-            return _mapper.Map<IEnumerable<LibrarySlimDto>>(libraries);
+            return _mapper.Map<IEnumerable<LibrarySlimResponse>>(libraries);
         }
     }
 }
