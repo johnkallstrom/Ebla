@@ -2,9 +2,9 @@
 {
     public record UserResponse
     {
-        public Guid Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
+        public Guid Id { get; init; }
+        public string Username { get; init; }
+        public string Email { get; init; }
         public string[] Roles { get; set; }
     }
 }
