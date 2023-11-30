@@ -20,9 +20,9 @@
         [HttpPost("login")]
         public async Task<LoginResponse> Login([FromBody] LoginUserCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -61,9 +61,9 @@
         [HttpPost("create")]
         public async Task<Response<Guid>> Create([FromBody] CreateUserCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -75,9 +75,9 @@
         [HttpPut("update")]
         public async Task<Response> Update([FromBody] UpdateUserCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -89,9 +89,9 @@
         [HttpDelete("delete/{id}")]
         public async Task<Response> Delete(Guid id)
         {
-            var result = await _mediator.Send(new DeleteUserCommand { Id = id });
+            var response = await _mediator.Send(new DeleteUserCommand { Id = id });
 
-            return result;
+            return response;
         }
     }
 }

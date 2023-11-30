@@ -34,9 +34,9 @@
         [HttpPost("create")]
         public async Task<Response<int>> Create([FromBody] CreateLibraryCardCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -48,9 +48,9 @@
         [HttpPut("update")]
         public async Task<Response> Update([FromBody] UpdateLibraryCardCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -62,9 +62,9 @@
         [HttpDelete("delete/{id}")]
         public async Task<Response> Delete(int id)
         {
-            var result = await _mediator.Send(new DeleteLibraryCardCommand { Id = id });
+            var response = await _mediator.Send(new DeleteLibraryCardCommand { Id = id });
 
-            return result;
+            return response;
         }
     }
 }

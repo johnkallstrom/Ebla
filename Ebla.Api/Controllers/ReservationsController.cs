@@ -47,9 +47,9 @@
         [HttpPost("create")]
         public async Task<Response<int>> Create([FromBody] CreateReservationCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -61,9 +61,9 @@
         [HttpPut]
         public async Task<Response> Update([FromBody] UpdateReservationCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -75,9 +75,9 @@
         [HttpDelete("delete/{id}")]
         public async Task<Response> Delete(int id)
         {
-            var result = await _mediator.Send(new DeleteReservationCommand { Id = id });
+            var response = await _mediator.Send(new DeleteReservationCommand { Id = id });
 
-            return result;
+            return response;
         }
 
     }

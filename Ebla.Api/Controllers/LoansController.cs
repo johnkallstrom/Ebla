@@ -47,9 +47,9 @@
         [HttpPost("create")]
         public async Task<Response<int>> Create([FromBody] CreateLoanCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
 
@@ -62,9 +62,9 @@
         [HttpPut("update")]
         public async Task<Response> Update([FromBody] UpdateLoanCommand command)
         {
-            var result = await _mediator.Send(command);
+            var response = await _mediator.Send(command);
 
-            return result;
+            return response;
         }
 
         /// <summary>
@@ -76,9 +76,9 @@
         [HttpDelete("delete/{id}")]
         public async Task<Response> Delete(int id)
         {
-            var result = await _mediator.Send(new DeleteLoanCommand { Id = id });
+            var response = await _mediator.Send(new DeleteLoanCommand { Id = id });
 
-            return result;
+            return response;
         }
     }
 }
