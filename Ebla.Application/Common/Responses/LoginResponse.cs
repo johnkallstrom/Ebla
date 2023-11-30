@@ -1,6 +1,6 @@
-﻿namespace Ebla.Application.Common.Results
+﻿namespace Ebla.Application.Common.Responses
 {
-    public record LoginResult
+    public record LoginResponse
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
@@ -10,9 +10,9 @@
         /// Returns a success login result
         /// </summary>
         /// <returns></returns>
-        public static LoginResult Success(string token)
+        public static LoginResponse Success(string token)
         {
-            return new LoginResult
+            return new LoginResponse
             {
                 Succeeded = true,
                 Errors = null,
@@ -25,9 +25,9 @@
         /// </summary>
         /// <param name="errors"></param>
         /// <returns></returns>
-        public static LoginResult Failure(string[] errors)
+        public static LoginResponse Failure(string[] errors)
         {
-            return new LoginResult
+            return new LoginResponse
             {
                 Succeeded = false,
                 Errors = errors,
