@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Genres.Queries.GetGenres
 {
-    public class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IEnumerable<GenreDto>>
+    public class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IEnumerable<GenreResponse>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Genre> _repository;
@@ -11,11 +11,11 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<GenreDto>> Handle(GetGenresQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<GenreResponse>> Handle(GetGenresQuery request, CancellationToken cancellationToken)
         {
             var genres = await _repository.GetAllAsync();
 
-            return _mapper.Map<IEnumerable<GenreDto>>(genres);
+            return _mapper.Map<IEnumerable<GenreResponse>>(genres);
         }
     }
 }

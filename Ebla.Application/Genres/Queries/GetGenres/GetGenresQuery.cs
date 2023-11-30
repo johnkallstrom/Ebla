@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Genres.Queries.GetGenres
 {
-    public class GetGenresQuery : IRequest<IEnumerable<GenreDto>>
+    public class GetGenresQuery : IRequest<IEnumerable<GenreResponse>>
     {
     }
 }

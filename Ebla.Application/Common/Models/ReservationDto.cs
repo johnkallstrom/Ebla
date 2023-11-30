@@ -6,7 +6,7 @@
         public DateTime ExpiresOn { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? LastModified { get; set; }
-        public BookSlimDto Book { get; set; }
+        public BookSlimResponse Book { get; set; }
         public Guid UserId { get; set; }
     }
 }

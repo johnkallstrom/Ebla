@@ -4,12 +4,12 @@
     {
         public MappingProfile()
         {
-            CreateMap<Book, BookDto>()
+            CreateMap<Book, BookResponse>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
                 .ReverseMap();
 
-            CreateMap<Book, BookSlimDto>()
+            CreateMap<Book, BookSlimResponse>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
                 .ReverseMap();
@@ -17,9 +17,10 @@
             CreateMap<CreateBookCommand, Book>();
             CreateMap<UpdateBookCommand, Book>();
 
-            CreateMap<Author, AuthorDto>().ReverseMap();
+            CreateMap<Author, AuthorResponse>().ReverseMap();
+            CreateMap<Author, AuthorSlimResponse>().ReverseMap();
 
-            CreateMap<Genre, GenreDto>().ReverseMap();
+            CreateMap<Genre, GenreResponse>().ReverseMap();
             CreateMap<Review, ReviewDto>().ReverseMap();
             CreateMap<Reservation, ReservationDto>().ReverseMap();
             CreateMap<Loan, LoanDto>().ReverseMap();

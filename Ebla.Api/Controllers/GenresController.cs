@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<GenreDto>> GetAll()
+        public async Task<IEnumerable<GenreResponse>> GetAll()
         {
             var genres = await _mediator.Send(new GetGenresQuery());
 
