@@ -5,6 +5,6 @@
         DateTime ExpiresOn, 
         DateTime CreatedOn, 
         DateTime? LastModified, 
-        BookSlimResponse Book, 
+        BookSlimDto Book, 
         Guid UserId);
 }

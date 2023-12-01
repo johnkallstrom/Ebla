@@ -1,6 +1,6 @@
-﻿namespace Ebla.Application.Common.Responses
+﻿namespace Ebla.Application.UseCases.Books.Responses
 {
-    public record BookSlimResponse
+    public record BookSlimDto
     {
         public int Id { get; init; }
         public string Title { get; init; }

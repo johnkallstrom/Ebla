@@ -6,6 +6,6 @@
         int Rating, 
         DateTime CreatedOn, 
         DateTime? LastModified, 
-        BookSlimResponse Book, 
+        BookSlimDto Book, 
         Guid UserId);
 }

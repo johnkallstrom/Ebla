@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Books.Queries
 {
-    public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQuery, BookResponse>
+    public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQuery, BookDto>
     {
         private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
@@ -11,7 +11,7 @@
             _mapper = mapper;
         }
 
-        public async Task<BookResponse> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
+        public async Task<BookDto> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
         {
             var book = await _repository.GetBookByIdAsync(request.Id);
 
@@ -20,7 +20,7 @@
                 throw new NotFoundException(nameof(book), request.Id);
             }
 
-            return _mapper.Map<BookResponse>(book);
+            return _mapper.Map<BookDto>(book);
         }
     }
 }
