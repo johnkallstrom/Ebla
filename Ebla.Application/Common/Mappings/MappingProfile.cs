@@ -24,7 +24,7 @@
             CreateMap<Review, ReviewResponse>().ReverseMap();
             CreateMap<Reservation, ReservationResponse>().ReverseMap();
             CreateMap<Loan, LoanResponse>().ReverseMap();
-            CreateMap<LibraryCard, LibraryCardResponse>().ReverseMap();
+            CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
             CreateMap<Library, LibraryDto>().ReverseMap();
             CreateMap<Library, LibrarySlimDto>().ReverseMap();
 

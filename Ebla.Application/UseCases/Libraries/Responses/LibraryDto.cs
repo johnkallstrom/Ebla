@@ -6,5 +6,5 @@
         DateTime? Established,
         DateTime CreatedOn,
         DateTime? LastModified,
-        List<LibraryCardResponse> LibraryCards);
+        List<LibraryCardDto> LibraryCards);
 }

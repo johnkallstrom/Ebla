@@ -18,7 +18,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{userId}")]
-        public async Task<LibraryCardResponse> GetByUserId(Guid userId)
+        public async Task<LibraryCardDto> GetByUserId(Guid userId)
         {
             var libraryCard = await _mediator.Send(new GetLibraryCardByUserIdQuery { UserId = userId });
 
