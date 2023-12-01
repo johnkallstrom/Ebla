@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Genres.Queries.GetGenres
+﻿namespace Ebla.Application.Genres.Queries.GetGenres
 {
     public class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IEnumerable<GenreResponse>>
     {

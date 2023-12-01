@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Books.Queries.GetBooks
+﻿namespace Ebla.Application.Books.Queries.GetBooks
 {
     public class GetBooksQueryHandler : IRequestHandler<GetBooksQuery, IEnumerable<BookSlimResponse>>
     {

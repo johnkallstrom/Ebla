@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Reservations.Queries.GetReservationsByUserId
+﻿namespace Ebla.Application.Reservations.Queries.GetReservationsByUserId
 {
     public class GetReservationsByUserIdQueryHandler : IRequestHandler<GetReservationsByUserIdQuery, IEnumerable<ReservationResponse>>
     {

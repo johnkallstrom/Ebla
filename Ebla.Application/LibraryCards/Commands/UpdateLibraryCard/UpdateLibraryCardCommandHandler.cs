@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
+﻿namespace Ebla.Application.LibraryCards.Commands.UpdateLibraryCard
 {
     public class UpdateLibraryCardCommandHandler : IRequestHandler<UpdateLibraryCardCommand, Response>
     {

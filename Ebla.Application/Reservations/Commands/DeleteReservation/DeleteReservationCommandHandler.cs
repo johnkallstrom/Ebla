@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Reservations.Commands.DeleteReservation
+﻿namespace Ebla.Application.Reservations.Commands.DeleteReservation
 {
     public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, Response>
     {

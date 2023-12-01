@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Reviews.Queries.GetReviewsByUserId
+﻿namespace Ebla.Application.Reviews.Queries.GetReviewsByUserId
 {
     public class GetReviewsByUserIdQueryHandler : IRequestHandler<GetReviewsByUserIdQuery, IEnumerable<ReviewResponse>>
     {

@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Users.Queries.GetUserById
+﻿namespace Ebla.Application.Users.Queries.GetUserById
 {
     public class GetUserIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserResponse>
     {

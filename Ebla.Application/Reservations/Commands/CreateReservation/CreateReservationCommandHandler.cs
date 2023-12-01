@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Reservations.Commands.CreateReservation
+﻿namespace Ebla.Application.Reservations.Commands.CreateReservation
 {
     public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, Response<int>>
     {

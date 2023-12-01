@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.Loans.Commands.CreateLoan
+﻿namespace Ebla.Application.Loans.Commands.CreateLoan
 {
     public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, Response<int>>
     {

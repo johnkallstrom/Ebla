@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Application.LibraryCards.Queries.GetLibraryCardByUserId
+﻿namespace Ebla.Application.LibraryCards.Queries.GetLibraryCardByUserId
 {
     public class GetLibraryCardByUserIdQueryHandler : IRequestHandler<GetLibraryCardByUserIdQuery, LibraryCardResponse>
     {
