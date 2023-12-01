@@ -29,6 +29,7 @@ global using Ebla.Application.UseCases.LibraryCards.Queries;
 global using Ebla.Application.UseCases.LibraryCards.Responses;
 global using Ebla.Application.UseCases.Loans.Commands;
 global using Ebla.Application.UseCases.Loans.Queries;
+global using Ebla.Application.UseCases.Loans.Responses;
 global using Ebla.Application.UseCases.Reservations.Commands;
 global using Ebla.Application.UseCases.Reservations.Queries;
 global using Ebla.Application.UseCases.Reviews.Queries;

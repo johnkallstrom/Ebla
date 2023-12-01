@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<LoanResponse>> GetAll()
+        public async Task<IEnumerable<LoanDto>> GetAll()
         {
             var loans = await _mediator.Send(new GetLoansQuery());
 
@@ -31,7 +31,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{userId}")]
-        public async Task<IEnumerable<LoanResponse>> GetByUserId(Guid userId)
+        public async Task<IEnumerable<LoanDto>> GetByUserId(Guid userId)
         {
             var loans = await _mediator.Send(new GetLoansByUserIdQuery { UserId = userId });
 
