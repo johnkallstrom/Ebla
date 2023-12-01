@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Reservations.Queries
 {
-    public class GetReservationsQuery : IRequest<IEnumerable<ReservationResponse>>
+    public class GetReservationsQuery : IRequest<IEnumerable<ReservationDto>>
     {
     }
 }

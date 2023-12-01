@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Reservations.Queries
 {
-    public class GetReservationsQueryHandler : IRequestHandler<GetReservationsQuery, IEnumerable<ReservationResponse>>
+    public class GetReservationsQueryHandler : IRequestHandler<GetReservationsQuery, IEnumerable<ReservationDto>>
     {
         private readonly IMapper _mapper;
         private readonly IReservationRepository _repository;
@@ -11,11 +11,11 @@
             _repository = repository;
         }
 
-        public async Task<IEnumerable<ReservationResponse>> Handle(GetReservationsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ReservationDto>> Handle(GetReservationsQuery request, CancellationToken cancellationToken)
         {
             var reservations = await _repository.GetAllReservationsAsync();
 
-            return _mapper.Map<IEnumerable<ReservationResponse>>(reservations);
+            return _mapper.Map<IEnumerable<ReservationDto>>(reservations);
         }
     }
 }

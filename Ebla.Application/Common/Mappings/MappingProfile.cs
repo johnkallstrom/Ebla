@@ -22,7 +22,7 @@
 
             CreateMap<Genre, GenreDto>().ReverseMap();
             CreateMap<Review, ReviewResponse>().ReverseMap();
-            CreateMap<Reservation, ReservationResponse>().ReverseMap();
+            CreateMap<Reservation, ReservationDto>().ReverseMap();
             CreateMap<Loan, LoanDto>().ReverseMap();
             CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
             CreateMap<Library, LibraryDto>().ReverseMap();
