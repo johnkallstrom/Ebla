@@ -4,6 +4,9 @@
     {
         public MappingProfile()
         {
+            CreateMap<Author, AuthorDto>().ReverseMap();
+            CreateMap<Author, AuthorSlimDto>().ReverseMap();
+
             CreateMap<Book, BookDto>()
                 .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
@@ -17,25 +20,24 @@
             CreateMap<CreateBookCommand, Book>();
             CreateMap<UpdateBookCommand, Book>();
 
-            CreateMap<Author, AuthorDto>().ReverseMap();
-            CreateMap<Author, AuthorSlimDto>().ReverseMap();
-
             CreateMap<Genre, GenreDto>().ReverseMap();
-            CreateMap<Review, ReviewDto>().ReverseMap();
-            CreateMap<Reservation, ReservationDto>().ReverseMap();
-            CreateMap<Loan, LoanDto>().ReverseMap();
-            CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
+
             CreateMap<Library, LibraryDto>().ReverseMap();
             CreateMap<Library, LibrarySlimDto>().ReverseMap();
 
+            CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
 
+            CreateMap<Loan, LoanDto>().ReverseMap();
+            CreateMap<CreateLoanCommand, Loan>();
+            CreateMap<UpdateLoanCommand, Loan>();
+
+            CreateMap<Reservation, ReservationDto>().ReverseMap();
             CreateMap<CreateReservationCommand, Reservation>();
             CreateMap<UpdateReservationCommand, Reservation>();
 
-            CreateMap<CreateLoanCommand, Loan>();
-            CreateMap<UpdateLoanCommand, Loan>();
+            CreateMap<Review, ReviewDto>().ReverseMap();
         }
     }
 }
