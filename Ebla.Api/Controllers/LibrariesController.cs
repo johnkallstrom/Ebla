@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<LibrarySlimResponse>> GetAll()
+        public async Task<IEnumerable<LibrarySlimDto>> GetAll()
         {
             var libraries = await _mediator.Send(new GetLibrariesQuery());
 
@@ -31,7 +31,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{id}")]
-        public async Task<LibraryResponse> GetById(int id)
+        public async Task<LibraryDto> GetById(int id)
         {
             var library = await _mediator.Send(new GetLibraryByIdQuery { Id = id });
 

@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Libraries.Queries
 {
-    public class GetLibraryByIdQueryHandler : IRequestHandler<GetLibraryByIdQuery, LibraryResponse>
+    public class GetLibraryByIdQueryHandler : IRequestHandler<GetLibraryByIdQuery, LibraryDto>
     {
         private readonly IMapper _mapper;
         private readonly ILibraryRepository _repository;
@@ -11,7 +11,7 @@
             _repository = repository;
         }
 
-        public async Task<LibraryResponse> Handle(GetLibraryByIdQuery request, CancellationToken cancellationToken)
+        public async Task<LibraryDto> Handle(GetLibraryByIdQuery request, CancellationToken cancellationToken)
         {
             var library = await _repository.GetLibraryByIdAsync(request.Id);
 
@@ -20,7 +20,7 @@
                 throw new NotFoundException(nameof(library), request.Id);
             }
 
-            return _mapper.Map<LibraryResponse>(library);
+            return _mapper.Map<LibraryDto>(library);
         }
     }
 }

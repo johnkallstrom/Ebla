@@ -13,6 +13,7 @@ global using Ebla.Application.UseCases.Authors.Responses;
 global using Ebla.Application.UseCases.Books.Commands;
 global using Ebla.Application.UseCases.Books.Responses;
 global using Ebla.Application.UseCases.Genres.Responses;
+global using Ebla.Application.UseCases.Libraries.Responses;
 global using Ebla.Application.UseCases.LibraryCards.Commands;
 global using Ebla.Application.UseCases.Reservations.Commands;
 global using Ebla.Application.UseCases.Loans.Commands;
