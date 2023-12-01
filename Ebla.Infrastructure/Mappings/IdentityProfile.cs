@@ -4,7 +4,7 @@
     {
         public IdentityProfile()
         {
-            CreateMap<ApplicationUser, UserResponse>().ReverseMap();
+            CreateMap<ApplicationUser, UserDto>().ReverseMap();
         }
     }
 }

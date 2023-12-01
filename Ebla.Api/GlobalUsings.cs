@@ -37,6 +37,7 @@ global using Ebla.Application.UseCases.Reviews.Queries;
 global using Ebla.Application.UseCases.Reviews.Responses;
 global using Ebla.Application.UseCases.Users.Commands;
 global using Ebla.Application.UseCases.Users.Queries;
+global using Ebla.Application.UseCases.Users.Responses;
 
 global using Ebla.Infrastructure;
 global using Ebla.Persistence;

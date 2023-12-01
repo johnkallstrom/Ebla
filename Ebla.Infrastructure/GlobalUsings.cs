@@ -11,4 +11,5 @@ global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
 global using Ebla.Application.Common.Exceptions;
 global using Microsoft.Extensions.Options;
-global using Ebla.Application.Common.Responses;
+global using Ebla.Application.Interfaces;
+global using Ebla.Application.UseCases.Users.Responses;

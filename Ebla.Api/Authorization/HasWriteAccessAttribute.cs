@@ -9,7 +9,7 @@
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var user = context.HttpContext.Items["User"] as UserResponse;
+            var user = context.HttpContext.Items["User"] as UserDto;
             if (user is null)
             {
                 context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;

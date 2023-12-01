@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Infrastructure.Jwt
+﻿namespace Ebla.Infrastructure.Jwt
 {
     public class JwtProvider : IJwtProvider
     {
@@ -11,7 +9,7 @@ namespace Ebla.Infrastructure.Jwt
             _options = options.Value;
         }
 
-        public string GenerateToken(UserResponse user)
+        public string GenerateToken(UserDto user)
         {
             var claims = new List<Claim>
             {

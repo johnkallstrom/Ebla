@@ -1,6 +1,4 @@
-﻿using Ebla.Application.Interfaces;
-
-namespace Ebla.Infrastructure.Identity
+﻿namespace Ebla.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {
@@ -63,16 +61,16 @@ namespace Ebla.Infrastructure.Identity
             await _userManager.DeleteAsync(user);
         }
 
-        public async Task<List<UserResponse>> GetAllUsersAsync()
+        public async Task<List<UserDto>> GetAllUsersAsync()
         {
             var users = await _userManager.Users.ToListAsync();
 
-            var result = new List<UserResponse>();
+            var result = new List<UserDto>();
             foreach (var user in users)
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserResponse>(user);
+                var mappedUser = _mapper.Map<UserDto>(user);
                 mappedUser.Roles = roles;
 
                 result.Add(mappedUser);
@@ -81,7 +79,7 @@ namespace Ebla.Infrastructure.Identity
             return result;
         }
 
-        public async Task<UserResponse> GetUserAsync(Guid userId)
+        public async Task<UserDto> GetUserAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
 
@@ -89,7 +87,7 @@ namespace Ebla.Infrastructure.Identity
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserResponse>(user);
+                var mappedUser = _mapper.Map<UserDto>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;
@@ -98,7 +96,7 @@ namespace Ebla.Infrastructure.Identity
             return null;
         }
 
-        public async Task<UserResponse> GetUserAsync(string username)
+        public async Task<UserDto> GetUserAsync(string username)
         {
             var user = await _userManager.FindByNameAsync(username);
 
@@ -106,7 +104,7 @@ namespace Ebla.Infrastructure.Identity
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserResponse>(user);
+                var mappedUser = _mapper.Map<UserDto>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;
@@ -115,7 +113,7 @@ namespace Ebla.Infrastructure.Identity
             return null;
         }
 
-        public async Task<UserResponse> LoginAsync(string username, string password)
+        public async Task<UserDto> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
@@ -128,7 +126,7 @@ namespace Ebla.Infrastructure.Identity
             {
                 var roles = await GetUserRoles(user);
 
-                var mappedUser = _mapper.Map<UserResponse>(user);
+                var mappedUser = _mapper.Map<UserDto>(user);
                 mappedUser.Roles = roles;
 
                 return mappedUser;

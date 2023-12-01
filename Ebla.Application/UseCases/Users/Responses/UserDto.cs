@@ -1,6 +1,6 @@
-﻿namespace Ebla.Application.Common.Responses
+﻿namespace Ebla.Application.UseCases.Users.Responses
 {
-    public record UserResponse
+    public record UserDto
     {
         public Guid Id { get; init; }
         public string Username { get; init; }

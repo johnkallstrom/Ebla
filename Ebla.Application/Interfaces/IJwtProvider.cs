@@ -2,7 +2,7 @@
 {
     public interface IJwtProvider
     {
-        string GenerateToken(UserResponse user);
+        string GenerateToken(UserDto user);
         Task<Guid> ValidateToken(string token);
     }
 }
