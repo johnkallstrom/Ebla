@@ -29,6 +29,7 @@ global using Ebla.Application.UseCases.Genres.Queries;
 global using Ebla.Application.UseCases.Books.Commands;
 global using Ebla.Application.UseCases.Books.Queries;
 global using Ebla.Application.UseCases.Authors.Queries;
+global using Ebla.Application.UseCases.Authors.Responses;
 
 global using Ebla.Infrastructure;
 global using Ebla.Persistence;

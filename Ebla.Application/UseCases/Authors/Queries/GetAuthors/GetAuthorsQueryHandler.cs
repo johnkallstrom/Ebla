@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Authors.Queries
 {
-    public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, IEnumerable<AuthorSlimResponse>>
+    public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, IEnumerable<AuthorSlimDto>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Author> _repository;
@@ -11,11 +11,11 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<AuthorSlimResponse>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
         {
             var authors = await _repository.GetAllAsync();
 
-            return _mapper.Map<IEnumerable<AuthorSlimResponse>>(authors);
+            return _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
         }
     }
 }

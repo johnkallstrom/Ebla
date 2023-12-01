@@ -17,8 +17,8 @@
             CreateMap<CreateBookCommand, Book>();
             CreateMap<UpdateBookCommand, Book>();
 
-            CreateMap<Author, AuthorResponse>().ReverseMap();
-            CreateMap<Author, AuthorSlimResponse>().ReverseMap();
+            CreateMap<Author, AuthorDto>().ReverseMap();
+            CreateMap<Author, AuthorSlimDto>().ReverseMap();
 
             CreateMap<Genre, GenreResponse>().ReverseMap();
             CreateMap<Review, ReviewResponse>().ReverseMap();

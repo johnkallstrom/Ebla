@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Authors.Queries
 {
-    public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQuery, AuthorResponse>
+    public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQuery, AuthorDto>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Author> _repository;
@@ -11,7 +11,7 @@
             _repository = repository;
         }
 
-        public async Task<AuthorResponse> Handle(GetAuthorByIdQuery request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(GetAuthorByIdQuery request, CancellationToken cancellationToken)
         {
             var author = await _repository.GetByIdAsync(request.Id);
 
@@ -20,7 +20,7 @@
                 throw new NotFoundException(nameof(author), request.Id);
             }
 
-            return _mapper.Map<AuthorResponse>(author);
+            return _mapper.Map<AuthorDto>(author);
         }
     }
 }
