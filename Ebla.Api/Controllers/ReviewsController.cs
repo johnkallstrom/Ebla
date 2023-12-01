@@ -18,7 +18,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{bookId:int}")]
-        public async Task<IEnumerable<ReviewResponse>> GetByBookId(int bookId)
+        public async Task<IEnumerable<ReviewDto>> GetByBookId(int bookId)
         {
             var reviews = await _mediator.Send(new GetReviewsByBookIdQuery { BookId = bookId });
 
@@ -32,7 +32,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("{userId:guid}")]
-        public async Task<IEnumerable<ReviewResponse>> GetByUserId(Guid userId)
+        public async Task<IEnumerable<ReviewDto>> GetByUserId(Guid userId)
         {
             var reviews = await _mediator.Send(new GetReviewsByUserIdQuery { UserId = userId });
 

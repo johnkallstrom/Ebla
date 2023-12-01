@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Reviews.Queries
 {
-    public class GetReviewsByUserIdQueryHandler : IRequestHandler<GetReviewsByUserIdQuery, IEnumerable<ReviewResponse>>
+    public class GetReviewsByUserIdQueryHandler : IRequestHandler<GetReviewsByUserIdQuery, IEnumerable<ReviewDto>>
     {
         private readonly IMapper _mapper;
         private readonly IReviewRepository _repository;
@@ -11,11 +11,11 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ReviewResponse>> Handle(GetReviewsByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ReviewDto>> Handle(GetReviewsByUserIdQuery request, CancellationToken cancellationToken)
         {
             var reviews = await _repository.GetReviewListByUserIdAsync(request.UserId);
 
-            return _mapper.Map<IEnumerable<ReviewResponse>>(reviews);
+            return _mapper.Map<IEnumerable<ReviewDto>>(reviews);
         }
     }
 }

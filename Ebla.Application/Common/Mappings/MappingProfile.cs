@@ -21,7 +21,7 @@
             CreateMap<Author, AuthorSlimDto>().ReverseMap();
 
             CreateMap<Genre, GenreDto>().ReverseMap();
-            CreateMap<Review, ReviewResponse>().ReverseMap();
+            CreateMap<Review, ReviewDto>().ReverseMap();
             CreateMap<Reservation, ReservationDto>().ReverseMap();
             CreateMap<Loan, LoanDto>().ReverseMap();
             CreateMap<LibraryCard, LibraryCardDto>().ReverseMap();

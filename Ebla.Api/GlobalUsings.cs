@@ -34,6 +34,7 @@ global using Ebla.Application.UseCases.Reservations.Commands;
 global using Ebla.Application.UseCases.Reservations.Queries;
 global using Ebla.Application.UseCases.Reservations.Responses;
 global using Ebla.Application.UseCases.Reviews.Queries;
+global using Ebla.Application.UseCases.Reviews.Responses;
 global using Ebla.Application.UseCases.Users.Commands;
 global using Ebla.Application.UseCases.Users.Queries;
 

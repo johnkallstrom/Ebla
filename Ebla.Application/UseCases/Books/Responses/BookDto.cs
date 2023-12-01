@@ -16,7 +16,7 @@
         public DateTime CreatedOn { get; init; }
         public DateTime? LastModified { get; init; }
 
-        public List<ReviewResponse> Reviews { get; init; }
+        public List<ReviewDto> Reviews { get; init; }
         public List<ReservationDto> Reservations { get; init; }
     }
 }
