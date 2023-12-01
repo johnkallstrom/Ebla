@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Users.Commands.DeleteUser
+﻿namespace Ebla.Application.User.Commands.DeleteUser
 {
     public class DeleteUserCommandValidator : AbstractValidator<DeleteUserCommand>
     {

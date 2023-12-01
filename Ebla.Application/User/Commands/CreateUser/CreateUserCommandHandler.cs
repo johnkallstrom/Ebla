@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Users.Commands.CreateUser
+﻿namespace Ebla.Application.User.Commands.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Response<Guid>>
     {

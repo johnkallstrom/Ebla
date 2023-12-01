@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Users.Queries.GetUserById
+﻿namespace Ebla.Application.User.Queries.GetUserById
 {
     public class GetUserIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserResponse>
     {
