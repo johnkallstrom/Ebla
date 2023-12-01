@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Users.Commands
 {
-    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginResponse>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Response<string>>
     {
         private readonly IIdentityService _identityService;
         private readonly IJwtProvider _jwtProvider;
@@ -11,7 +11,7 @@
             _jwtProvider = jwtProvider;
         }
 
-        public async Task<LoginResponse> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+        public async Task<Response<string>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             var validator = new LoginUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -23,16 +23,16 @@
                     var user = await _identityService.LoginAsync(request.Username, request.Password);
                     string token = _jwtProvider.GenerateToken(user);
 
-                    return LoginResponse.Success(token);
+                    return Response<string>.Success(token);
                 }
                 catch (Exception ex)
                 {
-                    return LoginResponse.Failure(new string[] { ex.Message });
+                    return Response<string>.Failure(new string[] { ex.Message });
                 }
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return LoginResponse.Failure(errors);
+            return Response<string>.Failure(errors);
         }
     }
 }
