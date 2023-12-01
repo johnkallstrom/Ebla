@@ -20,7 +20,7 @@
             CreateMap<Author, AuthorDto>().ReverseMap();
             CreateMap<Author, AuthorSlimDto>().ReverseMap();
 
-            CreateMap<Genre, GenreResponse>().ReverseMap();
+            CreateMap<Genre, GenreDto>().ReverseMap();
             CreateMap<Review, ReviewResponse>().ReverseMap();
             CreateMap<Reservation, ReservationResponse>().ReverseMap();
             CreateMap<Loan, LoanResponse>().ReverseMap();

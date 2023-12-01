@@ -21,6 +21,7 @@ global using Ebla.Application.UseCases.Books.Commands;
 global using Ebla.Application.UseCases.Books.Queries;
 global using Ebla.Application.UseCases.Books.Responses;
 global using Ebla.Application.UseCases.Genres.Queries;
+global using Ebla.Application.UseCases.Genres.Responses;
 global using Ebla.Application.UseCases.Libraries.Queries;
 global using Ebla.Application.UseCases.LibraryCards.Commands;
 global using Ebla.Application.UseCases.LibraryCards.Queries;
