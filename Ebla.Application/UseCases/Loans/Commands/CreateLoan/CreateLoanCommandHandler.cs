@@ -8,10 +8,10 @@
         private readonly IBookRepository _bookRepository;
         private readonly IIdentityService _identityService;
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<Domain.Entities.Loan> _repository;
+        private readonly IGenericRepository<Loan> _repository;
 
         public CreateLoanCommandHandler(
-            IGenericRepository<Domain.Entities.Loan> repository,
+            IGenericRepository<Loan> repository,
             IMapper mapper,
             IIdentityService identityService,
             IBookRepository bookRepository,
@@ -64,7 +64,7 @@
                     return Response<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
                 }
 
-                var loanToAdd = _mapper.Map<Domain.Entities.Loan>(request);
+                var loanToAdd = _mapper.Map<Loan>(request);
                 loanToAdd.CreatedOn = DateTime.Now;
                 loanToAdd.DueDate = DateTime.Now.AddMonths(1);
 

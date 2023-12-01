@@ -3,9 +3,9 @@
     public class GetGenresQueryHandler : IRequestHandler<GetGenresQuery, IEnumerable<GenreResponse>>
     {
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<Domain.Entities.Genre> _repository;
+        private readonly IGenericRepository<Genre> _repository;
 
-        public GetGenresQueryHandler(IGenericRepository<Domain.Entities.Genre> repository, IMapper mapper)
+        public GetGenresQueryHandler(IGenericRepository<Genre> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

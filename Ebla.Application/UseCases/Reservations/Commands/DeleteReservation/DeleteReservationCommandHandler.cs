@@ -4,7 +4,7 @@
     {
         private readonly IGenericRepository<Reservation> _genericRepository;
 
-        public DeleteReservationCommandHandler(IGenericRepository<Domain.Entities.Reservation> genericRepository)
+        public DeleteReservationCommandHandler(IGenericRepository<Reservation> genericRepository)
         {
             _genericRepository = genericRepository;
         }

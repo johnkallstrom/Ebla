@@ -3,10 +3,10 @@
     public class UpdateLoanCommandHandler : IRequestHandler<UpdateLoanCommand, Response>
     {
         private readonly IMapper _mapper;
-        private readonly IGenericRepository<Domain.Entities.Loan> _genericRepository;
+        private readonly IGenericRepository<Loan> _genericRepository;
 
         public UpdateLoanCommandHandler(
-            IGenericRepository<Domain.Entities.Loan> genericRepository, 
+            IGenericRepository<Loan> genericRepository, 
             IMapper mapper)
         {
             _genericRepository = genericRepository;

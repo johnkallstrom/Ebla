@@ -6,13 +6,13 @@
         private readonly IMapper _mapper;
         private readonly IIdentityService _identityService;
         private readonly ILibraryCardRepository _repository;
-        private readonly IGenericRepository<Domain.Entities.LibraryCard> _genericRepository;
+        private readonly IGenericRepository<LibraryCard> _genericRepository;
 
         public CreateLibraryCardCommandHandler(
             IMapper mapper,
             IIdentityService identityService,
             ILibraryCardRepository repository,
-            IGenericRepository<Domain.Entities.LibraryCard> genericRepository,
+            IGenericRepository<LibraryCard> genericRepository,
             ILibraryRepository libraryRepository)
         {
             _mapper = mapper;
@@ -44,7 +44,7 @@
                 var libraryCard = await _repository.GetLibraryCardAsync(user.Id);
                 if (libraryCard is null)
                 {
-                    var libraryCardToAdd = _mapper.Map<Domain.Entities.LibraryCard>(request);
+                    var libraryCardToAdd = _mapper.Map<LibraryCard>(request);
                     libraryCardToAdd.CreatedOn = DateTime.Now;
                     libraryCardToAdd.ExpiresOn = DateTime.Now.AddYears(1);
 

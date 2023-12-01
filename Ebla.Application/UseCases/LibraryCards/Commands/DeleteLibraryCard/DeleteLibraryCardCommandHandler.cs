@@ -2,9 +2,9 @@
 {
     public class DeleteLibraryCardCommandHandler : IRequestHandler<DeleteLibraryCardCommand, Response>
     {
-        private readonly IGenericRepository<Domain.Entities.LibraryCard> _genericRepository;
+        private readonly IGenericRepository<LibraryCard> _genericRepository;
 
-        public DeleteLibraryCardCommandHandler(IGenericRepository<Domain.Entities.LibraryCard> genericRepository)
+        public DeleteLibraryCardCommandHandler(IGenericRepository<LibraryCard> genericRepository)
         {
             _genericRepository = genericRepository;
         }

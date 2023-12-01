@@ -2,9 +2,9 @@
 {
     public class DeleteLoanCommandHandler : IRequestHandler<DeleteLoanCommand, Response>
     {
-        private readonly IGenericRepository<Domain.Entities.Loan> _genericRepository;
+        private readonly IGenericRepository<Loan> _genericRepository;
 
-        public DeleteLoanCommandHandler(IGenericRepository<Domain.Entities.Loan> genericRepository)
+        public DeleteLoanCommandHandler(IGenericRepository<Loan> genericRepository)
         {
             _genericRepository = genericRepository;
         }
