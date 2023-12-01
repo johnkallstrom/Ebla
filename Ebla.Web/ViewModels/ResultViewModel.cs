@@ -10,7 +10,6 @@
     {
         public bool Succeeded { get; set; }
         public string[] Errors { get; set; }
-        [JsonPropertyName("Token")]
         public T Data { get; set; }
     }
 }
