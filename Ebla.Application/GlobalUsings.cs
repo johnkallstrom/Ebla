@@ -6,7 +6,7 @@ global using FluentValidation.AspNetCore;
 global using FluentValidation;
 
 global using Ebla.Application.Interfaces;
-global using Ebla.Application.Common.Responses;
+global using Ebla.Application.Common;
 global using Ebla.Application.Common.Exceptions;
 
 global using Ebla.Application.UseCases.Authors.Responses;

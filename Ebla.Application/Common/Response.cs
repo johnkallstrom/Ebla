@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Common.Responses
+﻿namespace Ebla.Application.Common
 {
     public record Response
     {

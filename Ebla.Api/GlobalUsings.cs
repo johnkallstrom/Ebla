@@ -13,7 +13,7 @@ global using Ebla.Api.Authorization;
 global using Ebla.Api.Middleware;
 
 global using Ebla.Application;
-global using Ebla.Application.Common.Responses;
+global using Ebla.Application.Common;
 
 global using Ebla.Application.UseCases.Authors.Queries;
 global using Ebla.Application.UseCases.Authors.Responses;
