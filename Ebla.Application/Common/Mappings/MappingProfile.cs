@@ -22,17 +22,17 @@
 
             CreateMap<Genre, GenreResponse>().ReverseMap();
             CreateMap<Review, ReviewResponse>().ReverseMap();
-            CreateMap<Domain.Entities.Reservation, ReservationResponse>().ReverseMap();
+            CreateMap<Reservation, ReservationResponse>().ReverseMap();
             CreateMap<Loan, LoanResponse>().ReverseMap();
-            CreateMap<LibraryCard, LibraryCardResponse>().ReverseMap();
+            CreateMap<Domain.Entities.LibraryCard, LibraryCardResponse>().ReverseMap();
             CreateMap<Library, LibraryResponse>().ReverseMap();
             CreateMap<Library, LibrarySlimResponse>().ReverseMap();
 
             CreateMap<CreateLibraryCardCommand, LibraryCard>();
             CreateMap<UpdateLibraryCardCommand, LibraryCard>();
 
-            CreateMap<CreateReservationCommand, Domain.Entities.Reservation>();
-            CreateMap<UpdateReservationCommand, Domain.Entities.Reservation>();
+            CreateMap<CreateReservationCommand, Reservation>();
+            CreateMap<UpdateReservationCommand, Reservation>();
 
             CreateMap<CreateLoanCommand, Loan>();
             CreateMap<UpdateLoanCommand, Loan>();

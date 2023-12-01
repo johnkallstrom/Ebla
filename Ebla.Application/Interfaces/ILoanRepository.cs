@@ -2,10 +2,10 @@
 {
     public interface ILoanRepository
     {
-        Task<IEnumerable<Loan>> GetAllLoansAsync();
-        Task<IEnumerable<Loan>> GetLoansByUserIdAsync(Guid userId);
-        Task<IEnumerable<Loan>> GetLoansByUserIdAsync(Guid userId, bool returned);
-        Task<Loan> GetLoanByBookIdAsync(int bookId);
-        Task<Loan> GetLoanByBookIdAsync(int bookId, bool returned);
+        Task<IEnumerable<Domain.Entities.Loan>> GetAllLoansAsync();
+        Task<IEnumerable<Domain.Entities.Loan>> GetLoansByUserIdAsync(Guid userId);
+        Task<IEnumerable<Domain.Entities.Loan>> GetLoansByUserIdAsync(Guid userId, bool returned);
+        Task<Domain.Entities.Loan> GetLoanByBookIdAsync(int bookId);
+        Task<Domain.Entities.Loan> GetLoanByBookIdAsync(int bookId, bool returned);
     }
 }
