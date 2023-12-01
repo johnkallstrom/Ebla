@@ -1,7 +1,0 @@
-﻿namespace Ebla.Application.UseCases.Loan.Commands
-{
-    public class DeleteLoanCommand : IRequest<Response>
-    {
-        public int Id { get; set; }
-    }
-}

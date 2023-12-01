@@ -8,11 +8,9 @@ global using FluentValidation;
 global using Ebla.Application.Interfaces;
 global using Ebla.Application.Common.Responses;
 global using Ebla.Application.Common.Exceptions;
-global using Ebla.Application.UseCases.Reservation.Commands;
-global using Ebla.Application.UseCases.Loan.Commands;
-global using Ebla.Application.UseCases.LibraryCard.Commands;
-
-global using Ebla.Application.Books.Commands.CreateBook;
-global using Ebla.Application.Books.Commands.UpdateBook;
+global using Ebla.Application.UseCases.Books.Commands;
+global using Ebla.Application.UseCases.LibraryCards.Commands;
+global using Ebla.Application.UseCases.Reservations.Commands;
+global using Ebla.Application.UseCases.Loans.Commands;
 
 global using Ebla.Domain.Entities;
