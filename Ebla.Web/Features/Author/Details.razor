@@ -2,3 +2,13 @@
 @attribute [Authorize(Roles = "User")]
 
 <PageTitle>Ebla - Author Details</PageTitle>
+
+@if (Author != null)
+{
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="@Author.ImageLink" width="400" height="400" />
+            <p>@Author.Name</p>
+        </div>
+    </div>
+}
