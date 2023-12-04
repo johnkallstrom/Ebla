@@ -2,21 +2,25 @@
 {
     public class IdentityService : IIdentityService
     {
-        private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
         public IdentityService(
-            IMapper mapper,
             UserManager<ApplicationUser> userManager, 
             SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager)
         {
-            _mapper = mapper;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+        }
+
+        public async Task<string[]> GetUserRolesAsync(IApplicationUser user)
+        {
+            var roles = await _userManager.GetRolesAsync(user as ApplicationUser);
+
+            return roles.ToArray();
         }
 
         public async Task<List<IApplicationUser>> GetAllUsersAsync()
@@ -24,6 +28,32 @@
             var users = await _userManager.Users.ToListAsync<IApplicationUser>();
 
             return users;
+        }
+
+        public async Task<IApplicationUser> GetUserAsync(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            return user;
+        }
+
+        public async Task<IApplicationUser> GetUserAsync(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            return user;
+        }
+
+        public async Task<bool> LoginAsync(string username, string password)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                throw new NotFoundException($"Username '{username}' could not be found");
+            }
+
+            var signInResult = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
+            return signInResult.Succeeded;
         }
 
         public async Task<Guid> CreateUserAsync(string username, string password, string[] rolesToAdd)
@@ -55,60 +85,6 @@
             }
 
             return user.Id;
-        }
-
-        public async Task DeleteUserAsync(Guid userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-            if (user is null)
-            {
-                throw new NotFoundException(nameof(user), userId);
-            }
-
-            await _userManager.DeleteAsync(user);
-        }
-
-        public async Task<IApplicationUser> GetUserAsync(string username)
-        {
-            var user = await _userManager.FindByNameAsync(username);
-
-            return user;
-        }
-
-        public async Task<IApplicationUser> GetApplicationUserAsync(Guid userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-
-            return user;
-        }
-
-        public async Task<UserDto> GetUserAsync(Guid userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-
-            if (user != null)
-            {
-                var roles = await GetUserRoles(user);
-
-                var mappedUser = _mapper.Map<UserDto>(user);
-                mappedUser.Roles = roles;
-
-                return mappedUser;
-            }
-
-            return null;
-        }
-
-        public async Task<bool> LoginAsync(string username, string password)
-        {
-            var user = await _userManager.FindByNameAsync(username);
-            if (user == null)
-            {
-                throw new NotFoundException($"Username '{username}' could not be found");
-            }
-
-            var signInResult = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
-            return signInResult.Succeeded;
         }
 
         public async Task UpdateUserAsync(Guid userId, string email, string[] updatedRoleList)
@@ -147,19 +123,15 @@
             }
         }
 
-        public async Task<string[]> GetUserRolesAsync(IApplicationUser user)
+        public async Task DeleteUserAsync(Guid userId)
         {
-            var roles = await _userManager.GetRolesAsync(user as ApplicationUser);
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user is null)
+            {
+                throw new NotFoundException(nameof(user), userId);
+            }
 
-            return roles.ToArray();
+            await _userManager.DeleteAsync(user);
         }
-
-        private async Task<string[]> GetUserRoles(ApplicationUser user)
-        {
-            var roles = await _userManager.GetRolesAsync(user);
-
-            return roles.ToArray();
-        }
-
     }
 }
