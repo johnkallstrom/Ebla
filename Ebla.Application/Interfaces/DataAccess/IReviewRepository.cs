@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Interfaces.Data
+﻿namespace Ebla.Application.Interfaces.DataAccess
 {
     public interface IReviewRepository
     {

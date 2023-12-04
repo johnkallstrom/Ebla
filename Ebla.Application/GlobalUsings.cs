@@ -7,7 +7,7 @@ global using FluentValidation;
 
 global using Ebla.Application.Interfaces.Identity;
 global using Ebla.Application.Interfaces.Jwt;
-global using Ebla.Application.Interfaces.Data;
+global using Ebla.Application.Interfaces.DataAccess;
 global using Ebla.Application.Common;
 global using Ebla.Application.Common.Exceptions;
 
