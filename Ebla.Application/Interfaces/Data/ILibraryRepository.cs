@@ -1,4 +1,4 @@
-﻿namespace Ebla.Application.Interfaces
+﻿namespace Ebla.Application.Interfaces.Data
 {
     public interface ILibraryRepository
     {

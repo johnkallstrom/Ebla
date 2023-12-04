@@ -17,7 +17,6 @@ global using Ebla.Application.Common;
 global using Ebla.Application.Interfaces.Identity;
 global using Ebla.Application.Interfaces.Jwt;
 
-
 global using Ebla.Application.UseCases.Authors.Queries;
 global using Ebla.Application.UseCases.Authors.Responses;
 global using Ebla.Application.UseCases.Books.Commands;

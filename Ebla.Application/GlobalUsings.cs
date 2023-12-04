@@ -5,9 +5,9 @@ global using AutoMapper;
 global using FluentValidation.AspNetCore;
 global using FluentValidation;
 
-global using Ebla.Application.Interfaces;
 global using Ebla.Application.Interfaces.Identity;
 global using Ebla.Application.Interfaces.Jwt;
+global using Ebla.Application.Interfaces.Data;
 global using Ebla.Application.Common;
 global using Ebla.Application.Common.Exceptions;
 
