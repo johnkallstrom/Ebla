@@ -1,7 +1,8 @@
-﻿namespace Ebla.Application.Interfaces
+﻿namespace Ebla.Application.Interfaces.Identity
 {
     public interface IIdentityService
     {
+        Task<IApplicationUser> GetApplicationUserAsync(Guid userId);
         Task<UserDto> GetUserAsync(Guid userId);
         Task<UserDto> GetUserAsync(string username);
         Task<Guid> CreateUserAsync(string username, string password, string[] rolesToAdd);

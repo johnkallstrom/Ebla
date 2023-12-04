@@ -12,7 +12,6 @@ global using System.Net.Http.Headers;
 global using Ebla.Web.Extensions;
 global using Microsoft.AspNetCore.Components.Authorization;
 global using System.Security.Claims;
-global using System.Text.Json.Serialization;
 global using Ebla.Web.Authentication;
 global using System.IdentityModel.Tokens.Jwt;
 global using Ebla.Web.Enums;

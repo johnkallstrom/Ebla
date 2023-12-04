@@ -1,15 +1,17 @@
 ﻿global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-global using Ebla.Infrastructure.Identity;
+global using Microsoft.Extensions.Options;
 global using Microsoft.AspNetCore.Identity;
-global using AutoMapper;
-global using Ebla.Infrastructure.Jwt;
+global using Microsoft.IdentityModel.Tokens;
 global using System.Security.Claims;
 global using System.IdentityModel.Tokens.Jwt;
-global using Microsoft.IdentityModel.Tokens;
 global using System.Text;
+global using AutoMapper;
+
+global using Ebla.Infrastructure.Jwt;
+global using Ebla.Infrastructure.Identity;
 global using Ebla.Application.Common.Exceptions;
-global using Microsoft.Extensions.Options;
-global using Ebla.Application.Interfaces;
 global using Ebla.Application.UseCases.Users.Responses;
+global using Ebla.Application.Interfaces;
+global using Ebla.Application.Interfaces.Identity;
