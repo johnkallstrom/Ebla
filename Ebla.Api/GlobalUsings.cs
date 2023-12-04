@@ -14,6 +14,9 @@ global using Ebla.Api.Middleware;
 
 global using Ebla.Application;
 global using Ebla.Application.Common;
+global using Ebla.Application.Interfaces;
+global using Ebla.Application.Interfaces.Identity;
+
 
 global using Ebla.Application.UseCases.Authors.Queries;
 global using Ebla.Application.UseCases.Authors.Responses;
