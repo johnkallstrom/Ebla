@@ -13,5 +13,5 @@ global using Ebla.Infrastructure.Jwt;
 global using Ebla.Infrastructure.Identity;
 global using Ebla.Application.Common.Exceptions;
 global using Ebla.Application.UseCases.Users.Responses;
-global using Ebla.Application.Interfaces;
 global using Ebla.Application.Interfaces.Identity;
+global using Ebla.Application.Interfaces.Jwt;
