@@ -38,6 +38,8 @@
             CreateMap<UpdateReservationCommand, Reservation>();
 
             CreateMap<Review, ReviewDto>().ReverseMap();
+
+            CreateMap<IApplicationUser, UserDto>();
         }
     }
 }
