@@ -20,10 +20,16 @@
             {
                 try
                 {
-                    var user = await _identityService.LoginAsync(request.Username, request.Password);
-                    string token = _jwtProvider.GenerateToken(user);
+                    bool success = await _identityService.LoginAsync(request.Username, request.Password);
+                    if (success)
+                    {
+                        var user = await _identityService.GetUserAsync(request.Username);
+                        var roles = await _identityService.GetUserRolesAsync(user);
 
-                    return Response<string>.Success(token);
+                        string token = _jwtProvider.GenerateToken(user, roles);
+
+                        return Response<string>.Success(token);
+                    }
                 }
                 catch (Exception ex)
                 {

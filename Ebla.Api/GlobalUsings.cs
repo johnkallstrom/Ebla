@@ -7,6 +7,7 @@ global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using System.Text;
+global using AutoMapper;
 
 global using Ebla.Api;
 global using Ebla.Api.Authorization;

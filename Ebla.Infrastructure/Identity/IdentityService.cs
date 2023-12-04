@@ -68,16 +68,16 @@
             await _userManager.DeleteAsync(user);
         }
 
-        public async Task<IApplicationUser> GetApplicationUserAsync(Guid userId)
+        public async Task<IApplicationUser> GetUserAsync(string username)
         {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var user = await _userManager.FindByNameAsync(username);
 
             return user;
         }
 
-        public async Task<IApplicationUser> GetUserAsync(string username)
+        public async Task<IApplicationUser> GetApplicationUserAsync(Guid userId)
         {
-            var user = await _userManager.FindByNameAsync(username);
+            var user = await _userManager.FindByIdAsync(userId.ToString());
 
             return user;
         }
@@ -99,7 +99,7 @@
             return null;
         }
 
-        public async Task<UserDto> LoginAsync(string username, string password)
+        public async Task<bool> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
@@ -107,20 +107,8 @@
                 throw new NotFoundException($"Username '{username}' could not be found");
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
-            if (result.Succeeded)
-            {
-                var roles = await GetUserRoles(user);
-
-                var mappedUser = _mapper.Map<UserDto>(user);
-                mappedUser.Roles = roles;
-
-                return mappedUser;
-            }
-            else
-            {
-                throw new Exception("Invalid credentials");
-            }
+            var signInResult = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
+            return signInResult.Succeeded;
         }
 
         public async Task UpdateUserAsync(Guid userId, string email, string[] updatedRoleList)

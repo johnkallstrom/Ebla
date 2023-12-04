@@ -9,16 +9,16 @@
             _options = options.Value;
         }
 
-        public string GenerateToken(UserDto user)
+        public string GenerateToken(IApplicationUser user, string[] roles)
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email),
             };
 
-            foreach (var role in user.Roles)
+            foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }

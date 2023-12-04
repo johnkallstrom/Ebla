@@ -2,7 +2,7 @@
 {
     public interface IJwtProvider
     {
-        string GenerateToken(UserDto user);
+        string GenerateToken(IApplicationUser user, string[] roles);
         Task<Guid> ValidateToken(string token);
     }
 }
