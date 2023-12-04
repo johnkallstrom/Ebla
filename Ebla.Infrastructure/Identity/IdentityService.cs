@@ -79,6 +79,13 @@
             return result;
         }
 
+        public async Task<IApplicationUser> GetApplicationUserAsync(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            return user;
+        }
+
         public async Task<UserDto> GetUserAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
