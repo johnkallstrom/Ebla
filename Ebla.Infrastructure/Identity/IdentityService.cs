@@ -19,6 +19,13 @@
             _roleManager = roleManager;
         }
 
+        public async Task<List<IApplicationUser>> GetAllUsersAsync()
+        {
+            var users = await _userManager.Users.ToListAsync<IApplicationUser>();
+
+            return users;
+        }
+
         public async Task<Guid> CreateUserAsync(string username, string password, string[] rolesToAdd)
         {
             var user = new ApplicationUser
@@ -61,24 +68,6 @@
             await _userManager.DeleteAsync(user);
         }
 
-        public async Task<List<UserDto>> GetAllUsersAsync()
-        {
-            var users = await _userManager.Users.ToListAsync();
-
-            var result = new List<UserDto>();
-            foreach (var user in users)
-            {
-                var roles = await GetUserRoles(user);
-
-                var mappedUser = _mapper.Map<UserDto>(user);
-                mappedUser.Roles = roles;
-
-                result.Add(mappedUser);
-            }
-
-            return result;
-        }
-
         public async Task<IApplicationUser> GetApplicationUserAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
@@ -86,26 +75,16 @@
             return user;
         }
 
+        public async Task<IApplicationUser> GetUserAsync(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            return user;
+        }
+
         public async Task<UserDto> GetUserAsync(Guid userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
-
-            if (user != null)
-            {
-                var roles = await GetUserRoles(user);
-
-                var mappedUser = _mapper.Map<UserDto>(user);
-                mappedUser.Roles = roles;
-
-                return mappedUser;
-            }
-
-            return null;
-        }
-
-        public async Task<UserDto> GetUserAsync(string username)
-        {
-            var user = await _userManager.FindByNameAsync(username);
 
             if (user != null)
             {
@@ -180,11 +159,19 @@
             }
         }
 
+        public async Task<string[]> GetUserRolesAsync(IApplicationUser user)
+        {
+            var roles = await _userManager.GetRolesAsync(user as ApplicationUser);
+
+            return roles.ToArray();
+        }
+
         private async Task<string[]> GetUserRoles(ApplicationUser user)
         {
             var roles = await _userManager.GetRolesAsync(user);
 
             return roles.ToArray();
         }
+
     }
 }
