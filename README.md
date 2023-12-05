@@ -1,3 +1,10 @@
 # Ebla
-![blazor-webassembly](https://github.com/johnkallstrom/Ebla/assets/54977209/63cb8cac-af47-48e3-a06a-4240a6820672)
-![CleanArchitecture](https://github.com/johnkallstrom/Ebla/assets/54977209/046002f5-2dd8-4dba-9a76-154702bb6eae)
+
+### Table of Contents
+- [About the project](#about-the-project)
+- [Built with](#built-with)
+- [Getting started](#getting-started)
+- [Use Cases](#use-cases)
+- [Backend](#backend)
+- [Frontend](#frontend)
+- [GitHub Actions](#github-actions)
