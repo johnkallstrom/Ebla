@@ -7,7 +7,7 @@
             var data = Enumerable.Empty<T>();
 
             string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Persistence");
-            string path = $@"{workingDir}\Data\{fileName}";
+            string path = $@"{workingDir}\SeedData\{fileName}";
 
             if (Path.Exists(path))
             {
