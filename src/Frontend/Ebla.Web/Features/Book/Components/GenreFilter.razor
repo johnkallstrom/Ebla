@@ -5,7 +5,7 @@
         {
             foreach (var genre in Genres)
             {
-                <a href="#" class="list-group-item list-group-item-action">@genre.Name</a>
+                <NavLink href="@{$"/books?genre={genre.Name}"}" class="list-group-item list-group-item-action">@genre.Name</NavLink>
             }
         }
         else
