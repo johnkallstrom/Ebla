@@ -12,11 +12,16 @@
         <p class="error-message">@error</p>
     }
 }
-else
+
+@if (Libraries != null && Libraries.Count() > 0)
 {
     <div class="row">
         <div class="col-sm-6">
             <ListView Data="Libraries" />
         </div>
     </div>
+}
+else
+{
+    <Spinner />
 }
