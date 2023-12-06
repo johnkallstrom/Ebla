@@ -11,6 +11,8 @@
             <Authorized>
                 <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Inherit">
                     <MudMenuItem>Profile</MudMenuItem>
+                    <MudMenuItem>My Loans</MudMenuItem>
+                    <MudMenuItem>My Reservations</MudMenuItem>
                     <MudMenuItem>Settings</MudMenuItem>
                 </MudMenu>
             </Authorized>
@@ -20,7 +22,7 @@
         <NavigationMenu />
     </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-5">
             @Body
         </MudContainer>
     </MudMainContent>
