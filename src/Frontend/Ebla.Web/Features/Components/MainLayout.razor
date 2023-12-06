@@ -1,7 +1,29 @@
 ﻿@inherits LayoutComponentBase
 
-<Navbar />
-<div class="container-fluid py-2">
-    @Body
-</div>
-<Footer />
+<MudThemeProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="(() => ToggleDrawer())"></MudIconButton>
+        <MudText Typo="Typo.h5" Class="ml-3">Ebla</MudText>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End"></MudIconButton>
+    </MudAppBar>
+    <MudDrawer @bind-Open="enableDrawer" ClipMode="DrawerClipMode.Always" Elevation="2">
+        <NavigationMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool enableDrawer = true;
+
+    void ToggleDrawer()
+    {
+        enableDrawer = !enableDrawer;
+    }
+}
