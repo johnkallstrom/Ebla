@@ -20,7 +20,7 @@
 - [Swagger API Documentation](https://swagger.io/)
 - [FluentValidation](https://docs.fluentvalidation.net/en/latest/aspnet.html)
 - [AutoMapper](https://github.com/AutoMapper/AutoMapper)
-- [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+- [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
 ### Getting started
 
 ### Use cases
