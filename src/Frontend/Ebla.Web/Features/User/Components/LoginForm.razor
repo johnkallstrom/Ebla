@@ -1,30 +1,21 @@
-﻿<div class="row" id="login-form">
-    <div class="custom-col-xxl-2 col-xl-3 col-lg-4 col-sm-6">
-        <div class="card">
-            <div class="card-header">Login</div>
-            <div class="card-body">
-                <EditForm Model="@Model" OnValidSubmit="Submit">
-                    @if (Errors != null && Errors.Count() > 0)
-                    {
-                        foreach (var error in Errors)
-                        {
-                            <p class="validation-message">@error</p>
-                        }
-                    }
-                    <DataAnnotationsValidator />
-                    <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <InputText type="text" class="form-control" @bind-Value="Model.Username" />
-                        <ValidationMessage For="@(() => Model.Username)" />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <InputText type="password" class="form-control" @bind-Value="Model.Password" />
-                        <ValidationMessage For="@(() => Model.Password)" />
-                    </div>
-                    <button type="submit" class="btn btn-light">Submit</button>
-                </EditForm>
-            </div>
-        </div>
+﻿<EditForm Model="@Model" OnValidSubmit="Submit">
+    @if (Errors != null && Errors.Count() > 0)
+    {
+        foreach (var error in Errors)
+        {
+            <p class="validation-message">@error</p>
+        }
+    }
+    <DataAnnotationsValidator />
+    <div>
+        <label>Username</label>
+        <InputText type="text" @bind-Value="Model.Username" />
+        <ValidationMessage For="@(() => Model.Username)" />
     </div>
-</div>
+    <div>
+        <label>Password</label>
+        <InputText type="password" class="form-control" @bind-Value="Model.Password" />
+        <ValidationMessage For="@(() => Model.Password)" />
+    </div>
+    <button type="submit">Submit</button>
+</EditForm>

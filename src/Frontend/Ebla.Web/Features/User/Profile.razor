@@ -1,25 +1,4 @@
 ﻿@page "/user/{userId:guid}"
 @attribute [Authorize]
 
-@if (User != null)
-{
-    <PageTitle>@User.Username</PageTitle>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <p class="mb-1">Username: @User.Username</p>
-            <p class="mb-1">Email: @User.Email</p>
-            <p class="mb-1">Roles: </p>
-            <ul>
-                @foreach (var role in User.Roles)
-                {
-                    <li>@role</li>
-                }
-            </ul>
-        </div>
-    </div>
-}
-else
-{
-    <PageTitle>Ebla - Profile</PageTitle>
-}
+<PageTitle>@User.Username</PageTitle>

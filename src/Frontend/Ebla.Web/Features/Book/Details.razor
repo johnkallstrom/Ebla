@@ -1,18 +1,4 @@
 ﻿@page "/books/{bookId:int}"
 @attribute [Authorize(Roles = "User")]
 
-@if (Book != null)
-{
-    <PageTitle>@Book.Title</PageTitle>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <img src="@Book.ImageLink" width="400" height="400" />
-            <p>@Book.Title</p>
-        </div>
-    </div>
-}
-else 
-{
-    <PageTitle>Ebla - Book Details</PageTitle>
-}
+<PageTitle>@Book.Title</PageTitle>

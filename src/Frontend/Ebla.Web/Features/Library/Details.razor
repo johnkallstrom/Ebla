@@ -1,18 +1,4 @@
 ﻿@page "/libraries/{libraryId:int}"
 @attribute [Authorize(Roles = "User")]
 
-@if (Library != null)
-{
-    <PageTitle>@Library.Name</PageTitle>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <img src="..." width="400" height="400" />
-            <p>@Library.Name</p>
-        </div>
-    </div>
-}
-else
-{
-    <PageTitle>Ebla - Library Details</PageTitle>
-}
+<PageTitle>@Library.Name</PageTitle>
