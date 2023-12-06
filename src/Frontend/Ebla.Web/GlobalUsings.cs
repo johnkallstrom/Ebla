@@ -5,7 +5,7 @@ global using Ebla.Web.ViewModels;
 global using Ebla.Web.Services;
 global using Ebla.Web.Services.Interfaces;
 global using Ebla.Web.Authentication;
-global using Ebla.Web.Results;
+global using Ebla.Web.Responses;
 
 global using Blazored.LocalStorage;
 global using MudBlazor.Services;
@@ -18,5 +18,6 @@ global using Microsoft.AspNetCore.Components.Authorization;
 global using System.Security.Claims;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.ComponentModel.DataAnnotations;
+global using System.Net;
 global using System.Net.Http.Json;
 global using System.Net.Http.Headers;
