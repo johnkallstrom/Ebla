@@ -14,7 +14,7 @@
                     <MudMenuItem>My Loans</MudMenuItem>
                     <MudMenuItem>My Reservations</MudMenuItem>
                     <MudMenuItem>Settings</MudMenuItem>
-                    <MudMenuItem>Sign out</MudMenuItem>
+                    <MudMenuItem OnClick="(() => SignOut())">Sign out</MudMenuItem>
                 </MudMenu>
             </Authorized>
         </AuthorizeView>
@@ -23,17 +23,27 @@
         <NavigationMenu />
     </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large" Class="pt-5">
-            @Body
-        </MudContainer>
+        @Body
     </MudMainContent>
 </MudLayout>
 
 @code {
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    public ILocalStorageService LocalStorage { get; set; }
+
     bool enableDrawer = true;
 
     void ToggleDrawer()
     {
         enableDrawer = !enableDrawer;
+    }
+
+    async Task SignOut()
+    {
+        await LocalStorage.RemoveItemAsync("token");
+        NavigationManager.NavigateToAndRefresh(NavigationManager.BaseUri);
     }
 }
