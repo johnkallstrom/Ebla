@@ -11,5 +11,6 @@ services.AddScoped<IHttpService, HttpService>();
 services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 services.AddAuthorizationCore();
 services.AddBlazoredLocalStorage();
+services.AddMudServices();
 
 await builder.Build().RunAsync();

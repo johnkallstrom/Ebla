@@ -1,17 +1,21 @@
 ﻿global using Ebla.Web;
+global using Ebla.Web.Enums;
+global using Ebla.Web.Extensions;
+global using Ebla.Web.ViewModels;
+global using Ebla.Web.Services;
+global using Ebla.Web.Services.Interfaces;
+global using Ebla.Web.Authentication;
+
+global using Blazored.LocalStorage;
+global using MudBlazor.Services;
+
+global using Microsoft.AspNetCore.Components;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-global using Ebla.Web.ViewModels;
-global using System.ComponentModel.DataAnnotations;
-global using Ebla.Web.Services;
-global using Microsoft.AspNetCore.Components;
-global using System.Net.Http.Json;
-global using Ebla.Web.Services.Interfaces;
-global using Blazored.LocalStorage;
-global using System.Net.Http.Headers;
-global using Ebla.Web.Extensions;
 global using Microsoft.AspNetCore.Components.Authorization;
+
 global using System.Security.Claims;
-global using Ebla.Web.Authentication;
 global using System.IdentityModel.Tokens.Jwt;
-global using Ebla.Web.Enums;
+global using System.ComponentModel.DataAnnotations;
+global using System.Net.Http.Json;
+global using System.Net.Http.Headers;
