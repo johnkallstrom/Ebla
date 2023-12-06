@@ -12,8 +12,8 @@
 ### About the project
 
 ### Built with
-- [.NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
-- [EF Core 8](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew)
+- [.NET](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet)
+- [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/)
 - [ASP.NET Core Identity](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio)
 - [JSON Web Token](https://jwt.io/introduction)
 - [CQRS with MediatR](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr)
@@ -21,6 +21,7 @@
 - [FluentValidation](https://docs.fluentvalidation.net/en/latest/aspnet.html)
 - [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 - [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+- [MudBlazor](https://mudblazor.com/)
 ### Getting started
 
 ### Use cases
