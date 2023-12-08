@@ -8,6 +8,7 @@ global using Ebla.Web.Authentication;
 global using Ebla.Web.Results;
 
 global using Blazored.LocalStorage;
+global using MudBlazor;
 global using MudBlazor.Services;
 
 global using Microsoft.AspNetCore.Components;

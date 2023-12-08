@@ -1,3 +1,11 @@
 ﻿@page "/"
 
 <PageTitle>Ebla</PageTitle>
+
+<MudGrid>
+    <MudItem xs="4">
+        <MudPaper Class="pa-4">
+            <MudChart ChartType="ChartType.Pie" InputData="GenreData" InputLabels="@GenreLabels" Width="300px" Height="300px" />
+        </MudPaper>
+    </MudItem>
+</MudGrid>
