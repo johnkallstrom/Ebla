@@ -49,11 +49,18 @@
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
             {
-                throw new NotFoundException($"Username '{username}' could not be found");
+                throw new NotFoundException($"Incorrect username");
             }
 
             var signInResult = await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
-            return signInResult.Succeeded;
+            if (signInResult.Succeeded == false)
+            {
+                throw new InvalidCredentialsException("Incorrect password");
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public async Task<Guid> CreateUserAsync(string username, string password, string[] rolesToAdd)
