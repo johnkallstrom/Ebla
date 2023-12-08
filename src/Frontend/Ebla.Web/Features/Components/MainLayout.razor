@@ -9,11 +9,16 @@
         <MudSpacer />
         <AuthorizeView>
             <Authorized>
-                <MudMenu Icon="@Icons.Material.Filled.Person" Color="Color.Inherit">
-                    <MudMenuItem>Profile</MudMenuItem>
-                    <MudMenuItem>My Loans</MudMenuItem>
-                    <MudMenuItem>My Reservations</MudMenuItem>
-                    <MudMenuItem OnClick="(() => SignOut())">Sign out</MudMenuItem>
+                <MudMenu>
+                    <ActivatorContent>
+                        <MudAvatar Color="Color.Tertiary">@avatarLetter</MudAvatar>
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MudMenuItem>Profile</MudMenuItem>
+                        <MudMenuItem>My Loans</MudMenuItem>
+                        <MudMenuItem>My Reservations</MudMenuItem>
+                        <MudMenuItem OnClick="(() => SignOut())">Sign out</MudMenuItem>
+                    </ChildContent>
                 </MudMenu>
             </Authorized>
         </AuthorizeView>
@@ -35,7 +40,11 @@
     [Inject]
     public ILocalStorageService LocalStorage { get; set; }
 
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
     bool enableDrawer = true;
+    string avatarLetter = "A";
 
     void ToggleDrawer()
     {
@@ -46,5 +55,12 @@
     {
         await LocalStorage.RemoveItemAsync("token");
         NavigationManager.NavigateToAndRefresh(NavigationManager.BaseUri);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        avatarLetter = user.GetAvatarLetter();
     }
 }
