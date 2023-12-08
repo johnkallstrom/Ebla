@@ -2,28 +2,26 @@
 
 <PageTitle>Ebla - Login</PageTitle>
 
-<MudContainer Fixed="true" Class="pt-6">
-    <EditForm Model="Model" OnValidSubmit="Submit">
-        <DataAnnotationsValidator />
-        <MudGrid Justify="Justify.FlexStart">
-            <MudItem xs="3">
-                <MudCard>
-                    <MudCardContent>
-                        @if (Errors != null && Errors.Count() > 0)
+<EditForm Model="Model" OnValidSubmit="Submit">
+    <DataAnnotationsValidator />
+    <MudGrid Justify="Justify.FlexStart">
+        <MudItem xs="3">
+            <MudCard>
+                <MudCardContent>
+                    @if (Errors != null && Errors.Count() > 0)
+                    {
+                        foreach (var error in Errors)
                         {
-                            foreach (var error in Errors)
-                            {
-                                <MudText Typo="Typo.body2" Color="Color.Error">@error</MudText>
-                            }
+                            <MudText Typo="Typo.body2" Color="Color.Error">@error</MudText>
                         }
-                        <MudTextField Label="Username" @bind-Value="Model.Username" For="@(() => Model.Username)" />
-                        <MudTextField Label="Password" @bind-Value="Model.Password" For="@(() => Model.Password)" InputType="InputType.Password" />
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Login</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        </MudGrid>
-    </EditForm>
-</MudContainer>
+                    }
+                    <MudTextField Label="Username" @bind-Value="Model.Username" For="@(() => Model.Username)" />
+                    <MudTextField Label="Password" @bind-Value="Model.Password" For="@(() => Model.Password)" InputType="InputType.Password" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Login</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
