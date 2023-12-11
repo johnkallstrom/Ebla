@@ -11,15 +11,40 @@
 
         public static string GetAvatarLetter(this ClaimsPrincipal user)
         {
-            var claims = user.Claims.ToList();
-            var username = claims.FirstOrDefault(claim => claim.Type.Equals("unique_name")).Value;
+            var firstName = user.Claims.FirstOrDefault(claim => claim.Type.Equals("given_name")).Value;
 
-            if (!string.IsNullOrEmpty(username))
+            if (!string.IsNullOrEmpty(firstName))
             {
-                return username.First().ToString().ToUpper();
+                return firstName.First().ToString().ToUpper();
             }
 
-            return null;
+            return string.Empty;
+        }
+
+        public static string GetFullName(this ClaimsPrincipal user)
+        {
+            var firstName = user.Claims.FirstOrDefault(claim => claim.Type.Equals("given_name")).Value;
+            var lastName = user.Claims.FirstOrDefault(claim => claim.Type.Equals("family_name")).Value;
+
+            if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+            {
+                return $"{firstName} {lastName}";
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetPrimaryRole(this ClaimsPrincipal user)
+        {
+            var roles = user.Claims.Where(claim => claim.Type.Equals("role")).Select(x => x.Value).ToList();
+
+            foreach (var role in roles)
+            {
+                if (role.Equals(Roles.Administrator)) return role;
+                if (role.Equals(Roles.User)) return role;
+            }
+
+            return string.Empty;
         }
     }
 }
