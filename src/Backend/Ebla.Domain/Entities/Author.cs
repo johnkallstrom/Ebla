@@ -6,8 +6,7 @@
         public string Description { get; set; }
         public DateTime Born { get; set; }
         public string Country { get; set; }
-        public string ImageLink { get; set; }
-        public string Wikipedia { get; set; }
+        public string Image { get; set; }
 
         public List<Book> Books { get; set; }
     }

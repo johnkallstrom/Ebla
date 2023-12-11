@@ -6,8 +6,7 @@
         string Description,
         DateTime Born,
         string Country,
-        string ImageLink,
-        string Wikipedia,
+        string Image,
         DateTime CreatedOn,
         DateTime? LastModified);
 }
