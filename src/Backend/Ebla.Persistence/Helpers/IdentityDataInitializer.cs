@@ -14,31 +14,7 @@
                 foreach (var user in userList)
                 {
                     await CreateApplicationRoles(roleManager, user.Roles);
-                    await CreateApplicationUser(userManager, user.Username, user.Password, user.Email, user.Roles);
-                }
-            }
-        }
-
-        private static async Task CreateApplicationUser(UserManager<ApplicationUser> userManager, string username, string password, string email, string[] roles)
-        {
-            if (await userManager.FindByNameAsync(username) == null)
-            {
-                var applicationUser = new ApplicationUser();
-                applicationUser.UserName = username;
-                applicationUser.Email = email;
-
-                string hashedPassword = userManager.PasswordHasher.HashPassword(applicationUser, password);
-                applicationUser.PasswordHash = hashedPassword;
-
-                var result = await userManager.CreateAsync(applicationUser);
-
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRolesAsync(applicationUser, roles);
-                }
-                else
-                {
-                    throw new Exception($"Failed to create initial user - {applicationUser.UserName}");
+                    await CreateApplicationUser(userManager, user);
                 }
             }
         }
@@ -55,6 +31,32 @@
                     {
                         throw new Exception($"Failed to create initial role - {role}");
                     }
+                }
+            }
+        }
+
+        private static async Task CreateApplicationUser(UserManager<ApplicationUser> userManager, InitialUser user)
+        {
+            if (await userManager.FindByNameAsync(user.Username) == null)
+            {
+                var applicationUser = new ApplicationUser();
+                applicationUser.UserName = user.Username;
+                applicationUser.FirstName = user.FirstName;
+                applicationUser.LastName = user.LastName;
+                applicationUser.Email = user.Email;
+
+                string hashedPassword = userManager.PasswordHasher.HashPassword(applicationUser, user.Password);
+                applicationUser.PasswordHash = hashedPassword;
+
+                var result = await userManager.CreateAsync(applicationUser);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRolesAsync(applicationUser, user.Roles);
+                }
+                else
+                {
+                    throw new Exception($"Failed to create initial user - {applicationUser.UserName}");
                 }
             }
         }
