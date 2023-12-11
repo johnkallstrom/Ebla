@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ebla.Persistence.Migrations
 {
     [DbContext(typeof(EblaDbContext))]
-    [Migration("20231211103303_Initial")]
+    [Migration("20231211105804_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -73,7 +73,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 1,
                             Born = new DateTime(1917, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6234),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4459),
                             Description = "Sir Arthur Charles Clarke CBE FRAS (16 December 1917 – 19 March 2008) was an English science fiction writer, science writer, futurist,[3] inventor, undersea explorer, and television series host.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/6/62/Arthur_C._Clarke_1965.jpg",
                             Name = "Arthur C. Clarke"
@@ -83,7 +83,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 2,
                             Born = new DateTime(1929, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6288),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4514),
                             Description = "Ursula Kroeber Le Guin (née Kroeber; /ˈkroʊbər lə ˈɡwɪn/ KROH-bər lə GWIN;[1] October 21, 1929 – January 22, 2018) was an American author best known for her works of speculative fiction, including science fiction works set in her Hainish universe, and the Earthsea fantasy series.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ursula_Le_Guin_%283551195631%29_%28cropped%29.jpg/1280px-Ursula_Le_Guin_%283551195631%29_%28cropped%29.jpg",
                             Name = "Ursula K. Le Guin"
@@ -93,7 +93,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 3,
                             Born = new DateTime(1975, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6289),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4515),
                             Description = "Brandon Winn Sanderson (born December 19, 1975) is an American author of high fantasy and science fiction. He is best known for the Cosmere fictional universe, in which most of his fantasy novels, most notably the Mistborn series and The Stormlight Archive, are set.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Brandon_Sanderson_-_Lucca_Comics_%26_Games_2016.jpg",
                             Name = "Brandon Sanderson"
@@ -103,7 +103,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 4,
                             Born = new DateTime(1972, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6291),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4516),
                             Description = "Adrian Czajkowski (spelt as Adrian Tchaikovsky for his books; born June 1972) is a British fantasy and science fiction author. He is best known for his series Shadows of the Apt, and for his Hugo Award-winning Children of Time series.[1]",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Swecon_2021_61_%28cropped%29.jpg/1280px-Swecon_2021_61_%28cropped%29.jpg",
                             Name = "Adrian Tchaikovsky"
@@ -113,7 +113,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 5,
                             Born = new DateTime(1947, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6292),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4518),
                             Description = "Stephen Edwin King (born September 21, 1947) is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/e3/Stephen_King%2C_Comicon.jpg",
                             Name = "Stephen King"
@@ -123,7 +123,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 6,
                             Born = new DateTime(1892, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6293),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4519),
                             Description = "John Ronald Reuel Tolkien CBE FRSL (/ˈruːl ˈtɒlkiːn/, ROOL TOL-keen;[a] 3 January 1892 – 2 September 1973) was an English writer and philologist. He was the author of the high fantasy works The Hobbit and The Lord of the Rings.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/d/d4/J._R._R._Tolkien%2C_ca._1925.jpg",
                             Name = "J. R. R. Tolkien"
@@ -133,7 +133,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 7,
                             Born = new DateTime(1928, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6294),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4520),
                             Description = "William Peter Blatty (January 7, 1928 – January 12, 2017) was an American writer, director and producer.[1] He is best known for his 1971 novel, The Exorcist, and for his 1973 screenplay for the film adaptation of the same name.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/44/William-Peter-Blatty-2009.jpg",
                             Name = "William Peter Blatty"
@@ -143,7 +143,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 8,
                             Born = new DateTime(1975, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Australia",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6295),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4521),
                             Description = "Markus Zusak (born 23 June 1975) is an Australian writer. He is best known for The Book Thief and The Messenger, two novels which became international bestsellers. He won the Margaret A. Edwards Award in 2014.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/9/99/Markus_Zusak_2019_%28cropped%29.jpg",
                             Name = "Markus Zusak"
@@ -153,7 +153,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 9,
                             Born = new DateTime(1964, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6297),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4523),
                             Description = "Daniel Gerhard Brown (born June 22, 1964) is an American author best known for his thriller novels, including the Robert Langdon novels Angels & Demons (2000), The Da Vinci Code (2003), The Lost Symbol (2009), Inferno (2013), and Origin (2017).",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/8/8b/Dan_Brown_bookjacket_cropped.jpg",
                             Name = "Dan Brown"
@@ -163,7 +163,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 10,
                             Born = new DateTime(1934, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6298),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4524),
                             Description = "arl Edward Sagan (/ˈseɪɡən/; SAY-gən; November 9, 1934 – December 20, 1996) was an American astronomer and science communicator. His best known scientific contribution is his research on the possibility of extraterrestrial life, including experimental demonstration of the production of amino acids from basic chemicals by radiation.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/8/8d/Carl_Sagan_Planetary_Society_cropped.png",
                             Name = "Carl Sagan"
@@ -173,7 +173,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 11,
                             Born = new DateTime(1894, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6299),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4525),
                             Description = "Aldous Leonard Huxley (/ˈɔːldəs/ AWL-dəs; 26 July 1894 – 22 November 1963) was an English writer and philosopher.[1][2][3][4] His bibliography spans nearly 50 books,[5][6] including novels and non-fiction works, as well as essays, narratives, and poems.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Aldous_Huxley_psychical_researcher.png",
                             Name = "Aldous Huxley"
@@ -183,7 +183,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 12,
                             Born = new DateTime(1972, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6300),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4526),
                             Description = "Andrew Taylor Weir (/wir/; born June 16, 1972) is an American novelist.[2] His 2011 novel The Martian was adapted into the 2015 film of the same name directed by Ridley Scott. He received the John W. Campbell Award for Best New Writer in 2016[3] and his 2021 novel Project Hail Mary was a finalist for the 2022 Hugo Award for Best Novel.[4]",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/b/b8/NASA_Journey_to_Mars_and_%E2%80%9CThe_Martian%22_%28201508180048HQ%29.jpg",
                             Name = "Andy Weir"
@@ -193,7 +193,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 13,
                             Born = new DateTime(1907, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6301),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4527),
                             Description = "Robert Anson Heinlein (/ˈhaɪnlaɪn/;[2][3][4] July 7, 1907 – May 8, 1988) was an American science fiction author, aeronautical engineer, and naval officer. Sometimes called the dean of science fiction writers,[5] he was among the first to emphasize scientific accuracy in his fiction, and was thus a pioneer of the subgenre of hard science fiction.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/b/bf/Heinlein-face.jpg",
                             Name = "Robert A. Heinlein"
@@ -203,7 +203,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 14,
                             Born = new DateTime(1927, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Colombia",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6302),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4529),
                             Description = "Gabriel José de la Concordia García Márquez (Latin American Spanish: [ɡaˈβɾjel ɣaɾˈsi.a ˈmaɾkes] ⓘ;[a] 6 March 1927 – 17 April 2014) was a Colombian novelist, short-story writer, screenwriter, and journalist, known affectionately as Gabo ([ˈɡaβo]) or Gabito ([ɡaˈβito]) throughout Latin America. Considered one of the most significant authors of the 20th century, particularly in the Spanish language, he was awarded the 1972 Neustadt International Prize for Literature and the 1982 Nobel Prize in Literature.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg",
                             Name = "Gabriel García Márquez"
@@ -213,7 +213,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 15,
                             Born = new DateTime(1986, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6303),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4530),
                             Description = "Franklin Patrick Herbert Jr. (October 8, 1920 – February 11, 1986) was an American science fiction author best known for the 1965 novel Dune and its five sequels. Though he became famous for his novels, he also wrote short stories and worked as a newspaper journalist, photographer, book reviewer, ecological consultant, and lecturer.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/6/65/Frank_Herbert_headshot.jpg",
                             Name = "Frank Herbert"
@@ -223,7 +223,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 16,
                             Born = new DateTime(1899, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6304),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4531),
                             Description = "Ernest Miller Hemingway (/ˈɜːrnɪst ˈhɛmɪŋweɪ/; July 21, 1899 – July 2, 1961) was an American novelist, short-story writer, and journalist. His economical and understated style—which included his iceberg theory—had a strong influence on 20th-century fiction, while his adventurous lifestyle and public image brought him admiration from later generations.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/2/28/ErnestHemingway.jpg",
                             Name = "Ernest Hemingway"
@@ -233,7 +233,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 17,
                             Born = new DateTime(1949, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "Wales",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6306),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4532),
                             Description = "Kenneth Martin Follett, CBE, FRSL[1][2] (born 5 June 1949) is a Welsh author of thrillers and historical novels who has sold more than 160 million copies of his works.[3]",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ken_Follett_official.jpg",
                             Name = "Ken Follett"
@@ -243,7 +243,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 18,
                             Born = new DateTime(1962, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6307),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4533),
                             Description = "Suzanne Collins (born August 10, 1962) is an American author and television writer. She is best known as the author of the young adult dystopian book series The Hunger Games.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/Suzanne_Collins_David_Shankbone_2010.jpg",
                             Name = "Suzanne Collins"
@@ -253,7 +253,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 19,
                             Born = new DateTime(1942, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6308),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4535),
                             Description = "Stephen William Hawking (8 January 1942 – 14 March 2018) was an English theoretical physicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge.[6][17][18] Between 1979 and 2009, he was the Lucasian Professor of Mathematics at Cambridge, widely viewed as one of the most prestigious academic posts in the world.[19]",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg",
                             Name = "Stephen Hawking"
@@ -263,7 +263,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 20,
                             Born = new DateTime(1940, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6309),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4536),
                             Description = "Peter Bradford Benchley (May 8, 1940 – February 11, 2006) was an American author, screenwriter, and ocean activist. He is known for his bestselling novel Jaws and co-wrote its film adaptation with Carl Gottlieb. Several more of his works were also adapted for both cinema and television, including The Deep, The Island, Beast, and White Shark.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/d/da/Jaws_%281974%29_back_cover_featuring_a_portrait_photograph_of_Peter_Benchley_by_Alex_Gotfryd%2C_first_edition.jpg",
                             Name = "Peter Benchley"
@@ -273,7 +273,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 21,
                             Born = new DateTime(1835, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6310),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4537),
                             Description = "Samuel Langhorne Clemens (November 30, 1835 – April 21, 1910),[1] known by the pen name Mark Twain, was an American writer, humorist, essayist, entrepreneur, publisher, and lecturer. He was praised as the greatest humorist the United States has produced,[2] and William Faulkner called him the father of American literature.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mark_Twain_by_AF_Bradley.jpg",
                             Name = "Mark Twain"
@@ -283,7 +283,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 22,
                             Born = new DateTime(1775, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6311),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4538),
                             Description = "Jane Austen (/ˈɒstɪn, ˈɔːstɪn/ OST-in, AW-stin; 16 December 1775 – 18 July 1817) was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social standing and economic security.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/c/cc/CassandraAusten-JaneAusten%28c.1810%29_hires.jpg",
                             Name = "Jane Austen"
@@ -293,7 +293,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 23,
                             Born = new DateTime(1828, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "France",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6312),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4539),
                             Description = "Jules Gabriel Verne (/vɜːrn/;[1][2] French: [ʒyl ɡabʁijɛl vɛʁn]; 8 February 1828 – 24 March 1905)[3] was a French novelist, poet, and playwright. His collaboration with the publisher Pierre-Jules Hetzel led to the creation of the Voyages extraordinaires,[3] a series of bestselling adventure novels including Journey to the Center of the Earth (1864), Twenty Thousand Leagues Under the Seas (1870), and Around the World in Eighty Days (1872). His novels, always well documented, are generally set in the second half of the 19th century, taking into account the technological advances of the time.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/4b/Jules_Verne_by_%C3%89tienne_Carjat.jpg",
                             Name = "Jules Verne"
@@ -303,7 +303,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 24,
                             Born = new DateTime(1948, 10, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6314),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4541),
                             Description = "James Oliver Rigney Jr. (October 17, 1948 – September 16, 2007), better known by his pen name Robert Jordan,[1] was an American author of epic fantasy. He is known best for his series The Wheel of Time (finished by Brandon Sanderson after Jordan's death) which comprises 14 books and a prequel novel.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/e/ea/Robert_Jordan.jpg",
                             Name = "Robert Jordan"
@@ -313,7 +313,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 25,
                             Born = new DateTime(1916, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6315),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4542),
                             Description = "Shirley Hardie Jackson (December 14, 1916 – August 8, 1965) was an American writer known primarily for her works of horror and mystery. Over the duration of her writing career, which spanned over two decades, she composed six novels, two memoirs, and more than 200 short stories.",
                             Image = "https://upload.wikimedia.org/wikipedia/en/4/43/ShirleyJack.jpg",
                             Name = "Shirley Jackson"
@@ -323,7 +323,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 26,
                             Born = new DateTime(1951, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6316),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4543),
                             Description = "William McGuire Bryson OBE HonFRS (/ˈbraɪsən/; born 8 December 1951) is an American–British journalist and author. Bryson has written a number of nonfiction books on topics including travel, the English language, and science. Born in the United States, he has been a resident of Britain for most of his adult life, returning to the U.S. between 1995 and 2003, and holds dual American and British citizenship. He served as the chancellor of Durham University from 2005 to 2011.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/3/35/Neil_MacGregor%2C_Bill_Bryson%2C_Claire_Walker%2C_Huw_Edwards_%2828449155987%29_%28Bryson_cropped%29.jpg",
                             Name = "Bill Bryson"
@@ -333,7 +333,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 27,
                             Born = new DateTime(1954, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6317),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4544),
                             Description = "Jon Krakauer (born April 12, 1954) is an American writer and mountaineer. He is the author of bestselling non-fiction books—Into the Wild; Into Thin Air; Under the Banner of Heaven; and Where Men Win Glory: The Odyssey of Pat Tillman—as well as numerous magazine articles. He was a member of an ill-fated expedition to summit Mount Everest in 1996, one of the deadliest disasters in the history of climbing Everest.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/4/4c/Jon_Krakauer_speaking_in_2009.jpg",
                             Name = "Jon Krakauer"
@@ -343,10 +343,40 @@ namespace Ebla.Persistence.Migrations
                             Id = 28,
                             Born = new DateTime(1937, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 47, DateTimeKind.Local).AddTicks(6318),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4545),
                             Description = "Jared Mason Diamond (born September 10, 1937) is an American scientist and author best known for his popular science books. Originally trained in biochemistry and physiology,[1] Diamond is commonly referred to as a polymath, stemming from his knowledge in many fields including anthropology, ecology, geography, and evolutionary biology.[2][3] He is a professor of geography at UCLA.",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/8/88/JaredDiamond.jpg",
                             Name = "Jared Diamond"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Born = new DateTime(1952, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "England",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4546),
+                            Description = "Douglas Noël Adams (11 March 1952 – 11 May 2001) was an English author, humorist, and screenwriter, best known for The Hitchhiker's Guide to the Galaxy (HHGTTG). Originally a 1978 BBC radio comedy, The Hitchhiker's Guide to the Galaxy developed into a trilogy of five books that sold more than 15 million copies in his lifetime. It was further developed into a television series, several stage plays, comics, a video game, and a 2005 feature film. Adams's contribution to UK radio is commemorated in The Radio Academy's Hall of Fame.[2]",
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/c/c0/Douglas_adams_portrait_cropped.jpg",
+                            Name = "Douglas Adams"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Born = new DateTime(1903, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "India",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4548),
+                            Description = "Eric Arthur Blair (25 June 1903 – 21 January 1950), better known by his pen name George Orwell, was an English novelist, essayist, journalist, and critic.[1] His work is characterised by lucid prose, social criticism, opposition to totalitarianism, and support of democratic socialism.[2]",
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/7/7e/George_Orwell_press_photo.jpg",
+                            Name = "George Orwell"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Born = new DateTime(1928, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 17, DateTimeKind.Local).AddTicks(4549),
+                            Description = "Philip Kindred Dick (December 16, 1928 – March 2, 1982), often referred to by his initials PKD, was an American science fiction writer.[1] He wrote 44 novels and about 121 short stories, most of which appeared in science fiction magazines during his lifetime.[2] His fiction explored varied philosophical and social questions such as the nature of reality, perception, human nature, and identity, and commonly featured characters struggling against elements such as alternate realities, illusory environments, monopolistic corporations, drug abuse, authoritarian governments, and altered states of consciousness.[3][4] He is considered one of the most important figures in 20th century science fiction.[5]",
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/2/2c/Philip_K_Dick_in_early_1960s_%28photo_by_Arthur_Knight%29_02_%28cropped%29.jpg",
+                            Name = "Philip K. Dick"
                         });
                 });
 
@@ -417,7 +447,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 1,
                             AuthorId = 1,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3623),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3799),
                             Description = "Rendezvous with Rama is a science fiction novel by British writer Arthur C. Clarke first published in 1973. Set in the 2130s, the story involves a 50-by-20-kilometre (31 by 12 mi) cylindrical alien starship that enters the Solar System. The story is told from the point of view of a group of human explorers who intercept the ship in an attempt to unlock its mysteries. The novel won both the Hugo[4] and Nebula[5] awards upon its release, and is regarded as one of the cornerstones in Clarke's bibliography. The concept was later extended with several sequels, written by Clarke and Gentry Lee.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/e/e1/Rama_copy.jpg",
@@ -431,7 +461,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 2,
                             AuthorId = 2,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3636),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3813),
                             Description = "The Left Hand of Darkness is a science fiction novel by U.S. writer Ursula K. Le Guin. Published in 1969, it became immensely popular, and established Le Guin's status as a major author of science fiction.[6] The novel is set in the fictional Hainish universe as part of the Hainish Cycle, a series of novels and short stories by Le Guin, which she introduced in the 1964 short story The Dowry of Angyar. It was fourth in sequence of writing among the Hainish novels, preceded by City of Illusions, and followed by The Word for World Is Forest.[3]",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/8/88/TheLeftHandOfDarkness1stEd.jpg",
@@ -445,7 +475,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 3,
                             AuthorId = 3,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3638),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3815),
                             Description = "The Way of Kings is an epic fantasy novel written by American author Brandon Sanderson and the first book in The Stormlight Archive series.[2] The novel was published on August 31, 2010, by Tor Books.[3] The Way of Kings consists of one prelude, one prologue, 75 chapters, an epilogue and nine interludes.[4] It was followed by Words of Radiance in 2014,[5][6][7] Oathbringer in 2017 and Rhythm of War in 2020. A leatherbound edition was released in 2021.",
                             GenreId = 2,
                             Image = "https://upload.wikimedia.org/wikipedia/en/8/8b/TheWayOfKings.png",
@@ -459,7 +489,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 4,
                             AuthorId = 4,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3639),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3816),
                             Description = "The work was praised by Financial Times for tackling big themes—gods, messiahs, artificial intelligence, alienness—with brio.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/1/1f/Children_of_Time_%28novel%29.jpg",
@@ -473,7 +503,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 5,
                             AuthorId = 5,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3640),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3817),
                             Description = "The Stand is a post-apocalyptic dark fantasy novel written by American author Stephen King and first published in 1978 by Doubleday. The plot centers on a deadly pandemic of weaponized influenza and its aftermath, in which the few surviving humans gather into factions that are each led by a personification of either good or evil and seem fated to clash with each other. King started writing the story in February 1975,[1] seeking to create an epic in the spirit of The Lord of the Rings. The book was difficult for him to write because of the large number of characters and storylines.",
                             GenreId = 3,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/5/52/The_Stand_%281978%29_front_cover%2C_first_edition.png",
@@ -487,7 +517,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 6,
                             AuthorId = 6,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3641),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3818),
                             Description = "The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien. It was published in 1937 to wide critical acclaim, being nominated for the Carnegie Medal and awarded a prize from the New York Herald Tribune for best juvenile fiction. The book is recognized as a classic in children's literature, and is one of the best-selling books of all time with over 100 million copies sold.",
                             GenreId = 2,
                             Image = "https://upload.wikimedia.org/wikipedia/en/4/4a/TheHobbit_FirstEdition.jpg",
@@ -501,7 +531,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 7,
                             AuthorId = 7,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3642),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3820),
                             Description = "The Exorcist is a 1971 horror novel written by American writer William Peter Blatty and published by Harper & Row. The book details the demonic possession of eleven-year-old Regan MacNeil, the daughter of a famous actress, and the two priests who attempt to exorcise the demon. The novel was the basis of a highly successful film adaptation released two years later, whose screenplay was also written and produced by Blatty. More movies and books were eventually added to The Exorcist franchise.",
                             GenreId = 3,
                             Image = "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Exorcist_1971.jpg",
@@ -515,7 +545,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 8,
                             AuthorId = 8,
                             Country = "Australia",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3643),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3821),
                             Description = "The Book Thief is a historical fiction novel by the Australian author Markus Zusak, set in Nazi Germany during World War II. Published in 2006, The Book Thief became an international bestseller and was translated into 63 languages and sold 17 million copies. It was adapted into the 2013 feature film, The Book Thief.",
                             GenreId = 4,
                             Image = "https://upload.wikimedia.org/wikipedia/en/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg",
@@ -529,7 +559,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 9,
                             AuthorId = 9,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3644),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3822),
                             Description = "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons. The Da Vinci Code follows symbologist Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei over the possibility of Jesus Christ and Mary Magdalene having had a child together.",
                             GenreId = 5,
                             Image = "https://upload.wikimedia.org/wikipedia/en/6/6b/DaVinciCode.jpg",
@@ -543,7 +573,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 10,
                             AuthorId = 10,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3646),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3823),
                             Description = "Cosmos is a popular science book written by astronomer and Pulitzer Prize-winning author Carl Sagan. It was published in 1980 as a companion piece to the PBS mini-series Cosmos: A Personal Voyage with which it was co-developed and intended to complement. Each of the book’s 13 illustrated chapters corresponds to one of the 13 episodes of the television series. Just a few of the ideas explored in Cosmos include the history and mutual development of science and civilization, the nature of the Universe, human and robotic space exploration, the inner workings of the cell and the DNA that controls it, and the dangers and future implications of nuclear war.",
                             GenreId = 10,
                             Image = "https://upload.wikimedia.org/wikipedia/en/9/91/Cosmos_book.gif",
@@ -557,7 +587,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 11,
                             AuthorId = 11,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3647),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3824),
                             Description = "Brave New World is a dystopian novel by English author Aldous Huxley, written in 1931 and published in 1932.[2] Largely set in a futuristic World State, whose citizens are environmentally engineered into an intelligence-based social hierarchy, the novel anticipates huge scientific advancements in reproductive technology, sleep-learning, psychological manipulation and classical conditioning that are combined to make a dystopian society which is challenged by the story's protagonist.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg",
@@ -571,7 +601,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 12,
                             AuthorId = 5,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3648),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3826),
                             Description = "Salem's Lot is a 1975 horror novel by American author Stephen King. It was his second published novel. The story involves a writer named Ben Mears who returns to the town of Jerusalem's Lot (or 'Salem's Lot for short) in Maine, where he lived from the age of five through nine, only to discover that the residents are becoming vampires.",
                             GenreId = 3,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/6/61/%27Salem%27s_Lot_%281975%29_front_cover%2C_first_edition.jpg",
@@ -585,7 +615,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 13,
                             AuthorId = 12,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3649),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3827),
                             Description = "rtemis is a 2017 science fiction novel written by Andy Weir.[1] It takes place in the late 2080s in Artemis, the first and so far only city on the Moon. It follows the life of porter and smuggler Jasmine Jazz Bashara as she gets caught up in a conspiracy for control of the city.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/6/68/Artemis-Andy_Weir_%282017%29.jpg",
@@ -599,7 +629,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 14,
                             AuthorId = 13,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3650),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3828),
                             Description = "Starship Troopers is a military science fiction novel by American writer Robert A. Heinlein. Written in a few weeks in reaction to the US suspending nuclear tests,[5] the story was first published as a two-part serial in The Magazine of Fantasy & Science Fiction as Starship Soldier, and published as a book by G. P. Putnam's Sons on November 5, 1959.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/a/a9/Starship_Troopers_%28novel%29.jpg",
@@ -613,7 +643,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 15,
                             AuthorId = 14,
                             Country = "Argentina",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3651),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3829),
                             Description = "One Hundred Years of Solitude (Spanish: Cien años de soledad, Latin American Spanish: [sjen ˈaɲos ðe soleˈðað]) is a 1967 novel by Colombian author Gabriel García Márquez that tells the multi-generational story of the Buendía family, whose patriarch, José Arcadio Buendía, founded the fictitious town of Macondo. The novel is often cited as one of the supreme achievements in world literature.",
                             GenreId = 7,
                             Image = "https://upload.wikimedia.org/wikipedia/en/a/a0/Cien_a%C3%B1os_de_soledad_%28book_cover%2C_1967%29.jpg",
@@ -627,7 +657,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 16,
                             AuthorId = 15,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3653),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3830),
                             Description = "Dune is a 1965 epic science fiction novel by American author Frank Herbert, originally published as two separate serials in Analog magazine. It tied with Roger Zelazny's This Immortal for the Hugo Award in 1966 and it won the inaugural Nebula Award for Best Novel. It is the first installment of the Dune Chronicles. It is one of the world's best-selling science fiction novels.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/en/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg",
@@ -641,7 +671,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 17,
                             AuthorId = 16,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3654),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3832),
                             Description = "The Old Man and the Sea is a 1952 novella written by the American author Ernest Hemingway. Written between December 1950 and February 1951, it tells the story of Santiago, an aging fisherman who catches a giant marlin after a long struggle, but then loses his bounty to sharks. The novella was highly anticipated and was released to record sales; the initial critical reception was equally positive, but attitudes have varied significantly since then.",
                             GenreId = 8,
                             Image = "https://upload.wikimedia.org/wikipedia/en/7/73/Oldmansea.jpg",
@@ -655,7 +685,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 18,
                             AuthorId = 17,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3655),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3833),
                             Description = "The Pillars of the Earth is a historical novel by British author Ken Follett published in 1989 about the building of a cathedral in the fictional town of Kingsbridge, England. Set in the 12th century, the novel covers the time between the sinking of the White Ship and the murder of Thomas Becket, but focuses primarily on the Anarchy. The book traces the development of Gothic architecture out of the preceding Romanesque architecture, and the fortunes of the Kingsbridge priory and village against the backdrop of historical events of the time.",
                             GenreId = 4,
                             Image = "https://upload.wikimedia.org/wikipedia/en/b/b3/PillarsOfTheEarth.jpg",
@@ -669,7 +699,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 19,
                             AuthorId = 18,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3656),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3834),
                             Description = "Mockingjay is a 2010 dystopian young adult fiction novel by American author Suzanne Collins. It is chronologically the last installment of The Hunger Games series, following 2008's The Hunger Games and 2009's Catching Fire. The book continues the story of Katniss Everdeen, who agrees to unify the districts of Panem in a rebellion against the tyrannical Capitol.",
                             GenreId = 9,
                             Image = "https://upload.wikimedia.org/wikipedia/en/c/cc/Mockingjay.JPG",
@@ -683,7 +713,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 20,
                             AuthorId = 19,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3657),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3835),
                             Description = "A Brief History of Time: From the Big Bang to Black Holes is a book on theoretical cosmology by English physicist Stephen Hawking. It was first published in 1988. Hawking wrote the book for readers who had no prior knowledge of physics.",
                             GenreId = 10,
                             Image = "https://upload.wikimedia.org/wikipedia/en/a/a3/BriefHistoryTime.jpg",
@@ -697,7 +727,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 21,
                             AuthorId = 20,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3658),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3836),
                             Description = "Jaws is a novel by American writer Peter Benchley, published in 1974. It tells the story of a large great white shark that preys upon a small Long Island resort town and the three men who attempt to kill it. The novel grew out of Benchley's interest in shark attacks after he learned about the exploits of Montauk, New York shark fisherman Frank Mundus in 1964. Doubleday commissioned him to write the novel in 1971, a period when Benchley worked as a freelance journalist.",
                             GenreId = 12,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jaws_%281974%29_front_cover%2C_first_edition.jpg",
@@ -711,7 +741,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 22,
                             AuthorId = 21,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3659),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3838),
                             Description = "Adventures of Huckleberry Finn is a novel by American author Mark Twain, which was first published in the United Kingdom in December 1884 and in the United States in February 1885.",
                             GenreId = 9,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
@@ -725,7 +755,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 23,
                             AuthorId = 22,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3661),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3839),
                             Description = "Pride and Prejudice is an 1813 novel of manners by English author Jane Austen. The novel follows the character development of Elizabeth Bennet, the protagonist of the book, who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.",
                             GenreId = 11,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/1/17/PrideAndPrejudiceTitlePage.jpg",
@@ -739,7 +769,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 24,
                             AuthorId = 5,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3662),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3840),
                             Description = "Pet Sematary is a 1983 horror novel by American writer Stephen King. The novel was nominated for a World Fantasy Award for Best Novel in 1984,[1] and adapted into two films: one in 1989 and another in 2019. In November 2013, PS Publishing released Pet Sematary in a limited 30th-anniversary edition.",
                             GenreId = 3,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/2/24/Pet_Sematary_%281983%29_front_cover%2C_first_edition.jpg",
@@ -753,7 +783,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 25,
                             AuthorId = 23,
                             Country = "France",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3663),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3841),
                             Description = "Journey to the Center of the Earth (French: Voyage au centre de la Terre), also translated with the variant titles A Journey to the Centre of the Earth and A Journey into the Interior of the Earth, is a classic science fiction novel by Jules Verne.",
                             GenreId = 1,
                             Image = "https://upload.wikimedia.org/wikipedia/commons/6/67/A_Journey_to_the_Centre_of_the_Earth-1874.jpg",
@@ -767,7 +797,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 26,
                             AuthorId = 24,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3664),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3843),
                             Description = "The Eye of the World is a high fantasy novel by American writer Robert Jordan, the first book of The Wheel of Time series. It was published by Tor Books and released on 15 January 1990. The original unabridged audiobook is read by Michael Kramer and Kate Reading. A later unabridged edition is read by Rosamund Pike. Upon first publication, The Eye of the World consisted of one prologue and 53 chapters, with an additional prologue authored upon re-release. The book was a critical, and commercial success.",
                             GenreId = 2,
                             Image = "https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg",
@@ -781,7 +811,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 27,
                             AuthorId = 25,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3665),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3844),
                             Description = "The Haunting of Hill House is a 1959 gothic horror novel by American author Shirley Jackson. It was a finalist for the National Book Award and has been made into two feature films and a play, and is the basis of a Netflix series.",
                             GenreId = 3,
                             Image = "https://upload.wikimedia.org/wikipedia/en/0/04/HauntingOfHillHouse.JPG",
@@ -795,7 +825,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 28,
                             AuthorId = 26,
                             Country = "United Kingdom",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3666),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3845),
                             Description = "Bill Bryson describes himself as a reluctant traveller, but even when he stays safely at home he can't contain his curiosity about the world around him. A Short History of Nearly Everything is his quest to understand everything that has happened from the Big Bang to the rise of civilisation - how we got from there, being nothing at all, to here, being us. The ultimate eye-opening journey through time and space, revealing the world in a way most of us have never seen it before.",
                             GenreId = 10,
                             Image = "https://upload.wikimedia.org/wikipedia/en/e/ed/Bill_bryson_a_short_history.jpg",
@@ -809,7 +839,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 29,
                             AuthorId = 27,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3667),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3846),
                             Description = "Into the Wild is a 1996 non-fiction book written by Jon Krakauer. It is an expansion of a 9,000-word article by Krakauer on Chris McCandless titled Death of an Innocent, which appeared in the January 1993 issue of Outside.",
                             GenreId = 10,
                             Image = "https://upload.wikimedia.org/wikipedia/en/6/63/Into_the_Wild_%28book%29_cover.png",
@@ -823,7 +853,7 @@ namespace Ebla.Persistence.Migrations
                             Id = 30,
                             AuthorId = 28,
                             Country = "United States",
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 48, DateTimeKind.Local).AddTicks(3669),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3847),
                             Description = "Guns, Germs, and Steel: The Fates of Human Societies (subtitled A Short History of Everybody for the Last 13,000 Years in Britain) is a 1997 transdisciplinary non-fiction book by the American author Jared Diamond. The book attempts to explain why Eurasian and North African civilizations have survived and conquered others, while arguing against the idea that Eurasian hegemony is due to any form of Eurasian intellectual, moral, or inherent genetic superiority. Diamond argues that the gaps in power and technology between human societies originate primarily in environmental differences, which are amplified by various positive feedback loops. When cultural or genetic differences have favored Eurasians (for example, written language or the development among Eurasians of resistance to endemic diseases), he asserts that these advantages occurred because of the influence of geography on societies and cultures (for example, by facilitating commerce and trade between different cultures) and were not inherent in the Eurasian genomes.",
                             GenreId = 10,
                             Image = "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
@@ -831,6 +861,76 @@ namespace Ebla.Persistence.Migrations
                             Pages = 480,
                             Published = new DateTime(1997, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Guns, Germs, and Steel"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            AuthorId = 29,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3848),
+                            Description = "The Hitchhiker's Guide to the Galaxy is the first book in the Hitchhiker's Guide to the Galaxy comedy science fiction trilogy of five books by Douglas Adams, with a sixth book written by Eoin Colfer. The novel is an adaptation of the first four parts of Adams's radio series of the same name, centering on the adventures of the only man to survive the destruction of Earth; while roaming outer space, he comes to learn the truth behind Earth's existence. The novel was first published in London on 12 October 1979.[2] It sold 250,000 copies in the first three months.[3]",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
+                            Language = "English",
+                            Pages = 208,
+                            Published = new DateTime(1979, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "The Hitchhiker's Guide to the Galaxy"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            AuthorId = 30,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3850),
+                            Description = "Nineteen Eighty-Four (also published as 1984) is a dystopian novel and cautionary tale by English writer George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime. Thematically, it centres on the consequences of totalitarianism, mass surveillance and repressive regimentation of people and behaviours within society.[2][3] Orwell, a democratic socialist, modelled the authoritarian state in the novel on the Soviet Union in the era of Stalinism, and Nazi Germany.[4] More broadly, the novel examines the role of truth and facts within societies and the ways in which they can be manipulated.",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/5/51/1984_first_edition_cover.jpg",
+                            Language = "English",
+                            Pages = 328,
+                            Published = new DateTime(1949, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "1984"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            AuthorId = 31,
+                            Country = "United States",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3851),
+                            Description = "Do Androids Dream of Electric Sheep? (retrospectively titled Blade Runner: Do Androids Dream of Electric Sheep? in some later printings) is a 1968 dystopian science fiction novel by American writer Philip K. Dick. It is set in a post-apocalyptic San Francisco, where Earth's life has been greatly damaged by a nuclear global war, leaving most animal species endangered or extinct. The main plot follows Rick Deckard, a bounty hunter who has to retire (i.e. kill) six escaped Nexus-6 model androids, while a secondary plot follows John Isidore, a man of sub-par IQ who aids the fugitive androids.",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/e/ee/DoAndroidsDream.png",
+                            Language = "English",
+                            Pages = 210,
+                            Published = new DateTime(1968, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Do Androids Dream of Electric Sheep?"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            AuthorId = 1,
+                            Country = "United States",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3852),
+                            Description = "2001: A Space Odyssey is a 1968 science fiction novel by British writer Arthur C. Clarke. It was developed concurrently with Stanley Kubrick's film version and published after the release of the film. Clarke and Kubrick worked on the book together, but eventually only Clarke ended up as the official author. The story is based in part on various short stories by Clarke, including The Sentinel (written in 1948 for a BBC competition, but first published in 1951 under the title Sentinel of Eternity). By 1992, the novel had sold three million copies worldwide.[1] An elaboration of Clarke and Kubrick's collaborative work on this project was made in the 1972 book The Lost Worlds of 2001.",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/7/77/2001_A_Space_Odyssey-Arthur_C._Clarke.jpg",
+                            Language = "English",
+                            Pages = 221,
+                            Published = new DateTime(1968, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "2001: A Space Odyssey"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AuthorId = 1,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 18, DateTimeKind.Local).AddTicks(3853),
+                            Description = "Childhood's End is a 1953 science fiction novel by the British author Arthur C. Clarke. The story follows the peaceful alien invasion[1] of Earth by the mysterious Overlords, whose arrival begins decades of apparent utopia under indirect alien rule, at the cost of human identity and culture.",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/7/72/ChildhoodsEnd%281stEd%29.jpg",
+                            Language = "English",
+                            Pages = 214,
+                            Published = new DateTime(1953, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Childhood's End"
                         });
                 });
 
@@ -1011,84 +1111,84 @@ namespace Ebla.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2405),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3736),
                             Description = "Science fiction (sometimes shortened to SF or sci-fi) is a genre of speculative fiction, which typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life.",
                             Name = "Science Fiction"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2418),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3750),
                             Description = "Fantasy literature is literature set in an imaginary universe, often but not always without any locations, events, or people from the real world. Magic, the supernatural and magical creatures are common in many of these imaginary worlds. Fantasy literature may be directed at both children and adults.",
                             Name = "Fantasy"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2419),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3751),
                             Description = "Horror is a genre of fiction that is intended to disturb, frighten or scare.[1] Horror is often divided into the sub-genres of psychological horror and supernatural horror, which are in the realm of speculative fiction.",
                             Name = "Horror"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2420),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3753),
                             Description = "Historical fiction is a literary genre in which a fictional plot takes place in the setting of particular real historical events. Although the term is commonly used as a synonym for historical fiction literature, it can also be applied to other types of narrative, including theatre, opera, cinema, and television, as well as video games and graphic novels.",
                             Name = "Historical"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2422),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3754),
                             Description = "Mystery is a fiction genre where the nature of an event, usually a murder or other crime, remains mysterious until the end of the story.[1] Often within a closed circle of suspects, each suspect is usually provided with a credible motive and a reasonable opportunity for committing the crime.",
                             Name = "Mystery"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2423),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3755),
                             Description = "Popular science (also called pop-science or popsci) is an interpretation of science intended for a general audience. While science journalism focuses on recent scientific developments, popular science is more broad ranging. It may be written by professional science journalists or by scientists themselves. It is presented in many forms, including books, film and television documentaries, magazine articles, and web pages.",
                             Name = "Popular science"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2424),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3756),
                             Description = "Magic realism or magical realism is a style of literary fiction and art. It paints a realistic view of the world while also adding magical elements, often blurring the lines between fantasy and reality.[1] Magic realism often refers to literature in particular, with magical or supernatural phenomena presented in an otherwise real-world or mundane setting, commonly found in novels and dramatic performances.",
                             Name = "Magic realism"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2425),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3758),
                             Description = "Literary fiction, mainstream fiction, non-genre fiction, serious fiction,[1] high literature,[2] artistic literature,[2] and sometimes just literature[2] are labels that, in the book trade, refer to market novels that do not fit neatly into an established genre (see genre fiction); or, otherwise, refer to novels that are character-driven rather than plot-driven, examine the human condition, use language in an experimental or poetic fashion, or are simply considered serious art.",
                             Name = "Literary"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2426),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3759),
                             Description = "Adventure fiction is a type of fiction that usually presents danger, or gives the reader a sense of excitement. Some adventure fiction also satisfies the literary definition of romance fiction.",
                             Name = "Adventure"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2427),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3760),
                             Description = "Non-fiction (or nonfiction) is any document or media content that attempts, in good faith, to convey information only about the real world, rather than being grounded in imagination.[1] Non-fiction typically aims to present topics objectively based on historical, scientific, and empirical information. However, some non-fiction ranges into more subjective territory, including sincerely held opinions on real-world topics.",
                             Name = "Non-fiction"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2428),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3761),
                             Description = "A romance novel or romantic novel generally refers to a type of genre fiction novel which places its primary focus on the relationship and romantic love between two people, and usually has an emotionally satisfying and optimistic ending.",
                             Name = "Romance"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(2429),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(3762),
                             Description = "Thriller is a genre of fiction with numerous, often overlapping, subgenres, including crime, horror, and detective fiction. Thrillers are characterized and defined by the moods they elicit, giving their audiences heightened feelings of suspense, excitement, surprise, anticipation and anxiety.[1] This genre is well suited to film and television.",
                             Name = "Thriller"
                         });
@@ -1127,35 +1227,35 @@ namespace Ebla.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(4667),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(6252),
                             Established = new DateTime(1893, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Global Library"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(4679),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(6264),
                             Established = new DateTime(1922, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Obelisk Library"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(4681),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(6266),
                             Established = new DateTime(2010, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Explorer Library"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(4682),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(6267),
                             Established = new DateTime(1948, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Solitude Library"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2023, 12, 11, 11, 33, 3, 49, DateTimeKind.Local).AddTicks(4683),
+                            CreatedOn = new DateTime(2023, 12, 11, 11, 58, 3, 19, DateTimeKind.Local).AddTicks(6268),
                             Established = new DateTime(2015, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rainbow Library"
                         });
