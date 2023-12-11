@@ -11,9 +11,9 @@
 
         public async Task<StatisticsDto> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)
         {
-            int booksAmount = await _bookRepository.GetTotalBookCountAsync();
+            int bookCount = await _bookRepository.GetTotalBookCountAsync();
 
-            return new StatisticsDto(totalAmountOfBooks: booksAmount);
+            return new StatisticsDto(totalAmountOfBooks: bookCount);
         }
     }
 }
