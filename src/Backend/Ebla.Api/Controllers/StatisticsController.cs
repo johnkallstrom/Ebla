@@ -15,12 +15,13 @@
         /// Get statistics data
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         [HasReadAccess]
         [HttpGet]
-        public Task<StatisticsDto> GetStatistics()
+        public async Task<StatisticsDto> GetStatistics()
         {
-            throw new NotImplementedException();
+            var response = await _mediator.Send(new GetStatisticsQuery());
+
+            return response;
         }
     }
 }

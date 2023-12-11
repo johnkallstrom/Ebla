@@ -30,5 +30,12 @@
 
             return book;
         }
+
+        public async Task<int> GetTotalBookCountAsync()
+        {
+            var books = await _context.Books.ToListAsync();
+
+            return books.Count();
+        }
     }
 }
