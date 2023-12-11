@@ -12,5 +12,6 @@
         public const string Reviews = "/api/reviews";
         public const string Users = "/api/users";
         public const string Login = "/api/users/login";
+        public const string Statistics = "/api/statistics";
     }
 }
