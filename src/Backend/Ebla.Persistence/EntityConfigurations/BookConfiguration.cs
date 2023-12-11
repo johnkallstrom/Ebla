@@ -13,7 +13,6 @@
             builder.Property(x => x.Published).HasColumnName("Published");
             builder.Property(x => x.Country).HasColumnName("Country");
             builder.Property(x => x.Image).HasColumnName("Image");
-            builder.Property(x => x.Wikipedia).HasColumnName("Wikipedia");
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
             builder.Property(x => x.AuthorId).HasColumnName("AuthorId");
