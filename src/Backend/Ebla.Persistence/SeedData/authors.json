@@ -222,5 +222,29 @@
     "born": "1937-9-10",
     "country": "United States",
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/JaredDiamond.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Douglas Adams",
+    "description": "Douglas Noël Adams (11 March 1952 – 11 May 2001) was an English author, humorist, and screenwriter, best known for The Hitchhiker's Guide to the Galaxy (HHGTTG). Originally a 1978 BBC radio comedy, The Hitchhiker's Guide to the Galaxy developed into a trilogy of five books that sold more than 15 million copies in his lifetime. It was further developed into a television series, several stage plays, comics, a video game, and a 2005 feature film. Adams's contribution to UK radio is commemorated in The Radio Academy's Hall of Fame.[2]",
+    "born": "1952-3-11",
+    "country": "England",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Douglas_adams_portrait_cropped.jpg"
+  },
+  {
+    "id": 30,
+    "name": "George Orwell",
+    "description": "Eric Arthur Blair (25 June 1903 – 21 January 1950), better known by his pen name George Orwell, was an English novelist, essayist, journalist, and critic.[1] His work is characterised by lucid prose, social criticism, opposition to totalitarianism, and support of democratic socialism.[2]",
+    "born": "1903-6-25",
+    "country": "India",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/George_Orwell_press_photo.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Philip K. Dick",
+    "description": "Philip Kindred Dick (December 16, 1928 – March 2, 1982), often referred to by his initials PKD, was an American science fiction writer.[1] He wrote 44 novels and about 121 short stories, most of which appeared in science fiction magazines during his lifetime.[2] His fiction explored varied philosophical and social questions such as the nature of reality, perception, human nature, and identity, and commonly featured characters struggling against elements such as alternate realities, illusory environments, monopolistic corporations, drug abuse, authoritarian governments, and altered states of consciousness.[3][4] He is considered one of the most important figures in 20th century science fiction.[5]",
+    "born": "1928-12-16",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Philip_K_Dick_in_early_1960s_%28photo_by_Arthur_Knight%29_02_%28cropped%29.jpg"
   }
 ]

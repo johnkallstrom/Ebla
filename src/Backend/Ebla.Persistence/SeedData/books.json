@@ -358,5 +358,65 @@
     "image": "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
     "authorId": 28,
     "genreId": 10
+  },
+  {
+    "id": 31,
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "description": "The Hitchhiker's Guide to the Galaxy is the first book in the Hitchhiker's Guide to the Galaxy comedy science fiction trilogy of five books by Douglas Adams, with a sixth book written by Eoin Colfer. The novel is an adaptation of the first four parts of Adams's radio series of the same name, centering on the adventures of the only man to survive the destruction of Earth; while roaming outer space, he comes to learn the truth behind Earth's existence. The novel was first published in London on 12 October 1979.[2] It sold 250,000 copies in the first three months.[3]",
+    "pages": 208,
+    "published": "1979-1-1",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
+    "authorId": 29,
+    "genreId": 1
+  },
+  {
+    "id": 32,
+    "title": "1984",
+    "description": "Nineteen Eighty-Four (also published as 1984) is a dystopian novel and cautionary tale by English writer George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime. Thematically, it centres on the consequences of totalitarianism, mass surveillance and repressive regimentation of people and behaviours within society.[2][3] Orwell, a democratic socialist, modelled the authoritarian state in the novel on the Soviet Union in the era of Stalinism, and Nazi Germany.[4] More broadly, the novel examines the role of truth and facts within societies and the ways in which they can be manipulated.",
+    "pages": 328,
+    "published": "1949-6-8",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/en/5/51/1984_first_edition_cover.jpg",
+    "authorId": 0,
+    "genreId": 0
+  },
+  {
+    "id": 33,
+    "title": "Do Androids Dream of Electric Sheep?",
+    "description": "Do Androids Dream of Electric Sheep? (retrospectively titled Blade Runner: Do Androids Dream of Electric Sheep? in some later printings) is a 1968 dystopian science fiction novel by American writer Philip K. Dick. It is set in a post-apocalyptic San Francisco, where Earth's life has been greatly damaged by a nuclear global war, leaving most animal species endangered or extinct. The main plot follows Rick Deckard, a bounty hunter who has to retire (i.e. kill) six escaped Nexus-6 model androids, while a secondary plot follows John Isidore, a man of sub-par IQ who aids the fugitive androids.",
+    "pages": 210,
+    "published": "1968-1-1",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/ee/DoAndroidsDream.png",
+    "authorId": 0,
+    "genreId": 0
+  },
+  {
+    "id": 34,
+    "title": "2001: A Space Odyssey",
+    "description": "2001: A Space Odyssey is a 1968 science fiction novel by British writer Arthur C. Clarke. It was developed concurrently with Stanley Kubrick's film version and published after the release of the film. Clarke and Kubrick worked on the book together, but eventually only Clarke ended up as the official author. The story is based in part on various short stories by Clarke, including The Sentinel (written in 1948 for a BBC competition, but first published in 1951 under the title Sentinel of Eternity). By 1992, the novel had sold three million copies worldwide.[1] An elaboration of Clarke and Kubrick's collaborative work on this project was made in the 1972 book The Lost Worlds of 2001.",
+    "pages": 221,
+    "published": "1968-1-1",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/en/7/77/2001_A_Space_Odyssey-Arthur_C._Clarke.jpg",
+    "authorId": 1,
+    "genreId": 1
+  },
+  {
+    "id": 35,
+    "title": "Childhood's End",
+    "description": "Childhood's End is a 1953 science fiction novel by the British author Arthur C. Clarke. The story follows the peaceful alien invasion[1] of Earth by the mysterious Overlords, whose arrival begins decades of apparent utopia under indirect alien rule, at the cost of human identity and culture.",
+    "pages": 214,
+    "published": "1953-1-1",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/en/7/72/ChildhoodsEnd%281stEd%29.jpg",
+    "authorId": 1,
+    "genreId": 1
   }
 ]
