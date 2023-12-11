@@ -24,5 +24,6 @@ global using Ebla.Application.UseCases.Reservations.Commands;
 global using Ebla.Application.UseCases.Reservations.Responses;
 global using Ebla.Application.UseCases.Reviews.Responses;
 global using Ebla.Application.UseCases.Users.Responses;
+global using Ebla.Application.UseCases.Statistics.Responses;
 
 global using Ebla.Domain.Entities;

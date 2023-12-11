@@ -12,6 +12,18 @@
         }
 
         /// <summary>
+        /// Get statistics data
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        [HasReadAccess]
+        [HttpGet]
+        public async Task<StatisticsDto> GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Get total amount of books currently in the database
         /// </summary>
         /// <returns></returns>
