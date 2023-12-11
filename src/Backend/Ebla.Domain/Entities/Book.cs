@@ -8,7 +8,7 @@
         public DateTime Published { get; set; }
         public string Language { get; set; }
         public string Country { get; set; }
-        public string ImageLink { get; set; }
+        public string Image { get; set; }
         public string Wikipedia { get; set; }
 
         public int AuthorId { get; set; }

@@ -7,7 +7,7 @@
     "published": "1973-6-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/e/e1/Rama_copy.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/e1/Rama_copy.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Rendezvous_with_Rama",
     "authorId": 1,
     "genreId": 1
@@ -20,7 +20,7 @@
     "published": "1969-3-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/8/88/TheLeftHandOfDarkness1stEd.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/88/TheLeftHandOfDarkness1stEd.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness",
     "authorId": 2,
     "genreId": 1
@@ -33,7 +33,7 @@
     "published": "1969-3-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/8/8b/TheWayOfKings.png",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/8b/TheWayOfKings.png",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Way_of_Kings",
     "authorId": 3,
     "genreId": 2
@@ -46,7 +46,7 @@
     "published": "2015-6-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/1/1f/Children_of_Time_%28novel%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/1/1f/Children_of_Time_%28novel%29.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Children_of_Time_(novel)",
     "authorId": 4,
     "genreId": 1
@@ -59,7 +59,7 @@
     "published": "1978-10-3",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/5/52/The_Stand_%281978%29_front_cover%2C_first_edition.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/52/The_Stand_%281978%29_front_cover%2C_first_edition.png",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Stand",
     "authorId": 5,
     "genreId": 3
@@ -72,7 +72,7 @@
     "published": "1937-9-21",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/4/4a/TheHobbit_FirstEdition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/4a/TheHobbit_FirstEdition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Hobbit",
     "authorId": 6,
     "genreId": 2
@@ -85,7 +85,7 @@
     "published": "1971-6-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Exorcist_1971.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Exorcist_1971.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Exorcist_(novel)",
     "authorId": 7,
     "genreId": 3
@@ -98,7 +98,7 @@
     "published": "2006-1-1",
     "language": "English, German",
     "country": "Australia",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/8f/The_Book_Thief_by_Markus_Zusak_book_cover.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Book_Thief",
     "authorId": 8,
     "genreId": 4
@@ -111,7 +111,7 @@
     "published": "2003-3-18",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/6/6b/DaVinciCode.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/6b/DaVinciCode.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code",
     "authorId": 9,
     "genreId": 5
@@ -124,7 +124,7 @@
     "published": "1980-1-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/9/91/Cosmos_book.gif",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/91/Cosmos_book.gif",
     "wikipedia": "https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)",
     "authorId": 10,
     "genreId": 10
@@ -137,7 +137,7 @@
     "published": "1932-1-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Brave_New_World",
     "authorId": 11,
     "genreId": 1
@@ -150,7 +150,7 @@
     "published": "1975-11-17",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/6/61/%27Salem%27s_Lot_%281975%29_front_cover%2C_first_edition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/%27Salem%27s_Lot_%281975%29_front_cover%2C_first_edition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/%27Salem%27s_Lot",
     "authorId": 5,
     "genreId": 3
@@ -163,7 +163,7 @@
     "published": "2017-11-14",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/6/68/Artemis-Andy_Weir_%282017%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/68/Artemis-Andy_Weir_%282017%29.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Artemis_(novel)",
     "authorId": 12,
     "genreId": 1
@@ -176,7 +176,7 @@
     "published": "1959-11-5",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/a/a9/Starship_Troopers_%28novel%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/a9/Starship_Troopers_%28novel%29.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Starship_Troopers",
     "authorId": 13,
     "genreId": 1
@@ -189,7 +189,7 @@
     "published": "1967-1-1",
     "language": "Spanish",
     "country": "Argentina",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/a/a0/Cien_a%C3%B1os_de_soledad_%28book_cover%2C_1967%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/a0/Cien_a%C3%B1os_de_soledad_%28book_cover%2C_1967%29.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude",
     "authorId": 14,
     "genreId": 7
@@ -202,7 +202,7 @@
     "published": "1965-8-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Dune_(novel)",
     "authorId": 15,
     "genreId": 1
@@ -215,7 +215,7 @@
     "published": "1952-9-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/7/73/Oldmansea.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/7/73/Oldmansea.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea",
     "authorId": 16,
     "genreId": 8
@@ -228,7 +228,7 @@
     "published": "1989-1-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/b/b3/PillarsOfTheEarth.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/b/b3/PillarsOfTheEarth.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Pillars_of_the_Earth",
     "authorId": 17,
     "genreId": 4
@@ -241,7 +241,7 @@
     "published": "2010-8-24",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/c/cc/Mockingjay.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/en/c/cc/Mockingjay.JPG",
     "wikipedia": "https://en.wikipedia.org/wiki/Mockingjay",
     "authorId": 18,
     "genreId": 9
@@ -254,7 +254,7 @@
     "published": "1988-1-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/a/a3/BriefHistoryTime.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/a3/BriefHistoryTime.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/A_Brief_History_of_Time",
     "authorId": 19,
     "genreId": 10
@@ -267,7 +267,7 @@
     "published": "1974-2-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jaws_%281974%29_front_cover%2C_first_edition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jaws_%281974%29_front_cover%2C_first_edition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Jaws_(novel)",
     "authorId": 20,
     "genreId": 12
@@ -280,7 +280,7 @@
     "published": "1884-12-10",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
     "wikipedia": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
     "authorId": 21,
     "genreId": 9
@@ -293,7 +293,7 @@
     "published": "1813-1-28",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/1/17/PrideAndPrejudiceTitlePage.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/PrideAndPrejudiceTitlePage.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Pride_and_Prejudice",
     "authorId": 22,
     "genreId": 11
@@ -306,7 +306,7 @@
     "published": "1983-11-14",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pet_Sematary_%281983%29_front_cover%2C_first_edition.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Pet_Sematary_%281983%29_front_cover%2C_first_edition.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Pet_Sematary",
     "authorId": 5,
     "genreId": 3
@@ -319,7 +319,7 @@
     "published": "1864-11-25",
     "language": "French",
     "country": "France",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/commons/6/67/A_Journey_to_the_Centre_of_the_Earth-1874.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/A_Journey_to_the_Centre_of_the_Earth-1874.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Journey_to_the_Center_of_the_Earth",
     "authorId": 23,
     "genreId": 1
@@ -332,7 +332,7 @@
     "published": "1990-1-15",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/00/WoT01_TheEyeOfTheWorld.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Eye_of_the_World",
     "authorId": 24,
     "genreId": 2
@@ -345,7 +345,7 @@
     "published": "1959-1-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/0/04/HauntingOfHillHouse.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/04/HauntingOfHillHouse.JPG",
     "wikipedia": "https://en.wikipedia.org/wiki/The_Haunting_of_Hill_House",
     "authorId": 25,
     "genreId": 3
@@ -358,7 +358,7 @@
     "published": "2003-1-1",
     "language": "English",
     "country": "United Kingdom",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/e/ed/Bill_bryson_a_short_history.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/ed/Bill_bryson_a_short_history.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/A_Short_History_of_Nearly_Everything",
     "authorId": 26,
     "genreId": 10
@@ -371,7 +371,7 @@
     "published": "1996-1-13",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/6/63/Into_the_Wild_%28book%29_cover.png",
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/63/Into_the_Wild_%28book%29_cover.png",
     "wikipedia": "https://en.wikipedia.org/wiki/Into_the_Wild_(book)",
     "authorId": 27,
     "genreId": 10
@@ -384,7 +384,7 @@
     "published": "1997-1-1",
     "language": "English",
     "country": "United States",
-    "imageLink": "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
     "wikipedia": "https://en.wikipedia.org/wiki/Guns,_Germs,_and_Steel",
     "authorId": 28,
     "genreId": 10

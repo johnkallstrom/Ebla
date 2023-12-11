@@ -8,6 +8,6 @@
         public string Genre { get; init; }
         public string Language { get; init; }
         public string Country { get; init; }
-        public string ImageLink { get; init; }
+        public string Image { get; init; }
     }
 }
