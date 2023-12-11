@@ -27,6 +27,8 @@
 ### Use cases
 
 ### Backend
+The backend is separated into different layers, each with it's own responsibility. 
+This makes the code easier to extend as the project grows but also to test.
 
 ### Frontend
 
