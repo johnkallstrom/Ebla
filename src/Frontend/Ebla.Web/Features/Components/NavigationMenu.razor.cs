@@ -11,10 +11,13 @@
         protected override async Task OnInitializedAsync()
         {
             var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            var user = authState.User;
 
-            FullName = user.GetFullName();
-            Role = user.GetPrimaryRole();
+            var user = authState.User;
+            if (user.Identity.IsAuthenticated)
+            {
+                FullName = user.GetFullName();
+                Role = user.GetPrimaryRole();
+            }
         }
     }
 }

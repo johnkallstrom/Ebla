@@ -28,8 +28,12 @@
         protected override async Task OnInitializedAsync()
         {
             var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
             var user = authState.User;
-            avatarLetter = user.GetAvatarLetter();
+            if (user.Identity.IsAuthenticated)
+            {
+                avatarLetter = user.GetAvatarLetter();
+            }
         }
     }
 }
