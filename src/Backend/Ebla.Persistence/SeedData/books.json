@@ -380,8 +380,8 @@
     "language": "English",
     "country": "United Kingdom",
     "image": "https://upload.wikimedia.org/wikipedia/en/5/51/1984_first_edition_cover.jpg",
-    "authorId": 0,
-    "genreId": 0
+    "authorId": 30,
+    "genreId": 1
   },
   {
     "id": 33,
@@ -392,8 +392,8 @@
     "language": "English",
     "country": "United States",
     "image": "https://upload.wikimedia.org/wikipedia/en/e/ee/DoAndroidsDream.png",
-    "authorId": 0,
-    "genreId": 0
+    "authorId": 31,
+    "genreId": 1
   },
   {
     "id": 34,
