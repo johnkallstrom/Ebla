@@ -7,15 +7,29 @@
         <MudGrid>
             <MudItem xs="1">
                 <MudPaper Class="pa-8">
-                    <MudText Typo="Typo.body2" Align="Align.Center">Total books:</MudText>
-                    <MudText Typo="Typo.h4" Align="Align.Center">@Model.TotalAmountOfBooks</MudText>
+                    @if (Loading)
+                    {
+                        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+                    }
+                    else
+                    {
+                        <MudText Typo="Typo.body2" Align="Align.Center">Total books:</MudText>
+                        <MudText Typo="Typo.h4" Align="Align.Center">@Model.TotalAmountOfBooks</MudText>
+                    }
                 </MudPaper>
             </MudItem>
         </MudGrid>
         <MudGrid>
             <MudItem xs="4">
                 <MudPaper Class="pa-4">
-                    <MudChart ChartType="ChartType.Pie" InputData="Model.GenresWithMostBooksPercentages" InputLabels="@Model.GenresWithMostBooksLabels" Width="300px" Height="300px" />
+                    @if (Loading)
+                    {
+                        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+                    }
+                    else
+                    {
+                        <MudChart ChartType="ChartType.Pie" InputData="Model.GenresWithMostBooksPercentages" InputLabels="@Model.GenresWithMostBooksLabels" Width="300px" Height="300px" />
+                    }
                 </MudPaper>
             </MudItem>
         </MudGrid>
