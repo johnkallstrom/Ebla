@@ -17,9 +17,11 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet("total-books")]
-        public int GetTotalAmountOfBooks()
+        public async Task<int> GetTotalAmountOfBooks()
         {
-            return 0;
+            var response = await _mediator.Send(new GetTotalAmountOfBooksQuery());
+
+            return response;
         }
 
         /// <summary>

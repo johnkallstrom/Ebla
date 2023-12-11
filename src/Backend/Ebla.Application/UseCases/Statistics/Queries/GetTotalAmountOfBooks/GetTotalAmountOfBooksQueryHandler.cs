@@ -2,9 +2,18 @@
 {
     public class GetTotalAmountOfBooksQueryHandler : IRequestHandler<GetTotalAmountOfBooksQuery, int>
     {
-        public Task<int> Handle(GetTotalAmountOfBooksQuery request, CancellationToken cancellationToken)
+        private readonly IGenericRepository<Book> _repository;
+
+        public GetTotalAmountOfBooksQueryHandler(IGenericRepository<Book> repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
+        }
+
+        public async Task<int> Handle(GetTotalAmountOfBooksQuery request, CancellationToken cancellationToken)
+        {
+            var books = await _repository.GetAllAsync();
+
+            return books.Count();
         }
     }
 }
