@@ -18,33 +18,9 @@
         /// <exception cref="NotImplementedException"></exception>
         [HasReadAccess]
         [HttpGet]
-        public async Task<StatisticsDto> GetStatistics()
+        public Task<StatisticsDto> GetStatistics()
         {
             throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Get total amount of books currently in the database
-        /// </summary>
-        /// <returns></returns>
-        [HasReadAccess]
-        [HttpGet("total-books")]
-        public async Task<int> GetTotalAmountOfBooks()
-        {
-            var response = await _mediator.Send(new GetTotalAmountOfBooksQuery());
-
-            return response;
-        }
-
-        /// <summary>
-        /// Get top three genres with most books in percentage
-        /// </summary>
-        /// <returns></returns>
-        [HasReadAccess]
-        [HttpGet("genres")]
-        public double[] GetTop3GenresWithMostBooks()
-        {
-            return [50, 35, 15];
         }
     }
 }
