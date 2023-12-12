@@ -21,4 +21,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Ebla.Application\Ebla.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Ebla.Infrastructure\Ebla.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Ebla.Persistence\Ebla.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
