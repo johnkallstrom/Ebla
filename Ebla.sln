@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Infrastructure", "src\Backend\Ebla.Infrastructure\Ebla.Infrastructure.csproj", "{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Infrastructure", "src\Ebla.Infrastructure\Ebla.Infrastructure.csproj", "{E312CD2C-75FF-405B-AEB5-27CBDEAEE48F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Domain", "src\Backend\Ebla.Domain\Ebla.Domain.csproj", "{03883BEC-4C98-4202-9869-564E7C45C57C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Domain", "src\Ebla.Domain\Ebla.Domain.csproj", "{03883BEC-4C98-4202-9869-564E7C45C57C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Application", "src\Backend\Ebla.Application\Ebla.Application.csproj", "{C2CC02DF-162B-4F30-B37C-9E7108001289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Application", "src\Ebla.Application\Ebla.Application.csproj", "{C2CC02DF-162B-4F30-B37C-9E7108001289}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Api", "src\Backend\Ebla.Api\Ebla.Api.csproj", "{8AFF3936-E612-4B78-9DC0-80EA1BF82F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Api", "src\Ebla.Api\Ebla.Api.csproj", "{8AFF3936-E612-4B78-9DC0-80EA1BF82F16}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Web", "src\Frontend\Ebla.Web\Ebla.Web.csproj", "{40943065-916A-4BAB-9408-39CB74DFD425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Web", "src\Ebla.Web\Ebla.Web.csproj", "{40943065-916A-4BAB-9408-39CB74DFD425}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Persistence", "src\Backend\Ebla.Persistence\Ebla.Persistence.csproj", "{458AA086-3DB8-4818-9147-B89073F4D6B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Persistence", "src\Ebla.Persistence\Ebla.Persistence.csproj", "{458AA086-3DB8-4818-9147-B89073F4D6B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EECA324-57D7-42AB-B511-8632285D4153}"
 EndProject
