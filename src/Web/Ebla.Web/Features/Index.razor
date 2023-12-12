@@ -5,16 +5,17 @@
 <AuthorizeView Roles="User, Administrator">
     <Authorized>
         <MudGrid>
-            <MudItem xs="1">
-                <MudPaper Class="pa-8">
+            <MudItem xs="2">
+                <MudPaper Class="pa-8 d-flex align-center flex-grow-1 gap-4">
                     @if (Loading)
                     {
                         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
                     }
                     else
                     {
-                        <MudText Typo="Typo.body2" Align="Align.Center">Total books:</MudText>
-                        <MudText Typo="Typo.h4" Align="Align.Center">@Model.TotalAmountOfBooks</MudText>
+                        <MudIcon Icon="fas fa-dragon" Color="Color.Tertiary" Style="font-size: 4rem;" />
+                        <MudText Typo="Typo.body2">Total books</MudText>
+                        <MudText Typo="Typo.h3">@Model.TotalBooks</MudText>
                     }
                 </MudPaper>
             </MudItem>
@@ -28,7 +29,7 @@
                     }
                     else
                     {
-                        <MudChart ChartType="ChartType.Pie" InputData="Model.GenresWithMostBooksPercentages" InputLabels="@Model.GenresWithMostBooksLabels" Width="300px" Height="300px" />
+                        <MudChart ChartType="ChartType.Pie" InputData="Model.GenreData" InputLabels="@Model.GenreLabels" Width="300px" Height="300px" />
                     }
                 </MudPaper>
             </MudItem>
