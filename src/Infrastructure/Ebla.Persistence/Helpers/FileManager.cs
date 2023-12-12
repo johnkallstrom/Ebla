@@ -6,8 +6,7 @@
         {
             var data = Enumerable.Empty<T>();
 
-            string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Persistence");
-            string path = $@"{workingDir}\SeedData\{fileName}";
+            string path = GetFilePath(fileName);
 
             if (Path.Exists(path))
             {
@@ -19,6 +18,14 @@
             }
 
             return data.ToList();
+        }
+
+        private static string GetFilePath(string fileName)
+        {
+            string workingDir = Directory.GetCurrentDirectory().Replace("Web", "Infrastructure").Replace("Ebla.Api", "Ebla.Persistence");
+
+            string filePath = $@"{workingDir}\SeedData\{fileName}";
+            return filePath;
         }
     }
 }
