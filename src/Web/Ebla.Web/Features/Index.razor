@@ -6,15 +6,15 @@
     <Authorized>
         <MudGrid>
             <MudItem xs="2">
-                <MudPaper Class="pa-8 d-flex align-center flex-grow-1 gap-4">
+                <MudPaper Class="pa-8 d-flex align-center gap-4">
                     @if (Loading)
                     {
                         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
                     }
                     else
                     {
-                        <MudIcon Icon="fas fa-dragon" Color="Color.Tertiary" Style="font-size: 4rem;" />
-                        <MudText Typo="Typo.body2">Total books</MudText>
+                        <MudIcon Icon="fas fa-book" Color="Color.Primary" Style="font-size: 4rem;" />
+                        <MudText Typo="Typo.body2">Total books:</MudText>
                         <MudText Typo="Typo.h3">@Model.TotalBooks</MudText>
                     }
                 </MudPaper>
