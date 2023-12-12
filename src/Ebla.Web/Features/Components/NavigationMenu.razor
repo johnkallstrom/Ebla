@@ -1,0 +1,15 @@
+﻿<MudNavMenu>
+    <AuthorizeView>
+        <Authorized>
+            <MudText Typo="Typo.body1" Class="px-4 py-2">@FullName</MudText>
+            <MudText Typo="Typo.body2" Class="px-4">@Role</MudText>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/libraries" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.House">Libraries</MudNavLink>
+            <MudNavLink Href="/books" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LibraryBooks">Books</MudNavLink>
+            <MudNavLink Href="/authors" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Authors</MudNavLink>
+        </Authorized>
+        <NotAuthorized>
+            <MudNavLink Href="/login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Login">Login</MudNavLink>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudNavMenu>

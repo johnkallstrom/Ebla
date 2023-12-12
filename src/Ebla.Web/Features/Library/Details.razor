@@ -1,0 +1,4 @@
+﻿@page "/libraries/{libraryId:int}"
+@attribute [Authorize(Roles = "User")]
+
+<PageTitle>@Library.Name</PageTitle>

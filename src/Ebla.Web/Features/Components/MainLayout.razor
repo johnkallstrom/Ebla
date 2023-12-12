@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="(() => ToggleDrawer())"></MudIconButton>
+        <MudLink Href="/" Typo="Typo.h5" Color="Color.Inherit" Underline="Underline.None" Class="ml-3">Ebla</MudLink>
+        <MudSpacer />
+        <AuthorizeView>
+            <Authorized>
+                <MudMenu>
+                    <ActivatorContent>
+                        <MudAvatar Color="Color.Tertiary">@avatarLetter</MudAvatar>
+                    </ActivatorContent>
+                    <ChildContent>
+                        <MudMenuItem>Profile</MudMenuItem>
+                        <MudMenuItem>My Loans</MudMenuItem>
+                        <MudMenuItem>My Reservations</MudMenuItem>
+                        <MudMenuItem OnClick="(() => SignOut())">Sign out</MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+            </Authorized>
+        </AuthorizeView>
+    </MudAppBar>
+    <MudDrawer @bind-Open="enableDrawer" ClipMode="DrawerClipMode.Always" Elevation="2">
+        <NavigationMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer Fixed="true" Class="py-6">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

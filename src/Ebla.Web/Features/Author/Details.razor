@@ -1,0 +1,4 @@
+﻿@page "/authors/{authorId:int}"
+@attribute [Authorize(Roles = "User")]
+
+<PageTitle>@Author.Name</PageTitle>
