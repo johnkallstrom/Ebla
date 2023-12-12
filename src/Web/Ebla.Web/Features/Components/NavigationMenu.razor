@@ -4,9 +4,18 @@
             <MudText Typo="Typo.body1" Class="px-4 py-2">@FullName</MudText>
             <MudText Typo="Typo.body2" Class="px-4">@Role</MudText>
             <MudDivider Class="my-2" />
-            <MudNavLink Href="/libraries" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.House">Libraries</MudNavLink>
-            <MudNavLink Href="/books" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.LibraryBooks">Books</MudNavLink>
-            <MudNavLink Href="/authors" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Group">Authors</MudNavLink>
+            <MudNavLink Href="/libraries" Match="NavLinkMatch.Prefix" Icon="fa-solid fa-landmark">Libraries</MudNavLink>
+            <MudNavLink Href="/books" Match="NavLinkMatch.Prefix" Icon="fa-solid fa-book">Books</MudNavLink>
+            <MudNavLink Href="/authors" Match="NavLinkMatch.Prefix" Icon="fa-solid fa-book-open-reader">Authors</MudNavLink>
+            <AuthorizeView Context="Administrator" Roles="Administrator">
+                <Authorized>
+                    <MudNavGroup Title="Settings" Icon="fa-solid fa-gear">
+                        <MudNavLink Href="/users" Icon="fa-solid fa-users">Users</MudNavLink>
+                        <MudNavLink Href="/loans" Icon="fa-solid fa-handshake-simple">Loans</MudNavLink>
+                        <MudNavLink Href="/reservations" Icon="fa-solid fa-hourglass">Reservations</MudNavLink>
+                    </MudNavGroup>
+                </Authorized>
+            </AuthorizeView>
         </Authorized>
         <NotAuthorized>
             <MudNavLink Href="/login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Login">Login</MudNavLink>
