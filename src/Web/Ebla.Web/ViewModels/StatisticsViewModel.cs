@@ -2,14 +2,14 @@
 {
     public class StatisticsViewModel
     {
-        public int TotalAmountOfBooks { get; set; }
-        public string[] GenresWithMostBooksLabels { get; set; }
-        public double[] GenresWithMostBooksPercentages { get; set; }
+        public int TotalBooks { get; set; }
+        public string[] GenreLabels { get; set; }
+        public double[] GenreData { get; set; }
 
         public StatisticsViewModel()
         {
-            GenresWithMostBooksLabels = new string[] { "Genre Label 1", "Genre Label 2", "Genre Label 3" };
-            GenresWithMostBooksPercentages = new double[] { 50, 25, 25 };
+            GenreLabels = new string[] { "Science Fiction", "Horror", "Non-Fiction" };
+            GenreData = new double[] { 75, 15, 10 };
         }
     }
 }
