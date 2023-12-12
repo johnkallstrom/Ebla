@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ebla.Domain\Ebla.Domain.csproj" />
+    <ProjectReference Include="..\..\Domain\Ebla.Domain\Ebla.Domain.csproj" />
   </ItemGroup>
 
 </Project>
