@@ -9,7 +9,7 @@
         public StatisticsViewModel()
         {
             GenreLabels = new string[] { "Science Fiction", "Horror", "Non-Fiction" };
-            GenreData = new double[] { 75, 15, 10 };
+            GenreData = new double[] { 40, 35, 25 };
         }
     }
 }
