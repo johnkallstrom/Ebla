@@ -1,3 +1,0 @@
-# Ebla.Application
-
-Use cases

@@ -1,3 +1,0 @@
-# Ebla.Domain
-
-Entities

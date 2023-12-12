@@ -1,3 +1,0 @@
-# Ebla.Infrastructure
-
-External services

@@ -1,3 +1,0 @@
-# Ebla.Api
-
-Endpoints

@@ -1,3 +1,0 @@
-# Ebla.Web
-
-Frontend
