@@ -12,9 +12,4 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Ebla.Application\Ebla.Application.csproj" />
-    <ProjectReference Include="..\Ebla.Domain\Ebla.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
