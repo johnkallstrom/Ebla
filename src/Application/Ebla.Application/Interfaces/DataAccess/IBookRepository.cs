@@ -2,7 +2,7 @@
 {
     public interface IBookRepository
     {
-        Task<int> GetTotalBookCountAsync();
+        Task<int> GetTotalBooksAsync();
         Task<IEnumerable<Book>> GetAllBooksAsync();
         Task<Book> GetBookByIdAsync(int bookId);
     }

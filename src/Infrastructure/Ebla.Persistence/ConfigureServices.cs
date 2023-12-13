@@ -15,6 +15,7 @@
             services.AddTransient<IReservationRepository, ReservationRepository>();
             services.AddTransient<IReviewRepository, ReviewRepository>();
             services.AddTransient<ILibraryRepository, LibraryRepository>();
+            services.AddTransient<IGenreRepository, GenreRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

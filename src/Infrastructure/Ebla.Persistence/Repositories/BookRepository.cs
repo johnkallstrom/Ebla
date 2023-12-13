@@ -31,7 +31,7 @@
             return book;
         }
 
-        public async Task<int> GetTotalBookCountAsync()
+        public async Task<int> GetTotalBooksAsync()
         {
             var books = await _context.Books.ToListAsync();
 
