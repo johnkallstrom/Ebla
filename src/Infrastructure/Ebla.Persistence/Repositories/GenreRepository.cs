@@ -11,9 +11,6 @@
 
         public Dictionary<string, double> GetStatisticsData()
         {
-            // Number of genres to select
-            int take = 3;
-
             // Group each genre by name
             IEnumerable<IGrouping<string, Genre>> groups = _context.Genres.GroupBy(genre => genre.Name).AsEnumerable();
 
@@ -23,7 +20,7 @@
                 { 
                     Genre = group.Key, 
                     Books = genre.Books == null ? 0 : genre.Books.Count() 
-                })).OrderByDescending(x => x.Books).Take(take).ToList();
+                })).OrderByDescending(x => x.Books).ToList();
 
             // Calculate percentage from the amount of books each genre has and the total books stored in db
             int total = _context.Books.Count();
