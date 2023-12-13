@@ -16,9 +16,19 @@
         public async Task<StatisticsDto> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)
         {
             int totalBooks = await _bookRepository.GetTotalBooksAsync();
-            var genreData = _genreRepository.GetStatisticsData();
 
-            return new StatisticsDto(totalBooks, genreData);
+            var data = _genreRepository.GetStatisticsData();
+            var genreLabels = data.Keys.ToArray();
+            var genrePercentages = data.Values.ToArray();
+
+            var statistics = new StatisticsDto
+            {
+                TotalBooks = totalBooks,
+                GenreLabels = genreLabels,
+                GenrePercentages = genrePercentages
+            };
+
+            return statistics;
         }
     }
 }
