@@ -11,26 +11,28 @@
 
         public Dictionary<string, double> GetStatisticsData()
         {
+            // Number of genres to select
+            int take = 3;
+
+            // Group each genre by name
             IEnumerable<IGrouping<string, Genre>> groups = _context.Genres.GroupBy(genre => genre.Name).AsEnumerable();
 
+            // Create 'a' list containing genre name and book amount
             var flattened = groups
                 .SelectMany(group => group.Select(genre => new 
                 { 
                     Genre = group.Key, 
                     Books = genre.Books == null ? 0 : genre.Books.Count() 
-                })).OrderByDescending(x => x.Books).ToList();
+                })).OrderByDescending(x => x.Books).Take(take).ToList();
 
+            // Calculate percentage from the amount of books each genre has and the total books stored in db
             int total = _context.Books.Count();
             var data = new Dictionary<string, double>();
             foreach (var item in flattened)
             {
-                double percentage = (double)item.Books / total * 100;
+                double percentage = Math.Round((double)item.Books / total * 100, 2);
                 data.Add(item.Genre, percentage);
             }
-
-            // Return: Labels, string[], Percentages, double[]
-
-
 
             return data;
         }
