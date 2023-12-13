@@ -21,14 +21,18 @@
                 })).OrderByDescending(x => x.Books).ToList();
 
             int total = _context.Books.Count();
-            var result = new Dictionary<string, double>();
+            var data = new Dictionary<string, double>();
             foreach (var item in flattened)
             {
                 double percentage = (double)item.Books / total * 100;
-                result.Add(item.Genre, percentage);
+                data.Add(item.Genre, percentage);
             }
 
-            return result;
+            // Return: Labels, string[], Percentages, double[]
+
+
+
+            return data;
         }
     }
 }
