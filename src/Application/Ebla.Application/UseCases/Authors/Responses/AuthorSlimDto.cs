@@ -5,5 +5,5 @@
         string Name,
         DateTime Born,
         string Country,
-        string ImageLink);
+        string Image);
 }
