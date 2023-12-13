@@ -24,8 +24,24 @@
                 {
                     Loading = false;
                     Model = await response.Content.ReadFromJsonAsync<StatisticsViewModel>();
+                    Model.GenreLabels = FormatLabels(Model.GenreLabels, Model.GenrePercentages);
                 }
             }
+        }
+
+        private string[] FormatLabels(string[] labels, double[] percentages)
+        {
+            var formattedLabels = new List<string>();
+            for (int i = 0; i < labels.Count(); i++)
+            {
+                string label = labels[i];
+                double percentage = percentages[i];
+
+                string newLabel = $"{label} ({percentage}%)";
+                formattedLabels.Add(newLabel);
+            }
+            
+            return formattedLabels.ToArray();
         }
     }
 }
