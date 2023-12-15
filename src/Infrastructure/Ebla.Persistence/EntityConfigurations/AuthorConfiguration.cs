@@ -12,15 +12,10 @@
             builder.Property(x => x.Born).HasColumnName("Born");
             builder.Property(x => x.Country).HasColumnName("Country");
             builder.Property(x => x.Image).HasColumnName("Image");
-            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
+            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn").HasDefaultValue(DateTime.Now);
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
             var authors = FileManager.ParseJsonFileToList<Author>("authors.json");
-
-            foreach (var author in authors)
-            {
-                author.CreatedOn = DateTime.Now;
-            }
 
             builder.HasData(authors);
         }

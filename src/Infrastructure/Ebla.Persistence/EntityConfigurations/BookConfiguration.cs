@@ -13,17 +13,13 @@
             builder.Property(x => x.Published).HasColumnName("Published");
             builder.Property(x => x.Country).HasColumnName("Country");
             builder.Property(x => x.Image).HasColumnName("Image");
-            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
+            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn").HasDefaultValue(DateTime.Now);
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
-            builder.Property(x => x.AuthorId).HasColumnName("AuthorId");
-            builder.Property(x => x.GenreId).HasColumnName("GenreId");
+
+            builder.HasOne(b => b.Author).WithMany(a => a.Books).IsRequired();
+            builder.HasOne(b => b.Genre).WithMany(g => g.Books).IsRequired();
 
             var books = FileManager.ParseJsonFileToList<Book>("books.json");
-
-            foreach (var book in books)
-            {
-                book.CreatedOn = DateTime.Now;
-            }
 
             builder.HasData(books);
         }

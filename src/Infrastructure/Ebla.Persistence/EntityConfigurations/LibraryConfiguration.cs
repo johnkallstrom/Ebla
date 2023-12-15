@@ -9,15 +9,10 @@
             builder.Property(x => x.Id).HasColumnName("Id");
             builder.Property(x => x.Name).HasColumnName("Name");
             builder.Property(x => x.Established).HasColumnName("Established");
-            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn");
+            builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn").HasDefaultValue(DateTime.Now);
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
             var libraries = FileManager.ParseJsonFileToList<Library>("libraries.json");
-
-            foreach (var library in libraries)
-            {
-                library.CreatedOn = DateTime.Now;
-            }
 
             builder.HasData(libraries);
         }
