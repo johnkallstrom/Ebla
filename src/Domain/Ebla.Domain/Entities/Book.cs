@@ -15,7 +15,7 @@
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
 
-        public ICollection<BookLibrary> BookLibraries { get; set; }
+        public List<BookLibrary> BookLibraries { get; set; }
         public List<Review> Reviews { get; set; }
         public List<Reservation> Reservations { get; set; }
     }
