@@ -16,9 +16,6 @@
             builder.Property(x => x.CreatedOn).HasColumnName("CreatedOn").HasDefaultValue(DateTime.Now);
             builder.Property(x => x.LastModified).HasColumnName("LastModified");
 
-            builder.HasOne(b => b.Author).WithMany(a => a.Books).IsRequired();
-            builder.HasOne(b => b.Genre).WithMany(g => g.Books).IsRequired();
-
             var books = FileManager.ParseJsonFileToList<Book>("books.json");
 
             builder.HasData(books);
