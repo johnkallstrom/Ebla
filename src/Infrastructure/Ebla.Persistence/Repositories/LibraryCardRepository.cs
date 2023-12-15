@@ -16,7 +16,9 @@
 
         public async Task<LibraryCard> GetLibraryCardAsync(Guid userId)
         {
-            var libraryCard = await _context.LibraryCards.FirstOrDefaultAsync(x => x.UserId == userId);
+            var libraryCard = await _context.LibraryCards
+                .Include(x => x.Library)
+                .FirstOrDefaultAsync(x => x.UserId == userId);
 
             return libraryCard;
         }
