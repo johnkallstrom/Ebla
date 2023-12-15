@@ -12,6 +12,19 @@
         }
 
         /// <summary>
+        /// Get all library cards
+        /// </summary>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet]
+        public async Task<IEnumerable<LibraryCardDto>> GetAll()
+        {
+            var libraryCards = await _mediator.Send(new GetLibraryCardsQuery());
+
+            return libraryCards;
+        }
+
+        /// <summary>
         /// Get single library card by user id
         /// </summary>
         /// <param name="userId"></param>

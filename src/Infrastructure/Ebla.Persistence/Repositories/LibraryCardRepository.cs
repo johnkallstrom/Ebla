@@ -22,5 +22,14 @@
 
             return libraryCard;
         }
+
+        public async Task<IEnumerable<LibraryCard>> GetAllLibraryCardsAsync()
+        {
+            var libraryCardList = await _context.LibraryCards
+                .Include(x => x.Library)
+                .ToListAsync();
+
+            return libraryCardList;
+        }
     }
 }
