@@ -16,6 +16,13 @@
             return await _table.ToListAsync();
         }
 
+        public async Task<IEnumerable<T>> GetPaginationAsync(int pageNumber, int pageSize)
+        {
+            var query = _table.Take(pageSize);
+
+            return await query.ToListAsync();
+        }
+
         public async Task<T> GetByIdAsync(int id)
         {
             return await _table.FindAsync(id);

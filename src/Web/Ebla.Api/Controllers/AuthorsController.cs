@@ -17,9 +17,13 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<AuthorSlimDto>> GetAll()
+        public async Task<IEnumerable<AuthorSlimDto>> GetAll(int pageNumber, int pageSize)
         {
-            var authors = await _mediator.Send(new GetAuthorsQuery());
+            var authors = await _mediator.Send(new GetAuthorsQuery 
+            { 
+                PageNumber = pageNumber, 
+                PageSize = pageSize 
+            });
 
             return authors;
         }
