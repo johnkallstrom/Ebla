@@ -11,6 +11,11 @@
             _table = _context.Set<T>();
         }
 
+        public async Task<int> GetTotalAsync()
+        {
+            return await _table.CountAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _table.ToListAsync();

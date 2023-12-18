@@ -15,16 +15,17 @@
         {
             int pageNumber = request.PageNumber;
             int pageSize = request.PageSize;
+            int total = await _repository.GetTotalAsync();
 
             var response = new PagedResponse<AuthorSlimDto>();
 
             var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
-            var data = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
+            var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
 
-            response.PageNumber = pageSize;
-            response.PageSize = pageNumber;
-            response.TotalPages = 0;
-            response.Data = data;
+            response.PageNumber = pageNumber;
+            response.PageSize = pageSize;
+            response.TotalPages = total / pageSize;
+            response.Data = dtos;
 
             return response;
         }
