@@ -15,7 +15,7 @@
         {
             int pageNumber = request.PageNumber;
             int pageSize = request.PageSize;
-            int total = await _repository.GetTotalAsync();
+            int totalAuthors = await _repository.GetTotalAsync();
 
             var response = new PagedResponse<AuthorSlimDto>();
 
@@ -24,7 +24,7 @@
 
             response.PageNumber = pageNumber;
             response.PageSize = pageSize;
-            response.TotalPages = total / pageSize;
+            response.TotalPages = totalAuthors / pageSize;
             response.Data = dtos;
 
             return response;
