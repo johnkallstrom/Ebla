@@ -13,7 +13,7 @@
 
         public async Task<IEnumerable<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
         {
-            var authors = await _repository.GetPaginationAsync(request.PageNumber, request.PageSize);
+            var authors = await _repository.GetPagedAsync(request.PageNumber, request.PageSize);
 
             return _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
         }
