@@ -5,11 +5,11 @@
 <AuthorizeView Roles="User, Administrator">
     <Authorized>
         <MudGrid>
-            <MudItem xs="2">
-                <MudPaper Class="pa-8 d-flex align-center gap-4">
+            <MudItem sm="6" lg="4" xl="2">
+                <MudPaper Class="pa-8 d-flex justify-center align-center gap-4">
                     @if (Loading)
                     {
-                        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+                        <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
                     }
                     else
                     {
@@ -21,11 +21,11 @@
             </MudItem>
         </MudGrid>
         <MudGrid>
-            <MudItem xs="4">
-                <MudPaper Class="pa-4">
+            <MudItem sm="8" lg="6" xl="4">
+                <MudPaper Class="pa-4 d-flex justify-center align-center">
                     @if (Loading)
                     {
-                        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+                        <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
                     }
                     else
                     {
