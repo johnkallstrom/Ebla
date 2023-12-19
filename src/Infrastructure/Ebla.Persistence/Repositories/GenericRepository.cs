@@ -23,9 +23,7 @@
 
         public async Task<IEnumerable<T>> GetPagedAsync(int pageNumber, int pageSize)
         {
-            var query = _table.Take(pageSize);
-
-            return await query.ToListAsync();
+            return await _table.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
