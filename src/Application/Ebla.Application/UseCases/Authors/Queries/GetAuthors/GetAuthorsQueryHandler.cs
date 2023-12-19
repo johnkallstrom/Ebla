@@ -13,21 +13,23 @@
 
         public async Task<PagedResponse<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
         {
-            int pageNumber = request.PageNumber;
-            int pageSize = request.PageSize;
-            int totalAuthors = await _repository.GetTotalAsync();
+            var validator = new GetAuthorsQueryValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            var response = new PagedResponse<AuthorSlimDto>();
+            if (validationResult.IsValid)
+            {
+                int pageNumber = request.PageNumber;
+                int pageSize = request.PageSize;
+                int totalAuthors = await _repository.GetTotalAsync();
 
-            var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
-            var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
+                var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
+                var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
 
-            response.PageNumber = pageNumber;
-            response.PageSize = pageSize;
-            response.TotalPages = totalAuthors / pageSize;
-            response.Data = dtos;
+                return PagedResponse<AuthorSlimDto>.Success(pageNumber, pageSize, (totalAuthors / pageSize), dtos);
+            }
 
-            return response;
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return PagedResponse<AuthorSlimDto>.Failure(errors);
         }
     }
 }
