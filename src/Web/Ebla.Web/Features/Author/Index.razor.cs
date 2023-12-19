@@ -5,8 +5,7 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public List<AuthorViewModel> Authors { get; set; }
-        public List<string> Errors { get; set; }
+        public PagedResult<AuthorViewModel> Model { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -16,16 +15,12 @@
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Authors = await response.Content.ReadFromJsonAsync<List<AuthorViewModel>>();
-                }
-                else
-                {
-                    Errors = new List<string> { await response.Content.ReadAsStringAsync() };
+                    Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
                 }
             }
             catch (Exception ex)
             {
-                Errors.Add(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }
