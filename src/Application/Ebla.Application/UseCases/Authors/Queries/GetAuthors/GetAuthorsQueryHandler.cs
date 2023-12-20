@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Authors.Queries
 {
-    public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, IEnumerable<AuthorSlimDto>>
+    public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, PagedResponse<AuthorSlimDto>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Author> _repository;
@@ -11,11 +11,32 @@
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
         {
-            var authors = await _repository.GetAllAsync();
+            var validator = new GetAuthorsQueryValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            return _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
+            if (validationResult.IsValid)
+            {
+                int pageNumber = request.PageNumber;
+                int pageSize = request.PageSize;
+
+                int totalRecords = await _repository.GetTotalAsync();
+                int totalPages = Convert.ToInt32(Math.Ceiling((double)totalRecords / pageSize));
+
+                var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
+                var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
+
+                return PagedResponse<AuthorSlimDto>.Success(
+                    pageNumber, 
+                    pageSize, 
+                    totalPages, 
+                    totalRecords, 
+                    dtos);
+            }
+
+            var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
+            return PagedResponse<AuthorSlimDto>.Failure(errors);
         }
     }
 }
