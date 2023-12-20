@@ -7,12 +7,14 @@
         public int PageNumber { get; init; }
         public int PageSize { get; init; }
         public int TotalPages { get; init; }
+        public int TotalRecords { get; set; }
         public IEnumerable<T> Data { get; init; }
 
         public static PagedResponse<T> Success(
             int pageNumber, 
             int pageSize, 
             int totalPages, 
+            int totalRecords,
             IEnumerable<T> data)
         {
             return new PagedResponse<T>
@@ -22,6 +24,7 @@
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalPages = totalPages,
+                TotalRecords = totalRecords,
                 Data = data
             };
         }

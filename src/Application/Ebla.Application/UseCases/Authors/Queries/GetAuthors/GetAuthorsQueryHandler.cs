@@ -20,12 +20,19 @@
             {
                 int pageNumber = request.PageNumber;
                 int pageSize = request.PageSize;
-                int totalAuthors = await _repository.GetTotalAsync();
+
+                int totalRecords = await _repository.GetTotalAsync();
+                int totalPages = 4;
 
                 var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
                 var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
 
-                return PagedResponse<AuthorSlimDto>.Success(pageNumber, pageSize, (totalAuthors / pageSize), dtos);
+                return PagedResponse<AuthorSlimDto>.Success(
+                    pageNumber, 
+                    pageSize, 
+                    totalPages, 
+                    totalRecords, 
+                    dtos);
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
