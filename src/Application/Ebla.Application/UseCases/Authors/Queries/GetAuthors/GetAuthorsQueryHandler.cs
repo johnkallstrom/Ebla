@@ -22,7 +22,7 @@
                 int pageSize = request.PageSize;
 
                 int totalRecords = await _repository.GetTotalAsync();
-                int totalPages = 4;
+                int totalPages = Convert.ToInt32(Math.Ceiling((double)totalRecords / pageSize));
 
                 var authors = await _repository.GetPagedAsync(pageNumber, pageSize);
                 var dtos = _mapper.Map<IEnumerable<AuthorSlimDto>>(authors);
