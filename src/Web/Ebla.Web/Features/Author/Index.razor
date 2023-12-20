@@ -2,3 +2,21 @@
 @attribute [Authorize(Roles = "User")]
 
 <PageTitle>Ebla - Authors</PageTitle>
+
+<MudTable Items="Model.Data" Hover="true" Loading="@Loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Born</MudTh>
+        <MudTh>Country</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="#">@context.Id</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Born">@context.Born.ToYear()</MudTd>
+        <MudTd DataLabel="Country">@context.Country</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudPagination Count="@Model.TotalPages" Selected="@Model.PageNumber" SelectedChanged="OnPageChangeAsync" Class="pa-4"></MudPagination>
+    </PagerContent>
+</MudTable>

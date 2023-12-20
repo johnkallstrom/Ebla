@@ -5,24 +5,30 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public PagedResult<AuthorViewModel> Model { get; set; }
-        public int PageNumber { get; set; } = 1;
-        public int PageSize { get; set; } = 10;
+        public PagedResult<AuthorViewModel> Model { get; set; } = new PagedResult<AuthorViewModel>();
+        public bool Loading { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
         {
-            try
-            {
-                var response = await HttpService.GetAsync($"{Endpoints.Authors}?pageNumber={PageNumber}&pageSize={PageSize}");
+            var response = await HttpService.GetAsync($"{Endpoints.Authors}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
-                }
-            }
-            catch (Exception ex)
+            if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine(ex.Message);
+                Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
+                Loading = false;
+            }
+        }
+
+        private async Task OnPageChangeAsync(int selectedPage)
+        {
+            Model.PageNumber = selectedPage;
+
+            var response = await HttpService.GetAsync($"{Endpoints.Authors}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
+                Loading = false;
             }
         }
     }
