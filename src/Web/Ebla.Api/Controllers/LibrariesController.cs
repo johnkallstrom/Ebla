@@ -12,16 +12,22 @@
         }
 
         /// <summary>
-        /// Get all libraries
+        /// Get libraries
         /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<LibrarySlimDto>> GetAll()
+        public async Task<PagedResponse<LibrarySlimDto>> Get(int pageNumber, int pageSize)
         {
-            var libraries = await _mediator.Send(new GetLibrariesQuery());
+            var response = await _mediator.Send(new GetLibrariesQuery
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            });
 
-            return libraries;
+            return response;
         }
 
         /// <summary>

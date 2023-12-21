@@ -14,7 +14,7 @@
             // Group each genre by name
             IEnumerable<IGrouping<string, Genre>> groups = _context.Genres.GroupBy(genre => genre.Name).AsEnumerable();
 
-            // Create 'a' list containing genre name and book amount
+            // Create anonymous list containing genre name and book amount
             var flattened = groups
                 .SelectMany(group => group.Select(genre => new 
                 { 
