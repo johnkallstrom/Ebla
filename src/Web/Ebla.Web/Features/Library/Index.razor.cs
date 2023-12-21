@@ -5,27 +5,30 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public List<LibraryViewModel> Libraries { get; set; }
-        public List<string> Errors { get; set; }
+        public PagedResult<LibraryViewModel> Model { get; set; } = new PagedResult<LibraryViewModel>();
+        public bool Loading { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
         {
-            try
-            {
-                var response = await HttpService.GetAsync(Endpoints.Libraries);
+            var response = await HttpService.GetAsync($"{Endpoints.Libraries}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    Libraries = await response.Content.ReadFromJsonAsync<List<LibraryViewModel>>();
-                }
-                else
-                {
-                    Errors = new List<string> { await response.Content.ReadAsStringAsync() };
-                }
-            }
-            catch (Exception ex)
+            if (response.IsSuccessStatusCode)
             {
-                Errors.Add(ex.Message);
+                Model = await response.Content.ReadFromJsonAsync<PagedResult<LibraryViewModel>>();
+                Loading = false;
+            }
+        }
+
+        private async Task OnPageChangeAsync(int selectedPage)
+        {
+            Model.PageNumber = selectedPage;
+
+            var response = await HttpService.GetAsync($"{Endpoints.Libraries}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                Model = await response.Content.ReadFromJsonAsync<PagedResult<LibraryViewModel>>();
+                Loading = false;
             }
         }
     }
