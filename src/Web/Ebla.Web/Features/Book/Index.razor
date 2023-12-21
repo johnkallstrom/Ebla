@@ -2,3 +2,25 @@
 @attribute [Authorize(Roles = "User")]
 
 <PageTitle>Ebla - Books</PageTitle>
+
+<MudTable Items="Model.Data" Hover="true" Loading="@Loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh>Title</MudTh>
+        <MudTh>Author</MudTh>
+        <MudTh>Genre</MudTh>
+        <MudTh>Language</MudTh>
+        <MudTh>Country</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="#">@context.Id</MudTd>
+        <MudTd DataLabel="Title">@context.Title</MudTd>
+        <MudTd DataLabel="Author">@context.Author</MudTd>
+        <MudTd DataLabel="Genre">@context.Genre</MudTd>
+        <MudTd DataLabel="Published">@context.Language</MudTd>
+        <MudTd DataLabel="Published">@context.Country</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudPagination Count="@Model.TotalPages" Selected="@Model.PageNumber" SelectedChanged="OnPageChangeAsync" Class="pa-4"></MudPagination>
+    </PagerContent>
+</MudTable>
