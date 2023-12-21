@@ -12,16 +12,20 @@
         }
 
         /// <summary>
-        /// Get all books
+        /// Get books
         /// </summary>
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<IEnumerable<BookSlimDto>> GetAll()
+        public async Task<PagedResponse<BookSlimDto>> Get(int pageNumber, int pageSize)
         {
-            var books = await _mediator.Send(new GetBooksQuery());
+            var response = await _mediator.Send(new GetBooksQuery
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            });
 
-            return books;
+            return response;
         }
 
         /// <summary>

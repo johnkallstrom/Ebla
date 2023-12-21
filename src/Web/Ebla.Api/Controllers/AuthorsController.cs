@@ -12,12 +12,14 @@
         }
 
         /// <summary>
-        /// Get all authors
+        /// Get authors
         /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<PagedResponse<AuthorSlimDto>> GetAll(int pageNumber, int pageSize)
+        public async Task<PagedResponse<AuthorSlimDto>> Get(int pageNumber, int pageSize)
         {
             var response = await _mediator.Send(new GetAuthorsQuery 
             { 
