@@ -15,7 +15,7 @@
                     {
                         <MudIcon Icon="fas fa-book" Color="Color.Primary" Style="font-size: 4rem;" />
                         <MudDivider Vertical="true" FlexItem="true" Light="true" />
-                        <MudText Typo="Typo.h3">@Model.TotalBooks</MudText>
+                        <MudText Typo="Typo.h3">@Model.Data.TotalBooks</MudText>
                     }
                 </MudPaper>
             </MudItem>
@@ -29,7 +29,21 @@
                     {
                         <MudIcon Icon="fas fa-handshake-simple" Color="Color.Tertiary" Style="font-size: 4rem;" />
                         <MudDivider Vertical="true" FlexItem="true" Light="true" />
-                        <MudText Typo="Typo.h3">0</MudText>
+                        <MudText Typo="Typo.h3">@Model.Data.TotalLoans</MudText>
+                    }
+                </MudPaper>
+            </MudItem>
+            <MudItem sm="6" lg="3" xl="2">
+                <MudPaper Class="pa-8 d-flex justify-center align-center gap-5">
+                    @if (Loading)
+                    {
+                        <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+                    }
+                    else
+                    {
+                        <MudIcon Icon="fas fa-hourglass" Color="Color.Warning" Style="font-size: 4rem;" />
+                        <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                        <MudText Typo="Typo.h3">@Model.Data.TotalReservations</MudText>
                     }
                 </MudPaper>
             </MudItem>
@@ -43,18 +57,7 @@
                     }
                     else
                     {
-                        <MudChart ChartType="ChartType.Pie" InputData="Model.GenrePercentages" InputLabels="@Model.GenreLabels" Width="300px" Height="300px" />
-                    }
-                </MudPaper>
-            </MudItem>
-            <MudItem sm="8" lg="6" xl="4">
-                <MudPaper Class="pa-4 d-flex justify-center align-center">
-                    @if (Loading)
-                    {
-                        <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
-                    }
-                    else
-                    {
+                        <MudChart ChartType="ChartType.Pie" InputData="@Model.Data.GenrePercentages" InputLabels="@Model.Data.GenreLabels" Width="300px" Height="300px" />
                     }
                 </MudPaper>
             </MudItem>

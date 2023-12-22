@@ -8,7 +8,7 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public StatisticsViewModel Model { get; set; } = new StatisticsViewModel();
+        public Result<StatisticsViewModel> Model { get; set; }
         public bool Loading { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
@@ -23,8 +23,8 @@
                 if (response.IsSuccessStatusCode)
                 {
                     Loading = false;
-                    Model = await response.Content.ReadFromJsonAsync<StatisticsViewModel>();
-                    Model.GenreLabels = FormatLabels(Model.GenreLabels, Model.GenrePercentages);
+                    Model = await response.Content.ReadFromJsonAsync<Result<StatisticsViewModel>>();
+                    Model.Data.GenreLabels = FormatLabels(Model.Data.GenreLabels, Model.Data.GenrePercentages);
                 }
             }
         }
