@@ -16,10 +16,10 @@
 
             // Create anonymous list containing genre name and book amount
             var flattened = groups
-                .SelectMany(group => group.Select(genre => new 
+                .SelectMany(group => group.Where(genre => genre.Books != null).Select(genre => new 
                 { 
                     Genre = group.Key, 
-                    Books = genre.Books == null ? 0 : genre.Books.Count() 
+                    Books = genre.Books.Count() 
                 })).OrderByDescending(x => x.Books).ToList();
 
             // Calculate percentage from the amount of books each genre has and the total books stored in db
