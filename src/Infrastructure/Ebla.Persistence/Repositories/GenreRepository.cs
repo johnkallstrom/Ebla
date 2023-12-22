@@ -9,7 +9,7 @@
             _context = context;
         }
 
-        public Dictionary<string, double> GetStatisticsData()
+        public Dictionary<string, double> GetGenreStatisticsData()
         {
             // Group each genre by name
             IEnumerable<IGrouping<string, Genre>> groups = _context.Genres.GroupBy(genre => genre.Name).AsEnumerable();

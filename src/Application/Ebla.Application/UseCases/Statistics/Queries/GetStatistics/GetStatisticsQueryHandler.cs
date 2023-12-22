@@ -17,7 +17,7 @@
         {
             int totalBooks = await _bookRepository.GetTotalBooksAsync();
 
-            var data = _genreRepository.GetStatisticsData();
+            var data = _genreRepository.GetGenreStatisticsData();
             var genreLabels = data.Keys.ToArray();
             var genrePercentages = data.Values.ToArray();
 
