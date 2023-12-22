@@ -86,5 +86,7 @@
                 return loan;
             }
         }
+
+        public async Task<int> GetTotalLoansAsync() => await _context.Loans.CountAsync();
     }
 }

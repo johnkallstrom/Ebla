@@ -43,5 +43,7 @@
 
             return reservations;
         }
+
+        public async Task<int> GetTotalReservationsAsync() => await _context.Reservations.CountAsync();
     }
 }
