@@ -5,7 +5,7 @@
 <AuthorizeView Roles="User, Administrator">
     <Authorized>
         <MudGrid>
-            <MudItem sm="6" lg="4" xl="2">
+            <MudItem sm="6" lg="3" xl="2">
                 <MudPaper Class="pa-8 d-flex justify-center align-center gap-4">
                     @if (Loading)
                     {
@@ -14,7 +14,7 @@
                     else
                     {
                         <MudIcon Icon="fas fa-book" Color="Color.Primary" Style="font-size: 4rem;" />
-                        <MudText Typo="Typo.body2">Total books:</MudText>
+                        <MudDivider Vertical="true" FlexItem="true" Light="true" />
                         <MudText Typo="Typo.h3">@Model.TotalBooks</MudText>
                     }
                 </MudPaper>
