@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.UseCases.Statistics.Queries
 {
-    public class GetStatisticsQuery : IRequest<StatisticsDto>
+    public class GetStatisticsQuery : IRequest<Response<StatisticsDto>>
     {
     }
 }
