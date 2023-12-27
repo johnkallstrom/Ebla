@@ -1,0 +1,17 @@
+﻿namespace Ebla.Application.Books.Commands
+{
+    public class UpdateBookCommandValidator : AbstractValidator<UpdateBookCommand>
+    {
+        public UpdateBookCommandValidator()
+        {
+            RuleFor(x => x.Id).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+            RuleFor(x => x.Title).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+            RuleFor(x => x.Description).NotEmpty().Length(1, 500).WithMessage("Please enter a valid {PropertyName}, must be between {MinLength} and {MaxLength} characters");
+            RuleFor(x => x.Pages).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+            RuleFor(x => x.Published).NotNull().WithMessage("Please enter a valid date for {PropertyName}");
+            RuleFor(x => x.Language).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+            RuleFor(x => x.AuthorId).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+            RuleFor(x => x.GenreId).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+        }
+    }
+}
