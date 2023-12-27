@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Library
+﻿namespace Ebla.Web.Features.Libraries
 {
     public partial class Details
     {
@@ -8,7 +8,7 @@
         [Parameter]
         public int LibraryId { get; set; }
 
-        public LibraryViewModel Library { get; set; }
+        public LibraryViewModel Model { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -16,7 +16,7 @@
 
             if (response.IsSuccessStatusCode)
             {
-                Library = await response.Content.ReadFromJsonAsync<LibraryViewModel>();
+                Model = await response.Content.ReadFromJsonAsync<LibraryViewModel>();
             }
         }
     }

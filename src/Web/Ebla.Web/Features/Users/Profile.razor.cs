@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.User
+﻿namespace Ebla.Web.Features.Users
 {
     public partial class Profile
     {
@@ -8,7 +8,7 @@
         [Parameter]
         public Guid UserId { get; set; }
 
-        public UserViewModel User { get; set; }
+        public UserViewModel Model { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -16,7 +16,7 @@
 
             if (response.IsSuccessStatusCode)
             {
-                User = await response.Content.ReadFromJsonAsync<UserViewModel>();
+                Model = await response.Content.ReadFromJsonAsync<UserViewModel>();
             }
         }
     }

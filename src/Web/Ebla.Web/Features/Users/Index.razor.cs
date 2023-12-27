@@ -1,22 +1,22 @@
-﻿namespace Ebla.Web.Features.Loan
+﻿namespace Ebla.Web.Features.Users
 {
     public partial class Index
     {
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public List<LoanViewModel> Loans { get; set; }
+        public List<UserViewModel> UserList { get; set; }
         public List<string> Errors { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                var response = await HttpService.GetAsync(Endpoints.Loans);
+                var response = await HttpService.GetAsync(Endpoints.Users);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Loans = await response.Content.ReadFromJsonAsync<List<LoanViewModel>>();
+                    UserList = await response.Content.ReadFromJsonAsync<List<UserViewModel>>();
                 }
             }
             catch (Exception ex)

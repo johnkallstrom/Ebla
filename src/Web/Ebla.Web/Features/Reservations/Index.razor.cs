@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Reservation
+﻿namespace Ebla.Web.Features.Reservations
 {
     public partial class Index
     {

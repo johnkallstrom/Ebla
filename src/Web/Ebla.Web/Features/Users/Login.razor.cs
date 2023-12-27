@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.User
+﻿namespace Ebla.Web.Features.Users
 {
     public partial class Login
     {

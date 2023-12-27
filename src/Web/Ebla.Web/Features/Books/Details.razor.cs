@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Book
+﻿namespace Ebla.Web.Features.Books
 {
     public partial class Details
     {
@@ -8,7 +8,7 @@
         [Parameter]
         public int BookId { get; set; }
 
-        public BookViewModel Book { get; set; }
+        public BookViewModel Model { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -16,7 +16,7 @@
 
             if (response.IsSuccessStatusCode)
             {
-                Book = await response.Content.ReadFromJsonAsync<BookViewModel>();
+                Model = await response.Content.ReadFromJsonAsync<BookViewModel>();
             }
         }
     }

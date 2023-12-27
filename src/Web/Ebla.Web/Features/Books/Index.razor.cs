@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Book
+﻿namespace Ebla.Web.Features.Books
 {
     public partial class Index
     {

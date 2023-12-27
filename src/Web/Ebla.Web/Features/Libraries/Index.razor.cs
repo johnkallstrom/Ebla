@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Library
+﻿namespace Ebla.Web.Features.Libraries
 {
     public partial class Index
     {

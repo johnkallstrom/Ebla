@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Author
+﻿namespace Ebla.Web.Features.Authors
 {
     public partial class Details
     {
