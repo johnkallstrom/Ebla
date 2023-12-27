@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "bookId": 1,
+    "userId": null
+  },
+  {
+    "id": 2,
+    "bookId": 2,
+    "userId": null
+  },
+  {
+    "id": 3,
+    "bookId": 3,
+    "userId": null
+  },
+  {
+    "id": 4,
+    "bookId": 4,
+    "userId": null
+  },
+  {
+    "id": 5,
+    "bookId": 5,
+    "userId": null
+  }
+]

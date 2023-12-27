@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "returned": null,
+    "bookId": 1,
+    "userId": null
+  },
+  {
+    "id": 2,
+    "returned": null,
+    "bookId": 2,
+    "userId": null
+  },
+  {
+    "id": 3,
+    "returned": null,
+    "bookId": 3,
+    "userId": null
+  },
+  {
+    "id": 4,
+    "returned": null,
+    "bookId": 4,
+    "userId": null
+  },
+  {
+    "id": 5,
+    "returned": null,
+    "bookId": 5,
+    "userId": null
+  }
+]
