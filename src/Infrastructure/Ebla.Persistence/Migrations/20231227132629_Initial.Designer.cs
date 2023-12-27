@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ebla.Persistence.Migrations
 {
     [DbContext(typeof(EblaDbContext))]
-    [Migration("20231227120446_Initial")]
+    [Migration("20231227132629_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -45,7 +45,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 856, DateTimeKind.Local).AddTicks(7211))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 262, DateTimeKind.Local).AddTicks(4629))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -379,6 +379,26 @@ namespace Ebla.Persistence.Migrations
                             Description = "Philip Kindred Dick (December 16, 1928 – March 2, 1982), often referred to by his initials PKD, was an American science fiction writer.[1] He wrote 44 novels and about 121 short stories, most of which appeared in science fiction magazines during his lifetime.[2] His fiction explored varied philosophical and social questions such as the nature of reality, perception, human nature, and identity, and commonly featured characters struggling against elements such as alternate realities, illusory environments, monopolistic corporations, drug abuse, authoritarian governments, and altered states of consciousness.[3][4] He is considered one of the most important figures in 20th century science fiction.[5]",
                             Image = "https://upload.wikimedia.org/wikipedia/commons/2/2c/Philip_K_Dick_in_early_1960s_%28photo_by_Arthur_Knight%29_02_%28cropped%29.jpg",
                             Name = "Philip K. Dick"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Born = new DateTime(1975, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "England",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Matt Haig (born 3 July 1975) is an English author and journalist. He has written both fiction and non-fiction books for children and adults, often in the speculative fiction genre.",
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/4/49/Matt_Haig.jpeg",
+                            Name = "Matt Haig"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Born = new DateTime(1969, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Matthew David McConaughey (/məˈkɒnəheɪ/ mə-KON-ə-hay; born November 4, 1969) is an American actor. He had his breakout role with a supporting performance in the coming-of-age comedy Dazed and Confused (1993).[1][2][3] After a number of supporting roles, his first success as a leading man came in the legal drama A Time to Kill (1996). His career progressed with lead roles in the science fiction film Contact (1997), the historical drama Amistad (1997), and the war film U-571 (2000).",
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/b/bf/Matthew_McConaughey_2019_%2848648344772%29.jpg",
+                            Name = "Matthew McConaughey"
                         });
                 });
 
@@ -401,7 +421,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 857, DateTimeKind.Local).AddTicks(5941))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 263, DateTimeKind.Local).AddTicks(3641))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -933,6 +953,76 @@ namespace Ebla.Persistence.Migrations
                             Pages = 214,
                             Published = new DateTime(1953, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Childhood's End"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            AuthorId = 6,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "The Lord of the Rings is an epic[1] high fantasy novel[a] by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling books ever written, with over 150 million copies sold.[2]",
+                            GenreId = 2,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/e/e9/First_Single_Volume_Edition_of_The_Lord_of_the_Rings.gif",
+                            Language = "English",
+                            Pages = 1178,
+                            Published = new DateTime(1954, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "The Lord of the Rings"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            AuthorId = 30,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Animal Farm is a beast fable,[1] in the form of a satirical allegorical novella, by George Orwell, first published in England on 17 August 1945.[2][3] It tells the story of a group of anthropomorphic farm animals who rebel against their human farmer, hoping to create a society where the animals can be equal, free, and happy. Ultimately, the rebellion is betrayed and, under the dictatorship of a pig named Napoleon, the farm ends up in a state as bad as it was before.",
+                            GenreId = 13,
+                            Image = "https://upload.wikimedia.org/wikipedia/commons/f/fb/Animal_Farm_-_1st_edition.jpg",
+                            Language = "English",
+                            Pages = 92,
+                            Published = new DateTime(1945, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Animal Farm"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            AuthorId = 12,
+                            Country = "United States",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Project Hail Mary is a 2021 science fiction novel by American novelist Andy Weir. Set in the near future, it centers on junior high (middle) school-teacher-turned-astronaut Ryland Grace, who wakes up from a coma afflicted with amnesia. He gradually remembers that he was sent to the Tau Ceti solar system, 12 light-years from Earth, to find a means of reversing a solar dimming event that could cause the extinction of humanity.[1]",
+                            GenreId = 1,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/a/ad/Project_Hail_Mary%2C_First_Edition_Cover_%282021%29.jpg",
+                            Language = "English",
+                            Pages = 496,
+                            Published = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Project Hail Mary"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            AuthorId = 32,
+                            Country = "United Kingdom",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "The Midnight Library is a fantasy novel by Matt Haig, published on 13 August 2020 by Canongate Books.[1] It was abridged and broadcast on BBC Radio 4 over ten episodes in December 2020.[2] The novel follows a 35-year-old British woman unhappy in her dead-end life who is given the opportunity to experience lives she might have had if she had made different choices.",
+                            GenreId = 2,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/8/87/The_Midnight_Library.jpg",
+                            Language = "English",
+                            Pages = 288,
+                            Published = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "The Midnight Library"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            AuthorId = 33,
+                            Country = "United States",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Greenlights is a 2020 book by American actor Matthew McConaughey.[1][2] It was published on October 20, 2020, by the Crown imprint of Crown Publishing Group.[3][4]",
+                            GenreId = 14,
+                            Image = "https://upload.wikimedia.org/wikipedia/en/9/96/Greenlights_%28Matthew_McConaughey%29.png",
+                            Language = "English",
+                            Pages = 304,
+                            Published = new DateTime(2020, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Greenlights"
                         });
                 });
 
@@ -1092,7 +1182,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(1486))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 264, DateTimeKind.Local).AddTicks(8613))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1195,6 +1285,20 @@ namespace Ebla.Persistence.Migrations
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Thriller is a genre of fiction with numerous, often overlapping, subgenres, including crime, horror, and detective fiction. Thrillers are characterized and defined by the moods they elicit, giving their audiences heightened feelings of suspense, excitement, surprise, anticipation and anxiety.[1] This genre is well suited to film and television.",
                             Name = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Political satire is a type of satire that specializes in gaining entertainment from politics. Political satire can also act as a tool for advancing political arguments in conditions where political speech and dissent are banned.",
+                            Name = "Political satire"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "A memoir (/ˈmɛm.wɑːr/;[1] from French mémoire [me.mwaʁ], from Latin memoria 'memory, remembrance') is any nonfiction narrative writing based on the author's personal memories.[2][3] The assertions made in the work are thus understood to be factual. While memoir has historically been defined as a subcategory of biography or autobiography since the late 20th century, the genre is differentiated in form, presenting a narrowed focus, usually a particular time phase in someone's life or career. A biography or autobiography tells the story of a life, while a memoir often tells the story of a particular career, event, or time, such as touchstone moments and turning points in the author's life. The author of a memoir may be referred to as a memoirist or a memorialist.",
+                            Name = "Memoir"
                         });
                 });
 
@@ -1210,7 +1314,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(5206))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 265, DateTimeKind.Local).AddTicks(2213))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime?>("Established")
