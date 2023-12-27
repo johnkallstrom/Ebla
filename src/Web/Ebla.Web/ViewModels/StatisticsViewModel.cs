@@ -3,6 +3,7 @@
     public class StatisticsViewModel
     {
         public int TotalBooks { get; set; }
+        public int TotalUsers { get; set; }
         public int TotalLoans { get; set; }
         public int TotalReservations { get; set; }
         public string[] GenreLabels { get; set; }

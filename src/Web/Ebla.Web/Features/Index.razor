@@ -27,6 +27,20 @@
                     }
                     else
                     {
+                        <MudIcon Icon="fas fa-users" Color="Color.Secondary" Style="font-size: 4rem;" />
+                        <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                        <MudText Typo="Typo.h3">@Model.Data.TotalUsers</MudText>
+                    }
+                </MudPaper>
+            </MudItem>
+            <MudItem sm="6" lg="3" xl="2">
+                <MudPaper Class="pa-8 d-flex justify-center align-center gap-5">
+                    @if (Loading)
+                    {
+                        <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+                    }
+                    else
+                    {
                         <MudIcon Icon="fas fa-handshake-simple" Color="Color.Tertiary" Style="font-size: 4rem;" />
                         <MudDivider Vertical="true" FlexItem="true" Light="true" />
                         <MudText Typo="Typo.h3">@Model.Data.TotalLoans</MudText>
