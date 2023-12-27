@@ -2,3 +2,20 @@
 @attribute [Authorize(Roles = "Administrator")]
 
 <PageTitle>Ebla - Reservations</PageTitle>
+
+<MudTable Items="Reservations" Hover="true">
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh>Created</MudTh>
+        <MudTh>Expires</MudTh>
+        <MudTh>Book</MudTh>
+        <MudTh>User</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="#">@context.Id</MudTd>
+        <MudTd DataLabel="Created">@context.CreatedOn.ToCustomDateFormat()</MudTd>
+        <MudTd DataLabel="Expires">@context.ExpiresOn.ToCustomDateFormat()</MudTd>
+        <MudTd DataLabel="Book">@context.Book.Title</MudTd>
+        <MudTd DataLabel="User">@context.UserId</MudTd>
+    </RowTemplate>
+</MudTable>

@@ -19,7 +19,7 @@
             enableDrawer = !enableDrawer;
         }
 
-        async Task SignOut()
+        async Task Logout()
         {
             await LocalStorage.RemoveItemAsync("token");
             NavigationManager.NavigateToAndRefresh(NavigationManager.BaseUri);
