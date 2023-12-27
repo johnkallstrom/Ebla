@@ -2,6 +2,7 @@
 {
     public interface IIdentityService
     {
+        Task<int> GetTotalUsersAsync();
         Task<string[]> GetUserRolesAsync(IApplicationUser user);
         Task<List<IApplicationUser>> GetAllUsersAsync();
         Task<IApplicationUser> GetUserAsync(string username);

@@ -140,5 +140,7 @@
 
             await _userManager.DeleteAsync(user);
         }
+
+        public async Task<int> GetTotalUsersAsync() => await _userManager.Users.CountAsync();
     }
 }
