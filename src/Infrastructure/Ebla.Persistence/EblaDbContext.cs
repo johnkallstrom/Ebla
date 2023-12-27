@@ -11,7 +11,6 @@
         public DbSet<BookLibrary> BookLibraries { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Library> Libraries { get; set; }
-        public DbSet<LibraryCard> LibraryCards { get; set; }
         public DbSet<Loan> Loans { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Review> Reviews { get; set; }
@@ -25,7 +24,6 @@
             modelBuilder.ApplyConfiguration(new BookLibraryConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
             modelBuilder.ApplyConfiguration(new LibraryConfiguration());
-            modelBuilder.ApplyConfiguration(new LibraryCardConfiguration());
             modelBuilder.ApplyConfiguration(new LoanConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new ReviewConfiguration());

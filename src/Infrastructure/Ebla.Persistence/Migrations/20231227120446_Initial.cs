@@ -24,7 +24,7 @@ namespace Ebla.Persistence.Migrations
                     Born = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 15, 17, 38, 30, 172, DateTimeKind.Local).AddTicks(8636)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 13, 4, 45, 856, DateTimeKind.Local).AddTicks(7211)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -40,7 +40,7 @@ namespace Ebla.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 15, 17, 38, 30, 175, DateTimeKind.Local).AddTicks(1151)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(1486)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -56,7 +56,7 @@ namespace Ebla.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Established = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 15, 17, 38, 30, 175, DateTimeKind.Local).AddTicks(4210)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(5206)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -120,7 +120,7 @@ namespace Ebla.Persistence.Migrations
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 15, 17, 38, 30, 173, DateTimeKind.Local).AddTicks(6419)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 13, 4, 45, 857, DateTimeKind.Local).AddTicks(5941)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -136,30 +136,6 @@ namespace Ebla.Persistence.Migrations
                         name: "FK_Book_Genre_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genre",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LibraryCard",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PIN = table.Column<int>(type: "int", nullable: false),
-                    ExpiresOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LibraryId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LibraryCard", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_LibraryCard_Library_LibraryId",
-                        column: x => x.LibraryId,
-                        principalTable: "Library",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -524,11 +500,6 @@ namespace Ebla.Persistence.Migrations
                 column: "LibraryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LibraryCard_LibraryId",
-                table: "LibraryCard",
-                column: "LibraryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Loan_BookId",
                 table: "Loan",
                 column: "BookId");
@@ -588,9 +559,6 @@ namespace Ebla.Persistence.Migrations
         {
             migrationBuilder.DropTable(
                 name: "BookLibrary");
-
-            migrationBuilder.DropTable(
-                name: "LibraryCard");
 
             migrationBuilder.DropTable(
                 name: "Loan");

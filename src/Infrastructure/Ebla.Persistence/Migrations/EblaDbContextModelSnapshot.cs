@@ -42,7 +42,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 17, 38, 30, 172, DateTimeKind.Local).AddTicks(8636))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 856, DateTimeKind.Local).AddTicks(7211))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -398,7 +398,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 17, 38, 30, 173, DateTimeKind.Local).AddTicks(6419))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 857, DateTimeKind.Local).AddTicks(5941))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1089,7 +1089,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 17, 38, 30, 175, DateTimeKind.Local).AddTicks(1151))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(1486))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1207,7 +1207,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 17, 38, 30, 175, DateTimeKind.Local).AddTicks(4210))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 13, 4, 45, 859, DateTimeKind.Local).AddTicks(5206))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime?>("Established")
@@ -1262,45 +1262,6 @@ namespace Ebla.Persistence.Migrations
                             Established = new DateTime(2015, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rainbow Library"
                         });
-                });
-
-            modelBuilder.Entity("Ebla.Domain.Entities.LibraryCard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreatedOn");
-
-                    b.Property<DateTime>("ExpiresOn")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ExpiresOn");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("LastModified");
-
-                    b.Property<int>("LibraryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PIN")
-                        .HasColumnType("int")
-                        .HasColumnName("PIN");
-
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LibraryId");
-
-                    b.ToTable("LibraryCard", (string)null);
                 });
 
             modelBuilder.Entity("Ebla.Domain.Entities.Loan", b =>
@@ -1660,17 +1621,6 @@ namespace Ebla.Persistence.Migrations
                     b.Navigation("Library");
                 });
 
-            modelBuilder.Entity("Ebla.Domain.Entities.LibraryCard", b =>
-                {
-                    b.HasOne("Ebla.Domain.Entities.Library", "Library")
-                        .WithMany("LibraryCards")
-                        .HasForeignKey("LibraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Library");
-                });
-
             modelBuilder.Entity("Ebla.Domain.Entities.Loan", b =>
                 {
                     b.HasOne("Ebla.Domain.Entities.Book", "Book")
@@ -1777,8 +1727,6 @@ namespace Ebla.Persistence.Migrations
             modelBuilder.Entity("Ebla.Domain.Entities.Library", b =>
                 {
                     b.Navigation("BookLibraries");
-
-                    b.Navigation("LibraryCards");
                 });
 #pragma warning restore 612, 618
         }

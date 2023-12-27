@@ -6,7 +6,6 @@
         private readonly IGenericRepository<Reservation> _repository;
         private readonly IIdentityService _identityService;
         private readonly IBookRepository _bookRepository;
-        private readonly ILibraryCardRepository _libraryCardRepository;
         private readonly IReservationRepository _reservationRepository;
 
         public CreateReservationCommandHandler(
@@ -14,14 +13,12 @@
             IGenericRepository<Reservation> repository,
             IIdentityService identityService,
             IBookRepository bookRepository,
-            ILibraryCardRepository libraryCardRepository,
             IReservationRepository reservationRepository)
         {
             _mapper = mapper;
             _repository = repository;
             _identityService = identityService;
             _bookRepository = bookRepository;
-            _libraryCardRepository = libraryCardRepository;
             _reservationRepository = reservationRepository;
         }
 
@@ -42,11 +39,6 @@
                 if (book is null)
                 {
                     throw new NotFoundException(nameof(book), request.BookId);
-                }
-
-                if (!await _libraryCardRepository.HasValidLibraryCard(user.Id))
-                {
-                    return Response<int>.Failure(new[] { $"No valid library card exists on user with id: {user.Id}" });
                 }
 
                 var userReservations = await _reservationRepository.GetReservationListByUserIdAsync(user.Id);

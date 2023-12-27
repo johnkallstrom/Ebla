@@ -6,6 +6,5 @@
         public DateTime? Established { get; set; }
 
         public ICollection<BookLibrary> BookLibraries { get; set; }
-        public List<LibraryCard> LibraryCards { get; set; }
     }
 }

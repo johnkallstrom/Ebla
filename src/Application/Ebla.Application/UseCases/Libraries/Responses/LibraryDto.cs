@@ -5,6 +5,5 @@
         string Name,
         DateTime? Established,
         DateTime CreatedOn,
-        DateTime? LastModified,
-        List<LibraryCardDto> LibraryCards);
+        DateTime? LastModified);
 }

@@ -25,13 +25,6 @@
             CreateMap<Library, LibraryDto>().ReverseMap();
             CreateMap<Library, LibrarySlimDto>().ReverseMap();
 
-            CreateMap<LibraryCard, LibraryCardDto>()
-                .ForMember(dest => dest.Library, opt => opt.MapFrom(src => src.Library.Name))
-                .ReverseMap();
-
-            CreateMap<CreateLibraryCardCommand, LibraryCard>();
-            CreateMap<UpdateLibraryCardCommand, LibraryCard>();
-
             CreateMap<Loan, LoanDto>().ReverseMap();
             CreateMap<CreateLoanCommand, Loan>();
             CreateMap<UpdateLoanCommand, Loan>();
