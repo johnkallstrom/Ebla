@@ -5,7 +5,7 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public List<LoanViewModel> Model { get; set; }
+        public List<LoanViewModel> Loans { get; set; }
         public List<string> Errors { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -16,7 +16,7 @@
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Model = await response.Content.ReadFromJsonAsync<List<LoanViewModel>>();
+                    Loans = await response.Content.ReadFromJsonAsync<List<LoanViewModel>>();
                 }
             }
             catch (Exception ex)
