@@ -418,5 +418,65 @@
     "image": "https://upload.wikimedia.org/wikipedia/en/7/72/ChildhoodsEnd%281stEd%29.jpg",
     "authorId": 1,
     "genreId": 1
+  },
+  {
+    "id": 36,
+    "title": "The Lord of the Rings",
+    "description": "The Lord of the Rings is an epic[1] high fantasy novel[a] by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling books ever written, with over 150 million copies sold.[2]",
+    "pages": 1178,
+    "published": "1954-6-29",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/e9/First_Single_Volume_Edition_of_The_Lord_of_the_Rings.gif",
+    "authorId": 6,
+    "genreId": 2
+  },
+  {
+    "id": 37,
+    "title": "Animal Farm",
+    "description": "Animal Farm is a beast fable,[1] in the form of a satirical allegorical novella, by George Orwell, first published in England on 17 August 1945.[2][3] It tells the story of a group of anthropomorphic farm animals who rebel against their human farmer, hoping to create a society where the animals can be equal, free, and happy. Ultimately, the rebellion is betrayed and, under the dictatorship of a pig named Napoleon, the farm ends up in a state as bad as it was before.",
+    "pages": 92,
+    "published": "1945-8-17",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Animal_Farm_-_1st_edition.jpg",
+    "authorId": 30,
+    "genreId": 13
+  },
+  {
+    "id": 38,
+    "title": "Project Hail Mary",
+    "description": "Project Hail Mary is a 2021 science fiction novel by American novelist Andy Weir. Set in the near future, it centers on junior high (middle) school-teacher-turned-astronaut Ryland Grace, who wakes up from a coma afflicted with amnesia. He gradually remembers that he was sent to the Tau Ceti solar system, 12 light-years from Earth, to find a means of reversing a solar dimming event that could cause the extinction of humanity.[1]",
+    "pages": 496,
+    "published": "2021-5-4",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/ad/Project_Hail_Mary%2C_First_Edition_Cover_%282021%29.jpg",
+    "authorId": 12,
+    "genreId": 1
+  },
+  {
+    "id": 39,
+    "title": "The Midnight Library",
+    "description": "The Midnight Library is a fantasy novel by Matt Haig, published on 13 August 2020 by Canongate Books.[1] It was abridged and broadcast on BBC Radio 4 over ten episodes in December 2020.[2] The novel follows a 35-year-old British woman unhappy in her dead-end life who is given the opportunity to experience lives she might have had if she had made different choices.",
+    "pages": 288,
+    "published": "2020-8-13",
+    "language": "English",
+    "country": "United Kingdom",
+    "image": "https://upload.wikimedia.org/wikipedia/en/8/87/The_Midnight_Library.jpg",
+    "authorId": 32,
+    "genreId": 2
+  },
+  {
+    "id": 40,
+    "title": "Greenlights",
+    "description": "Greenlights is a 2020 book by American actor Matthew McConaughey.[1][2] It was published on October 20, 2020, by the Crown imprint of Crown Publishing Group.[3][4]",
+    "pages": 304,
+    "published": "2020-10-20",
+    "language": "English",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/96/Greenlights_%28Matthew_McConaughey%29.png",
+    "authorId": 0,
+    "genreId": 0
   }
 ]

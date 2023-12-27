@@ -58,5 +58,10 @@
     "id": 12,
     "name": "Thriller",
     "description": "Thriller is a genre of fiction with numerous, often overlapping, subgenres, including crime, horror, and detective fiction. Thrillers are characterized and defined by the moods they elicit, giving their audiences heightened feelings of suspense, excitement, surprise, anticipation and anxiety.[1] This genre is well suited to film and television."
+  },
+  {
+    "id": 13,
+    "name": "Political satire",
+    "description": "Political satire is a type of satire that specializes in gaining entertainment from politics. Political satire can also act as a tool for advancing political arguments in conditions where political speech and dissent are banned."
   }
 ]

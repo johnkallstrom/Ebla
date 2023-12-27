@@ -246,5 +246,21 @@
     "born": "1928-12-16",
     "country": "United States",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Philip_K_Dick_in_early_1960s_%28photo_by_Arthur_Knight%29_02_%28cropped%29.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Matt Haig",
+    "description": "Matt Haig (born 3 July 1975) is an English author and journalist. He has written both fiction and non-fiction books for children and adults, often in the speculative fiction genre.",
+    "born": "1975-7-3",
+    "country": "England",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Matt_Haig.jpeg"
+  },
+  {
+    "id": 33,
+    "name": "Matthew McConaughey",
+    "description": "Matthew David McConaughey (/məˈkɒnəheɪ/ mə-KON-ə-hay; born November 4, 1969) is an American actor. He had his breakout role with a supporting performance in the coming-of-age comedy Dazed and Confused (1993).[1][2][3] After a number of supporting roles, his first success as a leading man came in the legal drama A Time to Kill (1996). His career progressed with lead roles in the science fiction film Contact (1997), the historical drama Amistad (1997), and the war film U-571 (2000).",
+    "born": "1969-11-4",
+    "country": "United States",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Matthew_McConaughey_2019_%2848648344772%29.jpg"
   }
 ]
