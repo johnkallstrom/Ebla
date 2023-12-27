@@ -42,7 +42,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 262, DateTimeKind.Local).AddTicks(4629))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 862, DateTimeKind.Local).AddTicks(6035))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -418,7 +418,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 263, DateTimeKind.Local).AddTicks(3641))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 863, DateTimeKind.Local).AddTicks(4223))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1179,7 +1179,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 264, DateTimeKind.Local).AddTicks(8613))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 864, DateTimeKind.Local).AddTicks(9035))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1311,7 +1311,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 26, 29, 265, DateTimeKind.Local).AddTicks(2213))
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(2615))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime?>("Established")
@@ -1382,11 +1382,15 @@ namespace Ebla.Persistence.Migrations
                         .HasColumnName("BookId");
 
                     b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5780))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("DueDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 1, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5326))
                         .HasColumnName("DueDate");
 
                     b.Property<DateTime?>("LastModified")
@@ -1406,6 +1410,43 @@ namespace Ebla.Persistence.Migrations
                     b.HasIndex("BookId");
 
                     b.ToTable("Loan", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BookId = 1,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BookId = 2,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 3,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BookId = 4,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BookId = 5,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Ebla.Domain.Entities.Reservation", b =>
@@ -1422,11 +1463,15 @@ namespace Ebla.Persistence.Migrations
                         .HasColumnName("BookId");
 
                     b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8797))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("ExpiresOn")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 1, 10, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8375))
                         .HasColumnName("ExpiresOn");
 
                     b.Property<DateTime?>("LastModified")
@@ -1442,6 +1487,43 @@ namespace Ebla.Persistence.Migrations
                     b.HasIndex("BookId");
 
                     b.ToTable("Reservation", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BookId = 1,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiresOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BookId = 2,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiresOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 3,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiresOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BookId = 4,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiresOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BookId = 5,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiresOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Ebla.Domain.Entities.Review", b =>

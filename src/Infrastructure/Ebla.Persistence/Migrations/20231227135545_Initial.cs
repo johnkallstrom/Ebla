@@ -24,7 +24,7 @@ namespace Ebla.Persistence.Migrations
                     Born = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 26, 29, 262, DateTimeKind.Local).AddTicks(4629)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 862, DateTimeKind.Local).AddTicks(6035)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -40,7 +40,7 @@ namespace Ebla.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 26, 29, 264, DateTimeKind.Local).AddTicks(8613)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 864, DateTimeKind.Local).AddTicks(9035)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -56,7 +56,7 @@ namespace Ebla.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Established = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 26, 29, 265, DateTimeKind.Local).AddTicks(2213)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(2615)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -120,7 +120,7 @@ namespace Ebla.Persistence.Migrations
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 26, 29, 263, DateTimeKind.Local).AddTicks(3641)),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 863, DateTimeKind.Local).AddTicks(4223)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -276,11 +276,11 @@ namespace Ebla.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 1, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5326)),
                     Returned = table.Column<DateTime>(type: "datetime2", nullable: true),
                     BookId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5780)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -300,10 +300,10 @@ namespace Ebla.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ExpiresOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ExpiresOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 1, 10, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8375)),
                     BookId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8797)),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -491,6 +491,30 @@ namespace Ebla.Persistence.Migrations
                     { 23, 4 },
                     { 24, 5 },
                     { 25, 5 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Loan",
+                columns: new[] { "Id", "BookId", "LastModified", "Returned", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, null, null, null },
+                    { 2, 2, null, null, null },
+                    { 3, 3, null, null, null },
+                    { 4, 4, null, null, null },
+                    { 5, 5, null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reservation",
+                columns: new[] { "Id", "BookId", "LastModified", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, null, null },
+                    { 2, 2, null, null },
+                    { 3, 3, null, null },
+                    { 4, 4, null, null },
+                    { 5, 5, null, null }
                 });
 
             migrationBuilder.CreateIndex(
