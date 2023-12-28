@@ -1,19 +1,19 @@
 ﻿namespace Ebla.Application.Libraries.Queries
 {
-    public class GetLibrariesQueryHandler : IRequestHandler<GetLibrariesQuery, PagedResponse<LibrarySlimDto>>
+    public class GetPagedLibrariesQueryHandler : IRequestHandler<GetPagedLibrariesQuery, PagedResponse<LibrarySlimDto>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Library> _repository;
 
-        public GetLibrariesQueryHandler(IMapper mapper, IGenericRepository<Library> repository)
+        public GetPagedLibrariesQueryHandler(IMapper mapper, IGenericRepository<Library> repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
 
-        public async Task<PagedResponse<LibrarySlimDto>> Handle(GetLibrariesQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<LibrarySlimDto>> Handle(GetPagedLibrariesQuery request, CancellationToken cancellationToken)
         {
-            var validator = new GetLibrariesQueryValidator();
+            var validator = new GetPagedLibrariesQueryValidator();
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.IsValid)

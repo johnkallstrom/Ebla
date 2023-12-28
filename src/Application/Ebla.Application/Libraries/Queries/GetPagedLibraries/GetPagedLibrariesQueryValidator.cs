@@ -1,8 +1,8 @@
 ﻿namespace Ebla.Application.Libraries.Queries
 {
-    public class GetLibrariesQueryValidator : AbstractValidator<GetLibrariesQuery>
+    public class GetPagedLibrariesQueryValidator : AbstractValidator<GetPagedLibrariesQuery>
     {
-        public GetLibrariesQueryValidator()
+        public GetPagedLibrariesQueryValidator()
         {
             RuleFor(x => x.PageNumber).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
             RuleFor(x => x.PageSize).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
