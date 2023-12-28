@@ -3,7 +3,7 @@
 
 <PageTitle>Ebla - Books</PageTitle>
 
-<MudTable Items="Model.Data" Hover="true" Loading="@Loading" LoadingProgressColor="Color.Info">
+<MudTable Items="BookList" Hover="true" RowsPerPage="25">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Books</MudText>
     </ToolBarContent>
@@ -25,6 +25,5 @@
     </RowTemplate>
     <PagerContent>
         <MudTablePager />
-        @* <MudPagination Count="@Model.TotalPages" Selected="@Model.PageNumber" SelectedChanged="OnPageChangeAsync" Class="pa-4"></MudPagination> *@
     </PagerContent>
 </MudTable>
