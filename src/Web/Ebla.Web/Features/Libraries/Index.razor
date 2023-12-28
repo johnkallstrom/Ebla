@@ -3,28 +3,32 @@
 
 <PageTitle>Ebla - Libraries</PageTitle>
 
-<MudTable Items="LibraryList" Hover="true">
-    <ToolBarContent>
-        <MudText Typo="Typo.h6">Libraries</MudText>
-    </ToolBarContent>
-    <HeaderContent>
-        <MudTh>#</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Established</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="#">@context.Id</MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        @if (context.Established.HasValue)
-        {
-            <MudTd DataLabel="Established">@context.Established.Value.ToYear()</MudTd>
-        }
-        else
-        {
-            <MudTd DataLabel="Established">No date</MudTd>
-        }
-    </RowTemplate>
-    <PagerContent>
-        <MudTablePager />
-    </PagerContent>
-</MudTable>
+<MudGrid>
+    <MudItem sm="12" lg="10" xl="8">
+        <MudTable Items="LibraryList" Hover="true">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Libraries</MudText>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>#</MudTh>
+                <MudTh>Name</MudTh>
+                <MudTh>Established</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="#">@context.Id</MudTd>
+                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                    @if (context.Established.HasValue)
+                {
+                    <MudTd DataLabel="Established">@context.Established.Value.ToYear()</MudTd>
+                }
+                else
+                {
+                    <MudTd DataLabel="Established">No date</MudTd>
+                }
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager HidePageNumber="true" />
+            </PagerContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>

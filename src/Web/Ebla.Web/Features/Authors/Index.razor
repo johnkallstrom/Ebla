@@ -3,23 +3,27 @@
 
 <PageTitle>Ebla - Authors</PageTitle>
 
-<MudTable Items="AuthorList" Hover="true" RowsPerPage="25">
-    <ToolBarContent>
-        <MudText Typo="Typo.h6">Authors</MudText>
-    </ToolBarContent>
-    <HeaderContent>
-        <MudTh>#</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Born</MudTh>
-        <MudTh>Country</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="#">@context.Id</MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        <MudTd DataLabel="Born">@context.Born.ToYear()</MudTd>
-        <MudTd DataLabel="Country">@context.Country</MudTd>
-    </RowTemplate>
-    <PagerContent>
-        <MudTablePager />
-    </PagerContent>
-</MudTable>
+<MudGrid>
+    <MudItem xs="12" lg="10" xl="8">
+        <MudTable Items="AuthorList" Hover="true" RowsPerPage="25">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Authors</MudText>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>#</MudTh>
+                <MudTh>Name</MudTh>
+                <MudTh>Born</MudTh>
+                <MudTh>Country</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="#">@context.Id</MudTd>
+                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                    <MudTd DataLabel="Born">@context.Born.ToYear()</MudTd>
+                    <MudTd DataLabel="Country">@context.Country</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager HidePageNumber="true" />
+                </PagerContent>
+            </MudTable>
+    </MudItem>
+</MudGrid>
