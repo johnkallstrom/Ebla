@@ -1,19 +1,19 @@
 ﻿namespace Ebla.Application.Authors.Queries
 {
-    public class GetAuthorsQueryHandler : IRequestHandler<GetAuthorsQuery, PagedResponse<AuthorSlimDto>>
+    public class GetPagedAuthorsQueryHandler : IRequestHandler<GetPagedAuthorsQuery, PagedResponse<AuthorSlimDto>>
     {
         private readonly IMapper _mapper;
         private readonly IGenericRepository<Author> _repository;
 
-        public GetAuthorsQueryHandler(IGenericRepository<Author> repository, IMapper mapper)
+        public GetPagedAuthorsQueryHandler(IGenericRepository<Author> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<AuthorSlimDto>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<AuthorSlimDto>> Handle(GetPagedAuthorsQuery request, CancellationToken cancellationToken)
         {
-            var validator = new GetAuthorsQueryValidator();
+            var validator = new GetPagedAuthorsQueryValidator();
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.IsValid)

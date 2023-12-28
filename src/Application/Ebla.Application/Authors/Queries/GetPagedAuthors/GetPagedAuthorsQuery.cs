@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Authors.Queries
 {
-    public class GetAuthorsQuery : IRequest<PagedResponse<AuthorSlimDto>>
+    public class GetPagedAuthorsQuery : IRequest<PagedResponse<AuthorSlimDto>>
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
