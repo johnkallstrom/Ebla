@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.Components
+﻿namespace Ebla.Web.Features.Shared
 {
     public partial class NavigationMenu
     {
