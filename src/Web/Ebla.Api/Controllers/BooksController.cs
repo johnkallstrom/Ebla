@@ -12,14 +12,16 @@
         }
 
         /// <summary>
-        /// Get books
+        /// Get paged books
         /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<PagedResponse<BookSlimDto>> Get(int pageNumber, int pageSize)
+        public async Task<PagedResponse<BookSlimDto>> GetPaged(int pageNumber, int pageSize)
         {
-            var response = await _mediator.Send(new GetBooksQuery
+            var response = await _mediator.Send(new GetPagedBooksQuery
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize

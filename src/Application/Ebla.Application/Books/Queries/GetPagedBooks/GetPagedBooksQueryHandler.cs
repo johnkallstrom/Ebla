@@ -1,19 +1,19 @@
 ﻿namespace Ebla.Application.Books.Queries
 {
-    public class GetBooksQueryHandler : IRequestHandler<GetBooksQuery, PagedResponse<BookSlimDto>>
+    public class GetPagedBooksQueryHandler : IRequestHandler<GetPagedBooksQuery, PagedResponse<BookSlimDto>>
     {
         private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetBooksQueryHandler(IBookRepository repository, IMapper mapper)
+        public GetPagedBooksQueryHandler(IBookRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<PagedResponse<BookSlimDto>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<BookSlimDto>> Handle(GetPagedBooksQuery request, CancellationToken cancellationToken)
         {
-            var validator = new GetBooksQueryValidator();
+            var validator = new GetPagedBooksQueryValidator();
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.IsValid)
