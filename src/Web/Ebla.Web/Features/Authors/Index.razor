@@ -17,13 +17,13 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="#">@context.Id</MudTd>
-                    <MudTd DataLabel="Name">@context.Name</MudTd>
-                    <MudTd DataLabel="Born">@context.Born.ToYear()</MudTd>
-                    <MudTd DataLabel="Country">@context.Country</MudTd>
-                </RowTemplate>
-                <PagerContent>
-                    <MudTablePager HidePageNumber="true" />
-                </PagerContent>
-            </MudTable>
+                <MudTd DataLabel="Name">@context.Name</MudTd>
+                <MudTd DataLabel="Born">@context.Born.ToYear()</MudTd>
+                <MudTd DataLabel="Country">@context.Country</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager HidePageNumber="true" />
+            </PagerContent>
+        </MudTable>
     </MudItem>
 </MudGrid>

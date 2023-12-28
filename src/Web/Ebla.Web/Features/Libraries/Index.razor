@@ -16,8 +16,8 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="#">@context.Id</MudTd>
-                    <MudTd DataLabel="Name">@context.Name</MudTd>
-                    @if (context.Established.HasValue)
+                <MudTd DataLabel="Name">@context.Name</MudTd>
+                @if (context.Established.HasValue)
                 {
                     <MudTd DataLabel="Established">@context.Established.Value.ToYear()</MudTd>
                 }

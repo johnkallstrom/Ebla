@@ -3,28 +3,38 @@
 
 <PageTitle>Ebla - Loans</PageTitle>
 
-<MudTable Items="Loans" Hover="true">
-    <HeaderContent>
-        <MudTh>#</MudTh>
-        <MudTh>Created</MudTh>
-        <MudTh>Due</MudTh>
-        <MudTh>Returned</MudTh>
-        <MudTh>Book</MudTh>
-        <MudTh>User</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="#">@context.Id</MudTd>
-        <MudTd DataLabel="Created">@context.CreatedOn.ToCustomDateFormat()</MudTd>
-        <MudTd DataLabel="Due">@context.DueDate.ToCustomDateFormat()</MudTd>
-        @if (context.Returned.HasValue)
-        {
-            <MudTd DataLabel="Returned">@context.Returned.Value.ToCustomDateFormat()</MudTd>
-        }
-        else
-        {
-            <MudTd DataLabel="Returned">Not returned</MudTd>
-        }
-        <MudTd DataLabel="Book">@context.Book.Title</MudTd>
-        <MudTd DataLabel="User">@context.UserId</MudTd>
-    </RowTemplate>
-</MudTable>
+<MudGrid>
+    <MudItem sm="12" lg="10" xl="8">
+        <MudTable Items="Loans" Hover="true">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Loans</MudText>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>#</MudTh>
+                <MudTh>Created</MudTh>
+                <MudTh>Due</MudTh>
+                <MudTh>Returned</MudTh>
+                <MudTh>Book</MudTh>
+                <MudTh>User</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="#">@context.Id</MudTd>
+                <MudTd DataLabel="Created">@context.CreatedOn.ToCustomDateFormat()</MudTd>
+                <MudTd DataLabel="Due">@context.DueDate.ToCustomDateFormat()</MudTd>
+                @if (context.Returned.HasValue)
+                {
+                    <MudTd DataLabel="Returned">@context.Returned.Value.ToCustomDateFormat()</MudTd>
+                }
+                else
+                {
+                    <MudTd DataLabel="Returned">Not returned</MudTd>
+                }
+                <MudTd DataLabel="Book">@context.Book.Title</MudTd>
+                <MudTd DataLabel="User">@context.UserId</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager HidePageNumber="true" />
+            </PagerContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>
