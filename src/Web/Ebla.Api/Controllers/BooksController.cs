@@ -31,6 +31,19 @@
         }
 
         /// <summary>
+        /// Get all books
+        /// </summary>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet("all")]
+        public async Task<IEnumerable<BookSlimDto>> GetAll()
+        {
+            var books = await _mediator.Send(new GetAllBooksQuery());
+
+            return books;
+        }
+
+        /// <summary>
         /// Get single book by id
         /// </summary>
         /// <param name="id"></param>
