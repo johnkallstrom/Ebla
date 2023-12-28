@@ -5,30 +5,15 @@
         [Inject]
         public IHttpService HttpService { get; set; }
 
-        public PagedResult<AuthorViewModel> Model { get; set; } = new PagedResult<AuthorViewModel>();
-        public bool Loading { get; set; } = true;
+        public List<AuthorViewModel> AuthorList { get; set; } = new List<AuthorViewModel>();
 
         protected override async Task OnInitializedAsync()
         {
-            var response = await HttpService.GetAsync($"{Endpoints.Authors}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
+            var response = await HttpService.GetAsync($"{Endpoints.Authors}/all");
 
             if (response.IsSuccessStatusCode)
             {
-                Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
-                Loading = false;
-            }
-        }
-
-        private async Task OnPageChangeAsync(int selectedPage)
-        {
-            Model.PageNumber = selectedPage;
-
-            var response = await HttpService.GetAsync($"{Endpoints.Authors}?pageNumber={Model.PageNumber}&pageSize={Model.PageSize}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                Model = await response.Content.ReadFromJsonAsync<PagedResult<AuthorViewModel>>();
-                Loading = false;
+                AuthorList = await response.Content.ReadFromJsonAsync<List<AuthorViewModel>>();
             }
         }
     }

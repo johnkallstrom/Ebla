@@ -3,7 +3,7 @@
 
 <PageTitle>Ebla - Authors</PageTitle>
 
-<MudTable Items="Model.Data" Hover="true" Loading="@Loading" LoadingProgressColor="Color.Info">
+<MudTable Items="AuthorList" Hover="true">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Authors</MudText>
     </ToolBarContent>
@@ -20,6 +20,6 @@
         <MudTd DataLabel="Country">@context.Country</MudTd>
     </RowTemplate>
     <PagerContent>
-        <MudPagination Count="@Model.TotalPages" Selected="@Model.PageNumber" SelectedChanged="OnPageChangeAsync" Class="pa-4"></MudPagination>
+        <MudTablePager />
     </PagerContent>
 </MudTable>
