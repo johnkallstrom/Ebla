@@ -31,6 +31,19 @@
         }
 
         /// <summary>
+        /// Get all libraries
+        /// </summary>
+        /// <returns></returns>
+        [HasReadAccess]
+        [HttpGet("all")]
+        public async Task<IEnumerable<LibrarySlimDto>> GetAll()
+        {
+            var libraries = await _mediator.Send(new GetAllLibrariesQuery());
+
+            return libraries;
+        }
+
+        /// <summary>
         /// Get single library by id
         /// </summary>
         /// <param name="id"></param>
