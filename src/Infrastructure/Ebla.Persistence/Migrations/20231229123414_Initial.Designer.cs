@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ebla.Persistence.Migrations
 {
     [DbContext(typeof(EblaDbContext))]
-    [Migration("20231227135545_Initial")]
+    [Migration("20231229123414_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -45,7 +45,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 862, DateTimeKind.Local).AddTicks(6035))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 442, DateTimeKind.Local).AddTicks(8302))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -421,7 +421,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 863, DateTimeKind.Local).AddTicks(4223))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 443, DateTimeKind.Local).AddTicks(7436))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1050,6 +1050,26 @@ namespace Ebla.Persistence.Migrations
                         },
                         new
                         {
+                            BookId = 1,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BookId = 1,
+                            LibraryId = 3
+                        },
+                        new
+                        {
+                            BookId = 1,
+                            LibraryId = 4
+                        },
+                        new
+                        {
+                            BookId = 1,
+                            LibraryId = 5
+                        },
+                        new
+                        {
                             BookId = 2,
                             LibraryId = 1
                         },
@@ -1141,6 +1161,11 @@ namespace Ebla.Persistence.Migrations
                         new
                         {
                             BookId = 20,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BookId = 20,
                             LibraryId = 3
                         },
                         new
@@ -1161,11 +1186,76 @@ namespace Ebla.Persistence.Migrations
                         new
                         {
                             BookId = 24,
-                            LibraryId = 5
+                            LibraryId = 4
                         },
                         new
                         {
                             BookId = 25,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BookId = 25,
+                            LibraryId = 4
+                        },
+                        new
+                        {
+                            BookId = 26,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 27,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 28,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 29,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BookId = 30,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 31,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 32,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 33,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 34,
+                            LibraryId = 5
+                        },
+                        new
+                        {
+                            BookId = 35,
                             LibraryId = 5
                         });
                 });
@@ -1182,7 +1272,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 864, DateTimeKind.Local).AddTicks(9035))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 445, DateTimeKind.Local).AddTicks(3549))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1314,7 +1404,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(2615))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 445, DateTimeKind.Local).AddTicks(7758))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime?>("Established")
@@ -1387,13 +1477,13 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5780))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(933))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("DueDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 1, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(5326))
+                        .HasDefaultValue(new DateTime(2024, 1, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(462))
                         .HasColumnName("DueDate");
 
                     b.Property<DateTime?>("LastModified")
@@ -1468,13 +1558,13 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 27, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8797))
+                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(4166))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("ExpiresOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 1, 10, 14, 55, 44, 865, DateTimeKind.Local).AddTicks(8375))
+                        .HasDefaultValue(new DateTime(2024, 1, 12, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(3606))
                         .HasColumnName("ExpiresOn");
 
                     b.Property<DateTime?>("LastModified")
