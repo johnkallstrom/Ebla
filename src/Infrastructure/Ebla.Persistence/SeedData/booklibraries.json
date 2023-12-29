@@ -4,6 +4,22 @@
     "libraryId": 1
   },
   {
+    "bookId": 1,
+    "libraryId": 2
+  },
+  {
+    "bookId": 1,
+    "libraryId": 3
+  },
+  {
+    "bookId": 1,
+    "libraryId": 4
+  },
+  {
+    "bookId": 1,
+    "libraryId": 5
+  },
+  {
     "bookId": 2,
     "libraryId": 1
   },
@@ -77,6 +93,10 @@
   },
   {
     "bookId": 20,
+    "libraryId": 1
+  },
+  {
+    "bookId": 20,
     "libraryId": 3
   },
   {
@@ -93,10 +113,62 @@
   },
   {
     "bookId": 24,
-    "libraryId": 5
+    "libraryId": 4
   },
   {
     "bookId": 25,
+    "libraryId": 1
+  },
+  {
+    "bookId": 25,
+    "libraryId": 4
+  },
+  {
+    "bookId": 26,
+    "libraryId": 5
+  },
+  {
+    "bookId": 27,
+    "libraryId": 5
+  },
+  {
+    "bookId": 28,
+    "libraryId": 5
+  },
+  {
+    "bookId": 29,
+    "libraryId": 5
+  },
+  {
+    "bookId": 30,
+    "libraryId": 1
+  },
+  {
+    "bookId": 30,
+    "libraryId": 2
+  },
+  {
+    "bookId": 30,
+    "libraryId": 5
+  },
+  {
+    "bookId": 31,
+    "libraryId": 5
+  },
+  {
+    "bookId": 32,
+    "libraryId": 5
+  },
+  {
+    "bookId": 33,
+    "libraryId": 5
+  },
+  {
+    "bookId": 34,
+    "libraryId": 5
+  },
+  {
+    "bookId": 35,
     "libraryId": 5
   }
 ]
