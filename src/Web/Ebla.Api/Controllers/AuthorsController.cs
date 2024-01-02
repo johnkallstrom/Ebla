@@ -12,30 +12,11 @@
         }
 
         /// <summary>
-        /// Get paged authors
-        /// </summary>
-        /// <param name="pageNumber"></param>
-        /// <param name="pageSize"></param>
-        /// <returns></returns>
-        [HasReadAccess]
-        [HttpGet]
-        public async Task<PagedResponse<AuthorSlimDto>> GetPaged(int pageNumber, int pageSize)
-        {
-            var response = await _mediator.Send(new GetPagedAuthorsQuery 
-            { 
-                PageNumber = pageNumber, 
-                PageSize = pageSize 
-            });
-
-            return response;
-        }
-
-        /// <summary>
         /// Get all authors
         /// </summary>
         /// <returns></returns>
         [HasReadAccess]
-        [HttpGet("all")]
+        [HttpGet]
         public async Task<IEnumerable<AuthorSlimDto>> GetAll()
         {
             var authors = await _mediator.Send(new GetAllAuthorsQuery());
