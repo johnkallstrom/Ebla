@@ -1,6 +1,6 @@
-﻿namespace Ebla.Web.Services.Interfaces
+﻿namespace Ebla.Web.Services
 {
-    public interface IGenericHttpService<T>
+    public interface IHttpService<T>
     {
         Task<T> GetAsync(string url);
         Task<IEnumerable<T>> GetListAsync(string url);

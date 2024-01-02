@@ -3,7 +3,7 @@
     public partial class Index
     {
         [Inject]
-        public IGenericHttpService<UserViewModel> HttpService { get; set; }
+        public IHttpService<UserViewModel> HttpService { get; set; }
 
         public IEnumerable<UserViewModel> UserList { get; set; }
 

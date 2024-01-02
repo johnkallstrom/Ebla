@@ -6,7 +6,7 @@
         public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
         [Inject]
-        public IGenericHttpService<Result<StatisticsViewModel>> HttpService { get; set; }
+        public IHttpService<Result<StatisticsViewModel>> HttpService { get; set; }
 
         public Result<StatisticsViewModel> Model { get; set; }
         public string[] LoanReservationXAxisLabels { get; set; } = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };

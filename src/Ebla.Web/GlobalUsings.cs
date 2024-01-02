@@ -3,7 +3,6 @@ global using Ebla.Web.Enums;
 global using Ebla.Web.Extensions;
 global using Ebla.Web.ViewModels;
 global using Ebla.Web.Services;
-global using Ebla.Web.Services.Interfaces;
 global using Ebla.Web.Authentication;
 
 global using Blazored.LocalStorage;
@@ -19,5 +18,4 @@ global using System.Security.Claims;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.ComponentModel.DataAnnotations;
 global using System.Net.Http.Json;
-global using System.Text.Json.Serialization;
 global using System.Net.Http.Headers;

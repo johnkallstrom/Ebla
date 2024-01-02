@@ -3,7 +3,7 @@
     public partial class Details
     {
         [Inject]
-        public IGenericHttpService<LibraryViewModel> HttpService { get; set; }
+        public IHttpService<LibraryViewModel> HttpService { get; set; }
 
         [Parameter]
         public int LibraryId { get; set; }

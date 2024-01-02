@@ -1,10 +1,10 @@
 ﻿namespace Ebla.Web.Services
 {
-    public class GenericHttpService<T> : IGenericHttpService<T>
+    public class HttpService<T> : IHttpService<T>
     {
         private readonly HttpClient _httpClient;
 
-        public GenericHttpService(HttpClient httpClient)
+        public HttpService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

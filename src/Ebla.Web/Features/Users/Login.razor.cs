@@ -3,7 +3,7 @@
     public partial class Login
     {
         [Inject]
-        public IGenericHttpService<Result<string>> HttpService { get; set; }
+        public IHttpService<Result<string>> HttpService { get; set; }
 
         [Inject]
         public ILocalStorageService LocalStorage { get; set; }
