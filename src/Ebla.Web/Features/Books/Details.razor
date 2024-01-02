@@ -1,4 +1,4 @@
 ﻿@page "/books/{bookId:int}"
 @attribute [Authorize(Roles = "User")]
 
-<PageTitle>@Model.Title</PageTitle>
+<PageTitle>@Book.Title</PageTitle>

@@ -3,18 +3,13 @@
     public partial class Index
     {
         [Inject]
-        public IHttpService HttpService { get; set; }
+        public IGenericHttpService<AuthorViewModel> HttpService { get; set; }
 
-        public List<AuthorViewModel> AuthorList { get; set; } = new List<AuthorViewModel>();
+        public IEnumerable<AuthorViewModel> AuthorList { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            var response = await HttpService.GetAsync($"{Endpoints.Authors}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                AuthorList = await response.Content.ReadFromJsonAsync<List<AuthorViewModel>>();
-            }
+            AuthorList = await HttpService.GetListAsync($"{Endpoints.Authors}");
         }
     }
 }

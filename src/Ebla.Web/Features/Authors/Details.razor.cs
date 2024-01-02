@@ -3,7 +3,7 @@
     public partial class Details
     {
         [Inject]
-        public IHttpService HttpService { get; set; }
+        public IGenericHttpService<AuthorViewModel> HttpService { get; set; }
 
         [Parameter]
         public int AuthorId { get; set; }
@@ -12,12 +12,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-            var response = await HttpService.GetAsync($"{Endpoints.Authors}/{AuthorId}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                Author = await response.Content.ReadFromJsonAsync<AuthorViewModel>();
-            }
+            Author = await HttpService.GetAsync($"{Endpoints.Authors}/{AuthorId}");
         }
     }
 }

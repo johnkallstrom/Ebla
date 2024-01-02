@@ -7,7 +7,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(configuration.GetValue<string>("Ebla.Api:BaseUrl")) });
-services.AddScoped<IHttpService, HttpService>();
+services.AddScoped(typeof(IGenericHttpService<>), typeof(GenericHttpService<>));
 services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 services.AddAuthorizationCore();
 services.AddBlazoredLocalStorage();

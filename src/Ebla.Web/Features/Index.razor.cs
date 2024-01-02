@@ -6,7 +6,7 @@
         public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
         [Inject]
-        public IHttpService HttpService { get; set; }
+        public IGenericHttpService<Result<StatisticsViewModel>> HttpService { get; set; }
 
         public Result<StatisticsViewModel> Model { get; set; }
         public string[] LoanReservationXAxisLabels { get; set; } = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
@@ -26,15 +26,12 @@
 
             if (user.Identity.IsAuthenticated)
             {
-                var response = await HttpService.GetAsync(Endpoints.Statistics);
-
-                if (response.IsSuccessStatusCode)
+                Model = await HttpService.GetAsync(Endpoints.Statistics);
+                if (Model.Succeeded)
                 {
-                    Loading = false;
-                    Model = await response.Content.ReadFromJsonAsync<Result<StatisticsViewModel>>();
-
                     GenrePercentages = Model.Data.GenrePercentages.Values.ToArray();
                     GenreLabels = FormatLabels(Model.Data.GenrePercentages.Keys.ToArray(), GenrePercentages);
+                    Loading = false;
                 }
             }
         }
