@@ -22,7 +22,7 @@
 
         private static string GetFilePath(string fileName)
         {
-            string workingDir = Directory.GetCurrentDirectory().Replace("Web", "Infrastructure").Replace("Ebla.Api", "Ebla.Persistence");
+            string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Persistence");
 
             string filePath = $@"{workingDir}\SeedData\{fileName}";
             return filePath;
