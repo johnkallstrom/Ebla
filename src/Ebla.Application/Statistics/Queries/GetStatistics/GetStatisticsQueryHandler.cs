@@ -30,11 +30,9 @@
                 int totalUsers = await _identityService.GetTotalUsersAsync();
                 int totalLoans = await _loanRepository.GetTotalLoansAsync();
                 int totalReservations = await _reservationRepository.GetTotalReservationsAsync();
-                var genres = await _genreRepository.GetAllGenresAsync();
 
-                var data = GetGenreStatisticsData(genres, totalBooks);
-                var genreLabels = data.Keys.ToArray();
-                var genrePercentages = data.Values.ToArray();
+                var genres = await _genreRepository.GetAllGenresAsync();
+                var genreStatisticsData = CalculateGenrePercentages(genres, totalBooks);
 
                 var statistics = new StatisticsDto
                 {
@@ -42,8 +40,8 @@
                     TotalUsers = totalUsers,
                     TotalLoans = totalLoans,
                     TotalReservations = totalReservations,
-                    GenreLabels = genreLabels,
-                    GenrePercentages = genrePercentages
+                    GenreLabels = genreStatisticsData.Keys.ToArray(),
+                    GenrePercentages = genreStatisticsData.Values.ToArray()
                 };
 
                 return Response<StatisticsDto>.Success(statistics);
@@ -54,28 +52,22 @@
             }
         }
 
-        private Dictionary<string, double> GetGenreStatisticsData(IEnumerable<Genre> genres, int totalBooks)
+        private Dictionary<string, double> CalculateGenrePercentages(IEnumerable<Genre> genres, int totalBooks)
         {
-            // Group each genre by name
-            IEnumerable<IGrouping<string, Genre>> groups = genres.GroupBy(genre => genre.Name).AsEnumerable();
+            IEnumerable<IGrouping<string, Genre>> groupings = genres.GroupBy(genre => genre.Name).AsEnumerable();
 
-            // Create anonymous list containing genre name and book amount
-            var flattened = groups
-                .SelectMany(group => group.Where(genre => genre.Books != null).Select(genre => new
-                {
-                    Genre = group.Key,
-                    Books = genre.Books.Count()
-                })).OrderByDescending(x => x.Books).ToList();
+            var flattened = groupings.SelectMany(group => group.Where(genre => genre.Books != null).Select(genre => new { Genre = group.Key, Books = genre.Books.Count()}))
+                .OrderByDescending(x => x.Books)
+                .ToList();
 
-            // Calculate percentage from the amount of books each genre has and the total books stored in db
-            var data = new Dictionary<string, double>();
+            var result = new Dictionary<string, double>();
             foreach (var item in flattened)
             {
                 double percentage = Math.Round((double)item.Books / totalBooks * 100, 2);
-                data.Add(item.Genre, percentage);
+                result.Add(item.Genre, percentage);
             }
 
-            return data;
+            return result;
         }
     }
 }
