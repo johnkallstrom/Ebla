@@ -9,6 +9,8 @@
         public IHttpService HttpService { get; set; }
 
         public Result<StatisticsViewModel> Model { get; set; }
+        public string[] GenreLabels { get; set; }
+        public double[] GenrePercentages { get; set; }
         public bool Loading { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
@@ -24,7 +26,9 @@
                 {
                     Loading = false;
                     Model = await response.Content.ReadFromJsonAsync<Result<StatisticsViewModel>>();
-                    Model.Data.GenreLabels = FormatLabels(Model.Data.GenreLabels, Model.Data.GenrePercentages);
+
+                    GenrePercentages = Model.Data.GenrePercentages.Values.ToArray();
+                    GenreLabels = FormatLabels(Model.Data.GenrePercentages.Keys.ToArray(), GenrePercentages);
                 }
             }
         }

@@ -32,7 +32,7 @@
                 int totalReservations = await _reservationRepository.GetTotalReservationsAsync();
 
                 var genres = await _genreRepository.GetAllGenresAsync();
-                var genreStatisticsData = CalculateGenrePercentages(genres, totalBooks);
+                var genrePercentages = CalculateGenrePercentages(genres, totalBooks);
 
                 var statistics = new StatisticsDto
                 {
@@ -40,8 +40,7 @@
                     TotalUsers = totalUsers,
                     TotalLoans = totalLoans,
                     TotalReservations = totalReservations,
-                    GenreLabels = genreStatisticsData.Keys.ToArray(),
-                    GenrePercentages = genreStatisticsData.Values.ToArray()
+                    GenrePercentages = genrePercentages
                 };
 
                 return Response<StatisticsDto>.Success(statistics);
