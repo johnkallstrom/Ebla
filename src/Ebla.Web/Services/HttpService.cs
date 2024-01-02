@@ -22,15 +22,5 @@
 
             return response;
         }
-
-        public Task<HttpResponseMessage> PutAsync(string uri, object data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HttpResponseMessage> DeleteAsync<T>(string uri, T identifier)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
