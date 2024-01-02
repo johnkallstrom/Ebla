@@ -2,6 +2,6 @@
 {
     public interface IGenreRepository
     {
-        Dictionary<string, double> GetGenreStatisticsData();
+        Task<IEnumerable<Genre>> GetAllGenresAsync();
     }
 }
