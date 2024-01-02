@@ -9,7 +9,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-            var response = await HttpService.GetAsync($"{Endpoints.Libraries}/all");
+            var response = await HttpService.GetAsync($"{Endpoints.Libraries}");
 
             if (response.IsSuccessStatusCode)
             {
