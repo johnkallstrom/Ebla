@@ -43,11 +43,32 @@
             var handler = new GetAllAuthorsQueryHandler(_mockRepository.Object, _mockMapper.Object);
 
             // Act
-            IEnumerable<AuthorSlimDto> result = await handler.Handle(request, CancellationToken.None);
+            var result = await handler.Handle(request, CancellationToken.None);
 
             // Assert
             result.Should().NotBeNullOrEmpty();
-            result.First().Should().BeOfType<AuthorSlimDto>();
+            result.Should().AllBeOfType<AuthorSlimDto>();
+        }
+
+        [Fact]
+        public async Task Handle_Should_ReturnEmptyListOfAuthorSlimDto()
+        {
+            // Arrange
+            var entities = new List<Author>();
+            var dtos = new List<AuthorSlimDto>();
+
+            _mockRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(entities);
+            _mockMapper.Setup(x => x.Map<IEnumerable<AuthorSlimDto>>(entities)).Returns(dtos);
+
+            var request = new GetAllAuthorsQuery();
+            var handler = new GetAllAuthorsQueryHandler(_mockRepository.Object, _mockMapper.Object);
+
+            // Act
+            var result = await handler.Handle(request, CancellationToken.None);
+
+            // Assert
+            result.Should().BeEmpty();
+            result.Should().AllBeOfType<AuthorSlimDto>();
         }
     }
 }
