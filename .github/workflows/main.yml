@@ -25,7 +25,7 @@ jobs:
         run: dotnet build ./Ebla.sln --configuration Release --no-restore
         
       - name: Test
-        run: dotnet-test ./Ebla.sln
+        run: dotnet test ./Ebla.sln
         
       - name: Publish
         run: dotnet publish ./Ebla.sln --configuration Release --no-build
