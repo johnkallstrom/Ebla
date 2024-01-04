@@ -24,6 +24,18 @@
                 await _repository.AddAsync(bookToAdd);
                 await _repository.SaveAsync();
 
+                bookToAdd.BookLibraries = new List<BookLibrary>();
+                foreach (var libraryId in request.LibraryIds)
+                {
+                    bookToAdd.BookLibraries.Add(new BookLibrary
+                    {
+                        BookId = bookToAdd.Id,
+                        LibraryId = libraryId
+                    });
+                }
+
+                await _repository.SaveAsync();
+
                 return Response<int>.Success(bookToAdd.Id);
             }
 
