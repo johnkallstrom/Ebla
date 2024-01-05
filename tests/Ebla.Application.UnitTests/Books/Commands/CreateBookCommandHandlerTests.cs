@@ -15,8 +15,8 @@
         public async Task Handle_Should_ReturnSuccessResponse_WhenRequestIsValid()
         {
             // Arrange
-            var request = GetSampleCreateBookCommand();
-            var entity = GetSampleBook();
+            var request = ArrangeCreateBookCommandRequest();
+            var entity = ArrangeBookEntity();
 
             _mockMapper.Setup(x => x.Map<Book>(request)).Returns(entity);
 
@@ -34,8 +34,8 @@
         public async Task Handle_Should_InvokeAddAsyncAndSaveAsync_WhenRequestIsValid()
         {
             // Arrange
-            var request = GetSampleCreateBookCommand();
-            var entity = GetSampleBook();
+            var request = ArrangeCreateBookCommandRequest();
+            var entity = ArrangeBookEntity();
 
             _mockMapper.Setup(x => x.Map<Book>(request)).Returns(entity);
 
@@ -46,15 +46,15 @@
 
             // Assert
             _mockRepository.Verify(x => x.AddAsync(entity), Times.Once);
-            _mockRepository.Verify(x => x.SaveAsync(), Times.Once);
+            _mockRepository.Verify(x => x.SaveAsync(), Times.Exactly(2));
         }
 
         [Fact]
         public async Task Handle_Should_InvokeMap_WhenRequestIsValid()
         {
             // Arrange
-            var request = GetSampleCreateBookCommand();
-            var entity = GetSampleBook();
+            var request = ArrangeCreateBookCommandRequest();
+            var entity = ArrangeBookEntity();
 
             _mockMapper.Setup(x => x.Map<Book>(request)).Returns(entity);
 
@@ -124,7 +124,7 @@
         }
 
         #region Helpers
-        private Book GetSampleBook()
+        private Book ArrangeBookEntity()
         {
             return new Book
             {
@@ -140,7 +140,7 @@
             };
         }
 
-        private CreateBookCommand GetSampleCreateBookCommand()
+        private CreateBookCommand ArrangeCreateBookCommandRequest()
         {
             return new CreateBookCommand
             {
@@ -153,6 +153,14 @@
                 Image = string.Empty,
                 AuthorId = 1,
                 GenreId = 1,
+                LibraryIds = new int[]
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                }
             };
         }
         #endregion
