@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EECA324-57D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{21249805-F143-447D-8A04-35BD93116DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebla.Application.UnitTests", "tests\Ebla.Application.UnitTests\Ebla.Application.UnitTests.csproj", "{87119C75-0910-4E38-ABFB-D2D47FB29DFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebla.Application.UnitTests", "tests\Ebla.Application.UnitTests\Ebla.Application.UnitTests.csproj", "{87119C75-0910-4E38-ABFB-D2D47FB29DFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
