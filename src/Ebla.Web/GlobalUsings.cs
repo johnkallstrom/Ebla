@@ -4,6 +4,7 @@ global using Ebla.Web.Extensions;
 global using Ebla.Web.ViewModels;
 global using Ebla.Web.Services;
 global using Ebla.Web.Authentication;
+global using Ebla.Web.Features.Books.Components;
 
 global using Blazored.LocalStorage;
 global using MudBlazor;

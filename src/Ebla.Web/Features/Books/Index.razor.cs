@@ -15,9 +15,18 @@
             BookList = await HttpService.GetListAsync($"{Endpoints.Books}");
         }
 
-        protected void OpenDialog()
+        protected void OpenAddDialog()
         {
-            DialogService.ShowMessageBox("Test Dialog", "Lorem ipsum");
+            var options = new DialogOptions
+            {
+                FullWidth = true,
+                CloseOnEscapeKey = true,
+                DisableBackdropClick = true,
+                MaxWidth = MaxWidth.Medium,
+                Position = DialogPosition.TopCenter,
+            };
+
+            DialogService.Show<AddBookDialog>("Lorem ipsum", options);
         }
     }
 }
