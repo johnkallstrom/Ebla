@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.ViewModels
+﻿namespace Ebla.Web.Features.Libraries.ViewModels
 {
     public class LibraryViewModel
     {

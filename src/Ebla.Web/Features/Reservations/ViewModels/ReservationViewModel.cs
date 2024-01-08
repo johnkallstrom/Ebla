@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.ViewModels
+﻿namespace Ebla.Web.Features.Reservations.ViewModels
 {
     public class ReservationViewModel
     {

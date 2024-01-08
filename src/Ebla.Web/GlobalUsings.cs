@@ -4,8 +4,12 @@ global using Ebla.Web.Extensions;
 global using Ebla.Web.ViewModels;
 global using Ebla.Web.Services;
 global using Ebla.Web.Authentication;
+global using Ebla.Web.Features.Authors.ViewModels;
 global using Ebla.Web.Features.Books.Components;
 global using Ebla.Web.Features.Books.ViewModels;
+global using Ebla.Web.Features.Libraries.ViewModels;
+global using Ebla.Web.Features.Loans.ViewModels;
+global using Ebla.Web.Features.Reservations.ViewModels;
 global using Ebla.Web.Features.Users.ViewModels;
 
 global using Blazored.LocalStorage;
