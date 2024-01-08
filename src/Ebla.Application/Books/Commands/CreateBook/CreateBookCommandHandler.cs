@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands
 {
-    public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, Response<int>>
+    public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, Result<int>>
     {
         private readonly IGenericRepository<Book> _repository;
         private readonly IMapper _mapper;
@@ -11,7 +11,7 @@
             _mapper = mapper;
         }
 
-        public async Task<Response<int>> Handle(CreateBookCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreateBookCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateBookCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -36,11 +36,11 @@
 
                 await _repository.SaveAsync();
 
-                return Response<int>.Success(bookToAdd.Id);
+                return Result<int>.Success(bookToAdd.Id);
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Response<int>.Failure(errors);
+            return Result<int>.Failure(errors);
         }
     }
 }

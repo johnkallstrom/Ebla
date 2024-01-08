@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Statistics.Queries
 {
-    public class GetStatisticsQueryHandler : IRequestHandler<GetStatisticsQuery, Response<StatisticsDto>>
+    public class GetStatisticsQueryHandler : IRequestHandler<GetStatisticsQuery, Result<StatisticsDto>>
     {
         private readonly IIdentityService _identityService;
         private readonly ILoanRepository _loanRepository;
@@ -22,7 +22,7 @@
             _identityService = identityService;
         }
 
-        public async Task<Response<StatisticsDto>> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)
+        public async Task<Result<StatisticsDto>> Handle(GetStatisticsQuery request, CancellationToken cancellationToken)
         {
             try
             {
@@ -43,11 +43,11 @@
                     GenrePercentages = genrePercentages
                 };
 
-                return Response<StatisticsDto>.Success(statistics);
+                return Result<StatisticsDto>.Success(statistics);
             }
             catch (Exception ex)
             {
-                return Response<StatisticsDto>.Failure([ex.Message]);
+                return Result<StatisticsDto>.Failure([ex.Message]);
             }
         }
 

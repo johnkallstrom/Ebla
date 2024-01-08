@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Reservations.Commands
 {
-    public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, Response>
+    public class DeleteReservationCommandHandler : IRequestHandler<DeleteReservationCommand, Result>
     {
         private readonly IGenericRepository<Reservation> _genericRepository;
 
@@ -9,7 +9,7 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<Response> Handle(DeleteReservationCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(DeleteReservationCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteReservationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -25,11 +25,11 @@
                 _genericRepository.Delete(reservationToDelete);
                 await _genericRepository.SaveAsync();
 
-                return Response.Success();
+                return Result.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Response.Failure(errors);
+            return Result.Failure(errors);
         }
     }
 }

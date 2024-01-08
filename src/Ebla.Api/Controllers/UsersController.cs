@@ -18,7 +18,7 @@
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<Response<string>> Login([FromBody] LoginUserCommand command)
+        public async Task<Result<string>> Login([FromBody] LoginUserCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -59,7 +59,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPost("create")]
-        public async Task<Response<Guid>> Create([FromBody] CreateUserCommand command)
+        public async Task<Result<Guid>> Create([FromBody] CreateUserCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -73,7 +73,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPut("update")]
-        public async Task<Response> Update([FromBody] UpdateUserCommand command)
+        public async Task<Result> Update([FromBody] UpdateUserCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -87,7 +87,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpDelete("delete/{id}")]
-        public async Task<Response> Delete(Guid id)
+        public async Task<Result> Delete(Guid id)
         {
             var response = await _mediator.Send(new DeleteUserCommand { Id = id });
 

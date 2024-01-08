@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands
 {
-    public class CreateBookCommand : IRequest<Response<int>>
+    public class CreateBookCommand : IRequest<Result<int>>
     {
         public string Title { get; set; }
         public string Description { get; set; }

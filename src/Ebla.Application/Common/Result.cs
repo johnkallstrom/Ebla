@@ -1,22 +1,22 @@
 ﻿namespace Ebla.Application.Common
 {
-    public record Response
+    public record Result
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
 
-        public static Response Success()
+        public static Result Success()
         {
-            return new Response
+            return new Result
             {
                 Succeeded = true,
                 Errors = null
             };
         }
 
-        public static Response Failure(string[] errors)
+        public static Result Failure(string[] errors)
         {
-            return new Response
+            return new Result
             {
                 Succeeded = false,
                 Errors = errors
@@ -24,15 +24,15 @@
         }
     }
 
-    public record Response<T>
+    public record Result<T>
     {
         public bool Succeeded { get; init; }
         public string[] Errors { get; init; }
         public T Data { get; init; }
 
-        public static Response<T> Success(T data)
+        public static Result<T> Success(T data)
         {
-            return new Response<T>
+            return new Result<T>
             {
                 Succeeded = true,
                 Errors = null,
@@ -40,9 +40,9 @@
             };
         }
 
-        public static Response<T> Failure(string[] errors)
+        public static Result<T> Failure(string[] errors)
         {
-            return new Response<T>
+            return new Result<T>
             {
                 Succeeded = false,
                 Errors = errors,

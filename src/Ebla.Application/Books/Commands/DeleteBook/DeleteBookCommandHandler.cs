@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Books.Commands
 {
-    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, Response>
+    public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand, Result>
     {
         private readonly IGenericRepository<Book> _repository;
         private readonly IMapper _mapper;
@@ -11,7 +11,7 @@
             _mapper = mapper;
         }
 
-        public async Task<Response> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteBookCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -27,11 +27,11 @@
                 _repository.Delete(bookToDelete);
                 await _repository.SaveAsync();
 
-                return Response.Success();
+                return Result.Success();
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Response.Failure(errors);
+            return Result.Failure(errors);
         }
     }
 }

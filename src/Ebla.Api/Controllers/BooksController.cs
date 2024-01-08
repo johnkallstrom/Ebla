@@ -45,7 +45,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPost("create")]
-        public async Task<Response<int>> Create([FromBody] CreateBookCommand command)
+        public async Task<Result<int>> Create([FromBody] CreateBookCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -59,7 +59,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpPut("update")]
-        public async Task<Response> Update([FromBody] UpdateBookCommand command)
+        public async Task<Result> Update([FromBody] UpdateBookCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -73,7 +73,7 @@
         /// <returns></returns>
         [HasWriteAccess]
         [HttpDelete("delete/{id}")]
-        public async Task<Response> Delete(int id)
+        public async Task<Result> Delete(int id)
         {
             var response = await _mediator.Send(new DeleteBookCommand { Id = id });
 

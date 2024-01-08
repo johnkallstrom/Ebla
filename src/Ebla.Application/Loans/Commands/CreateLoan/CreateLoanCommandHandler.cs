@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Loans.Commands
 {
-    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, Response<int>>
+    public class CreateLoanCommandHandler : IRequestHandler<CreateLoanCommand, Result<int>>
     {
         private readonly IReservationRepository _reservationRepository;
         private readonly ILoanRepository _loanRepository;
@@ -25,7 +25,7 @@
             _reservationRepository = reservationRepository;
         }
 
-        public async Task<Response<int>> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
+        public async Task<Result<int>> Handle(CreateLoanCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateLoanCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -47,13 +47,13 @@
                 var activeLoan = await _loanRepository.GetLoanByBookIdAsync(book.Id, returned: false);
                 if (activeLoan != null)
                 {
-                    return Response<int>.Failure(new[] { $"The book with id: {book.Id} is not available" });
+                    return Result<int>.Failure(new[] { $"The book with id: {book.Id} is not available" });
                 }
 
                 var activeUserLoans = await _loanRepository.GetLoansByUserIdAsync(user.Id, returned: false);
                 if (activeUserLoans != null && activeUserLoans.Count() >= 5)
                 {
-                    return Response<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
+                    return Result<int>.Failure(new[] { $"To many active loans on user with id: {user.Id}" });
                 }
 
                 var loanToAdd = _mapper.Map<Loan>(request);
@@ -63,11 +63,11 @@
                 await _repository.AddAsync(loanToAdd);
                 await _repository.SaveAsync();
 
-                return Response<int>.Success(loanToAdd.Id);
+                return Result<int>.Success(loanToAdd.Id);
             }
 
             var errors = validationResult.Errors?.Select(x => x.ErrorMessage).ToArray();
-            return Response<int>.Failure(errors);
+            return Result<int>.Failure(errors);
         }
     }
 }

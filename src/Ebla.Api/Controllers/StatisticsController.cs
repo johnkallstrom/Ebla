@@ -17,7 +17,7 @@
         /// <returns></returns>
         [HasReadAccess]
         [HttpGet]
-        public async Task<Response<StatisticsDto>> GetStatistics()
+        public async Task<Result<StatisticsDto>> GetStatistics()
         {
             var response = await _mediator.Send(new GetStatisticsQuery());
 

@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Application.Loans.Commands
 {
-    public class DeleteLoanCommandHandler : IRequestHandler<DeleteLoanCommand, Response>
+    public class DeleteLoanCommandHandler : IRequestHandler<DeleteLoanCommand, Result>
     {
         private readonly IGenericRepository<Loan> _genericRepository;
 
@@ -9,7 +9,7 @@
             _genericRepository = genericRepository;
         }
 
-        public async Task<Response> Handle(DeleteLoanCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(DeleteLoanCommand request, CancellationToken cancellationToken)
         {
             var validator = new DeleteLoanCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -25,11 +25,11 @@
                 _genericRepository.Delete(loanToDelete);
                 await _genericRepository.SaveAsync();
 
-                return Response.Success();
+                return Result.Success();
             }
 
             var errors = validationResult.Errors.Select(x => x.ErrorMessage).ToArray();
-            return Response.Failure(errors);
+            return Result.Failure(errors);
         }
     }
 }
