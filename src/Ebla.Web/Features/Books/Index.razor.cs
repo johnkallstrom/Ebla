@@ -15,18 +15,6 @@
             BookList = await HttpService.GetListAsync($"{Endpoints.Books}");
         }
 
-        protected void OpenAddDialog()
-        {
-            var options = new DialogOptions
-            {
-                FullWidth = true,
-                CloseOnEscapeKey = true,
-                DisableBackdropClick = true,
-                MaxWidth = MaxWidth.Medium,
-                Position = DialogPosition.TopCenter,
-            };
-
-            DialogService.Show<AddBookDialog>("Lorem ipsum", options);
-        }
+        protected void ShowCreateBookDialog() => DialogService.Show<CreateBookDialog>();
     }
 }

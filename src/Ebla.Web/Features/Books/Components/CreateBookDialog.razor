@@ -1,0 +1,42 @@
+﻿<MudDialog>
+    <DialogContent>
+        <EditForm Model="Model" OnValidSubmit="Submit">
+            <MudTextField Label="Title" @bind-Value="Model.Title" For="(() => Model.Title)" />
+            <MudTextField Label="Description" Lines="5" @bind-Value="Model.Description" For="(() => Model.Description)" Class="mt-3" />
+            <MudNumericField Label="Pages" @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" />
+            <MudDatePicker Label="Published" @bind-Date="Model.Published" For="(() => Model.Published)" DisableToolbar="true" Class="mt-3" />
+        </EditForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+
+    public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
+
+    private void Cancel() => MudDialog.Cancel();
+
+    private void Submit()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void OnInitialized()
+    {
+        var options = new DialogOptions
+        {
+            Position = DialogPosition.TopCenter,
+            MaxWidth = MaxWidth.Medium,
+            FullWidth = true,
+            CloseOnEscapeKey = true,
+            DisableBackdropClick = true,
+        };
+
+        MudDialog.SetOptions(options);
+    }
+}
