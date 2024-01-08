@@ -1,9 +1,9 @@
 ﻿global using Ebla.Web;
 global using Ebla.Web.Enums;
 global using Ebla.Web.Extensions;
-global using Ebla.Web.ViewModels;
 global using Ebla.Web.Services;
 global using Ebla.Web.Authentication;
+global using Ebla.Web.Features.ViewModels;
 global using Ebla.Web.Features.Authors.ViewModels;
 global using Ebla.Web.Features.Books.Components;
 global using Ebla.Web.Features.Books.ViewModels;

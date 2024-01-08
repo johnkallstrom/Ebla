@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.ViewModels
+﻿namespace Ebla.Web.Features.ViewModels
 {
     public class GenreViewModel
     {
