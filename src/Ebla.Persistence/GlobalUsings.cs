@@ -2,7 +2,6 @@
 global using Ebla.Persistence.Extensions;
 global using Ebla.Persistence.Repositories;
 global using Ebla.Persistence.EntityConfigurations;
-global using Ebla.Persistence.Models;
 global using Ebla.Domain.Entities;
 global using Ebla.Infrastructure.Identity;
 global using Ebla.Application.Interfaces.DataAccess;

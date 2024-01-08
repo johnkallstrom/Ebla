@@ -1,4 +1,4 @@
-﻿namespace Ebla.Persistence.Models
+﻿namespace Ebla.Persistence
 {
     public record InitialUser(
         string Username,
