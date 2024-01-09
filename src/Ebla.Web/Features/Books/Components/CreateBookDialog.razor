@@ -3,31 +3,28 @@
         <EditForm Model="Model" OnValidSubmit="Submit">
             <MudTextField Label="Title" @bind-Value="Model.Title" For="(() => Model.Title)" />
             <MudTextField Label="Description" Lines="5" @bind-Value="Model.Description" For="(() => Model.Description)" Class="mt-3" />
-            <MudNumericField Label="Pages" @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" />
+            <MudNumericField Label="Pages" @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" Min="1" />
             <MudDatePicker Label="Published" @bind-Date="Model.Published" For="(() => Model.Published)" DisableToolbar="true" Class="mt-3" />
             <MudTextField Label="Language" @bind-Value="Model.Language" For="(() => Model.Language)" Class="mt-3" />
             <MudTextField Label="Country" @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" />
             <MudTextField Label="Image" @bind-Value="Model.Image" For="(() => Model.Country)" Class="mt-3" />
-            <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter">
-                <MudSelectItem Value="@("Author One")" />
-                <MudSelectItem Value="@("Author Two")" />
-                <MudSelectItem Value="@("Author Three")" />
-                <MudSelectItem Value="@("Author Four")" />
-                <MudSelectItem Value="@("Author Five")" />
+            <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedAuthor">
+                @foreach (var option in Authors)
+                {
+                    <MudSelectItem Value="@(option)" />
+                }
             </MudSelect>
-            <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter">
-                <MudSelectItem Value="@("Genre One")" />
-                <MudSelectItem Value="@("Genre Two")" />
-                <MudSelectItem Value="@("Genre Three")" />
-                <MudSelectItem Value="@("Genre Four")" />
-                <MudSelectItem Value="@("Genre Five")" />
+            <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedGenre">
+                @foreach (var option in Genres)
+                {
+                    <MudSelectItem Value="@(option)" />
+                }
             </MudSelect>
-            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true">
-                <MudSelectItem Value="@("Library One")" />
-                <MudSelectItem Value="@("Library Two")" />
-                <MudSelectItem Value="@("Library Three")" />
-                <MudSelectItem Value="@("Library Four")" />
-                <MudSelectItem Value="@("Library Five")" />
+            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="Model.SelectedLibraries">
+                @foreach (var option in Libraries)
+                {
+                    <MudSelectItem Value="@(option)" />
+                }
             </MudSelect>
         </EditForm>
     </DialogContent>
