@@ -1,6 +1,6 @@
-﻿namespace Ebla.Web.Features.Shared
+﻿namespace Ebla.Web.Features.Components
 {
-    public partial class NavigationMenu
+    public partial class Navigation
     {
         [Inject]
         public AuthenticationStateProvider AuthenticationStateProvider { get; set; }

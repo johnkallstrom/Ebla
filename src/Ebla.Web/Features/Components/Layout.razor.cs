@@ -1,6 +1,6 @@
-﻿namespace Ebla.Web.Features.Shared
+﻿namespace Ebla.Web.Features.Components
 {
-    public partial class MainLayout
+    public partial class Layout
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; }
@@ -11,13 +11,10 @@
         [Inject]
         public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
-        bool enableDrawer = true;
-        string avatarLetter = "A";
+        public bool EnableDrawer { get; set; } = true;
+        public string AvatarLetter { get; set; } = "A";
 
-        void ToggleDrawer()
-        {
-            enableDrawer = !enableDrawer;
-        }
+        void ToggleDrawer() => EnableDrawer = !EnableDrawer;
 
         async Task Logout()
         {
@@ -32,7 +29,7 @@
             var user = authState.User;
             if (user.Identity.IsAuthenticated)
             {
-                avatarLetter = user.GetAvatarLetter();
+                AvatarLetter = user.GetAvatarLetter();
             }
         }
     }
