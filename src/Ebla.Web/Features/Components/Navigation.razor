@@ -9,6 +9,7 @@
             <MudNavLink Href="/authors" Match="NavLinkMatch.Prefix" Icon="fa-solid fa-book-open-reader">Authors</MudNavLink>
             <AuthorizeView Context="Administrator" Roles="Administrator">
                 <Authorized>
+                    <MudNavLink Href="/statistics" Icon="fa-solid fa-chart-line">Statistics</MudNavLink>
                     <MudNavGroup Title="Manage" Icon="fa-solid fa-list-check" Expanded="true">
                         <MudNavLink Href="/users" Icon="fa-solid fa-users">Users</MudNavLink>
                         <MudNavLink Href="/loans" Icon="fa-solid fa-rotate">Loans</MudNavLink>

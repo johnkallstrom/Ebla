@@ -1,4 +1,4 @@
-﻿namespace Ebla.Web.Features.ViewModels
+﻿namespace Ebla.Web.Features.Statistics.ViewModels
 {
     public class StatisticsViewModel
     {

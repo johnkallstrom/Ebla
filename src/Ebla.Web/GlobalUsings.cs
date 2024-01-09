@@ -11,6 +11,7 @@ global using Ebla.Web.Features.Libraries.ViewModels;
 global using Ebla.Web.Features.Loans.ViewModels;
 global using Ebla.Web.Features.Reservations.ViewModels;
 global using Ebla.Web.Features.Users.ViewModels;
+global using Ebla.Web.Features.Statistics.ViewModels;
 
 global using Blazored.LocalStorage;
 global using MudBlazor;
