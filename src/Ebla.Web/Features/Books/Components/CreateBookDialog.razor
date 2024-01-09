@@ -22,6 +22,13 @@
                 <MudSelectItem Value="@("Genre Four")" />
                 <MudSelectItem Value="@("Genre Five")" />
             </MudSelect>
+            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true">
+                <MudSelectItem Value="@("Library One")" />
+                <MudSelectItem Value="@("Library Two")" />
+                <MudSelectItem Value="@("Library Three")" />
+                <MudSelectItem Value="@("Library Four")" />
+                <MudSelectItem Value="@("Library Five")" />
+            </MudSelect>
         </EditForm>
     </DialogContent>
     <DialogActions>
@@ -29,34 +36,3 @@
         <MudButton Color="Color.Primary" OnClick="Submit">Save</MudButton>
     </DialogActions>
 </MudDialog>
-
-@code {
-    [CascadingParameter]
-    public MudDialogInstance MudDialog { get; set; }
-
-    public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
-
-    private void Cancel() => MudDialog.Cancel();
-
-    private void Submit()
-    {
-        int bookId = 0;
-        Console.WriteLine("Form submitted!");
-        MudDialog.Close(DialogResult.Ok(bookId));
-    }
-
-    protected override void OnInitialized()
-    {
-        var options = new DialogOptions
-        {
-            Position = DialogPosition.TopCenter,
-            MaxWidth = MaxWidth.Medium,
-            FullWidth = true,
-            CloseOnEscapeKey = true,
-            DisableBackdropClick = true,
-        };
-
-        MudDialog.SetTitle("New book");
-        MudDialog.SetOptions(options);
-    }
-}
