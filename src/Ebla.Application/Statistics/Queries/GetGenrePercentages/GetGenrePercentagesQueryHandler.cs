@@ -26,7 +26,7 @@
                 { 
                     Genre = group.Key, 
                     Books = genre.Books.Count() 
-                })).Take(request.Amount).OrderByDescending(x => x.Books).ToList();
+                })).Take(request.Count).OrderByDescending(x => x.Books).ToList();
 
             var result = new Dictionary<string, double>();
             foreach (var item in flattened)

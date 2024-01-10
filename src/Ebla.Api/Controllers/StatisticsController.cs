@@ -14,12 +14,12 @@
         /// <summary>
         /// Get a list of percentages were each show how much of that genre exists among all books
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="count"></param>
         /// <returns></returns>
-        [HttpGet("genre/{amount}")]
-        public async Task<Dictionary<string, double>> GetGenrePercentages(int amount)
+        [HttpGet("genre/{count}")]
+        public async Task<Dictionary<string, double>> GetGenrePercentages(int count)
         {
-            var data = await _mediator.Send(new GetGenrePercentagesQuery { Amount = amount });
+            var data = await _mediator.Send(new GetGenrePercentagesQuery { Count = count });
 
             return data;
         }

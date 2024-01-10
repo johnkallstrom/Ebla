@@ -2,6 +2,6 @@
 {
     public class GetGenrePercentagesQuery : IRequest<Dictionary<string, double>>
     {
-        public int Amount { get; set; }
+        public int Count { get; set; }
     }
 }
