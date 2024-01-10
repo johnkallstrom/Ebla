@@ -1,0 +1,58 @@
+﻿<MudGrid Class="mb-3">
+    <MudItem sm="6" lg="3" xl="2">
+        <MudPaper Class="pa-10 d-flex justify-center align-center gap-5">
+            @if (Loading)
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+            else
+            {
+                <MudIcon Icon="fas fa-book" Color="Color.Primary" Style="font-size: 4rem;" />
+                <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                <MudText Typo="Typo.h3">@Books</MudText>
+            }
+        </MudPaper>
+    </MudItem>
+    <MudItem sm="6" lg="3" xl="2">
+        <MudPaper Class="pa-10 d-flex justify-center align-center gap-5">
+            @if (Loading)
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+            else
+            {
+                <MudIcon Icon="fas fa-users" Color="Color.Primary" Style="font-size: 4rem;" />
+                <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                <MudText Typo="Typo.h3">@Users</MudText>
+            }
+        </MudPaper>
+    </MudItem>
+    <MudItem sm="6" lg="3" xl="2">
+        <MudPaper Class="pa-10 d-flex justify-center align-center gap-5">
+            @if (Loading)
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+            else
+            {
+                <MudIcon Icon="fas fa-rotate" Color="Color.Primary" Style="font-size: 4rem;" />
+                <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                <MudText Typo="Typo.h3">@Loans</MudText>
+            }
+        </MudPaper>
+    </MudItem>
+    <MudItem sm="6" lg="3" xl="2">
+        <MudPaper Class="pa-10 d-flex justify-center align-center gap-5">
+            @if (Loading)
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+            else
+            {
+                <MudIcon Icon="fas fa-clock" Color="Color.Primary" Style="font-size: 4rem;" />
+                <MudDivider Vertical="true" FlexItem="true" Light="true" />
+                <MudText Typo="Typo.h3">@Reservations</MudText>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
