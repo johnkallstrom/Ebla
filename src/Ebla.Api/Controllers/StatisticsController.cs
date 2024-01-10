@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        [HttpGet("genre/{count}")]
+        [HttpGet("genres/{count}")]
         public async Task<Dictionary<string, double>> GetGenrePercentages(int count)
         {
             var data = await _mediator.Send(new GetGenrePercentagesQuery { Count = count });

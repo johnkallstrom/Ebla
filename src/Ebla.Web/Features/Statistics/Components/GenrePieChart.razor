@@ -1,0 +1,29 @@
+﻿<MudGrid>
+    <MudItem sm="8" lg="6" xl="4">
+        <MudPaper Class="pa-8 d-flex justify-center align-center">
+            @if (!Loading)
+            {
+                <MudChart ChartType="ChartType.Pie" InputLabels="Labels" InputData="Data" Width="300px" Height="300px" />
+            }
+            else
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+        </MudPaper>
+        <MudPaper Class="pa-4 d-flex justify-center align-center mt-3">
+            @if (!Loading)
+            {
+                <MudSelect T="int" Label="How many genres to display" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" Value="Count" ValueChanged="(value => GetStatisticsDataAsync(value))">
+                    @foreach (var option in CountOptions)
+                    {
+                        <MudSelectItem Value="@(option)">@option</MudSelectItem>
+                    }
+                </MudSelect>
+            }
+            else
+            {
+                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>

@@ -3,7 +3,9 @@
 
 <PageTitle>Ebla - Statistics</PageTitle>
 
-<MudGrid Class="mb-3">
+<GenrePieChart />
+
+@* <MudGrid Class="mb-3">
     <MudItem sm="6" lg="3" xl="2">
         <MudPaper Class="pa-10 d-flex justify-center align-center gap-5">
             @if (Loading)
@@ -60,30 +62,4 @@
             }
         </MudPaper>
     </MudItem>
-</MudGrid>
-<MudGrid>
-    <MudItem sm="8" lg="6" xl="4">
-        <MudPaper Class="pa-8 d-flex justify-center align-center">
-            @if (Loading)
-            {
-                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
-            }
-            else
-            {
-                <MudChart ChartType="ChartType.Pie" InputData="@GenrePercentages" InputLabels="@GenreLabels" Width="300px" Height="300px" />
-            }
-        </MudPaper>
-    </MudItem>
-@*  <MudItem sm="8" lg="6" xl="4">
-        <MudPaper Class="pa-8 d-flex justify-center align-center">
-            @if (Loading)
-            {
-                <MudProgressCircular Class="d-flex align-center" Color="Color.Primary" Indeterminate="true" />
-            }
-            else
-            {
-                <MudChart ChartType="ChartType.Line" ChartSeries="LoanReservationChartSeries" XAxisLabels="LoanReservationXAxisLabels" Width="100%" Height="350px" />
-            }
-        </MudPaper>
-    </MudItem>  *@
-</MudGrid>
+</MudGrid> *@
