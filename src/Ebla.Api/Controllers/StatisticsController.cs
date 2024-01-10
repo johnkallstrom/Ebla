@@ -12,16 +12,28 @@
         }
 
         /// <summary>
-        /// Get statistics data
+        /// Get genre percentages
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        [HttpGet("genre/{amount}")]
+        public async Task<Dictionary<string, double>> GetGenrePercentages(int amount)
+        {
+            var data = await _mediator.Send(new GetGenrePercentagesQuery { Amount = amount });
+
+            return data;
+        }
+
+        /// <summary>
+        /// Get totals data
         /// </summary>
         /// <returns></returns>
-        [HasReadAccess]
-        [HttpGet]
-        public async Task<Result<StatisticsDto>> GetStatistics()
+        [HttpGet("totals")]
+        public async Task<Dictionary<string, int>> GetTotals()
         {
-            var response = await _mediator.Send(new GetStatisticsQuery());
+            var data = await _mediator.Send(new GetTotalsQuery());
 
-            return response;
+            return data;
         }
     }
 }

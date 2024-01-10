@@ -39,7 +39,6 @@ global using Ebla.Application.Users.Commands;
 global using Ebla.Application.Users.Queries;
 global using Ebla.Application.Users.Responses;
 global using Ebla.Application.Statistics.Queries;
-global using Ebla.Application.Statistics.Responses;
 
 global using Ebla.Infrastructure;
 global using Ebla.Persistence;
