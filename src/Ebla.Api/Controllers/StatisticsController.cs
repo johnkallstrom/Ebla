@@ -12,7 +12,7 @@
         }
 
         /// <summary>
-        /// Get genre percentages
+        /// Get a list of percentages were each show how much of that genre exists among all books
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
