@@ -11,3 +11,4 @@ global using Ebla.Application.Interfaces.DataAccess;
 global using Ebla.Application.Authors.Queries;
 global using Ebla.Application.Authors.Responses;
 global using Ebla.Application.Books.Commands;
+global using Ebla.Application.Statistics.Queries;
