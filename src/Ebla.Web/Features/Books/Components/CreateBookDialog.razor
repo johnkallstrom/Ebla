@@ -9,21 +9,21 @@
             <MudTextField Label="Country" @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" />
             <MudTextField Label="Image" @bind-Value="Model.Image" For="(() => Model.Country)" Class="mt-3" />
             <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedAuthor">
-                @foreach (var option in Authors)
+                @foreach (var author in Authors)
                 {
-                    <MudSelectItem Value="@(option)" />
+                    <MudSelectItem Value="@(author)" />
                 }
             </MudSelect>
             <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedGenre">
-                @foreach (var option in Genres)
+                @foreach (var genre in Genres)
                 {
-                    <MudSelectItem Value="@(option)" />
+                    <MudSelectItem Value="@(genre)" />
                 }
             </MudSelect>
             <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="Model.SelectedLibraries">
-                @foreach (var option in Libraries)
+                @foreach (var library in Libraries)
                 {
-                    <MudSelectItem Value="@(option)" />
+                    <MudSelectItem Value="@(library)" />
                 }
             </MudSelect>
         </EditForm>
