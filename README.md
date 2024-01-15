@@ -7,6 +7,7 @@
 - [Use cases](#use-cases)
 - [Backend](#backend)
 - [Frontend](#frontend)
+- [Unit testing](#unit-testing)
 - [GitHub Actions](#github-actions)
 
 ### About the project
@@ -28,6 +29,19 @@
 ### Use cases
 
 ### Backend
+
+### Unit testing
+At the moment all tests are written against the application layer since this is where all logic / use cases lives.
+An example of some part of the code being tested is: 
+- Create a new loan
+- Update an existing book
+- Get all authors
+
+Some nuget packages are used to help out with writing the tests.
+
+- [xUnit](https://xunit.net/)
+- [moq](https://github.com/devlooped/moq)
+- [Fluent Assertions](https://fluentassertions.com/)
 
 ### Frontend
 
