@@ -7,7 +7,6 @@
         public const string Books = "/api/books";
         public const string Genres = "/api/genres";
         public const string Libraries = "/api/libraries";
-        public const string LibraryCards = "/api/libraryCards";
         public const string Loans = "/api/loans";
         public const string Reservations = "/api/reservations";
         public const string Reviews = "/api/reviews";
