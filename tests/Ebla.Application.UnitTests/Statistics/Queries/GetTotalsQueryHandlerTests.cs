@@ -16,27 +16,7 @@
         }
 
         [Fact]
-        public async Task Handle_Should_ReturnDictionaryWithKeysAsTypeString()
-        {
-            // Arrange
-            SetupMocks();
-
-            var request = new GetTotalsQuery();
-            var handler = new GetTotalsQueryHandler(
-                _mockBookRepository.Object, 
-                _mockIdentityService.Object,
-                _mockLoanRepository.Object,
-                _mockReservationRepository.Object);
-
-            // Act
-            var result = await handler.Handle(request, default);
-
-            // Assert
-            result.Keys.Should().AllBeOfType<string>();
-        }
-
-        [Fact]
-        public async Task Handle_Should_ReturnDictionaryWithValuesAsTypeInt()
+        public async Task Handle_Should_InvokeGetTotalReservationsAsyncOnce()
         {
             // Arrange
             SetupMocks();
@@ -52,6 +32,108 @@
             var result = await handler.Handle(request, default);
 
             // Assert
+            _mockReservationRepository.Verify(x => x.GetTotalReservationsAsync(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Handle_Should_InvokeGetTotalLoansAsyncOnce()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object,
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            _mockLoanRepository.Verify(x => x.GetTotalLoansAsync(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Handle_Should_InvokeGetTotalUsersAsyncOnce()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object,
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            _mockIdentityService.Verify(x => x.GetTotalUsersAsync(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Handle_Should_InvokeGetTotalBooksAsyncOnce()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object,
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            _mockBookRepository.Verify(x => x.GetTotalBooksAsync(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Handle_Should_ReturnCountGreaterThanOne()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object,
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            result.Count.Should().BeGreaterThan(1);
+        }
+
+        [Fact]
+        public async Task Handle_Should_ReturnDictionaryWithKeysAsTypeStringAndValuesAsTypeInt()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object, 
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            result.Should().BeOfType<Dictionary<string, int>>();
+            result.Keys.Should().AllBeOfType<string>();
             result.Values.Should().AllBeOfType<int>();
         }
 
