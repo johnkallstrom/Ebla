@@ -30,11 +30,11 @@
 
 ### Backend
 
+### Frontend
+
 ### Unit testing
 - [xUnit](https://xunit.net/)
 - [moq](https://github.com/devlooped/moq)
 - [Fluent Assertions](https://fluentassertions.com/)
-
-### Frontend
 
 ### GitHub Actions
