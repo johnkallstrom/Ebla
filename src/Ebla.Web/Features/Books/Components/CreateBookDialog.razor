@@ -11,19 +11,19 @@
             <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedAuthor">
                 @foreach (var author in Authors)
                 {
-                    <MudSelectItem Value="@(author)" />
+                    <MudSelectItem Value="@(author.Name)" />
                 }
             </MudSelect>
             <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedGenre">
                 @foreach (var genre in Genres)
                 {
-                    <MudSelectItem Value="@(genre)" />
+                    <MudSelectItem Value="@(genre.Name)" />
                 }
             </MudSelect>
             <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="Model.SelectedLibraries">
                 @foreach (var library in Libraries)
                 {
-                    <MudSelectItem Value="@(library)" />
+                    <MudSelectItem Value="@(library.Name)" />
                 }
             </MudSelect>
         </EditForm>
