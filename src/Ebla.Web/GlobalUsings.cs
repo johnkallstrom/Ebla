@@ -2,6 +2,7 @@
 global using Ebla.Web.Enums;
 global using Ebla.Web.Extensions;
 global using Ebla.Web.Services;
+global using Ebla.Web.Services.Interfaces;
 global using Ebla.Web.Authentication;
 global using Ebla.Web.Features.ViewModels;
 global using Ebla.Web.Features.Authors.ViewModels;
@@ -11,7 +12,6 @@ global using Ebla.Web.Features.Libraries.ViewModels;
 global using Ebla.Web.Features.Loans.ViewModels;
 global using Ebla.Web.Features.Reservations.ViewModels;
 global using Ebla.Web.Features.Users.ViewModels;
-global using Ebla.Web.Features.Statistics.ViewModels;
 
 global using Blazored.LocalStorage;
 global using MudBlazor;
