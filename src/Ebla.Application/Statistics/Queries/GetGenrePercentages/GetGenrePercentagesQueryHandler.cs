@@ -15,27 +15,35 @@
 
         public async Task<Dictionary<string, double>> Handle(GetGenrePercentagesQuery request, CancellationToken cancellationToken)
         {
-            var genres = await _repository.GetAllAsync();
-            var totalBooks = await _bookRepository.GetTotalBooksAsync();
+            var validator = new GetGenrePercentagesQueryValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            var groupings = genres.GroupBy(genre => genre.Name).AsEnumerable();
-
-            var flattened = groupings
-                .SelectMany(group => group.Where(genre => genre.Books != null)
-                .Select(genre => new 
-                { 
-                    Genre = group.Key, 
-                    Books = genre.Books.Count() 
-                })).Take(request.Count).OrderByDescending(x => x.Books).ToList();
-
-            var result = new Dictionary<string, double>();
-            foreach (var item in flattened)
+            if (validationResult.IsValid)
             {
-                double percentage = Math.Round((double)item.Books / totalBooks * 100, 2);
-                result.Add(item.Genre, percentage);
+                var genres = await _repository.GetAllAsync();
+                var totalBooks = await _bookRepository.GetTotalBooksAsync();
+
+                var groupings = genres.GroupBy(genre => genre.Name).AsEnumerable();
+
+                var flattened = groupings
+                    .SelectMany(group => group.Where(genre => genre.Books != null)
+                    .Select(genre => new
+                    {
+                        Genre = group.Key,
+                        Books = genre.Books.Count()
+                    })).Take(request.Count).OrderByDescending(x => x.Books).ToList();
+
+                var result = new Dictionary<string, double>();
+                foreach (var item in flattened)
+                {
+                    double percentage = Math.Round((double)item.Books / totalBooks * 100, 2);
+                    result.Add(item.Genre, percentage);
+                }
+
+                return result;
             }
 
-            return result;
+            return new Dictionary<string, double>();
         }
     }
 }
