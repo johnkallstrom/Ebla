@@ -8,19 +8,19 @@
             <MudTextField Label="Language" @bind-Value="Model.Language" For="(() => Model.Language)" Class="mt-3" />
             <MudTextField Label="Country" @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" />
             <MudTextField Label="Image" @bind-Value="Model.Image" For="(() => Model.Country)" Class="mt-3" />
-            <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedAuthor">
+            <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedAuthor">
                 @foreach (var author in Authors)
                 {
                     <MudSelectItem Value="@(author.Name)" />
                 }
             </MudSelect>
-            <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="Model.SelectedGenre">
+            <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedGenre">
                 @foreach (var genre in Genres)
                 {
                     <MudSelectItem Value="@(genre.Name)" />
                 }
             </MudSelect>
-            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="Model.SelectedLibraries">
+            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="SelectedLibraries">
                 @foreach (var library in Libraries)
                 {
                     <MudSelectItem Value="@(library.Name)" />

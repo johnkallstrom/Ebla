@@ -6,6 +6,9 @@
         public MudDialogInstance MudDialog { get; set; }
 
         [Inject]
+        public IHttpService<Response<int>> HttpService { get; set; }
+
+        [Inject]
         public IAuthorHttpService AuthorHttpService { get; set; }
 
         [Inject]
@@ -24,8 +27,14 @@
         };
 
         public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
+
+        public string SelectedAuthor { get; set; }
         public IEnumerable<AuthorViewModel> Authors { get; set; }
+
+        public string SelectedGenre { get; set; }
         public IEnumerable<GenreViewModel> Genres { get; set; }
+
+        public IEnumerable<string> SelectedLibraries { get; set; } = new List<string>();
         public IEnumerable<LibraryViewModel> Libraries { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -38,11 +47,28 @@
             Libraries = await LibraryHttpService.GetAllAsync();
         }
 
-        private void Cancel() => MudDialog.Cancel();
-
-        private void Submit()
+        private async Task Submit()
         {
-            MudDialog.Close(DialogResult.Ok(0));
+            if (!string.IsNullOrEmpty(SelectedAuthor) && Authors is not null)
+            {
+                Model.AuthorId = Authors.FirstOrDefault(a => a.Name.Equals(SelectedAuthor)).Id;
+            }
+            if (!string.IsNullOrEmpty(SelectedGenre) && Genres is not null)
+            {
+                Model.GenreId = Genres.FirstOrDefault(g => g.Name.Equals(SelectedGenre)).Id;
+            }
+            if (SelectedLibraries is not null && SelectedLibraries.Count() > 0 && Libraries is not null)
+            {
+                Model.LibraryIds = Libraries.Where(l => SelectedLibraries.Contains(l.Name)).Select(l => l.Id).ToArray();
+            }
+
+            var response = await HttpService.PostAsync($"{Endpoints.Books}/create", Model);
+            if (response.Succeeded)
+            {
+                MudDialog.Close(DialogResult.Ok(response.Data));
+            }
         }
+
+        private void Cancel() => MudDialog.Cancel();
     }
 }

@@ -9,8 +9,8 @@
         public string Language { get; set; }
         public string Country { get; set; }
         public string Image { get; set; }
-        public string SelectedAuthor { get; set; }
-        public string SelectedGenre { get; set; }
-        public IEnumerable<string> SelectedLibraries { get; set; } = new List<string>();
+        public int AuthorId { get; set; }
+        public int GenreId { get; set; }
+        public int[] LibraryIds { get; set; }
     }
 }
