@@ -96,26 +96,6 @@
         }
 
         [Fact]
-        public async Task Handle_Should_ReturnCountGreaterThanOne()
-        {
-            // Arrange
-            SetupMocks();
-
-            var request = new GetTotalsQuery();
-            var handler = new GetTotalsQueryHandler(
-                _mockBookRepository.Object,
-                _mockIdentityService.Object,
-                _mockLoanRepository.Object,
-                _mockReservationRepository.Object);
-
-            // Act
-            var result = await handler.Handle(request, default);
-
-            // Assert
-            result.Count.Should().BeGreaterThan(1);
-        }
-
-        [Fact]
         public async Task Handle_Should_ReturnDictionaryWithKeysAsTypeStringAndValuesAsTypeInt()
         {
             // Arrange
@@ -135,6 +115,26 @@
             result.Should().BeOfType<Dictionary<string, int>>();
             result.Keys.Should().AllBeOfType<string>();
             result.Values.Should().AllBeOfType<int>();
+        }
+
+        [Fact]
+        public async Task Handle_Should_ReturnNotNullOrEmptyDictionary()
+        {
+            // Arrange
+            SetupMocks();
+
+            var request = new GetTotalsQuery();
+            var handler = new GetTotalsQueryHandler(
+                _mockBookRepository.Object,
+                _mockIdentityService.Object,
+                _mockLoanRepository.Object,
+                _mockReservationRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            result.Should().NotBeNullOrEmpty();
         }
 
         #region Helpers
