@@ -1,35 +1,36 @@
-﻿<MudDialog>
-    <DialogContent>
-        <EditForm Model="Model" OnValidSubmit="Submit">
-            <MudTextField Label="Title" @bind-Value="Model.Title" For="(() => Model.Title)" />
-            <MudTextField Label="Description" Lines="5" @bind-Value="Model.Description" For="(() => Model.Description)" Class="mt-3" />
-            <MudNumericField Label="Pages" @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" Min="1" />
-            <MudDatePicker Label="Published" @bind-Date="Model.Published" For="(() => Model.Published)" DisableToolbar="true" Class="mt-3" />
-            <MudTextField Label="Language" @bind-Value="Model.Language" For="(() => Model.Language)" Class="mt-3" />
-            <MudTextField Label="Country" @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" />
-            <MudTextField Label="Image" @bind-Value="Model.Image" For="(() => Model.Country)" Class="mt-3" />
-            <MudSelect T="string" Label="Author" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedAuthor">
-                @foreach (var author in Authors)
-                {
-                    <MudSelectItem Value="@(author.Name)" />
-                }
-            </MudSelect>
-            <MudSelect T="string" Label="Genre" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedGenre">
-                @foreach (var genre in Genres)
-                {
-                    <MudSelectItem Value="@(genre.Name)" />
-                }
-            </MudSelect>
-            <MudSelect T="string" Label="Libraries" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="SelectedLibraries">
-                @foreach (var library in Libraries)
-                {
-                    <MudSelectItem Value="@(library.Name)" />
-                }
-            </MudSelect>
-        </EditForm>
-    </DialogContent>
-    <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="Submit">Save</MudButton>
-    </DialogActions>
-</MudDialog>
+﻿<EditForm Model="Model" OnValidSubmit="Submit">
+    <MudDialog>
+        <DialogContent>
+			<DataAnnotationsValidator />
+			<MudTextField @bind-Value="Model.Title" For="(() => Model.Title)" />
+			<MudTextField Lines="5" @bind-Value="Model.Description" For="(() => Model.Description)" Class="mt-3" />
+			<MudNumericField @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" Min="1" />
+			<MudDatePicker @bind-Date="Model.Published" For="(() => Model.Published)" DisableToolbar="true" Class="mt-3" />
+			<MudTextField @bind-Value="Model.Language" For="(() => Model.Language)" Class="mt-3" />
+			<MudTextField @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" />
+			<MudTextField @bind-Value="Model.Image" For="(() => Model.Image)" Class="mt-3" />
+			<MudSelect T="string" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedAuthor" For="(() => SelectedAuthor)">
+				@foreach (var author in Authors)
+				{
+					<MudSelectItem Value="@(author.Name)" />
+				}
+			</MudSelect>
+			<MudSelect T="string" AnchorOrigin="Origin.BottomCenter" @bind-Value="SelectedGenre" For="(() => SelectedGenre)">
+				@foreach (var genre in Genres)
+				{
+					<MudSelectItem Value="@(genre.Name)" />
+				}
+			</MudSelect>
+			<MudSelect Label="Libraries" T="string" AnchorOrigin="Origin.BottomCenter" MultiSelection="true" @bind-SelectedValues="SelectedLibraries">
+				@foreach (var library in Libraries)
+				{
+					<MudSelectItem Value="@(library.Name)" />
+				}
+			</MudSelect>
+        </DialogContent>
+        <DialogActions>
+            <MudButton OnClick="MudDialog.Cancel">Cancel</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary">Save</MudButton>
+        </DialogActions>
+    </MudDialog>
+</EditForm>

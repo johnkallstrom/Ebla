@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Web.Features.Books.Components
 {
-    public partial class CreateBookDialog
+	public partial class CreateBookDialog
     {
         [CascadingParameter]
         public MudDialogInstance MudDialog { get; set; }
@@ -28,13 +28,21 @@
 
         public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
 
+        [Label("Author")]
+        [Required(ErrorMessage = "Please select an author")]
+        [DataType(DataType.Text)]
         public string SelectedAuthor { get; set; }
         public IEnumerable<AuthorViewModel> Authors { get; set; }
 
-        public string SelectedGenre { get; set; }
+		[Label("Genre")]
+		[Required(ErrorMessage = "Please select a genre")]
+		[DataType(DataType.Text)]
+		public string SelectedGenre { get; set; }
         public IEnumerable<GenreViewModel> Genres { get; set; }
 
-        public IEnumerable<string> SelectedLibraries { get; set; } = new List<string>();
+		[Required(ErrorMessage = "Please select atleast one library")]
+		[DataType(DataType.Text)]
+		public IEnumerable<string> SelectedLibraries { get; set; } = new List<string>();
         public IEnumerable<LibraryViewModel> Libraries { get; set; }
 
         protected override async Task OnInitializedAsync()
@@ -65,10 +73,8 @@
             var response = await HttpService.PostAsync($"{Endpoints.Books}/create", Model);
             if (response.Succeeded)
             {
-                MudDialog.Close(DialogResult.Ok(response.Data));
+                MudDialog.Close(DialogResult.Ok(true));
             }
         }
-
-        private void Cancel() => MudDialog.Cancel();
     }
 }
