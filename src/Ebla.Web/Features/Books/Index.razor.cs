@@ -12,9 +12,9 @@
 
         protected override async Task OnInitializedAsync()
         {
-            BookList = await HttpService.GetListAsync($"{Endpoints.Books}");
+            BookList = await HttpService.GetListAsync(Endpoints.Books);
         }
 
-        protected void ShowCreateBookDialog() => DialogService.Show<CreateBookDialog>();
+		protected void ShowCreateBookDialog() => DialogService.Show<CreateBookDialog>();
     }
 }
