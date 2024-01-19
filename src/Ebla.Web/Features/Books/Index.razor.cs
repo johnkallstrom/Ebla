@@ -15,6 +15,15 @@
             BookList = await HttpService.GetListAsync(Endpoints.Books);
         }
 
-		protected void ShowCreateBookDialog() => DialogService.Show<CreateBookDialog>();
+        protected async Task ShowCreateBookDialogAsync()
+        {
+            var dialogRef = await DialogService.ShowAsync<CreateBookDialog>("New book");
+
+            var dialogResult = await dialogRef.Result;
+            if (dialogResult.Data is true && dialogResult.Canceled is false)
+            {
+                BookList = await HttpService.GetListAsync(Endpoints.Books);
+            }
+        }
     }
 }
