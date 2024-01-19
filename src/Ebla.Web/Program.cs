@@ -15,6 +15,10 @@ services.AddScoped<ILibraryHttpService, LibraryHttpService>();
 services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 services.AddAuthorizationCore();
 services.AddBlazoredLocalStorage();
-services.AddMudServices();
+services.AddMudServices(config =>
+{
+    config.SnackbarConfiguration.ShowCloseIcon = true;
+    config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomLeft;
+});
 
 await builder.Build().RunAsync();

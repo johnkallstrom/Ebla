@@ -6,6 +6,9 @@
         public MudDialogInstance MudDialog { get; set; }
 
         [Inject]
+        public ISnackbar Snackbar { get; set; }
+
+        [Inject]
         public IHttpService<Response<int>> HttpService { get; set; }
 
         [Inject]
@@ -75,6 +78,11 @@
             if (response.Succeeded)
             {
                 MudDialog.Close(DialogResult.Ok(true));
+                Snackbar.Add("New book added", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Something went wrong", Severity.Error);
             }
         }
     }
