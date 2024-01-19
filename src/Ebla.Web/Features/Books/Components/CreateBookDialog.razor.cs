@@ -36,18 +36,18 @@
         [Required(ErrorMessage = "Please select an author")]
         [DataType(DataType.Text)]
         public string SelectedAuthor { get; set; }
-        public IEnumerable<AuthorViewModel> Authors { get; set; }
+        public IEnumerable<AuthorViewModel> Authors { get; set; } = new List<AuthorViewModel>();
 
 		[Label("Genre")]
 		[Required(ErrorMessage = "Please select a genre")]
 		[DataType(DataType.Text)]
 		public string SelectedGenre { get; set; }
-        public IEnumerable<GenreViewModel> Genres { get; set; }
+        public IEnumerable<GenreViewModel> Genres { get; set; } = new List<GenreViewModel>();
 
 		[Required(ErrorMessage = "Please select atleast one library")]
 		[DataType(DataType.Text)]
 		public IEnumerable<string> SelectedLibraries { get; set; } = new List<string>();
-        public IEnumerable<LibraryViewModel> Libraries { get; set; }
+        public IEnumerable<LibraryViewModel> Libraries { get; set; } = new List<LibraryViewModel>();
 
         protected override async Task OnInitializedAsync()
         {
