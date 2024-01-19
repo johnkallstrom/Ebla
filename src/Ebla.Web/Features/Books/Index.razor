@@ -17,13 +17,13 @@
                 </AuthorizeView>
             </ToolBarContent>
             <HeaderContent>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Id)">#</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Title)">Title</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Author)">Author</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Genre)">Genre</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Language)">Language</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Published)">Published</MudTableSortLabel></MudTh>
-                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.CreatedOn)">Created</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Id">#</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Title">Title</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Author">Author</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Genre">Genre</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Language">Language</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.Published">Published</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="SortBy.CreatedOn">Created</MudTableSortLabel></MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="#">@context.Id</MudTd>
