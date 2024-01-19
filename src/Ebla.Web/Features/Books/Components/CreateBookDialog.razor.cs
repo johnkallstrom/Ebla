@@ -24,6 +24,7 @@
             FullWidth = true,
             CloseOnEscapeKey = true,
             DisableBackdropClick = true,
+            CloseButton = true
         };
 
         public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
