@@ -4,7 +4,7 @@
 <PageTitle>Ebla - Books</PageTitle>
 
 <MudGrid>
-    <MudItem sm="12" lg="10" xl="8">
+    <MudItem sm="12" xl="8">
         <MudTable Items="BookList" Hover="true" Class="mt-3">
             <ToolBarContent>
                 <MudText Typo="Typo.h6">Books</MudText>
@@ -17,20 +17,22 @@
                 </AuthorizeView>
             </ToolBarContent>
             <HeaderContent>
-                <MudTh>#</MudTh>
-                <MudTh>Title</MudTh>
-                <MudTh>Author</MudTh>
-                <MudTh>Genre</MudTh>
-                <MudTh>Language</MudTh>
-                <MudTh>Country</MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Id)">#</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Title)">Title</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Author)">Author</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Genre)">Genre</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Language)">Language</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.Published)">Published</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<BookViewModel, object>(x => x.CreatedOn)">Created</MudTableSortLabel></MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="#">@context.Id</MudTd>
                 <MudTd DataLabel="Title">@context.Title</MudTd>
                 <MudTd DataLabel="Author">@context.Author</MudTd>
                 <MudTd DataLabel="Genre">@context.Genre</MudTd>
+                <MudTd DataLabel="Language">@context.Country</MudTd>
                 <MudTd DataLabel="Published">@context.Language</MudTd>
-                <MudTd DataLabel="Published">@context.Country</MudTd>
+                <MudTd DataLabel="Created">@context.CreatedOn.ToCustomDateFormat()</MudTd>
             </RowTemplate>
             <PagerContent>
                 <MudTablePager HidePageNumber="true" />

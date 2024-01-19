@@ -9,5 +9,7 @@
         public string Language { get; init; }
         public string Country { get; init; }
         public string Image { get; init; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime? LastModified { get; set; }
     }
 }
