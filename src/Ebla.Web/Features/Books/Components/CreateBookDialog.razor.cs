@@ -61,6 +61,22 @@
 
         private async Task Submit()
         {
+            GetIdsFromSelectedNames();
+
+            var response = await HttpService.PostAsync($"{Endpoints.Books}/create", Model);
+            if (response.Succeeded)
+            {
+                MudDialog.Close(DialogResult.Ok(true));
+                Snackbar.Add("New book added", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Something went wrong", Severity.Error);
+            }
+        }
+
+        private void GetIdsFromSelectedNames()
+        {
             if (!string.IsNullOrEmpty(SelectedAuthor) && Authors is not null)
             {
                 Model.AuthorId = Authors.FirstOrDefault(a => a.Name.Equals(SelectedAuthor)).Id;
@@ -72,17 +88,6 @@
             if (SelectedLibraries is not null && SelectedLibraries.Count() > 0 && Libraries is not null)
             {
                 Model.LibraryIds = Libraries.Where(l => SelectedLibraries.Contains(l.Name)).Select(l => l.Id).ToArray();
-            }
-
-            var response = await HttpService.PostAsync($"{Endpoints.Books}/create", Model);
-            if (response.Succeeded)
-            {
-                MudDialog.Close(DialogResult.Ok(true));
-                Snackbar.Add("New book added", Severity.Success);
-            }
-            else
-            {
-                Snackbar.Add("Something went wrong", Severity.Error);
             }
         }
     }
