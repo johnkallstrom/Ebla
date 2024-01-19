@@ -7,11 +7,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 
 services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(configuration.GetValue<string>("Ebla.Api:BaseUrl")) });
-services.AddScoped(typeof(IHttpService<>), typeof(HttpService<>));
-services.AddScoped<IAuthorHttpService, AuthorHttpService>();
-services.AddScoped<IBookHttpService, BookHttpService>();
-services.AddScoped<IGenreHttpService, GenreHttpService>();
-services.AddScoped<ILibraryHttpService, LibraryHttpService>();
+services.AddHttpServices();
 services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 services.AddAuthorizationCore();
 services.AddBlazoredLocalStorage();
