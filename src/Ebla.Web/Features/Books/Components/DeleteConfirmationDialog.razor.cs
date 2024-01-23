@@ -2,7 +2,18 @@
 {
     public partial class DeleteConfirmationDialog
     {
+        [Inject]
+        public IHttpService<Response> HttpService { get; set; }
+
         [CascadingParameter]
         public MudDialogInstance MudDialog { get; set; }
+
+        [Parameter]
+        public HashSet<BookViewModel> BooksToDelete { get; set; } = new HashSet<BookViewModel>();
+
+        private async Task DeleteBooksAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

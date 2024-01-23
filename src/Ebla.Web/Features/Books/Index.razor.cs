@@ -29,7 +29,12 @@
 
         protected async Task ShowDeleteConfirmationDialog()
         {
-            var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books");
+            var parameters = new DialogParameters
+            {
+                { "BooksToDelete", SelectedBooks }
+            };
+
+            var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books", parameters);
         }
     }
 }
