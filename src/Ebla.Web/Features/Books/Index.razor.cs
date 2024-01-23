@@ -10,6 +10,7 @@
 
         public IEnumerable<BookViewModel> BookList { get; set; }
         public HashSet<BookViewModel> SelectedBooks { get; set; } = new HashSet<BookViewModel>();
+        public bool DisableDeleteButton { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -31,6 +32,7 @@
         {
             var parameters = new DialogParameters
             {
+                { "Text", $"Are you sure you want to delete {SelectedBooks.Count()} books?" },
                 { "BooksToDelete", SelectedBooks }
             };
 

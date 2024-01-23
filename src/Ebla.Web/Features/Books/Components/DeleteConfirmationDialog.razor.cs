@@ -11,6 +11,9 @@
         [Parameter]
         public HashSet<BookViewModel> BooksToDelete { get; set; } = new HashSet<BookViewModel>();
 
+        [Parameter]
+        public string Text { get; set; }
+
         private async Task DeleteBooksAsync()
         {
             throw new NotImplementedException();
