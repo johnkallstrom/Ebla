@@ -1,6 +1,6 @@
 ﻿namespace Ebla.Web.Features.Books.Components
 {
-	public partial class CreateBookDialog
+	public partial class CreateFormDialog
     {
         [CascadingParameter]
         public MudDialogInstance MudDialog { get; set; }
