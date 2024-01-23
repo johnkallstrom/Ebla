@@ -19,7 +19,16 @@
 
         protected async Task ShowCreateDialog()
         {
-            var dialogRef = await DialogService.ShowAsync<CreateFormDialog>("Create a new book");
+            var options = new DialogOptions
+            {
+                Position = DialogPosition.Center,
+                MaxWidth = MaxWidth.Medium,
+                FullWidth = true,
+                DisableBackdropClick = true,
+                CloseButton = true
+            };
+
+            var dialogRef = await DialogService.ShowAsync<CreateFormDialog>("Create a new book", options);
 
             var dialogResult = await dialogRef.Result;
             if (dialogResult.Data is true && dialogResult.Canceled is false)
@@ -30,13 +39,19 @@
 
         protected async Task ShowDeleteConfirmationDialog()
         {
+            var options = new DialogOptions
+            {
+                DisableBackdropClick = true,
+                CloseButton = true
+            };
+
             var parameters = new DialogParameters
             {
                 { "Text", $"Are you sure you want to delete {SelectedBooks.Count()} books?" },
                 { "BooksToDelete", SelectedBooks }
             };
 
-            var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books", parameters);
+            var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books", parameters, options);
         }
     }
 }

@@ -20,16 +20,6 @@
         [Inject]
         public ILibraryHttpService LibraryHttpService { get; set; }
 
-        public DialogOptions DialogOptions { get; set; } = new DialogOptions
-        {
-            Position = DialogPosition.Center,
-            MaxWidth = MaxWidth.Medium,
-            FullWidth = true,
-            CloseOnEscapeKey = true,
-            DisableBackdropClick = true,
-            CloseButton = true
-        };
-
         public CreateBookViewModel Model { get; set; } = new CreateBookViewModel();
 
         [Label("Author")]
@@ -51,8 +41,6 @@
 
         protected override async Task OnInitializedAsync()
         {
-            MudDialog.SetOptions(DialogOptions);
-            
             Authors = await AuthorHttpService.GetAllAsync();
             Genres = await GenreHttpService.GetAllAsync();
             Libraries = await LibraryHttpService.GetAllAsync();
