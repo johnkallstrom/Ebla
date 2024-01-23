@@ -5,13 +5,14 @@
 
 <MudGrid>
     <MudItem sm="12" xl="8">
-        <MudTable Items="BookList" Hover="true" Class="mt-3">
+        <MudTable Items="BookList" Hover="true" Class="mt-3" MultiSelection="true" SelectOnRowClick="false" @bind-SelectedItems="SelectedBooks">
             <ToolBarContent>
                 <MudText Typo="Typo.h6">Books</MudText>
                 <AuthorizeView Context="Administrator" Roles="Administrator">
                     <Authorized>
                         <MudToolBar>
-                            <MudIconButton Icon="@Icons.Material.Outlined.Add" OnClick="ShowCreateBookDialogAsync" />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Add" OnClick="ShowCreateDialog" />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Delete" OnClick="ShowDeleteConfirmationDialog" />
                         </MudToolBar>
                     </Authorized>
                 </AuthorizeView>
