@@ -51,7 +51,6 @@
 
         protected override async Task OnInitializedAsync()
         {
-            MudDialog.SetTitle("New book");
             MudDialog.SetOptions(DialogOptions);
             
             Authors = await AuthorHttpService.GetAllAsync();
