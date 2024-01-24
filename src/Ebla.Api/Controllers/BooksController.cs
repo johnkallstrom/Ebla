@@ -69,13 +69,13 @@
         /// <summary>
         /// Delete books
         /// </summary>
-        /// <param name="ids"></param>
+        /// <param name="command"></param>
         /// <returns></returns>
-        [HasWriteAccess]
-        [HttpDelete("delete/{ids}")]
-        public async Task<Result> Delete(int[] ids)
+        //[HasWriteAccess]
+        [HttpDelete("delete")]
+        public async Task<Result> Delete([FromBody] DeleteBooksCommand command)
         {
-            var response = await _mediator.Send(new DeleteBooksCommand { Ids = ids });
+            var response = await _mediator.Send(command);
 
             return response;
         }

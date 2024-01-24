@@ -2,13 +2,15 @@
 {
     public class DeleteBooksCommandHandler : IRequestHandler<DeleteBooksCommand, Result>
     {
-        private readonly IGenericRepository<Book> _repository;
+        private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
 
-        public DeleteBooksCommandHandler(IGenericRepository<Book> repository, IMapper mapper)
+        public DeleteBooksCommandHandler(
+            IMapper mapper, 
+            IBookRepository repository)
         {
-            _repository = repository;
             _mapper = mapper;
+            _repository = repository;
         }
 
         public async Task<Result> Handle(DeleteBooksCommand request, CancellationToken cancellationToken)
@@ -18,13 +20,13 @@
 
             if (validationResult.IsValid)
             {
-                var booksToDelete = await _repository.Get(request.Ids);
+                var booksToDelete = await _repository.GetBooksAsync(request.Ids);
                 if (booksToDelete is null)
                 {
                     throw new NotFoundException(nameof(booksToDelete), request.Ids);
                 }
 
-                //_repository.Delete(booksToDelete);
+                _repository.DeleteBooks(booksToDelete);
                 await _repository.SaveAsync();
 
                 return Result.Success();
