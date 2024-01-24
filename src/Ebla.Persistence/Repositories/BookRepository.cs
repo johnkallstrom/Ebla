@@ -10,6 +10,16 @@
             _context = context;
         }
 
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public void DeleteBooks(IEnumerable<Book> books)
+        {
+            _context.RemoveRange(books);
+        }
+
         public async Task<IEnumerable<Book>> GetAllBooksAsync()
         {
             var books = await _context.Books
@@ -30,6 +40,15 @@
                 .FirstOrDefaultAsync(x => x.Id == bookId);
 
             return book;
+        }
+
+        public async Task<IEnumerable<Book>> GetBooksAsync(int[] bookIds)
+        {
+            var books = await _context.Books
+                .Where(x => bookIds.Contains(x.Id))
+                .ToListAsync();
+
+            return books;
         }
 
         public async Task<IEnumerable<Book>> GetPagedBooksAsync(int pageNumber, int pageSize)

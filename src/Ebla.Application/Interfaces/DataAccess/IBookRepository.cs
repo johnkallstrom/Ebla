@@ -6,5 +6,8 @@
         Task<IEnumerable<Book>> GetAllBooksAsync();
         Task<IEnumerable<Book>> GetPagedBooksAsync(int pageNumber, int pageSize);
         Task<Book> GetBookByIdAsync(int bookId);
+        Task<IEnumerable<Book>> GetBooksAsync(int[] bookIds);
+        void DeleteBooks(IEnumerable<Book> books);
+        Task SaveAsync();
     }
 }
