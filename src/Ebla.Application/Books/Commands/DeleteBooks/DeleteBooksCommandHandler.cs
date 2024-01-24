@@ -18,13 +18,13 @@
 
             if (validationResult.IsValid)
             {
-                var bookToDelete = await _repository.GetByIdAsync(request.Id);
-                if (bookToDelete is null)
+                var booksToDelete = await _repository.Get(request.Ids);
+                if (booksToDelete is null)
                 {
-                    throw new NotFoundException(nameof(bookToDelete), request.Id);
+                    throw new NotFoundException(nameof(booksToDelete), request.Ids);
                 }
 
-                _repository.Delete(bookToDelete);
+                //_repository.Delete(booksToDelete);
                 await _repository.SaveAsync();
 
                 return Result.Success();

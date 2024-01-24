@@ -26,9 +26,14 @@
             return await _table.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> Get(int id)
         {
             return await _table.FindAsync(id);
+        }
+
+        public Task<IEnumerable<T>> Get(int[] ids)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task AddAsync(T entity)
