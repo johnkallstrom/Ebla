@@ -23,10 +23,12 @@
             var request = new DeleteBooksCommand { Ids = [-1, 398, 7310] };
             var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
 
+            string expectedMsg = $"Entities 'booksToDelete' with identifiers '-1, 398, 7310' was not found";
             var result = await handler
                 .Invoking(x => x.Handle(request, default))
                 .Should()
-                .ThrowAsync<NotFoundException>();
+                .ThrowAsync<NotFoundException>()
+                .WithMessage(expectedMsg);
         }
 
         [Fact]
@@ -42,10 +44,12 @@
             var request = new DeleteBooksCommand { Ids = [-1, 398, 7310] };
             var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
 
+            string expectedMsg = $"Entities 'booksToDelete' with identifiers '-1, 398, 7310' was not found";
             var result = await handler
                 .Invoking(x => x.Handle(request, default))
                 .Should()
-                .ThrowAsync<NotFoundException>();
+                .ThrowAsync<NotFoundException>()
+                .WithMessage(expectedMsg);
         }
     }
 }
