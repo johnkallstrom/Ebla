@@ -20,7 +20,7 @@
 
             if (validationResult.IsValid)
             {
-                var loanToUpdate = await _genericRepository.GetByIdAsync(request.Id);
+                var loanToUpdate = await _genericRepository.Get(request.Id);
                 if (loanToUpdate is null)
                 {
                     throw new NotFoundException(nameof(loanToUpdate), request.Id);

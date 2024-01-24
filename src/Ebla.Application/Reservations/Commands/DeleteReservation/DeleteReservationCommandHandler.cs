@@ -16,7 +16,7 @@
 
             if (validationResult.IsValid)
             {
-                var reservationToDelete = await _genericRepository.GetByIdAsync(request.Id);
+                var reservationToDelete = await _genericRepository.Get(request.Id);
                 if (reservationToDelete is null)
                 {
                     throw new NotFoundException(nameof(reservationToDelete), request.Id);
