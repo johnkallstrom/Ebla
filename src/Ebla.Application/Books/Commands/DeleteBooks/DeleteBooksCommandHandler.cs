@@ -21,9 +21,9 @@
             if (validationResult.IsValid)
             {
                 var booksToDelete = await _repository.GetBooksAsync(request.Ids);
-                if (booksToDelete is null)
+                if (booksToDelete is null || booksToDelete.Count() == 0)
                 {
-                    throw new NotFoundException(nameof(booksToDelete), request.Ids);
+                    throw new NotFoundException($"Entities '{nameof(booksToDelete)}' with identifiers '{request}' was not found");
                 }
 
                 _repository.DeleteBooks(booksToDelete);
