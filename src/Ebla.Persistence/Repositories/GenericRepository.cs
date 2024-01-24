@@ -31,11 +31,6 @@
             return await _table.FindAsync(id);
         }
 
-        public Task<IEnumerable<T>> Get(int[] ids)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task AddAsync(T entity)
         {
             await _table.AddAsync(entity);
