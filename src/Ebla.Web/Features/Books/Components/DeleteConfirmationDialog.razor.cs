@@ -9,14 +9,18 @@
         public MudDialogInstance MudDialog { get; set; }
 
         [Parameter]
-        public HashSet<BookViewModel> BooksToDelete { get; set; } = new HashSet<BookViewModel>();
+        public int[] Ids { get; set; }
 
         [Parameter]
         public string Text { get; set; }
 
         private async Task DeleteBooksAsync()
         {
-            throw new NotImplementedException();
+            var response = await HttpService.DeleteAsync($"{Endpoints.Books}/delete", Ids);
+            if (response.Succeeded)
+            {
+                MudDialog.Close(DialogResult.Ok(true));
+            }
         }
     }
 }
