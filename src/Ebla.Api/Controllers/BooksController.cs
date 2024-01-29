@@ -71,7 +71,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        //[HasWriteAccess]
+        [HasWriteAccess]
         [HttpDelete("delete")]
         public async Task<Result> Delete([FromBody] DeleteBooksCommand command)
         {
