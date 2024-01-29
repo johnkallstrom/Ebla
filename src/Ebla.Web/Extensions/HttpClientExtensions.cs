@@ -9,5 +9,18 @@
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme, value);
             }
         }
+
+        public static async Task<HttpResponseMessage> DeleteAsJsonAsync<TValue>(this HttpClient httpClient, string requestUri, TValue value)
+        {
+            var request = new HttpRequestMessage
+            {
+                RequestUri = new Uri(requestUri),
+                Method = HttpMethod.Delete,
+                Content = JsonContent.Create(value),
+            };
+
+            var response = await httpClient.SendAsync(request);
+            return response;
+        }
     }
 }

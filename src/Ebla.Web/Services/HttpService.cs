@@ -50,5 +50,19 @@
             var result = await response.Content.ReadFromJsonAsync<T>();
             return result;
         }
+
+        public async Task<T> DeleteAsync(string url, object data)
+        {
+            var response = await _httpClient.DeleteAsJsonAsync(url, data);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                string error = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Failed request - {url}, {error}");
+            }
+
+            var result = await response.Content.ReadFromJsonAsync<T>();
+            return result;
+        }
     }
 }
