@@ -12,6 +12,93 @@
         }
 
         [Fact]
+        public async Task Handle_Should_ReturnSuccessResultWithNoErrors_WhenRequestIsValidAndBooksExist()
+        {
+            // Arrange
+            var books = GetBooks();
+
+            _mockBookRepository
+                .Setup(x => x.GetBooksAsync(It.IsAny<int[]>()))
+                .ReturnsAsync(books);
+
+            var request = new DeleteBooksCommand { Ids = [1] };
+            var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            result.Succeeded.Should().BeTrue();
+            result.Errors.Should().BeNull();
+        }
+
+        [Fact]
+        public async Task Handle_Should_ReturnOneErrorContainingExpectedErrorMessage_WhenRequestIsNotValid()
+        {
+            // Arrange
+            var books = Enumerable.Empty<Book>();
+
+            _mockBookRepository
+                .Setup(x => x.GetBooksAsync(It.IsAny<int[]>()))
+                .ReturnsAsync(books);
+
+            var request = new DeleteBooksCommand { Ids = null };
+            var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            string expectedErrorMsg = "Please enter a valid Ids";
+
+            result.Succeeded.Should().BeFalse();
+            result.Errors.Should().HaveCount(1);
+            result.Errors.Should().Contain(expectedErrorMsg);
+        }
+
+        [Fact]
+        public async Task Handle_Should_NeverInvokeDeleteBooks_WhenRequestIsNotValid()
+        {
+            // Arrange
+            var books = Enumerable.Empty<Book>();
+
+            _mockBookRepository
+                .Setup(x => x.GetBooksAsync(It.IsAny<int[]>()))
+                .ReturnsAsync(books);
+
+            var request = new DeleteBooksCommand { Ids = null };
+            var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            _mockBookRepository.Verify(x => x.DeleteBooks(books), Times.Never);
+            result.Succeeded.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task Handle_Should_NeverInvokeGetBooksAsync_WhenRequestIsNotValid()
+        {
+            // Arrange
+            var books = Enumerable.Empty<Book>();
+
+            _mockBookRepository
+                .Setup(x => x.GetBooksAsync(It.IsAny<int[]>()))
+                .ReturnsAsync(books);
+
+            var request = new DeleteBooksCommand { Ids = null };
+            var handler = new DeleteBooksCommandHandler(_mockMapper.Object, _mockBookRepository.Object);
+
+            // Act
+            var result = await handler.Handle(request, default);
+
+            // Assert
+            _mockBookRepository.Verify(x => x.GetBooksAsync(request.Ids), Times.Never);
+            result.Succeeded.Should().BeFalse();
+        }
+
+        [Fact]
         public async Task Handle_Should_InvokeGetBooksAsyncOnce_WhenRequestIsValidAndBooksExist()
         {
             // Arrange
