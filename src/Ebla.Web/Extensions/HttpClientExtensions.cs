@@ -14,9 +14,9 @@
         {
             var request = new HttpRequestMessage
             {
-                RequestUri = new Uri(requestUri),
+                RequestUri = new Uri($"{httpClient.BaseAddress.OriginalString}{requestUri}"),
                 Method = HttpMethod.Delete,
-                Content = JsonContent.Create(value),
+                Content = new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json")
             };
 
             var response = await httpClient.SendAsync(request);
