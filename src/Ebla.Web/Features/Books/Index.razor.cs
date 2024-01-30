@@ -48,10 +48,16 @@
             var parameters = new DialogParameters
             {
                 { "Text", $"Are you sure you want to delete {SelectedBooks.Count()} books?" },
-                { "Ids", SelectedBooks.Select(x => x.Id).ToArray() }
+                { "BooksToDelete", SelectedBooks }
             };
 
             var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books", parameters, options);
+
+            var dialogResult = await dialogRef.Result;
+            if (dialogResult.Data is true && dialogResult.Canceled is false)
+            {
+                BookList = await HttpService.GetListAsync(Endpoints.Books);
+            }
         }
     }
 }
