@@ -3,6 +3,9 @@
     public partial class DeleteConfirmationDialog
     {
         [Inject]
+        public ISnackbar Snackbar { get; set; }
+
+        [Inject]
         public IHttpService<Response> HttpService { get; set; }
 
         [CascadingParameter]
@@ -25,6 +28,11 @@
             if (response.Succeeded)
             {
                 MudDialog.Close(DialogResult.Ok(true));
+                Snackbar.Add($"{model.Ids.Count()} book(s) have been deleted", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("Something went wrong", Severity.Error);
             }
         }
     }
