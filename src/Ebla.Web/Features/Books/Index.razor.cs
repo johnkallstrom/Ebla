@@ -29,12 +29,9 @@
             };
 
             var dialogRef = await DialogService.ShowAsync<CreateFormDialog>("Create a new book", options);
-
             var dialogResult = await dialogRef.Result;
-            if (dialogResult.Data is true && dialogResult.Canceled is false)
-            {
-                BookList = await HttpService.GetListAsync(Endpoints.Books);
-            }
+
+            await RefreshBookList(dialogResult);
         }
 
         protected async Task ShowDeleteConfirmationDialog()
@@ -52,9 +49,15 @@
             };
 
             var dialogRef = await DialogService.ShowAsync<DeleteConfirmationDialog>("Delete books", parameters, options);
-
             var dialogResult = await dialogRef.Result;
-            if (dialogResult.Data is true && dialogResult.Canceled is false)
+
+            await RefreshBookList(dialogResult);
+        }
+
+        private async Task RefreshBookList(DialogResult dialogResult)
+        {
+            if (dialogResult.Data is true && 
+                dialogResult.Canceled is false)
             {
                 BookList = await HttpService.GetListAsync(Endpoints.Books);
             }
