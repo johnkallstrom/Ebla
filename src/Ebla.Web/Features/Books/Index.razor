@@ -28,7 +28,7 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="#">@context.Id</MudTd>
-                <MudTd DataLabel="Title">@context.Title</MudTd>
+                <MudTd DataLabel="Title"><MudLink Href="@($"/books/{context.Id}")" Underline="Underline.Hover" Color="Color.Default">@context.Title</MudLink></MudTd>
                 <MudTd DataLabel="Author">@context.Author</MudTd>
                 <MudTd DataLabel="Genre">@context.Genre</MudTd>
                 <MudTd DataLabel="Language">@context.Country</MudTd>
