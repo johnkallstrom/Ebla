@@ -28,7 +28,7 @@
             if (response.Succeeded)
             {
                 MudDialog.Close(DialogResult.Ok(true));
-                Snackbar.Add($"{model.Ids.Count()} book(s) have been deleted", Severity.Success);
+                Snackbar.Add($"Delete successful", Severity.Success);
             }
             else
             {
