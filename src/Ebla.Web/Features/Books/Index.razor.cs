@@ -63,7 +63,7 @@
             throw new NotImplementedException();
         }
 
-        protected async Task ShowDeleteConfirmationDialog()
+        protected async Task ShowDeleteDialog()
         {
             var options = new DialogOptions
             {
