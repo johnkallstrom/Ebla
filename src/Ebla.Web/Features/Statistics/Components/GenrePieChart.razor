@@ -13,7 +13,7 @@
         <MudPaper Class="pa-4 d-flex justify-center align-center mt-3">
             @if (!Loading)
             {
-                <MudSelect T="int" Label="How many genres to display" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" Value="Count" ValueChanged="(value => GetStatisticsDataAsync(value))">
+                <MudSelect T="int" Label="How many genres to display" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" Value="Count" ValueChanged="GetStatisticsDataAsync">
                     @foreach (var option in CountOptions)
                     {
                         <MudSelectItem Value="@(option)">@option</MudSelectItem>
