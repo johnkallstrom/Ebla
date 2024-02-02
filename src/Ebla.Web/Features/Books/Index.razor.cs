@@ -10,6 +10,7 @@
 
         public IEnumerable<BookViewModel> BookList { get; set; }
         public HashSet<BookViewModel> SelectedBooks { get; set; } = new HashSet<BookViewModel>();
+        public bool DisableEditButton { get; set; } = true;
         public bool DisableDeleteButton { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
@@ -19,7 +20,18 @@
 
         protected void SelectedBooksChanged(HashSet<BookViewModel> values)
         {
-            if (values.Count() > 0)
+            int count = values.Count();
+
+            if (count == 1)
+            {
+                DisableEditButton = false;
+            }
+            else
+            {
+                DisableEditButton = true;
+            }
+
+            if (count > 0)
             {
                 DisableDeleteButton = false;
             }
