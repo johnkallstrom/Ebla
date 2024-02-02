@@ -58,6 +58,11 @@
             await RefreshBookList(dialogResult);
         }
 
+        protected async Task ShowEditDialog()
+        {
+            throw new NotImplementedException();
+        }
+
         protected async Task ShowDeleteConfirmationDialog()
         {
             var options = new DialogOptions
