@@ -10,11 +10,23 @@
 
         public IEnumerable<BookViewModel> BookList { get; set; }
         public HashSet<BookViewModel> SelectedBooks { get; set; } = new HashSet<BookViewModel>();
-        public bool DisableDeleteButton { get; set; } = false;
+        public bool DisableDeleteButton { get; set; } = true;
 
         protected override async Task OnInitializedAsync()
         {
             BookList = await HttpService.GetListAsync(Endpoints.Books);
+        }
+
+        protected void SelectedBooksChanged(HashSet<BookViewModel> values)
+        {
+            if (values.Count() > 0)
+            {
+                DisableDeleteButton = false;
+            }
+            else
+            {
+                DisableDeleteButton = true;
+            }
         }
 
         protected async Task ShowCreateDialog()
