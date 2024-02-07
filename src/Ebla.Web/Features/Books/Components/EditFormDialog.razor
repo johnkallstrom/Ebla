@@ -1,0 +1,18 @@
+﻿<EditForm Model="Model" OnValidSubmit="Submit">
+	<MudDialog>
+		<DialogContent>
+			<DataAnnotationsValidator />
+			<MudTextField @bind-Value="Model.Title" For="(() => Model.Title)" OnlyValidateIfDirty="true" />
+			<MudTextField Lines="5" @bind-Value="Model.Description" For="(() => Model.Description)" Class="mt-3" OnlyValidateIfDirty="true" />
+			<MudNumericField @bind-Value="Model.Pages" For="(() => Model.Pages)" HideSpinButtons="true" Class="mt-3" Min="1" OnlyValidateIfDirty="true" />
+			<MudDatePicker @bind-Date="Model.Published" For="(() => Model.Published)" DisableToolbar="true" Class="mt-3" />
+			<MudTextField @bind-Value="Model.Language" For="(() => Model.Language)" Class="mt-3" OnlyValidateIfDirty="true" />
+			<MudTextField @bind-Value="Model.Country" For="(() => Model.Country)" Class="mt-3" OnlyValidateIfDirty="true" />
+			<MudTextField @bind-Value="Model.Image" For="(() => Model.Image)" Class="mt-3" OnlyValidateIfDirty="true" />
+		</DialogContent>
+		<DialogActions>
+			<MudButton OnClick="MudDialog.Cancel">Cancel</MudButton>
+			<MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled">Save</MudButton>
+		</DialogActions>
+	</MudDialog>
+</EditForm>
