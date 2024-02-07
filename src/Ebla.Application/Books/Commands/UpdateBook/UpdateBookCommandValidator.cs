@@ -10,8 +10,10 @@
             RuleFor(x => x.Pages).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
             RuleFor(x => x.Published).NotNull().WithMessage("Please enter a valid date for {PropertyName}");
             RuleFor(x => x.Language).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
-            RuleFor(x => x.AuthorId).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+			RuleFor(x => x.Country).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+			RuleFor(x => x.AuthorId).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
             RuleFor(x => x.GenreId).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
-        }
+			RuleFor(x => x.LibraryIds).NotEmpty().WithMessage("Please enter a valid {PropertyName}");
+		}
     }
 }

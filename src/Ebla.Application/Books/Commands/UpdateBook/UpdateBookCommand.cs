@@ -8,9 +8,11 @@
         public int Pages { get; set; }
         public DateTime Published { get; set; }
         public string Language { get; set; }
-        public bool IsReserved { get; set; }
+		public string Country { get; set; }
+		public string Image { get; set; }
 
-        public int AuthorId { get; set; }
+		public int AuthorId { get; set; }
         public int GenreId { get; set; }
-    }
+		public int[] LibraryIds { get; set; }
+	}
 }
