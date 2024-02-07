@@ -71,7 +71,7 @@
 			return this;
 		}
 
-		public UpdateBookCommandBuilder WithDummyData()
+		public UpdateBookCommandBuilder WithValidProperties()
 		{
 			_command.Id = 1;
 			_command.Title = "Updated Title";
@@ -84,6 +84,15 @@
 			_command.AuthorId = 2;
 			_command.GenreId = 1;
 			_command.LibraryIds = [1, 2, 3, 4, 5];
+
+			return this;
+		}
+
+		public UpdateBookCommandBuilder WithInvalidProperties()
+		{
+			_command.Id = 0;
+			_command.Title = null;
+			_command.Description = string.Empty;
 
 			return this;
 		}
