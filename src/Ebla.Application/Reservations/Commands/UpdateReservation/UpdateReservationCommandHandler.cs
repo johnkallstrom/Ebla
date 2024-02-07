@@ -20,7 +20,7 @@
 
             if (validationResult.IsValid)
             {
-                var reservationToUpdate = await _genericRepository.Get(request.Id);
+                var reservationToUpdate = await _genericRepository.GetAsync(request.Id);
                 if (reservationToUpdate is null)
                 {
                     throw new NotFoundException(nameof(reservationToUpdate), request.Id);

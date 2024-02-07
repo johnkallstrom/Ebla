@@ -18,7 +18,7 @@
 
             if (validationResult.IsValid)
             {
-                var bookToUpdate = await _repository.Get(request.Id);
+                var bookToUpdate = await _repository.GetAsync(request.Id);
                 if (bookToUpdate is null)
                 {
                     throw new NotFoundException(nameof(bookToUpdate), request.Id);

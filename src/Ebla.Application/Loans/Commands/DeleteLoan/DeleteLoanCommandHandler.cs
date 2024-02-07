@@ -16,7 +16,7 @@
 
             if (validationResult.IsValid)
             {
-                var loanToDelete = await _genericRepository.Get(request.Id);
+                var loanToDelete = await _genericRepository.GetAsync(request.Id);
                 if (loanToDelete is null)
                 {
                     throw new NotFoundException(nameof(loanToDelete), request.Id);

@@ -13,7 +13,7 @@
 
         public async Task<AuthorDto> Handle(GetAuthorByIdQuery request, CancellationToken cancellationToken)
         {
-            var author = await _repository.Get(request.Id);
+            var author = await _repository.GetAsync(request.Id);
 
             if (author is null)
             {

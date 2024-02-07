@@ -18,7 +18,7 @@
             entity = null;
 
             _mockRepository
-                .Setup(x => x.Get(It.IsAny<int>()))
+                .Setup(x => x.GetAsync(It.IsAny<int>()))
                 .ReturnsAsync(entity);
 
             var request = new GetAuthorByIdQuery { Id = 0 };
@@ -56,7 +56,7 @@
                 null);
 
             _mockRepository
-                .Setup(x => x.Get(It.IsAny<int>()))
+                .Setup(x => x.GetAsync(It.IsAny<int>()))
                 .ReturnsAsync(entity);
 
             _mockMapper.Setup(x => x.Map<AuthorDto>(entity)).Returns(dto);
