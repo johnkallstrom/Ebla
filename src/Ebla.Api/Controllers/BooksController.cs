@@ -43,7 +43,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HasWriteAccess]
+        //[HasWriteAccess]
         [HttpPost("create")]
         public async Task<Result<int>> Create([FromBody] CreateBookCommand command)
         {
@@ -57,7 +57,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HasWriteAccess]
+        //[HasWriteAccess]
         [HttpPut("update")]
         public async Task<Result> Update([FromBody] UpdateBookCommand command)
         {
