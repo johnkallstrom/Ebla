@@ -71,28 +71,23 @@
 			return this;
 		}
 
-		public UpdateBookCommandBuilder WithValidProperties()
+		/// <summary>
+		/// Set all properties with sample data for testing purposes
+		/// </summary>
+		/// <returns></returns>
+		public UpdateBookCommandBuilder WithAllSet()
 		{
 			_command.Id = 1;
 			_command.Title = "Updated Title";
 			_command.Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque urna nisl, condimentum in lacus in, faucibus lacinia tortor. Pellentesque sed convallis dolor, gravida aliquam quam.";
-			_command.Pages = 371;
-			_command.Published = DateTime.Now;
+			_command.Pages = 256;
+			_command.Published = new DateTime(1973, 6, 1);
 			_command.Language = "English";
 			_command.Country = "United Kingdom";
 			_command.Image = "https://upload.wikimedia.org/wikipedia/en/f/fc/TheDispossed%281stEdHardcover%29.jpg";
 			_command.AuthorId = 2;
 			_command.GenreId = 1;
-			_command.LibraryIds = [1, 2, 3, 4, 5];
-
-			return this;
-		}
-
-		public UpdateBookCommandBuilder WithInvalidProperties()
-		{
-			_command.Id = 0;
-			_command.Title = null;
-			_command.Description = string.Empty;
+			_command.LibraryIds = [1, 2, 5];
 
 			return this;
 		}
