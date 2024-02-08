@@ -12,43 +12,40 @@
         }
 
 		[Fact]
-		public async Task Handle_Should_SetLastModifiedToCurrentDateAndTime_WhenRequestIsValid()
+		public async Task Handle_Should_InvokeSaveAsyncOnce_WhenRequestIsValid()
 		{
 			// Arrange
 			var request = new UpdateBookCommandBuilder()
 				.WithAllSet()
 				.Build();
 
-			var book = new BookBuilder()
+			var bookToUpdate = new BookBuilder()
 				.WithAllSet()
 				.Build();
 
-			_mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(book);
+			_mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(bookToUpdate);
 
 			var bookLibraries = new List<BookLibrary>();
 
 			foreach (var libraryId in request.LibraryIds)
 			{
-				bookLibraries.Add(new BookLibrary { BookId = book.Id, LibraryId = libraryId });
+				bookLibraries.Add(new BookLibrary { BookId = bookToUpdate.Id, LibraryId = libraryId });
 			}
 
-			var updatedBook = new BookBuilder()
-				.WithId(book.Id)
-				.WithTitle(request.Title)
-				.WithDescription(request.Description)
-				.WithPages(request.Pages)
-				.WithPublished(request.Published)
-				.WithLanguage(request.Language)
-				.WithCountry(request.Country)
-				.WithImage(request.Image)
-				.WithAuthor(request.AuthorId)
-				.WithGenre(request.GenreId)
-				.WithCreatedOn(book.CreatedOn)
-				.WithLastModified(DateTime.Now)
-				.WithBookLibraries(bookLibraries)
-				.Build();
+			bookToUpdate.Id = request.Id;
+			bookToUpdate.Title = request.Title;
+			bookToUpdate.Description = request.Description;
+			bookToUpdate.Pages = request.Pages;
+			bookToUpdate.Published = request.Published;
+			bookToUpdate.Language = request.Language;
+			bookToUpdate.Country = request.Country;
+			bookToUpdate.Image = request.Image;
+			bookToUpdate.AuthorId = request.AuthorId;
+			bookToUpdate.GenreId = request.GenreId;
+			bookToUpdate.LastModified = DateTime.Now;
+			bookToUpdate.BookLibraries = bookLibraries;
 
-			_mockMapper.Setup(x => x.Map(request, book)).Returns(updatedBook);
+			_mockMapper.Setup(x => x.Map(request, bookToUpdate)).Returns(bookToUpdate);
 
 			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
 
@@ -56,8 +53,98 @@
 			var result = await handler.Handle(request, default);
 
 			// Assert
-			updatedBook.LastModified.Should().NotBeNull();
-			updatedBook.LastModified.Should().BeSameDateAs(DateTime.Now);
+			_mockRepository.Verify(x => x.SaveAsync(), Times.Once);
+		}
+
+		[Fact]
+		public async Task Handle_Should_InvokeUpdateOnce_WhenRequestIsValid()
+		{
+			// Arrange
+			var request = new UpdateBookCommandBuilder()
+				.WithAllSet()
+				.Build();
+
+			var bookToUpdate = new BookBuilder()
+				.WithAllSet()
+				.Build();
+
+			_mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(bookToUpdate);
+
+			var bookLibraries = new List<BookLibrary>();
+
+			foreach (var libraryId in request.LibraryIds)
+			{
+				bookLibraries.Add(new BookLibrary { BookId = bookToUpdate.Id, LibraryId = libraryId });
+			}
+
+			bookToUpdate.Id = request.Id;
+			bookToUpdate.Title = request.Title;
+			bookToUpdate.Description = request.Description;
+			bookToUpdate.Pages = request.Pages;
+			bookToUpdate.Published = request.Published;
+			bookToUpdate.Language = request.Language;
+			bookToUpdate.Country = request.Country;
+			bookToUpdate.Image = request.Image;
+			bookToUpdate.AuthorId = request.AuthorId;
+			bookToUpdate.GenreId = request.GenreId;
+			bookToUpdate.LastModified = DateTime.Now;
+			bookToUpdate.BookLibraries = bookLibraries;
+
+			_mockMapper.Setup(x => x.Map(request, bookToUpdate)).Returns(bookToUpdate);
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			// Act
+			var result = await handler.Handle(request, default);
+
+			// Assert
+			_mockRepository.Verify(x => x.Update(bookToUpdate), Times.Once);
+		}
+
+		[Fact]
+		public async Task Handle_Should_SetLastModifiedToCurrentDateAndTime_WhenRequestIsValid()
+		{
+			// Arrange
+			var request = new UpdateBookCommandBuilder()
+				.WithAllSet()
+				.Build();
+
+			var bookToUpdate = new BookBuilder()
+				.WithAllSet()
+				.Build();
+
+			_mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(bookToUpdate);
+
+			var bookLibraries = new List<BookLibrary>();
+
+			foreach (var libraryId in request.LibraryIds)
+			{
+				bookLibraries.Add(new BookLibrary { BookId = bookToUpdate.Id, LibraryId = libraryId });
+			}
+
+			bookToUpdate.Id = request.Id;
+			bookToUpdate.Title = request.Title;
+			bookToUpdate.Description = request.Description;
+			bookToUpdate.Pages = request.Pages;
+			bookToUpdate.Published = request.Published;
+			bookToUpdate.Language = request.Language;
+			bookToUpdate.Country = request.Country;
+			bookToUpdate.Image = request.Image;
+			bookToUpdate.AuthorId = request.AuthorId;
+			bookToUpdate.GenreId = request.GenreId;
+			bookToUpdate.LastModified = DateTime.Now;
+			bookToUpdate.BookLibraries = bookLibraries;
+
+			_mockMapper.Setup(x => x.Map(request, bookToUpdate)).Returns(bookToUpdate);
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			// Act
+			var result = await handler.Handle(request, default);
+
+			// Assert
+			bookToUpdate.LastModified.Should().NotBeNull();
+			bookToUpdate.LastModified.Should().BeSameDateAs(DateTime.Now);
 		}
 
 		[Fact]
@@ -68,36 +155,33 @@
                 .WithAllSet()
                 .Build();
 
-            var book = new BookBuilder()
+            var bookToUpdate = new BookBuilder()
                 .WithAllSet()
                 .Build();
 
-            _mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(book);
+            _mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(bookToUpdate);
 
             var bookLibraries = new List<BookLibrary>();
 
             foreach (var libraryId in request.LibraryIds)
             {
-                bookLibraries.Add(new BookLibrary { BookId = book.Id, LibraryId = libraryId });
+                bookLibraries.Add(new BookLibrary { BookId = bookToUpdate.Id, LibraryId = libraryId });
             }
 
-            var updatedBook = new BookBuilder()
-                .WithId(book.Id)
-                .WithTitle(request.Title)
-                .WithDescription(request.Description)
-                .WithPages(request.Pages)
-                .WithPublished(request.Published)
-                .WithLanguage(request.Language)
-                .WithCountry(request.Country)
-                .WithImage(request.Image)
-                .WithAuthor(request.AuthorId)
-                .WithGenre(request.GenreId)
-                .WithCreatedOn(book.CreatedOn)
-                .WithLastModified(DateTime.Now)
-                .WithBookLibraries(bookLibraries)
-                .Build();
+			bookToUpdate.Id = request.Id;
+			bookToUpdate.Title = request.Title;
+			bookToUpdate.Description = request.Description;
+			bookToUpdate.Pages = request.Pages;
+			bookToUpdate.Published = request.Published;
+			bookToUpdate.Language = request.Language;
+			bookToUpdate.Country = request.Country;
+			bookToUpdate.Image = request.Image;
+			bookToUpdate.AuthorId = request.AuthorId;
+			bookToUpdate.GenreId = request.GenreId;
+			bookToUpdate.LastModified = DateTime.Now;
+			bookToUpdate.BookLibraries = bookLibraries;
 
-            _mockMapper.Setup(x => x.Map(request, book)).Returns(updatedBook);
+            _mockMapper.Setup(x => x.Map(request, bookToUpdate)).Returns(bookToUpdate);
 
 			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
 
