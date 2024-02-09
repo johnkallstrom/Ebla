@@ -124,6 +124,12 @@
 			return this;
 		}
 
+		public BookBuilder AsNull()
+		{
+			_book = null;
+			return this;
+		}
+
 		public Book Build()
 		{
 			return _book;

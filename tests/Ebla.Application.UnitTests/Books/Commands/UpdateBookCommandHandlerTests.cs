@@ -12,6 +12,98 @@
         }
 
 		[Fact]
+		public async Task Handle_Should_ReturnFailureResultWithErrors_WhenRequestIsNotValid()
+		{
+			// Arrange
+			var request = new UpdateBookCommandBuilder()
+				.WithId(-1)
+				.WithTitle(string.Empty)
+				.Build();
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			// Act
+			var result = await handler.Handle(request, default);
+
+			// Assert
+			result.Succeeded.Should().BeFalse();
+			result.Errors.Should().NotBeEmpty();
+			result.Errors.Should().Contain("Please enter a valid Title");
+		}
+
+		[Fact]
+		public async Task Handle_Should_ThrowNotFoundException_WhenRequestIsValidButBookDoesNotExist()
+		{
+			var request = new UpdateBookCommandBuilder()
+				.WithId(-1)
+				.WithTitle("Updated Title")
+				.WithDescription("Lorem ipsum dolor")
+				.WithPages(513)
+				.WithPublished(new DateTime(1999, 1, 1))
+				.WithLanguage("English")
+				.WithCountry("United Kingdom")
+				.WithImage("www.imageurl.net")
+				.WithAuthor(1)
+				.WithGenre(1)
+				.WithLibraries([1, 2, 3])
+				.Build();
+
+			var bookToUpdate = new BookBuilder()
+				.AsNull()
+				.Build();
+
+			_mockRepository.Setup(x => x.GetAsync(request.Id)).ReturnsAsync(bookToUpdate);
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			var result = await handler
+				.Invoking(x => x.Handle(request, default))
+				.Should()
+				.ThrowAsync<NotFoundException>()
+				.WithMessage($"Entity '{nameof(bookToUpdate)}' with identifier '{request.Id}' was not found");
+		}
+
+		[Fact]
+		public async Task Handle_Should_NeverInvokeSaveAsync_WhenRequestIsNotValid()
+		{
+			// Arrange
+			var request = new UpdateBookCommandBuilder()
+				.WithId(-1)
+				.WithDescription(string.Empty)
+				.Build();
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			// Act
+			var result = await handler.Handle(request, default);
+
+			// Assert
+			_mockRepository.Verify(x => x.SaveAsync(), Times.Never);
+		}
+
+		[Fact]
+		public async Task Handle_Should_NeverInvokeUpdate_WhenRequestIsNotValid()
+		{
+			// Arrange
+			var request = new UpdateBookCommandBuilder()
+				.WithId(-1)
+				.WithDescription(string.Empty)
+				.Build();
+
+			var bookToUpdate = new BookBuilder()
+				.AsNull()
+				.Build();
+
+			var handler = new UpdateBookCommandHandler(_mockRepository.Object, _mockMapper.Object);
+
+			// Act
+			var result = await handler.Handle(request, default);
+
+			// Assert
+			_mockRepository.Verify(x => x.Update(bookToUpdate), Times.Never);
+		}
+
+		[Fact]
 		public async Task Handle_Should_InvokeSaveAsyncOnce_WhenRequestIsValid()
 		{
 			// Arrange
@@ -148,7 +240,7 @@
 		}
 
 		[Fact]
-        public async Task Handle_Should_ReturnSuccessResponse_WhenRequestIsValid()
+        public async Task Handle_Should_ReturnSuccessResultWithNoErrors_WhenRequestIsValid()
         {
             // Arrange
             var request = new UpdateBookCommandBuilder()
