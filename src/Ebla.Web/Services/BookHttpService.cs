@@ -15,5 +15,12 @@
 
 			return books;
 		}
+
+		public async Task<BookViewModel> GetAsync(int bookId)
+		{
+			var book = await _httpClient.GetFromJsonAsync<BookViewModel>($"{Endpoints.Books}/{bookId}");
+
+			return book;
+		}
 	}
 }
