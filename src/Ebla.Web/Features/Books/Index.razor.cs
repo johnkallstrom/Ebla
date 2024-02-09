@@ -60,7 +60,21 @@
 
         protected async Task ShowEditDialog()
         {
-            throw new NotImplementedException();
+            var options = new DialogOptions
+            {
+				Position = DialogPosition.Center,
+				MaxWidth = MaxWidth.Medium,
+				FullWidth = true,
+				DisableBackdropClick = true,
+                CloseButton = true
+            };
+
+            var parameters = new DialogParameters()
+            {
+                { "BookId", SelectedBooks.Count() is 1 ? SelectedBooks.First().Id : null }
+            };
+
+            var dialogRef = await DialogService.ShowAsync<EditFormDialog>("Edit book", parameters, options);
         }
 
         protected async Task ShowDeleteDialog()
