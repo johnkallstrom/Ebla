@@ -28,10 +28,6 @@
 			}
 		}
 
-		private async Task Submit()
-        {
-        }
-
         private EditBookViewModel ToEditBookViewModel(BookViewModel book)
         {
             return new EditBookViewModel
