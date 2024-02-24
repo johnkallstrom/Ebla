@@ -5,6 +5,7 @@ global using Ebla.Persistence.EntityConfigurations;
 global using Ebla.Domain.Entities;
 global using Ebla.Infrastructure.Identity;
 global using Ebla.Application.Interfaces.DataAccess;
+global using Ebla.Persistence.Fakers;
 
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.EntityFrameworkCore;

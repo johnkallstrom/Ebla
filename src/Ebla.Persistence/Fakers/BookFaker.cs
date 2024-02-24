@@ -2,5 +2,8 @@
 {
 	public class BookFaker : Faker<Book>
 	{
-	}
+        public BookFaker()
+        {
+        }
+    }
 }
