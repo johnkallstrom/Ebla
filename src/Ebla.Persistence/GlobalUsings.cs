@@ -13,3 +13,5 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using Newtonsoft.Json;
+global using Bogus;
+global using Bogus.DataSets;
