@@ -24,7 +24,7 @@
         {
             string workingDir = Directory.GetCurrentDirectory().Replace("Ebla.Api", "Ebla.Persistence");
 
-            string filePath = $@"{workingDir}\SeedData\{fileName}";
+            string filePath = $@"{workingDir}\JSON\{fileName}";
             return filePath;
         }
     }
