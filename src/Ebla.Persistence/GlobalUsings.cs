@@ -5,7 +5,6 @@ global using Ebla.Persistence.EntityConfigurations;
 global using Ebla.Domain.Entities;
 global using Ebla.Infrastructure.Identity;
 global using Ebla.Application.Interfaces.DataAccess;
-global using Ebla.Persistence.Fakers;
 
 global using Microsoft.AspNetCore.Identity;
 global using Microsoft.EntityFrameworkCore;
@@ -14,5 +13,3 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using Newtonsoft.Json;
-global using Bogus;
-global using Bogus.DataSets;
