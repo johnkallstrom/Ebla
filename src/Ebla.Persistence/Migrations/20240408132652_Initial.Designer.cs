@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ebla.Persistence.Migrations
 {
     [DbContext(typeof(EblaDbContext))]
-    [Migration("20231229123414_Initial")]
+    [Migration("20240408132652_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace Ebla.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -45,7 +45,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 442, DateTimeKind.Local).AddTicks(8302))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 167, DateTimeKind.Local).AddTicks(270))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -421,7 +421,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 443, DateTimeKind.Local).AddTicks(7436))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 167, DateTimeKind.Local).AddTicks(9092))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1272,7 +1272,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 445, DateTimeKind.Local).AddTicks(3549))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 169, DateTimeKind.Local).AddTicks(6655))
                         .HasColumnName("CreatedOn");
 
                     b.Property<string>("Description")
@@ -1404,7 +1404,7 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 445, DateTimeKind.Local).AddTicks(7758))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 170, DateTimeKind.Local).AddTicks(832))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime?>("Established")
@@ -1477,13 +1477,13 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(933))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 170, DateTimeKind.Local).AddTicks(4691))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("DueDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 1, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(462))
+                        .HasDefaultValue(new DateTime(2024, 5, 8, 15, 26, 52, 170, DateTimeKind.Local).AddTicks(4126))
                         .HasColumnName("DueDate");
 
                     b.Property<DateTime?>("LastModified")
@@ -1558,13 +1558,13 @@ namespace Ebla.Persistence.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 29, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(4166))
+                        .HasDefaultValue(new DateTime(2024, 4, 8, 15, 26, 52, 170, DateTimeKind.Local).AddTicks(8074))
                         .HasColumnName("CreatedOn");
 
                     b.Property<DateTime>("ExpiresOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 1, 12, 13, 34, 14, 446, DateTimeKind.Local).AddTicks(3606))
+                        .HasDefaultValue(new DateTime(2024, 4, 22, 15, 26, 52, 170, DateTimeKind.Local).AddTicks(7676))
                         .HasColumnName("ExpiresOn");
 
                     b.Property<DateTime?>("LastModified")
